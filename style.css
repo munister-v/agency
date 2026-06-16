@@ -492,7 +492,7 @@ button:focus-visible, a:focus-visible {
 
 /* ─── SERVICES / WORKS ─── */
 .services {
-  background: var(--black);
+  background: #0c1020;
   color: var(--white);
   padding: 120px 0;
 }
@@ -1131,23 +1131,27 @@ button:focus-visible, a:focus-visible {
   gap: 48px;
   padding: 36px 0;
   border-top: 1px solid rgba(255,255,255,0.07);
-  transition: border-color .25s;
+  border-radius: 2px;
+  transition: background .3s, border-color .3s;
 }
 .work-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
-.work-row:hover { border-top-color: rgba(255,255,255,0.14); }
+.work-row:hover {
+  background: linear-gradient(90deg, rgba(var(--c,255,255,255), 0.05) 0%, transparent 65%);
+  border-top-color: rgba(var(--c,255,255,255), 0.2);
+}
 
 .wr-num {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   font-size: 54px;
-  color: rgba(255,255,255,0.07);
+  color: rgba(var(--c,255,255,255), 0.1);
   line-height: 1;
   text-align: right;
   padding-top: 2px;
   transition: color .3s;
 }
-.work-row:hover .wr-num { color: rgba(255,255,255,0.16); }
+.work-row:hover .wr-num { color: rgba(var(--c,255,255,255), 0.35); }
 
 .wr-body { flex: 1; }
 
@@ -1155,7 +1159,7 @@ button:focus-visible, a:focus-visible {
   font-family: 'DM Sans', sans-serif;
   font-size: 22px;
   font-weight: 500;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.82);
   margin-bottom: 10px;
   line-height: 1.25;
   letter-spacing: -0.01em;
@@ -1165,7 +1169,7 @@ button:focus-visible, a:focus-visible {
 
 .wr-desc {
   font-size: 14px;
-  color: rgba(255,255,255,0.38);
+  color: rgba(255,255,255,0.36);
   line-height: 1.85;
   max-width: 600px;
 }
@@ -1175,16 +1179,20 @@ button:focus-visible, a:focus-visible {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.2);
-  border: 1px solid rgba(255,255,255,0.09);
+  color: rgba(var(--c,255,255,255), 0.25);
+  border: 1px solid rgba(var(--c,255,255,255), 0.15);
   padding: 5px 13px;
   border-radius: 2px;
   white-space: nowrap;
   align-self: flex-start;
   margin-top: 6px;
-  transition: color .2s, border-color .2s;
+  transition: color .2s, border-color .2s, background .2s;
 }
-.work-row:hover .wr-tag { color: rgba(255,255,255,0.45); border-color: rgba(255,255,255,0.2); }
+.work-row:hover .wr-tag {
+  color: rgba(var(--c,255,255,255), 0.8);
+  border-color: rgba(var(--c,255,255,255), 0.4);
+  background: rgba(var(--c,255,255,255), 0.07);
+}
 
 /* ─── Portfolio typographic header ─── */
 .portfolio-header {
@@ -1286,12 +1294,41 @@ button:focus-visible, a:focus-visible {
   background: rgba(255,255,255,0.06);
 }
 
-/* ─── PORTFOLIO (warm cream section, dark tiles) ─── */
+/* ─── PORTFOLIO (warm cream section, colored dark tiles) ─── */
 .portfolio-section {
-  background: #f3efe9;
+  background: #eae5da;
   color: var(--black);
 }
-.portfolio-section .section-tag-light { color: rgba(0,0,0,0.4); }
+.portfolio-section .section-tag-light { color: rgba(0,0,0,0.38); }
 .portfolio-section .services-head-right { color: var(--gray); }
-.portfolio-section .work-card { background: #0f0f0f; }
-.portfolio-section .work-card:hover { background: #161616; }
+.portfolio-section .work-card { background: #111; }
+.portfolio-section .work-card:hover { background: #191919; }
+
+/* Individual card color themes */
+.portfolio-section .pc-blue             { background: #0d1829; }
+.portfolio-section .pc-blue:hover       { background: #111f33; }
+.portfolio-section .pc-blue .ph-name    { color: rgba(100,160,255,0.14); }
+.portfolio-section .pc-blue .ph-url     { color: rgba(100,160,255,0.28); }
+.portfolio-section .pc-blue:hover .ph-name { color: rgba(100,160,255,0.26); }
+.portfolio-section .pc-blue:hover .ph-url  { color: rgba(100,160,255,0.55); }
+
+.portfolio-section .pc-green             { background: #0b1c0f; }
+.portfolio-section .pc-green:hover       { background: #0f2414; }
+.portfolio-section .pc-green .ph-name    { color: rgba(80,200,120,0.14); }
+.portfolio-section .pc-green .ph-url     { color: rgba(80,200,120,0.28); }
+.portfolio-section .pc-green:hover .ph-name { color: rgba(80,200,120,0.26); }
+.portfolio-section .pc-green:hover .ph-url  { color: rgba(80,200,120,0.55); }
+
+.portfolio-section .pc-amber             { background: #1d1607; }
+.portfolio-section .pc-amber:hover       { background: #261d0a; }
+.portfolio-section .pc-amber .ph-name    { color: rgba(240,185,65,0.14); }
+.portfolio-section .pc-amber .ph-url     { color: rgba(240,185,65,0.28); }
+.portfolio-section .pc-amber:hover .ph-name { color: rgba(240,185,65,0.26); }
+.portfolio-section .pc-amber:hover .ph-url  { color: rgba(240,185,65,0.55); }
+
+.portfolio-section .pc-wine             { background: #1c0b12; }
+.portfolio-section .pc-wine:hover       { background: #240f18; }
+.portfolio-section .pc-wine .ph-name    { color: rgba(220,90,120,0.14); }
+.portfolio-section .pc-wine .ph-url     { color: rgba(220,90,120,0.28); }
+.portfolio-section .pc-wine:hover .ph-name { color: rgba(220,90,120,0.26); }
+.portfolio-section .pc-wine:hover .ph-url  { color: rgba(220,90,120,0.55); }
