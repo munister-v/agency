@@ -59,12 +59,14 @@ const navLinks = document.getElementById('nav-links');
 
 function closeMobileNav() {
   navLinks.classList.remove('open');
+  navEl.classList.remove('menu-open');
   burger.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
 }
 
 burger.addEventListener('click', () => {
   const open = navLinks.classList.toggle('open');
+  navEl.classList.toggle('menu-open', open);
   burger.setAttribute('aria-expanded', String(open));
   document.body.style.overflow = open ? 'hidden' : '';
 });
