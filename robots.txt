@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agency.munister.com.ua/sitemap.xml
