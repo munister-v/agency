@@ -1,7 +1,7 @@
 {
   "name": "Munister Agency",
   "short_name": "Munister",
-  "description": "Агентство рішень — IT, організація, допомога для діаспори",
+  "description": "IT агентство повного циклу — для дому, сім'ї та бізнесу",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
