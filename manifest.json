@@ -1,0 +1,15 @@
+{
+  "name": "Munister Agency",
+  "short_name": "Munister",
+  "description": "Агентство рішень — IT, організація, допомога для діаспори",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a0a0a",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ],
+  "categories": ["business", "productivity"],
+  "lang": "uk"
+}

@@ -104,17 +104,24 @@
   }
   </script>
 
-  <!-- Favicon -->
+  <!-- Favicon & PWA -->
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="shortcut icon" href="favicon.svg" />
   <link rel="apple-touch-icon" href="favicon.svg" />
+  <link rel="manifest" href="manifest.json" />
 
+  <!-- Preload critical assets -->
+  <link rel="preload" as="image" href="cover.webp" type="image/webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<!-- Scroll progress bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Skip to content (accessibility) -->
+<a href="#about" class="skip-link">Перейти до змісту</a>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
@@ -140,7 +147,10 @@
 
   <!-- Mobile: cover poster -->
   <div class="hero-mobile">
-    <img src="cover.png" alt="Agency Munister" />
+    <picture>
+      <source srcset="cover.webp" type="image/webp" />
+      <img src="cover.png" alt="Agency Munister — агентство рішень" width="900" height="1200" fetchpriority="high" />
+    </picture>
   </div>
 
   <!-- Desktop: split layout -->
@@ -157,7 +167,10 @@
       </div>
     </div>
     <div class="hero-desktop-right">
-      <img src="interior.png" alt="Interior" />
+      <picture>
+        <source srcset="interior.webp" type="image/webp" />
+        <img src="interior.png" alt="Luxury interior — Munister Agency" width="700" height="900" fetchpriority="high" />
+      </picture>
     </div>
   </div>
 
@@ -427,8 +440,9 @@
         </div>
         <div class="form-submit">
           <p class="form-note" data-i18n="form_note">Ми зв'яжемось з вами електронною поштою протягом 24 годин.</p>
-          <button type="submit" class="btn btn-dark btn-arrow" data-i18n="form_send">Надіслати</button>
+          <button type="submit" class="btn btn-dark btn-arrow" id="formBtn" data-i18n="form_send">Надіслати</button>
         </div>
+        <div class="form-toast" id="formToast" role="alert" aria-live="polite"></div>
       </form>
 
       <div class="contact-info">
@@ -464,6 +478,9 @@
   <span class="footer-copy" data-i18n="footer_copy">© 2025</span>
   <a href="https://munister.com.ua" class="footer-link">munister.com.ua</a>
 </footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Вгору">↑</button>
 
 <script src="i18n.js"></script>
 <script src="main.js"></script>
