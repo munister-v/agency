@@ -4,153 +4,158 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Munister Agency</title>
-  <meta name="description" content="Munister Agency — ми вирішуємо будь-яке завдання: IT, організація, допомога для діаспори" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Munister Agency — агентство рішень: IT, організація, допомога для діаспори" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">Munister Agency</a>
-  <div class="nav-right">
+  <div class="nav-links" id="nav-links">
+    <a href="#services" data-i18n="nav_services">Послуги</a>
+    <a href="#how" data-i18n="nav_how">Як це працює</a>
+    <a href="#contact" class="nav-cta" data-i18n="nav_contact">Контакт</a>
     <div class="lang-switcher">
       <button class="lang-btn active" data-lang="uk">UA</button>
       <button class="lang-btn" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="de">DE</button>
       <button class="lang-btn" data-lang="pl">PL</button>
     </div>
-    <button class="burger" id="burger" aria-label="menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
-  <div class="nav-links" id="nav-links">
-    <a href="#services" data-i18n="nav_services">Послуги</a>
-    <a href="#how" data-i18n="nav_how">Як це працює</a>
-    <a href="#contact" data-i18n="nav_contact">Контакт</a>
-  </div>
+  <button class="burger" id="burger" aria-label="menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-inner">
-    <p class="hero-tag" data-i18n="hero_tag">Агентство рішень</p>
-    <h1 class="hero-title" data-i18n="hero_title">Ми вирішуємо<br/>будь-яке завдання</h1>
+  <p class="hero-eyebrow" data-i18n="hero_tag">Агентство рішень · Munister Agency</p>
+  <div class="hero-title">
+    <span class="f-display hero-line1" data-i18n="hero_l1">Ми</span>
+    <span class="f-italic hero-line2" data-i18n="hero_l2">вирішуємо</span>
+    <span class="f-display hero-line3" data-i18n="hero_l3">будь-що</span>
+  </div>
+  <div class="hero-bottom">
     <p class="hero-sub" data-i18n="hero_sub">IT-розробка, організація, допомога для тих хто далеко від дому — ми знаходимо потрібну людину і доводимо справу до результату.</p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary" data-i18n="hero_cta1">Залишити запит</a>
-      <a href="#services" class="btn btn-outline" data-i18n="hero_cta2">Наші послуги</a>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-dark btn-arrow" data-i18n="hero_cta1">Залишити запит</a>
+      <span class="hero-scroll" data-i18n="hero_scroll">Гортати</span>
     </div>
   </div>
-  <div class="hero-scroll">↓</div>
 </section>
+
+<div class="divider"></div>
 
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-text">
-        <p class="section-tag" data-i18n="about_tag">Про нас</p>
-        <h2 data-i18n="about_title">Агентство-посередник нового покоління</h2>
+    <div class="about-inner">
+      <div class="about-left">
+        <p class="section-num">— 01</p>
+        <h2 class="about-headline f-display" data-i18n="about_title">
+          Агентство<br/><em data-i18n="about_em">нового</em><br/>покоління
+        </h2>
+      </div>
+      <div class="about-right">
         <p data-i18n="about_p1">Ми не виконуємо роботу самі — ми організовуємо процес. У нашій мережі є перевірені фахівці з різних сфер: від IT-розробників до людей які доглянуть за вашим майном в Україні поки ви за кордоном.</p>
         <p data-i18n="about_p2">Ви описуєте завдання — ми знаходимо виконавця, контролюємо якість і несемо відповідальність за результат.</p>
-      </div>
-      <div class="about-stats">
-        <div class="stat">
-          <span class="stat-num">8+</span>
-          <span class="stat-label" data-i18n="stat1">напрямків послуг</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">4</span>
-          <span class="stat-label" data-i18n="stat2">мови підтримки</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">UA</span>
-          <span class="stat-label" data-i18n="stat3">та діаспора по всьому світу</span>
+        <div class="about-stats">
+          <div>
+            <span class="stat-num">8+</span>
+            <span class="stat-label" data-i18n="stat1">напрямків</span>
+          </div>
+          <div>
+            <span class="stat-num">4</span>
+            <span class="stat-label" data-i18n="stat2">мови</span>
+          </div>
+          <div>
+            <span class="stat-num">EU</span>
+            <span class="stat-label" data-i18n="stat3">діаспора</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
 
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="container">
-    <p class="section-tag" data-i18n="services_tag">Послуги</p>
-    <h2 data-i18n="services_title">Що ми робимо</h2>
-    <div class="services-grid">
-
-      <div class="service-card">
-        <div class="service-icon">⌨️</div>
-        <h3 data-i18n="s1_title">Розробка сайтів</h3>
-        <p data-i18n="s1_desc">Лендінги, корпоративні сайти, інтернет-магазини. Від дизайну до запуску.</p>
+    <div class="services-head">
+      <h2 class="f-display" data-i18n="services_title">Що ми<br/>робимо</h2>
+      <p class="services-head-right" data-i18n="services_sub">Від розробки сайтів до догляду за могилами — ми знаходимо рішення для будь-якого завдання.</p>
+    </div>
+    <div class="services-list">
+      <div class="service-row">
+        <span class="service-row-num">01</span>
+        <span class="service-row-name" data-i18n="s1_title">Розробка сайтів</span>
+        <span class="service-row-icon">⌨️</span>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">⚙️</div>
-        <h3 data-i18n="s2_title">IT-рішення для бізнесу</h3>
-        <p data-i18n="s2_desc">CRM, автоматизація, боти, інтеграції. Вирішуємо конкретну задачу, а не продаємо зайве.</p>
+      <div class="service-row">
+        <span class="service-row-num">02</span>
+        <span class="service-row-name" data-i18n="s2_title">IT-рішення для бізнесу</span>
+        <span class="service-row-icon">⚙️</span>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">📋</div>
-        <h3 data-i18n="s3_title">Організація подій</h3>
-        <p data-i18n="s3_desc">Конференції, корпоративи, заходи. Координуємо підрядників і беремо на себе логістику.</p>
+      <div class="service-row">
+        <span class="service-row-num">03</span>
+        <span class="service-row-name" data-i18n="s3_title">Організація подій</span>
+        <span class="service-row-icon">📋</span>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">📄</div>
-        <h3 data-i18n="s4_title">Допомога з документами</h3>
-        <p data-i18n="s4_desc">Для тих хто за кордоном: оформлення, збір довідок, подача заяв в Україні через наших представників.</p>
+      <div class="service-row">
+        <span class="service-row-num">04</span>
+        <span class="service-row-name" data-i18n="s4_title">Допомога з документами</span>
+        <span class="service-row-icon">📄</span>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">🏠</div>
-        <h3 data-i18n="s5_title">Догляд за майном</h3>
-        <p data-i18n="s5_desc">Квартира стоїть пустою? Ми організуємо перевірку, дрібний ремонт, прибирання або здачу в оренду.</p>
+      <div class="service-row">
+        <span class="service-row-num">05</span>
+        <span class="service-row-name" data-i18n="s5_title">Догляд за майном</span>
+        <span class="service-row-icon">🏠</span>
       </div>
-
-      <div class="service-card service-card--featured">
-        <div class="service-icon">🕯️</div>
-        <h3 data-i18n="s6_title">Догляд за могилами</h3>
-        <p data-i18n="s6_desc">Виїхали з України та не маєте можливості доглядати за місцем поховання рідних? Ми знайдемо перевіреної людини у вашому регіоні.</p>
+      <div class="service-row">
+        <span class="service-row-num">06</span>
+        <span class="service-row-name" data-i18n="s6_title">Догляд за могилами</span>
+        <span class="service-row-icon">🕯️</span>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">⚖️</div>
-        <h3 data-i18n="s7_title">Юридичний супровід</h3>
-        <p data-i18n="s7_desc">Партнерська мережа юристів: договори, спадщина, нерухомість, корпоративні питання.</p>
+      <div class="service-row">
+        <span class="service-row-num">07</span>
+        <span class="service-row-name" data-i18n="s7_title">Юридичний супровід</span>
+        <span class="service-row-icon">⚖️</span>
       </div>
-
-      <div class="service-card">
-        <div class="service-icon">🔍</div>
-        <h3 data-i18n="s8_title">Пошук підрядника</h3>
-        <p data-i18n="s8_desc">Не знаєте до кого звернутись? Опишіть завдання — ми знайдемо потрібного фахівця і домовимось про умови.</p>
+      <div class="service-row">
+        <span class="service-row-num">08</span>
+        <span class="service-row-name" data-i18n="s8_title">Пошук підрядника</span>
+        <span class="service-row-icon">🔍</span>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- HOW -->
 <section class="how" id="how">
   <div class="container">
-    <p class="section-tag" data-i18n="how_tag">Процес</p>
-    <h2 data-i18n="how_title">Як це працює</h2>
+    <div class="how-head">
+      <p class="section-tag" data-i18n="how_tag">Процес</p>
+      <h2 class="f-display">
+        <span data-i18n="how_l1">Як це</span><br/>
+        <em data-i18n="how_l2">працює</em>
+      </h2>
+    </div>
     <div class="steps">
       <div class="step">
         <div class="step-num">01</div>
         <h3 data-i18n="step1_title">Ви залишаєте запит</h3>
-        <p data-i18n="step1_desc">Описуєте завдання: що потрібно зробити, де, коли і який результат очікуєте. Форма або Telegram — як зручно.</p>
+        <p data-i18n="step1_desc">Описуєте завдання: що потрібно, де, коли і який результат очікуєте. Форма або Telegram — як зручно.</p>
       </div>
-      <div class="step-arrow">→</div>
       <div class="step">
         <div class="step-num">02</div>
         <h3 data-i18n="step2_title">Ми підбираємо виконавця</h3>
-        <p data-i18n="step2_desc">З нашої мережі перевірених фахівців. Узгоджуємо умови, ціну і терміни. Повідомляємо вас.</p>
+        <p data-i18n="step2_desc">З нашої мережі перевірених фахівців. Узгоджуємо умови, ціну і терміни — повідомляємо вас.</p>
       </div>
-      <div class="step-arrow">→</div>
       <div class="step">
         <div class="step-num">03</div>
         <h3 data-i18n="step3_title">Результат і звіт</h3>
@@ -160,15 +165,21 @@
   </div>
 </section>
 
-<!-- DIASPORA BANNER -->
+<!-- BANNER -->
 <section class="banner">
   <div class="container">
     <div class="banner-inner">
-      <div class="banner-text">
-        <h2 data-i18n="banner_title">Ви далеко від дому?</h2>
-        <p data-i18n="banner_sub">Ми допомагаємо українцям за кордоном вирішувати питання в Україні. Документи, майно, пам'ять про близьких — все це можна організувати дистанційно.</p>
+      <div class="banner-left">
+        <p class="banner-tag" data-i18n="banner_tag">Для діаспори</p>
+        <h2 class="f-display banner-title">
+          <span data-i18n="banner_l1">Далеко</span><br/>
+          <em data-i18n="banner_l2">від дому?</em>
+        </h2>
       </div>
-      <a href="#contact" class="btn btn-primary" data-i18n="banner_cta">Написати нам</a>
+      <div class="banner-right">
+        <p data-i18n="banner_sub">Допомагаємо українцям за кордоном вирішувати питання в Україні. Документи, майно, пам'ять про близьких — дистанційно.</p>
+        <a href="#contact" class="btn btn-dark btn-arrow" data-i18n="banner_cta">Написати нам</a>
+      </div>
     </div>
   </div>
 </section>
@@ -176,21 +187,27 @@
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="container">
-    <p class="section-tag" data-i18n="contact_tag">Контакт</p>
-    <h2 data-i18n="contact_title">Залишити запит</h2>
-    <p class="contact-sub" data-i18n="contact_sub">Опишіть вашу ситуацію — ми відповімо протягом 24 годин.</p>
+    <div class="contact-top">
+      <h2 class="f-display">
+        <span data-i18n="contact_l1">Залишити</span><br/>
+        <em data-i18n="contact_l2">запит</em>
+      </h2>
+      <p class="contact-sub" data-i18n="contact_sub">Опишіть вашу ситуацію — ми відповімо протягом 24 годин.</p>
+    </div>
 
     <div class="contact-grid">
       <form class="contact-form" id="contactForm">
-        <div class="form-group">
-          <label data-i18n="form_name">Ваше ім'я</label>
-          <input type="text" name="name" required placeholder="Іван Петренко" />
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="form_name">Ваше ім'я</label>
+            <input type="text" name="name" required placeholder="Іван Петренко" />
+          </div>
+          <div class="form-group">
+            <label data-i18n="form_email">Email</label>
+            <input type="email" name="email" required placeholder="ivan@example.com" />
+          </div>
         </div>
-        <div class="form-group">
-          <label data-i18n="form_email">Email</label>
-          <input type="email" name="email" required placeholder="ivan@example.com" />
-        </div>
-        <div class="form-group">
+        <div class="form-group full">
           <label data-i18n="form_service">Послуга</label>
           <select name="service">
             <option value="" data-i18n="form_service_pick">Оберіть послугу</option>
@@ -204,39 +221,32 @@
             <option value="other" data-i18n="s8_title">Пошук підрядника</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="form-group full">
           <label data-i18n="form_message">Опишіть завдання</label>
-          <textarea name="message" rows="5" required placeholder="..."></textarea>
+          <textarea name="message" rows="4" required placeholder="..."></textarea>
         </div>
-        <button type="submit" class="btn btn-primary" data-i18n="form_send">Надіслати запит</button>
-        <p class="form-note" data-i18n="form_note">Натискаючи кнопку, ви погоджуєтесь з тим що ми зв'яжемось з вами електронною поштою.</p>
+        <div class="form-submit">
+          <p class="form-note" data-i18n="form_note">Ми зв'яжемось з вами електронною поштою протягом 24 годин.</p>
+          <button type="submit" class="btn btn-dark btn-arrow" data-i18n="form_send">Надіслати</button>
+        </div>
       </form>
 
       <div class="contact-info">
-        <div class="contact-item">
-          <span class="ci-icon">✉️</span>
-          <div>
-            <span class="ci-label" data-i18n="ci_email">Email</span>
-            <a href="mailto:munister@outlook.com">munister@outlook.com</a>
-          </div>
+        <div class="ci-group">
+          <h4 data-i18n="ci_email_label">Email</h4>
+          <a href="mailto:munister@outlook.com">munister@outlook.com</a>
         </div>
-        <div class="contact-item">
-          <span class="ci-icon">💬</span>
-          <div>
-            <span class="ci-label">Telegram</span>
-            <a href="https://t.me/munister" target="_blank">@munister</a>
-          </div>
+        <div class="ci-group">
+          <h4>Telegram</h4>
+          <a href="https://t.me/munister" target="_blank">@munister</a>
         </div>
-        <div class="contact-item">
-          <span class="ci-icon">🌍</span>
-          <div>
-            <span class="ci-label" data-i18n="ci_geo">Географія</span>
-            <span data-i18n="ci_geo_val">Україна + діаспора (EU, DE, PL, AT)</span>
-          </div>
+        <div class="ci-group">
+          <h4 data-i18n="ci_geo">Географія</h4>
+          <p data-i18n="ci_geo_val">Україна + EU діаспора<br/>(DE, PL, AT, CZ...)</p>
         </div>
-        <div class="contact-langs">
-          <p data-i18n="ci_langs_label">Спілкуємось:</p>
-          <div class="lang-tags">
+        <div class="ci-group">
+          <h4 data-i18n="ci_langs_label">Спілкуємось</h4>
+          <div class="lang-list">
             <span>🇺🇦 Українська</span>
             <span>🇬🇧 English</span>
             <span>🇩🇪 Deutsch</span>
@@ -250,11 +260,9 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="container footer-inner">
-    <span class="footer-logo">Munister Agency</span>
-    <span class="footer-copy" data-i18n="footer_copy">© 2025 Всі права захищено</span>
-    <a href="https://munister.com.ua" class="footer-link" data-i18n="footer_author">munister.com.ua</a>
-  </div>
+  <span class="footer-logo">Munister Agency</span>
+  <span class="footer-copy" data-i18n="footer_copy">© 2025</span>
+  <a href="https://munister.com.ua" class="footer-link">munister.com.ua</a>
 </footer>
 
 <script src="i18n.js"></script>
