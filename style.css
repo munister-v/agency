@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Onest', sans-serif;
   background: var(--white);
   color: var(--black);
   line-height: 1.5;
@@ -183,7 +183,7 @@ button:focus-visible, a:focus-visible {
 
 /* ─── FONTS — unified with hero (DM Sans + Cormorant italic accents) ─── */
 .f-display {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.06;
@@ -237,7 +237,7 @@ button:focus-visible, a:focus-visible {
 .nav-logo, .nav-links a, .lang-btn, .burger span { transition: color .35s ease, background-color .35s ease; }
 
 .nav-logo {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-weight: 600;
   font-size: 19px;
   letter-spacing: 0.01em;
@@ -295,7 +295,7 @@ button:focus-visible, a:focus-visible {
   color: var(--gray);
   cursor: pointer;
   padding: 4px 6px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Onest', sans-serif;
   transition: color .2s;
 }
 .lang-btn.active { color: var(--black); }
@@ -318,7 +318,7 @@ button:focus-visible, a:focus-visible {
 
 /* ─── HERO (black, centered, editorial) ─── */
 .hero {
-  background: #000;
+  background: #0c1020;
   color: #fff;
   min-height: 100vh;
   min-height: 100svh;
@@ -338,7 +338,7 @@ button:focus-visible, a:focus-visible {
 }
 
 .hero-headline {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-weight: 400;
   font-size: clamp(32px, 6vw, 84px);
   line-height: 1.14;
@@ -473,7 +473,7 @@ button:focus-visible, a:focus-visible {
 }
 
 .stat-num {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-weight: 500;
   font-size: clamp(40px, 5vw, 56px);
   letter-spacing: -0.02em;
@@ -752,7 +752,7 @@ button:focus-visible, a:focus-visible {
   cursor: pointer;
   border: none;
   transition: all .2s;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Onest', sans-serif;
 }
 
 .btn-dark {
@@ -850,7 +850,7 @@ button:focus-visible, a:focus-visible {
   border: none;
   outline: none;
   font-size: 16px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Onest', sans-serif;
   color: var(--black);
   background: transparent;
   -webkit-appearance: none;
@@ -927,7 +927,7 @@ button:focus-visible, a:focus-visible {
 }
 
 .footer-logo {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-weight: 600;
   font-size: 18px;
   letter-spacing: 0.01em;
@@ -946,6 +946,13 @@ button:focus-visible, a:focus-visible {
   transition: color .2s;
 }
 .footer-link:hover { color: #fff; }
+
+.footer-domain {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.55);
+}
 
 /* ─── RESPONSIVE ─── */
 
@@ -998,7 +1005,7 @@ button:focus-visible, a:focus-visible {
   }
 
   .nav-links.open a:not(.nav-cta) {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Onest', sans-serif;
     font-size: 32px;
     font-weight: 300;
     color: rgba(255,255,255,0.55);
@@ -1160,7 +1167,7 @@ button:focus-visible, a:focus-visible {
 .wr-body { flex: 1; }
 
 .wr-title {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-size: 22px;
   font-weight: 500;
   color: rgba(255,255,255,0.82);
@@ -1314,7 +1321,7 @@ button:focus-visible, a:focus-visible {
 .portfolio-card:hover .work-img--dark.portfolio-img { background: #1a1a1a; }
 
 .portfolio-domain {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Onest', sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.18em;
