@@ -181,19 +181,23 @@ button:focus-visible, a:focus-visible {
 }
 .btn.loading::after { content: '...'; }
 
-/* ─── FONTS ─── */
+/* ─── FONTS — unified with hero (DM Sans + Cormorant italic accents) ─── */
 .f-display {
-  font-family: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 0.92;
-  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.06;
+  text-transform: none;
 }
 
+/* Every italic accent word across the site shares one look */
+.f-display em,
 .f-italic {
   font-family: 'Cormorant Garamond', 'Georgia', serif;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
+  font-size: 1.12em;
+  letter-spacing: 0;
   line-height: 0.9;
 }
 
@@ -233,9 +237,19 @@ button:focus-visible, a:focus-visible {
 .nav-logo, .nav-links a, .lang-btn, .burger span { transition: color .35s ease, background-color .35s ease; }
 
 .nav-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px;
-  letter-spacing: 0.1em;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: 0.01em;
+}
+.nav-logo em,
+.footer-logo em {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.18em;
+  letter-spacing: 0;
+  margin-left: 0.05em;
 }
 
 .nav-links {
@@ -435,15 +449,8 @@ button:focus-visible, a:focus-visible {
 }
 
 .about-headline {
-  font-size: clamp(40px, 6vw, 88px);
-  line-height: 0.92;
-}
-
-.about-headline em {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-weight: 300;
-  font-size: 1.1em;
+  font-size: clamp(40px, 6vw, 84px);
+  line-height: 1.04;
 }
 
 .about-right {
@@ -466,9 +473,10 @@ button:focus-visible, a:focus-visible {
 }
 
 .stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 52px;
-  letter-spacing: 0.02em;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: clamp(40px, 5vw, 56px);
+  letter-spacing: -0.02em;
   line-height: 1;
   display: block;
 }
@@ -507,8 +515,8 @@ button:focus-visible, a:focus-visible {
 }
 
 .services-head h2 {
-  font-size: clamp(48px, 8vw, 120px);
-  line-height: 0.92;
+  font-size: clamp(44px, 7vw, 104px);
+  line-height: 1.02;
 }
 
 .services-head-right {
@@ -647,15 +655,8 @@ button:focus-visible, a:focus-visible {
 }
 
 .how-head h2 {
-  font-size: clamp(48px, 7vw, 100px);
-  line-height: 0.92;
-}
-
-.how-head h2 em {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-weight: 300;
-  font-size: 1.05em;
+  font-size: clamp(44px, 7vw, 96px);
+  line-height: 1.04;
 }
 
 .steps {
@@ -671,11 +672,13 @@ button:focus-visible, a:focus-visible {
 }
 
 .step-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 80px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 72px;
   color: var(--light);
   line-height: 1;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .step h3 {
@@ -691,10 +694,11 @@ button:focus-visible, a:focus-visible {
   line-height: 1.8;
 }
 
-/* ─── BANNER ─── */
+/* ─── BANNER (dark) ─── */
 .banner {
-  background: var(--off);
-  padding: 120px 0;
+  background: var(--black);
+  color: var(--white);
+  padding: 130px 0;
 }
 
 .banner-inner {
@@ -709,21 +713,14 @@ button:focus-visible, a:focus-visible {
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gray);
+  color: rgba(255,255,255,0.5);
   margin-bottom: 32px;
 }
 
 .banner-title {
-  font-size: clamp(48px, 7vw, 96px);
-  line-height: 0.92;
+  font-size: clamp(44px, 7vw, 92px);
+  line-height: 1.04;
   margin-bottom: 0;
-}
-
-.banner-title em {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-weight: 300;
-  font-size: 1.1em;
 }
 
 .banner-right {
@@ -736,7 +733,7 @@ button:focus-visible, a:focus-visible {
 
 .banner-right p {
   font-size: 14px;
-  color: var(--gray);
+  color: rgba(255,255,255,0.5);
   max-width: 300px;
   text-align: right;
   line-height: 1.8;
@@ -793,15 +790,8 @@ button:focus-visible, a:focus-visible {
 }
 
 .contact-top h2 {
-  font-size: clamp(48px, 8vw, 120px);
-  line-height: 0.92;
-}
-
-.contact-top h2 em {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-weight: 300;
-  font-size: 1.05em;
+  font-size: clamp(44px, 7vw, 104px);
+  line-height: 1.02;
 }
 
 .contact-sub {
@@ -920,8 +910,9 @@ button:focus-visible, a:focus-visible {
 
 /* ─── FOOTER ─── */
 .footer {
-  border-top: 1px solid var(--light);
-  padding: 32px 40px;
+  background: var(--black);
+  color: var(--white);
+  padding: 44px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -929,24 +920,25 @@ button:focus-visible, a:focus-visible {
 }
 
 .footer-logo {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
   font-size: 18px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.01em;
 }
 
 .footer-copy {
   font-size: 12px;
-  color: var(--gray);
+  color: rgba(255,255,255,0.45);
   letter-spacing: 0.05em;
 }
 
 .footer-link {
   font-size: 12px;
-  color: var(--gray);
+  color: rgba(255,255,255,0.45);
   letter-spacing: 0.05em;
   transition: color .2s;
 }
-.footer-link:hover { color: var(--black); }
+.footer-link:hover { color: #fff; }
 
 /* ─── RESPONSIVE ─── */
 
@@ -1053,10 +1045,12 @@ button:focus-visible, a:focus-visible {
 
 /* ─── Service icon text (replaces "Незабаром") ─── */
 .work-icon-text {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 52px;
-  color: rgba(255,255,255,0.08);
-  letter-spacing: 0.04em;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 56px;
+  color: rgba(255,255,255,0.1);
+  letter-spacing: 0.01em;
   user-select: none;
 }
 .work-icon-text--light { color: rgba(255,255,255,0.12); }
@@ -1124,6 +1118,12 @@ button:focus-visible, a:focus-visible {
   background: rgba(255,255,255,0.06);
 }
 
-/* portfolio section spacing */
-.portfolio-section { padding-bottom: 0; }
-.portfolio-section .services-head { padding-top: 0; }
+/* ─── PORTFOLIO (warm cream section, dark tiles) ─── */
+.portfolio-section {
+  background: #f3efe9;
+  color: var(--black);
+}
+.portfolio-section .section-tag-light { color: rgba(0,0,0,0.4); }
+.portfolio-section .services-head-right { color: var(--gray); }
+.portfolio-section .work-card { background: #0f0f0f; }
+.portfolio-section .work-card:hover { background: #161616; }
