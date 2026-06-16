@@ -1061,7 +1061,9 @@ button:focus-visible, a:focus-visible {
   /* Works grid → 1 col on mobile */
   .works-grid { grid-template-columns: 1fr; gap: 1px; }
   .work-card--wide { grid-column: span 1; }
-  .work-card--wide .portfolio-header { min-height: 160px; }
+  .pcard { min-height: 260px; padding: 22px; }
+  .work-card--wide .pcard { min-height: 260px; }
+  .pcard-name { font-size: clamp(32px, 8vw, 48px); }
 
   /* Services text list → simplified on mobile */
   .work-row { grid-template-columns: 48px 1fr; gap: 20px; padding: 28px 0; }
@@ -1194,42 +1196,100 @@ button:focus-visible, a:focus-visible {
   background: rgba(var(--c,255,255,255), 0.07);
 }
 
-/* ─── Portfolio typographic header ─── */
-.portfolio-header {
-  padding: 36px 28px 28px;
+/* ─── Portfolio unified card ─── */
+.pcard {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 10px;
-  min-height: 160px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 28px;
+  min-height: 320px;
+  gap: 0;
 }
 
-.work-card--wide .portfolio-header { min-height: 200px; }
+.work-card--wide .pcard { min-height: 300px; }
 
-.ph-name {
+.pcard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.pcard-num {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.2);
+}
+
+.pcard-cat {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 4px 9px;
+  border-radius: 2px;
+}
+
+.pcard-mid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.pcard-name {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(40px, 5vw, 68px);
-  color: rgba(255,255,255,0.09);
-  line-height: 1;
+  font-size: clamp(36px, 4.5vw, 62px);
+  color: rgba(255,255,255,0.88);
+  line-height: 1.05;
   letter-spacing: -0.01em;
-  transition: color .3s;
 }
 
-.ph-url {
-  font-family: 'DM Sans', sans-serif;
+.pcard-url {
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.2);
-  transition: color .3s;
+  color: rgba(255,255,255,0.24);
 }
 
-.portfolio-card:hover .ph-name { color: rgba(255,255,255,0.18); }
-.portfolio-card:hover .ph-url  { color: rgba(255,255,255,0.42); }
+.pcard-bot {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.pcard-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.pcard-link {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 8px 14px;
+  border-radius: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.pcard-link:hover { color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.06); }
 
 /* ─── Portfolio cards ─── */
 .portfolio-card { position: relative; }
@@ -1305,30 +1365,22 @@ button:focus-visible, a:focus-visible {
 .portfolio-section .work-card:hover { background: #191919; }
 
 /* Individual card color themes */
-.portfolio-section .pc-blue             { background: #0d1829; }
-.portfolio-section .pc-blue:hover       { background: #111f33; }
-.portfolio-section .pc-blue .ph-name    { color: rgba(100,160,255,0.14); }
-.portfolio-section .pc-blue .ph-url     { color: rgba(100,160,255,0.28); }
-.portfolio-section .pc-blue:hover .ph-name { color: rgba(100,160,255,0.26); }
-.portfolio-section .pc-blue:hover .ph-url  { color: rgba(100,160,255,0.55); }
+.portfolio-section .pc-blue          { background: #0d1829; }
+.portfolio-section .pc-blue:hover    { background: #111f33; }
+.portfolio-section .pc-blue .pcard-name { color: rgba(180,210,255,0.92); }
+.portfolio-section .pc-blue .pcard-url  { color: rgba(120,170,255,0.35); }
 
-.portfolio-section .pc-green             { background: #0b1c0f; }
-.portfolio-section .pc-green:hover       { background: #0f2414; }
-.portfolio-section .pc-green .ph-name    { color: rgba(80,200,120,0.14); }
-.portfolio-section .pc-green .ph-url     { color: rgba(80,200,120,0.28); }
-.portfolio-section .pc-green:hover .ph-name { color: rgba(80,200,120,0.26); }
-.portfolio-section .pc-green:hover .ph-url  { color: rgba(80,200,120,0.55); }
+.portfolio-section .pc-green         { background: #0b1c0f; }
+.portfolio-section .pc-green:hover   { background: #0f2414; }
+.portfolio-section .pc-green .pcard-name { color: rgba(160,230,180,0.92); }
+.portfolio-section .pc-green .pcard-url  { color: rgba(100,210,140,0.35); }
 
-.portfolio-section .pc-amber             { background: #1d1607; }
-.portfolio-section .pc-amber:hover       { background: #261d0a; }
-.portfolio-section .pc-amber .ph-name    { color: rgba(240,185,65,0.14); }
-.portfolio-section .pc-amber .ph-url     { color: rgba(240,185,65,0.28); }
-.portfolio-section .pc-amber:hover .ph-name { color: rgba(240,185,65,0.26); }
-.portfolio-section .pc-amber:hover .ph-url  { color: rgba(240,185,65,0.55); }
+.portfolio-section .pc-amber         { background: #1d1607; }
+.portfolio-section .pc-amber:hover   { background: #261d0a; }
+.portfolio-section .pc-amber .pcard-name { color: rgba(255,225,130,0.92); }
+.portfolio-section .pc-amber .pcard-url  { color: rgba(240,195,80,0.35); }
 
-.portfolio-section .pc-wine             { background: #1c0b12; }
-.portfolio-section .pc-wine:hover       { background: #240f18; }
-.portfolio-section .pc-wine .ph-name    { color: rgba(220,90,120,0.14); }
-.portfolio-section .pc-wine .ph-url     { color: rgba(220,90,120,0.28); }
-.portfolio-section .pc-wine:hover .ph-name { color: rgba(220,90,120,0.26); }
-.portfolio-section .pc-wine:hover .ph-url  { color: rgba(220,90,120,0.55); }
+.portfolio-section .pc-wine          { background: #1c0b12; }
+.portfolio-section .pc-wine:hover    { background: #240f18; }
+.portfolio-section .pc-wine .pcard-name { color: rgba(255,185,200,0.92); }
+.portfolio-section .pc-wine .pcard-url  { color: rgba(230,120,145,0.35); }
