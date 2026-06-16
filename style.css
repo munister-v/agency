@@ -1061,9 +1061,11 @@ button:focus-visible, a:focus-visible {
   /* Works grid → 1 col on mobile */
   .works-grid { grid-template-columns: 1fr; gap: 1px; }
   .work-card--wide { grid-column: span 1; }
-  .pcard { min-height: 260px; padding: 22px; }
-  .work-card--wide .pcard { min-height: 260px; }
-  .pcard-name { font-size: clamp(32px, 8vw, 48px); }
+  .pcard { min-height: 320px; padding: 24px; }
+  .work-card--wide .pcard { min-height: 320px; }
+  .pcard-name { font-size: clamp(44px, 12vw, 64px); }
+  .pcard-top { margin-bottom: 28px; }
+  .pcard-mid { margin-bottom: 24px; }
 
   /* Services text list → simplified on mobile */
   .work-row { grid-template-columns: 48px 1fr; gap: 20px; padding: 28px 0; }
@@ -1200,35 +1202,35 @@ button:focus-visible, a:focus-visible {
 .pcard {
   display: flex;
   flex-direction: column;
-  padding: 28px;
-  min-height: 320px;
+  padding: 32px;
+  min-height: 400px;
   gap: 0;
 }
 
-.work-card--wide .pcard { min-height: 300px; }
+.work-card--wide .pcard { min-height: 380px; }
 
 .pcard-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .pcard-num {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.1em;
   color: rgba(255,255,255,0.2);
 }
 
 .pcard-cat {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.28);
-  border: 1px solid rgba(255,255,255,0.1);
-  padding: 4px 9px;
+  color: rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 5px 11px;
   border-radius: 2px;
 }
 
@@ -1236,22 +1238,22 @@ button:focus-visible, a:focus-visible {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 28px;
+  gap: 12px;
+  margin-bottom: 32px;
 }
 
 .pcard-name {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(36px, 4.5vw, 62px);
+  font-size: clamp(52px, 6vw, 88px);
   color: rgba(255,255,255,0.88);
-  line-height: 1.05;
+  line-height: 1.02;
   letter-spacing: -0.01em;
 }
 
 .pcard-url {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1268,7 +1270,7 @@ button:focus-visible, a:focus-visible {
 }
 
 .pcard-desc {
-  font-size: 13px;
+  font-size: 14px;
   color: rgba(255,255,255,0.4);
   line-height: 1.7;
   flex: 1;
