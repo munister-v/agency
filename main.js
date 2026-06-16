@@ -1,6 +1,18 @@
 // ─── Scroll progress bar ───
 const progressBar = document.getElementById('scrollProgress');
 const backToTop   = document.getElementById('backToTop');
+const navEl       = document.getElementById('nav');
+const heroEl      = document.getElementById('home');
+
+function navThreshold() {
+  // Switch nav to solid white shortly before the black hero ends
+  const h = heroEl ? heroEl.offsetHeight : window.innerHeight;
+  return Math.max(h - 80, 60);
+}
+
+function updateNavState(scrolled) {
+  navEl.classList.toggle('scrolled', scrolled > navThreshold());
+}
 
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
@@ -11,9 +23,15 @@ window.addEventListener('scroll', () => {
   if (scrolled > 600) backToTop.classList.add('visible');
   else backToTop.classList.remove('visible');
 
+  // Nav transparent-over-hero → solid
+  updateNavState(scrolled);
+
   // Active nav link highlight
   updateActiveNav();
 }, { passive: true });
+
+// Initial nav state on load
+updateNavState(window.scrollY);
 
 // ─── Back to top ───
 backToTop.addEventListener('click', () => {
