@@ -252,6 +252,29 @@ button:focus-visible, a:focus-visible {
   margin-left: 0.05em;
 }
 
+.logo-mark {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+.logo-mark-svg {
+  position: absolute;
+  left: -14%;
+  top: -24%;
+  width: 128%;
+  height: 148%;
+  overflow: visible;
+  pointer-events: none;
+}
+.logo-mark-svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.55;
+}
+
 .nav-links {
   display: flex;
   gap: 36px;
