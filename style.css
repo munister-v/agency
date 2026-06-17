@@ -1170,22 +1170,26 @@ button:focus-visible, a:focus-visible {
 }
 .work-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
 .work-row:hover {
-  background: linear-gradient(90deg, rgba(var(--c,255,255,255), 0.05) 0%, transparent 65%);
-  border-top-color: rgba(var(--c,255,255,255), 0.2);
+  background: linear-gradient(90deg, rgba(var(--c,255,255,255), 0.07) 0%, transparent 70%);
+  border-top-color: rgba(var(--c,255,255,255), 0.28);
 }
+.work-row:hover + .work-row { border-top-color: rgba(var(--c,255,255,255), 0.28); }
 
 .wr-num {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
   font-weight: 400;
   font-size: 54px;
-  color: rgba(var(--c,255,255,255), 0.1);
+  color: rgba(var(--c,255,255,255), 0.32);
   line-height: 1;
   text-align: right;
   padding-top: 2px;
-  transition: color .3s;
+  transition: color .35s, transform .35s;
 }
-.work-row:hover .wr-num { color: rgba(var(--c,255,255,255), 0.35); }
+.work-row:hover .wr-num {
+  color: rgb(var(--c,255,255,255));
+  transform: translateX(4px);
+}
 
 .wr-body { flex: 1; }
 
@@ -1197,9 +1201,9 @@ button:focus-visible, a:focus-visible {
   margin-bottom: 10px;
   line-height: 1.25;
   letter-spacing: -0.01em;
-  transition: color .2s;
+  transition: color .2s, transform .3s;
 }
-.work-row:hover .wr-title { color: #fff; }
+.work-row:hover .wr-title { color: #fff; transform: translateX(4px); }
 
 .wr-desc {
   font-size: 14px;
@@ -1423,6 +1427,54 @@ button:focus-visible, a:focus-visible {
 .portfolio-section .pc-radio .pcard-url  { color: rgba(220,185,0,0.35); }
 .portfolio-section .pc-radio .pcard-task-label { color: rgba(255,220,20,0.4); }
 
+/* ─── Wide card with media (Mania Group) ─── */
+.pcard--media {
+  padding: 32px;
+  min-height: 380px;
+}
+.pcard-media-body {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 40px;
+  flex: 1;
+  align-items: stretch;
+}
+.pcard-media-text {
+  display: flex;
+  flex-direction: column;
+}
+.pcard--media .pcard-name { margin-bottom: 10px; }
+.pcard--media .pcard-url { margin-bottom: 28px; }
+.pcard-media-foot {
+  margin-top: auto;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+.pcard-media-imgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-content: center;
+}
+.pmedia-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+}
+.portfolio-card:hover .pmedia-img { transform: scale(1.02); }
+
+@media (max-width: 768px) {
+  .pcard-media-body { grid-template-columns: 1fr; gap: 28px; }
+}
+
 /* ─── Full-width case card ─── */
 .work-card--full { grid-column: 1 / -1; }
 
@@ -1512,4 +1564,76 @@ button:focus-visible, a:focus-visible {
   .pcard-case-body { grid-template-columns: 1fr; gap: 28px; }
   .pcard-case-imgs { grid-template-columns: 1fr 1fr; }
   .pcard--case { min-height: auto; }
+}
+
+/* ─── Hand-drawn circle mark on section headings (matches hero) ─── */
+.ink-mark {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+.ink-mark em { display: inline-block; }
+.ink-mark-svg {
+  position: absolute;
+  left: -8%;
+  top: -12%;
+  width: 116%;
+  height: 128%;
+  overflow: visible;
+  pointer-events: none;
+}
+.ink-mark-svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.7;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+/* Draw the circle once the heading scrolls into view */
+.services-head.visible .ink-mark-svg path {
+  animation: heroDraw 1.15s cubic-bezier(.55,0,.25,1) forwards .45s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ink-mark-svg path { stroke-dashoffset: 0; animation: none; }
+}
+
+/* ─── Service-row arrow affordance ─── */
+.wr-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  align-self: flex-start;
+  margin-top: 6px;
+}
+.wr-arrow {
+  font-size: 20px;
+  line-height: 1;
+  color: rgba(var(--c,255,255,255), 0.85);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity .3s, transform .3s;
+}
+.work-row:hover .wr-arrow { opacity: 1; transform: translateX(0); }
+
+/* ─── Portfolio card lift + animated link arrow ─── */
+.portfolio-card { transition: transform .35s cubic-bezier(.4,0,.2,1), background .25s; }
+.portfolio-card:hover { transform: translateY(-5px); }
+
+.pcard-link::after {
+  content: '→';
+  display: inline-block;
+  margin-left: 7px;
+  transition: transform .3s;
+}
+.portfolio-card:hover .pcard-link::after { transform: translateX(4px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-card:hover { transform: none; }
+}
+
+@media (max-width: 768px) {
+  .wr-arrow { display: none; }
 }
