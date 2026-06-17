@@ -1393,3 +1393,100 @@ button:focus-visible, a:focus-visible {
 .portfolio-section .pc-wine:hover    { background: #240f18; }
 .portfolio-section .pc-wine .pcard-name { color: rgba(255,185,200,0.92); }
 .portfolio-section .pc-wine .pcard-url  { color: rgba(230,120,145,0.35); }
+
+.portfolio-section .pc-radio         { background: #0e0c00; }
+.portfolio-section .pc-radio:hover   { background: #141200; }
+.portfolio-section .pc-radio .pcard-name { color: rgba(255,220,20,0.95); }
+.portfolio-section .pc-radio .pcard-url  { color: rgba(220,185,0,0.35); }
+.portfolio-section .pc-radio .pcard-task-label { color: rgba(255,220,20,0.4); }
+
+/* ─── Full-width case card ─── */
+.work-card--full { grid-column: 1 / -1; }
+
+.pcard--case {
+  padding: 32px;
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.pcard-case-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pcard-case-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  flex: 1;
+}
+
+.pcard-case-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.pcard--case .pcard-name {
+  margin-bottom: 10px;
+}
+
+.pcard--case .pcard-url {
+  margin-bottom: 28px;
+}
+
+.pcard-task {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.pcard-task-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.pcard-task-text {
+  font-size: 17px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+.pcard-case-foot {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.pcard-case-imgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  align-content: start;
+}
+
+.pcase-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .pcard-case-body { grid-template-columns: 1fr; gap: 28px; }
+  .pcard-case-imgs { grid-template-columns: 1fr 1fr; }
+  .pcard--case { min-height: auto; }
+}
