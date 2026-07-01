@@ -181,7 +181,7 @@ button:focus-visible, a:focus-visible {
 }
 .btn.loading::after { content: '...'; }
 
-/* ─── FONTS — unified with hero (DM Sans + Cormorant italic accents) ─── */
+/* ─── FONTS - unified with hero (DM Sans + Cormorant italic accents) ─── */
 .f-display {
   font-family: 'Onest', sans-serif;
   font-weight: 400;
@@ -1018,7 +1018,7 @@ button:focus-visible, a:focus-visible {
   .nav { padding: 0 20px; }
   .divider { margin: 0 20px; }
 
-  /* Nav mobile — fullscreen overlay */
+  /* Nav mobile - fullscreen overlay */
   .nav-links { display: none; }
   .nav-links.open {
     display: flex;
@@ -1156,7 +1156,7 @@ button:focus-visible, a:focus-visible {
   .work-coming { letter-spacing: 0.15em; }
 }
 
-/* Print — hide non-essential */
+/* Print - hide non-essential */
 @media print {
   .nav, .burger, .hero-scroll-hint, .hero-cta-pill { display: none !important; }
   body { font-size: 12pt; color: #000; }
@@ -1653,7 +1653,7 @@ button:focus-visible, a:focus-visible {
 }
 
 /* ═══════════════════════════════════════════════
-   PORTFOLIO GALLERY — device-mockup showcase (pg-)
+   PORTFOLIO GALLERY - device-mockup showcase (pg-)
    ═══════════════════════════════════════════════ */
 .pgal {
   display: flex;
@@ -1858,7 +1858,7 @@ button:focus-visible, a:focus-visible {
   }
 }
 
-/* On phones a single column can make the device very tall — narrow the
+/* On phones a single column can make the device very tall - narrow the
    grid track so one column comfortably fills the width, aligned to edges. */
 @media (max-width: 640px) {
   .pg-phones { grid-template-columns: 1fr; }
