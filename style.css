@@ -1404,7 +1404,9 @@ button:focus-visible, a:focus-visible {
 
 /* ─── PORTFOLIO (warm cream section, colored dark tiles) ─── */
 .portfolio-section {
-  background: #eae5da;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.58) 0%, rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, #ece7dc 0%, #e4ddcf 100%);
   color: var(--black);
 }
 .portfolio-section .section-tag-light { color: rgba(0,0,0,0.38); }
@@ -1656,7 +1658,7 @@ button:focus-visible, a:focus-visible {
 .pgal {
   display: flex;
   flex-direction: column;
-  gap: clamp(40px, 6vw, 84px);
+  gap: clamp(52px, 7vw, 96px);
   margin-top: clamp(40px, 5vw, 64px);
 }
 
@@ -1667,8 +1669,8 @@ button:focus-visible, a:focus-visible {
    and any short final row simply left-aligns, never floats centered. */
 .pg-phones {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: clamp(18px, 2.2vw, 36px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(22px, 2.4vw, 42px);
   align-items: start;
 }
 
@@ -1687,11 +1689,14 @@ button:focus-visible, a:focus-visible {
   width: 100%;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .pg-device { transition: transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1); }
 
 .pg-phone {
+  width: min(100%, 280px);
+  margin-inline: auto;
   padding: 8px;
   border-radius: 38px;
   background: linear-gradient(160deg, #2b2b2e 0%, #161617 60%, #101011 100%);
@@ -1712,6 +1717,11 @@ button:focus-visible, a:focus-visible {
 .pg-card:hover .pg-phone {
   transform: translateY(-10px);
   box-shadow: 0 48px 80px -28px rgba(0,0,0,0.85), inset 0 0 0 1.5px rgba(255,255,255,0.06);
+}
+
+.pg-card--ampublishing .pg-screen,
+.pg-card--help .pg-screen {
+  background: #fff;
 }
 
 /* ── Browser case (landscape, full-width) ── */
@@ -1760,7 +1770,11 @@ button:focus-visible, a:focus-visible {
 
 /* ── Info block ── */
 .pg-info { display: flex; flex-direction: column; }
-.pg-card .pg-info { padding: 22px 4px 0; }
+.pg-card .pg-info {
+  flex: 1;
+  padding: 24px 4px 0;
+  min-height: 264px;
+}
 
 .pg-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
 /* NOTE: portfolio section sits on the light cream background
@@ -1794,15 +1808,24 @@ button:focus-visible, a:focus-visible {
   font-size: 14px; line-height: 1.62;
   color: rgba(0,0,0,0.66);
   margin-top: 16px;
+  max-width: 34ch;
+  min-height: 6.5em;
 }
-.pg-case .pg-desc { font-size: 16px; max-width: 46ch; }
+.pg-case .pg-desc {
+  font-size: 16px;
+  max-width: 46ch;
+  min-height: 0;
+}
 .pg-link {
   align-self: flex-start;
-  margin-top: 22px;
+  margin-top: auto;
   position: relative; z-index: 2;
   font-size: 13px; letter-spacing: 0.02em;
   color: rgba(0,0,0,0.82);
   border: 1px solid rgba(0,0,0,0.22);
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
   padding: 9px 22px; border-radius: 40px;
   transition: background .25s, border-color .25s, color .25s;
 }
@@ -1824,9 +1847,22 @@ button:focus-visible, a:focus-visible {
   .pg-case .pg-desc { max-width: none; }
   .pg-case .pg-name { font-size: clamp(26px, 6vw, 34px); }
 }
+
+@media (max-width: 1180px) {
+  .pg-phones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pg-phone { width: min(100%, 300px); }
+  .pg-card .pg-info { min-height: 0; }
+  .pg-desc {
+    max-width: 44ch;
+    min-height: 0;
+  }
+}
+
 /* On phones a single column can make the device very tall — narrow the
    grid track so one column comfortably fills the width, aligned to edges. */
-@media (max-width: 520px) {
+@media (max-width: 640px) {
   .pg-phones { grid-template-columns: 1fr; }
-  .pg-phone .pg-screen { aspect-ratio: 9 / 18; }
+  .pg-phone { width: min(100%, 290px); }
+  .pg-phone .pg-screen { aspect-ratio: 9 / 19.3; }
+  .pg-link { min-height: 44px; }
 }
