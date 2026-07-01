@@ -120,6 +120,16 @@ body {
   background: rgba(255,255,255,0.48);
 }
 
+.pg-cover:focus-visible {
+  outline: none;
+}
+
+.pg-card:has(.pg-cover:focus-visible) .pg-phone,
+.pg-case:has(.pg-cover:focus-visible) .pg-browser {
+  outline: 2px solid rgba(10,10,10,0.5);
+  outline-offset: 8px;
+}
+
 .how {
   background: #f7f6f4;
 }
