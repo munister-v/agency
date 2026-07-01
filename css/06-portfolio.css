@@ -1,0 +1,702 @@
+/* ─── Services text list ─── */
+.works-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.work-row {
+  display: grid;
+  grid-template-columns: 88px 1fr auto;
+  align-items: start;
+  gap: 48px;
+  padding: 36px 0;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-radius: 2px;
+  transition: background .3s, border-color .3s;
+}
+.work-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.work-row:hover {
+  background: linear-gradient(90deg, rgba(var(--c,255,255,255), 0.07) 0%, transparent 70%);
+  border-top-color: rgba(var(--c,255,255,255), 0.28);
+}
+.work-row:hover + .work-row { border-top-color: rgba(var(--c,255,255,255), 0.28); }
+
+.wr-num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 54px;
+  color: rgba(var(--c,255,255,255), 0.32);
+  line-height: 1;
+  text-align: right;
+  padding-top: 2px;
+  transition: color .35s, transform .35s;
+}
+.work-row:hover .wr-num {
+  color: rgb(var(--c,255,255,255));
+  transform: translateX(4px);
+}
+
+.wr-body { flex: 1; }
+
+.wr-title {
+  font-family: 'Onest', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 10px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  transition: color .2s, transform .3s;
+}
+.work-row:hover .wr-title { color: #fff; transform: translateX(4px); }
+
+.wr-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.36);
+  line-height: 1.85;
+  max-width: 600px;
+}
+
+.wr-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(var(--c,255,255,255), 0.25);
+  border: 1px solid rgba(var(--c,255,255,255), 0.15);
+  padding: 5px 13px;
+  border-radius: 2px;
+  white-space: nowrap;
+  align-self: flex-start;
+  margin-top: 6px;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.work-row:hover .wr-tag {
+  color: rgba(var(--c,255,255,255), 0.8);
+  border-color: rgba(var(--c,255,255,255), 0.4);
+  background: rgba(var(--c,255,255,255), 0.07);
+}
+
+/* ─── Portfolio unified card ─── */
+.pcard {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  min-height: 400px;
+  gap: 0;
+}
+
+.work-card--wide .pcard { min-height: 380px; }
+
+.pcard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.pcard-num {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.2);
+}
+
+.pcard-cat {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 5px 11px;
+  border-radius: 2px;
+}
+
+.pcard-mid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.pcard-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(52px, 6vw, 88px);
+  color: rgba(255,255,255,0.88);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+.pcard-url {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.24);
+}
+
+.pcard-bot {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.pcard-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.pcard-link {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 8px 14px;
+  border-radius: 2px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.pcard-link:hover { color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.06); }
+
+/* ─── Portfolio cards ─── */
+.portfolio-card { position: relative; }
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.portfolio-img {
+  position: relative;
+  background: #181818;
+  transition: background .25s;
+}
+.work-card--wide .portfolio-img { background: #181818; }
+.work-img--dark.portfolio-img { background: #141414; }
+
+.portfolio-card:hover .portfolio-img { background: #202020; }
+.portfolio-card:hover .work-img--dark.portfolio-img { background: #1a1a1a; }
+
+.portfolio-domain {
+  font-family: 'Onest', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.18);
+  transition: color .25s;
+}
+.portfolio-domain--light { color: rgba(255,255,255,0.22); }
+.portfolio-card:hover .portfolio-domain { color: rgba(255,255,255,0.38); }
+
+.portfolio-cat {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+
+.work-tag--link {
+  position: relative;
+  z-index: 3;
+  color: rgba(255,255,255,0.55) !important;
+  border-color: rgba(255,255,255,0.2) !important;
+  text-decoration: none;
+  transition: color .2s, border-color .2s, background .2s;
+  cursor: pointer;
+}
+.work-tag--link:hover {
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.5) !important;
+  background: rgba(255,255,255,0.06);
+}
+
+/* ─── PORTFOLIO (warm cream section, colored dark tiles) ─── */
+.portfolio-section {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.58) 0%, rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, #ece7dc 0%, #e4ddcf 100%);
+  color: var(--black);
+}
+.portfolio-section .section-tag-light { color: rgba(0,0,0,0.38); }
+.portfolio-section .services-head-right { color: var(--gray); }
+.portfolio-section .work-card { background: #111; }
+.portfolio-section .work-card:hover { background: #191919; }
+
+/* Individual card color themes */
+.portfolio-section .pc-blue          { background: #0d1829; }
+.portfolio-section .pc-blue:hover    { background: #111f33; }
+.portfolio-section .pc-blue .pcard-name { color: rgba(180,210,255,0.92); }
+.portfolio-section .pc-blue .pcard-url  { color: rgba(120,170,255,0.35); }
+
+.portfolio-section .pc-green         { background: #0b1c0f; }
+.portfolio-section .pc-green:hover   { background: #0f2414; }
+.portfolio-section .pc-green .pcard-name { color: rgba(160,230,180,0.92); }
+.portfolio-section .pc-green .pcard-url  { color: rgba(100,210,140,0.35); }
+
+.portfolio-section .pc-amber         { background: #1d1607; }
+.portfolio-section .pc-amber:hover   { background: #261d0a; }
+.portfolio-section .pc-amber .pcard-name { color: rgba(255,225,130,0.92); }
+.portfolio-section .pc-amber .pcard-url  { color: rgba(240,195,80,0.35); }
+
+.portfolio-section .pc-wine          { background: #1c0b12; }
+.portfolio-section .pc-wine:hover    { background: #240f18; }
+.portfolio-section .pc-wine .pcard-name { color: rgba(255,185,200,0.92); }
+.portfolio-section .pc-wine .pcard-url  { color: rgba(230,120,145,0.35); }
+
+.portfolio-section .pc-radio         { background: #0e0c00; }
+.portfolio-section .pc-radio:hover   { background: #141200; }
+.portfolio-section .pc-radio .pcard-name { color: rgba(255,220,20,0.95); }
+.portfolio-section .pc-radio .pcard-url  { color: rgba(220,185,0,0.35); }
+.portfolio-section .pc-radio .pcard-task-label { color: rgba(255,220,20,0.4); }
+
+/* ─── Wide card with media (Mania Group) ─── */
+.pcard--media {
+  padding: 32px;
+  min-height: 380px;
+}
+.pcard-media-body {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 40px;
+  flex: 1;
+  align-items: stretch;
+}
+.pcard-media-text {
+  display: flex;
+  flex-direction: column;
+}
+.pcard--media .pcard-name { margin-bottom: 10px; }
+.pcard--media .pcard-url { margin-bottom: 28px; }
+.pcard-media-foot {
+  margin-top: auto;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+.pcard-media-imgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-content: center;
+}
+.pmedia-img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+}
+.portfolio-card:hover .pmedia-img { transform: scale(1.02); }
+
+@media (max-width: 768px) {
+  .pcard-media-body { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ─── Full-width case card ─── */
+.work-card--full { grid-column: 1 / -1; }
+
+.pcard--case {
+  padding: 32px;
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.pcard-case-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pcard-case-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  flex: 1;
+}
+
+.pcard-case-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.pcard--case .pcard-name {
+  margin-bottom: 10px;
+}
+
+.pcard--case .pcard-url {
+  margin-bottom: 28px;
+}
+
+.pcard-task {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.pcard-task-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.pcard-task-text {
+  font-size: 17px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+.pcard-case-foot {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.pcard-case-imgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  align-content: start;
+}
+
+.pcase-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .pcard-case-body { grid-template-columns: 1fr; gap: 28px; }
+  .pcard-case-imgs { grid-template-columns: 1fr 1fr; }
+  .pcard--case { min-height: auto; }
+}
+
+/* ─── Hand-drawn circle mark on section headings (matches hero) ─── */
+.ink-mark {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+.ink-mark em { display: inline-block; }
+.ink-mark-svg {
+  position: absolute;
+  left: -8%;
+  top: -12%;
+  width: 116%;
+  height: 128%;
+  overflow: visible;
+  pointer-events: none;
+}
+.ink-mark-svg path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.7;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+/* Draw the circle once the heading scrolls into view */
+.services-head.visible .ink-mark-svg path {
+  animation: heroDraw 1.15s cubic-bezier(.55,0,.25,1) forwards .45s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ink-mark-svg path { stroke-dashoffset: 0; animation: none; }
+}
+
+/* ─── Service-row arrow affordance ─── */
+.wr-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  align-self: flex-start;
+  margin-top: 6px;
+}
+.wr-arrow {
+  font-size: 20px;
+  line-height: 1;
+  color: rgba(var(--c,255,255,255), 0.85);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity .3s, transform .3s;
+}
+.work-row:hover .wr-arrow { opacity: 1; transform: translateX(0); }
+
+/* ─── Portfolio card lift + animated link arrow ─── */
+.portfolio-card { transition: transform .35s cubic-bezier(.4,0,.2,1), background .25s; }
+.portfolio-card:hover { transform: translateY(-5px); }
+
+.pcard-link::after {
+  content: '→';
+  display: inline-block;
+  margin-left: 7px;
+  transition: transform .3s;
+}
+.portfolio-card:hover .pcard-link::after { transform: translateX(4px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-card:hover { transform: none; }
+}
+
+@media (max-width: 768px) {
+  .wr-arrow { display: none; }
+}
+
+/* ═══════════════════════════════════════════════
+   PORTFOLIO GALLERY - device-mockup showcase (pg-)
+   ═══════════════════════════════════════════════ */
+.pgal {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(52px, 7vw, 96px);
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+/* ── Phone group (portrait) ── */
+/* Grid fills the container edge-to-edge so every phone row lines up
+   with the full-width browser cases and the section heading. Columns
+   are equal (1fr) → phone widths stay identical between the two groups
+   and any short final row simply left-aligns, never floats centered. */
+.pg-phones {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(22px, 2.4vw, 42px);
+  align-items: start;
+}
+
+/* ── Card shell ── */
+.pg-card,
+.pg-case { position: relative; }
+
+.pg-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* ── Phone card ── */
+.pg-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pg-device { transition: transform .45s cubic-bezier(.4,0,.2,1), box-shadow .45s cubic-bezier(.4,0,.2,1); }
+
+.pg-phone {
+  width: min(100%, 280px);
+  margin-inline: auto;
+  padding: 8px;
+  border-radius: 38px;
+  background: linear-gradient(160deg, #2b2b2e 0%, #161617 60%, #101011 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 34px 64px -26px rgba(0,0,0,0.8), inset 0 0 0 1.5px rgba(255,255,255,0.04);
+}
+.pg-phone .pg-screen {
+  border-radius: 30px;
+  overflow: hidden;
+  aspect-ratio: 9 / 19.3;
+  background: #000;
+}
+.pg-phone .pg-screen img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+}
+.pg-card:hover .pg-phone {
+  transform: translateY(-10px);
+  box-shadow: 0 48px 80px -28px rgba(0,0,0,0.85), inset 0 0 0 1.5px rgba(255,255,255,0.06);
+}
+
+.pg-card--ampublishing .pg-screen,
+.pg-card--help .pg-screen {
+  background: #fff;
+}
+
+/* ── Browser case (landscape, full-width) ── */
+.pg-case {
+  display: grid;
+  grid-template-columns: 1.4fr 0.85fr;
+  gap: clamp(28px, 4vw, 60px);
+  align-items: center;
+}
+.pg-browser {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #0d0d0d;
+  box-shadow: 0 34px 74px -28px rgba(0,0,0,0.8);
+}
+.pg-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #1b1b1d;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.pg-bar i { width: 11px; height: 11px; border-radius: 50%; background: #3a3a3a; flex: none; }
+.pg-bar i:nth-child(1) { background: #ff5f57; }
+.pg-bar i:nth-child(2) { background: #febc2e; }
+.pg-bar i:nth-child(3) { background: #28c840; }
+.pg-bar span {
+  margin-left: 14px;
+  font-family: 'Onest', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.42);
+  background: rgba(255,255,255,0.05);
+  padding: 4px 16px;
+  border-radius: 20px;
+}
+.pg-browser .pg-screen { aspect-ratio: 16 / 10; overflow: hidden; }
+.pg-browser .pg-screen img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+}
+.pg-case:hover .pg-browser { transform: translateY(-6px); box-shadow: 0 46px 88px -30px rgba(0,0,0,0.85); }
+
+/* ── Info block ── */
+.pg-info { display: flex; flex-direction: column; }
+.pg-card .pg-info {
+  flex: 1;
+  padding: 24px 4px 0;
+  min-height: 264px;
+}
+
+.pg-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+/* NOTE: portfolio section sits on the light cream background
+   (rgb(234,229,218)), so gallery text uses dark brand ink. */
+.pg-num {
+  font-family: 'Onest', sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
+  color: rgba(0,0,0,0.4);
+}
+.pg-cat {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(0,0,0,0.5);
+}
+.pg-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic; font-weight: 500;
+  color: #0a0a0a; line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+.pg-card .pg-name { font-size: 23px; }
+.pg-case .pg-name { font-size: clamp(28px, 3.4vw, 42px); }
+.pg-url {
+  font-family: 'Onest', sans-serif;
+  font-size: 12.5px; letter-spacing: 0.01em;
+  color: rgba(0,0,0,0.42);
+  margin-top: 8px;
+}
+.pg-link, .pg-cat, .pg-desc { font-family: 'Onest', sans-serif; }
+.pg-desc {
+  font-size: 14px; line-height: 1.62;
+  color: rgba(0,0,0,0.66);
+  margin-top: 16px;
+  max-width: 34ch;
+  min-height: 6.5em;
+}
+.pg-case .pg-desc {
+  font-size: 16px;
+  max-width: 46ch;
+  min-height: 0;
+}
+.pg-link {
+  align-self: flex-start;
+  margin-top: auto;
+  position: relative; z-index: 2;
+  font-size: 13px; letter-spacing: 0.02em;
+  color: rgba(0,0,0,0.82);
+  border: 1px solid rgba(0,0,0,0.22);
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 22px; border-radius: 40px;
+  transition: background .25s, border-color .25s, color .25s;
+}
+.pg-link::after { content: " ↗"; opacity: 0.6; }
+.pg-link:hover {
+  background: rgba(0,0,0,0.06);
+  border-color: rgba(0,0,0,0.5);
+  color: #000;
+}
+
+/* ── Reveal stagger ── */
+.pg-phones .pg-card:nth-child(2) { transition-delay: .08s; }
+.pg-phones .pg-card:nth-child(3) { transition-delay: .16s; }
+.pg-phones .pg-card:nth-child(4) { transition-delay: .24s; }
+
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .pg-case { grid-template-columns: 1fr; gap: 24px; }
+  .pg-case .pg-desc { max-width: none; }
+  .pg-case .pg-name { font-size: clamp(26px, 6vw, 34px); }
+}
+
+@media (max-width: 1180px) {
+  .pg-phones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pg-phone { width: min(100%, 300px); }
+  .pg-card .pg-info { min-height: 0; }
+  .pg-desc {
+    max-width: 44ch;
+    min-height: 0;
+  }
+}
+
+/* On phones a single column can make the device very tall - narrow the
+   grid track so one column comfortably fills the width, aligned to edges. */
+@media (max-width: 640px) {
+  .pg-phones { grid-template-columns: 1fr; }
+  .pg-phone { width: min(100%, 290px); }
+  .pg-phone .pg-screen { aspect-ratio: 9 / 19.3; }
+  .pg-link { min-height: 44px; }
+}

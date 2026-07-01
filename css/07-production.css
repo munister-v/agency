@@ -1,0 +1,141 @@
+/* Production polish - final visual pass */
+
+body {
+  background: #f4f1ea;
+}
+
+.nav {
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+}
+
+.nav.scrolled {
+  background: rgba(255,255,255,0.92);
+}
+
+.hero {
+  min-height: 100svh;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+}
+
+.hero-headline {
+  max-width: 1120px;
+}
+
+.hero-cta-pill {
+  min-height: 46px;
+}
+
+.about {
+  background: #f7f6f4;
+}
+
+.about-right p {
+  color: rgba(10,10,10,0.62);
+}
+
+.about-stats {
+  border-top-color: rgba(10,10,10,0.1);
+}
+
+.services {
+  background:
+    linear-gradient(180deg, #0c1020 0%, #090c17 100%);
+}
+
+.service-lead {
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.025)),
+    linear-gradient(180deg, #141a31, #0e1325);
+}
+
+.service-card {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.032));
+}
+
+.service-card p {
+  color: rgba(255,255,255,0.68);
+}
+
+.portfolio-section {
+  padding-top: clamp(88px, 9vw, 136px);
+}
+
+.portfolio-section .services-head {
+  margin-bottom: clamp(48px, 6vw, 78px);
+}
+
+.pg-phone,
+.pg-browser {
+  will-change: transform;
+}
+
+.pg-phone {
+  box-shadow: 0 30px 64px -28px rgba(0,0,0,0.82), inset 0 0 0 1.5px rgba(255,255,255,0.04);
+}
+
+.pg-desc {
+  color: rgba(0,0,0,0.7);
+}
+
+.pg-link {
+  background: rgba(255,255,255,0.2);
+}
+
+.pg-link:hover {
+  background: rgba(255,255,255,0.48);
+}
+
+.how {
+  background: #f7f6f4;
+}
+
+.step {
+  border-color: rgba(10,10,10,0.1);
+}
+
+.banner {
+  background:
+    linear-gradient(135deg, #090b12 0%, #11162a 58%, #0b0d12 100%);
+}
+
+.contact {
+  background: #f7f6f4;
+}
+
+.back-to-top {
+  box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+}
+
+@media (max-width: 768px) {
+  .nav-links.open {
+    padding-top: calc(var(--nav-h) + 52px);
+  }
+
+  .nav-links.open a:not(.nav-cta) {
+    font-size: clamp(31px, 9vw, 40px);
+    line-height: 1.12;
+  }
+
+  .hero {
+    min-height: 100svh;
+  }
+
+  .service-lead,
+  .service-card {
+    border-color: rgba(255,255,255,0.15);
+  }
+
+  .portfolio-section {
+    padding-top: 76px;
+  }
+}
