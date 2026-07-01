@@ -66,11 +66,36 @@ body {
   color: rgba(255,255,255,0.68);
 }
 
-.portfolio-section {
+.services.portfolio-section {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0) 42%),
+    linear-gradient(180deg, #ece7dc 0%, #e4ddcf 100%);
+  color: var(--black);
+}
+
+.services.portfolio-section .services-head h2,
+.services.portfolio-section .services-head h2 em,
+.services.portfolio-section .pg-name {
+  color: #0a0a0a;
+}
+
+.services.portfolio-section .services-head-right,
+.services.portfolio-section .pg-desc {
+  color: rgba(0,0,0,0.68);
+}
+
+.services.portfolio-section .section-tag-light,
+.services.portfolio-section .pg-cat,
+.services.portfolio-section .pg-num,
+.services.portfolio-section .pg-url {
+  color: rgba(0,0,0,0.46);
+}
+
+.services.portfolio-section {
   padding-top: clamp(88px, 9vw, 136px);
 }
 
-.portfolio-section .services-head {
+.services.portfolio-section .services-head {
   margin-bottom: clamp(48px, 6vw, 78px);
 }
 
