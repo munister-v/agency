@@ -339,6 +339,10 @@ button:focus-visible, a:focus-visible {
   background: var(--black);
 }
 
+.menu-close {
+  display: none;
+}
+
 /* ─── HERO (black, centered, editorial) ─── */
 .hero {
   background: #0c1020;
@@ -1193,6 +1197,33 @@ button:focus-visible, a:focus-visible {
     animation: menuIn .28s ease forwards;
     overflow-y: auto;
   }
+
+  .nav-links.open .menu-close {
+    position: fixed;
+    top: max(18px, env(safe-area-inset-top));
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 205;
+  }
+
+  .nav-links.open .menu-close span {
+    position: absolute;
+    width: 22px;
+    height: 1.5px;
+    background: #fff;
+    border-radius: 999px;
+  }
+
+  .nav-links.open .menu-close span:first-child { transform: rotate(45deg); }
+  .nav-links.open .menu-close span:last-child { transform: rotate(-45deg); }
   @keyframes menuIn {
     from { opacity: 0; }
     to   { opacity: 1; }

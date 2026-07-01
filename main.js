@@ -56,6 +56,7 @@ function updateActiveNav() {
 // ─── Burger menu ───
 const burger   = document.getElementById('burger');
 const navLinks = document.getElementById('nav-links');
+const menuClose = document.getElementById('menu-close');
 
 function closeMobileNav() {
   navLinks.classList.remove('open');
@@ -72,6 +73,7 @@ burger.addEventListener('click', () => {
 });
 
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileNav));
+menuClose?.addEventListener('click', closeMobileNav);
 
 document.addEventListener('click', e => {
   if (navLinks.classList.contains('open') && !navLinks.contains(e.target) && !burger.contains(e.target)) {
