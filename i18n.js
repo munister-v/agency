@@ -421,6 +421,15 @@ let currentLang = 'uk';
 function applyLang(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
+
+  // Update canonical URL
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) {
+    canonical.href = lang === 'uk' 
+      ? 'https://agency.munister.com.ua/' 
+      : `https://agency.munister.com.ua/?lang=${lang}`;
+  }
+
   const t = translations[lang];
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
@@ -438,6 +447,15 @@ function applyLang(lang) {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
   localStorage.setItem('lang', lang);
+
+  // Update URL params without reloading
+  const url = new URL(window.location);
+  if (lang === 'uk') {
+    url.searchParams.delete('lang');
+  } else {
+    url.searchParams.set('lang', lang);
+  }
+  window.history.replaceState({}, '', url);
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn => {

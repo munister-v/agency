@@ -5,3 +5,75 @@
 @import url("./css/05-responsive.css?v=19");
 @import url("./css/06-portfolio.css?v=19");
 @import url("./css/07-production.css?v=19");
+
+/* ══════════════════════════════════════════
+   UI/UX Audit Fixes — 2026-07-10
+   ══════════════════════════════════════════ */
+
+/* ── #4: Touch action & Tap highlight ── */
+a, button, input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* ── #5, #11: Mobile container padding ── */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px !important;
+  }
+}
+
+/* ── #7: 100dvh for Hero ── */
+.hero {
+  min-height: 100dvh !important;
+  min-height: 100svh !important;
+}
+
+/* ── #8: 44px min-height for touch targets on mobile ── */
+@media (max-width: 768px) {
+  .nav-links a, .lang-btn, .footer-links a, .social-icon {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ── #9: Burger Menu hitbox ── */
+.burger {
+  padding: 12px !important;
+  margin-right: -12px;
+}
+
+/* ── #15: Form Error Toast Contrast ── */
+.form-toast.error {
+  color: #ef4444 !important; /* brighter red */
+  font-weight: 600;
+}
+
+/* ── #25: Focus outline contrast on dark backgrounds ── */
+.hero:focus-visible,
+.footer:focus-visible,
+[data-theme="dark"]:focus-visible,
+.btn-primary:focus-visible {
+  outline: 2px solid #fff !important;
+  outline-offset: 3px !important;
+}
+
+/* ── #26: Reduced Motion improvements ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero-headline .hl1, .hero-headline .hl2, .hero-cta-pill {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
