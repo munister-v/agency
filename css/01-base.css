@@ -1,11 +1,12 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --black: #0a0a0a;
-  --white: #ffffff;
-  --off: #f7f6f4;
-  --gray: #888;
-  --light: #e8e6e2;
+  --black: #1a1611;
+  --white: #f7f1e6;
+  --off: #efe6d8;
+  --gray: #8a8172;
+  --light: #e4dbc9;
+  --gold: #c9a690;
   --max: 1280px;
   --nav-h: 60px;
 }
@@ -19,7 +20,7 @@ html {
 }
 
 body {
-  font-family: 'Onest', sans-serif;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
   background: var(--white);
   color: var(--black);
   line-height: 1.5;
