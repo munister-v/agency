@@ -59,17 +59,22 @@ const navLinks = document.getElementById('nav-links');
 const menuClose = document.getElementById('menu-close');
 
 function closeMobileNav() {
+  const wasOpen = navLinks.classList.contains('open');
   navLinks.classList.remove('open');
   navEl.classList.remove('menu-open');
   burger.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
+  burger.setAttribute('aria-label', 'Open menu');
+  document.body.classList.remove('menu-active');
+  if (wasOpen) burger.focus({ preventScroll: true });
 }
 
 burger.addEventListener('click', () => {
   const open = navLinks.classList.toggle('open');
   navEl.classList.toggle('menu-open', open);
   burger.setAttribute('aria-expanded', String(open));
-  document.body.style.overflow = open ? 'hidden' : '';
+  burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  document.body.classList.toggle('menu-active', open);
+  if (open) burger.focus({ preventScroll: true });
 });
 
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileNav));
@@ -115,12 +120,6 @@ if ('IntersectionObserver' in window) {
   });
 } else {
   revealEls.forEach(el => el.classList.add('visible'));
-}
-
-// ─── Lang from URL param (?lang=en) ───
-const urlLang = new URLSearchParams(location.search).get('lang');
-if (urlLang && ['uk','en','de','pl'].includes(urlLang)) {
-  localStorage.setItem('lang', urlLang);
 }
 
 // ─── PWA install prompt ───

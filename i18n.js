@@ -462,7 +462,9 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => applyLang(btn.dataset.lang));
 });
 
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+const requested = ['uk', 'en', 'de', 'pl'].includes(urlLang) ? urlLang : null;
 const saved = localStorage.getItem('lang');
 const browser = navigator.language.slice(0, 2);
-const preferred = saved || (['uk','en','de','pl'].includes(browser) ? browser : 'uk');
+const preferred = requested || saved || (['uk','en','de','pl'].includes(browser) ? browser : 'uk');
 applyLang(preferred);

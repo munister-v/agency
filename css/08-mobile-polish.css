@@ -1,0 +1,189 @@
+/* Final interaction and alignment pass. Keep this file last in style.css. */
+
+.pg-phones {
+  align-items: stretch;
+}
+
+.pg-card .pg-info {
+  flex: 1 1 auto;
+}
+
+.pg-link {
+  justify-content: center;
+  white-space: nowrap;
+}
+
+@media (min-width: 769px) and (max-width: 1180px) {
+  .pg-card .pg-info {
+    min-height: 252px;
+  }
+}
+
+@media (max-width: 768px) {
+  body.menu-active {
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body.menu-active > section,
+  body.menu-active > footer,
+  body.menu-active > .back-to-top {
+    visibility: hidden;
+  }
+
+  .nav {
+    isolation: isolate;
+  }
+
+  .nav.menu-open {
+    height: 100dvh;
+    min-height: 100svh;
+    align-items: flex-start;
+    padding-top: max(16px, env(safe-area-inset-top));
+  }
+
+  .nav.menu-open .nav-logo,
+  .nav.menu-open .burger {
+    position: relative;
+    z-index: 3;
+  }
+
+  .nav-links.open {
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    min-height: 100svh;
+    box-sizing: border-box;
+    padding:
+      max(88px, calc(env(safe-area-inset-top) + 76px))
+      24px
+      max(28px, calc(env(safe-area-inset-bottom) + 20px));
+    justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 1;
+  }
+
+  .nav-links.open::before {
+    content: "Munister Agency";
+    width: calc(100% - 72px);
+    margin-bottom: clamp(24px, 7vh, 56px);
+    color: rgba(255,255,255,0.38);
+    font-family: 'Onest', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .nav-links.open .menu-close {
+    display: none;
+  }
+
+  .nav-links.open a:not(.nav-cta) {
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+    padding: 14px 0;
+    font-size: clamp(28px, 8.2vw, 38px);
+    line-height: 1.08;
+  }
+
+  .nav.menu-open .nav-links.open a:not(.nav-cta) {
+    color: rgba(255,255,255,0.62);
+  }
+
+  .nav.menu-open .nav-links.open a:not(.nav-cta):hover,
+  .nav.menu-open .nav-links.open a:not(.nav-cta):focus-visible {
+    color: #fff;
+  }
+
+  .nav-links.open .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: min(100%, 240px);
+    min-height: 50px;
+    margin-top: 28px;
+    padding: 0 24px;
+  }
+
+  .nav-links.open .lang-switcher {
+    position: static;
+    margin: auto 0 0;
+    padding-top: 36px;
+  }
+
+  .nav-links.open .lang-btn {
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .pg-card .pg-info {
+    min-height: 0;
+    padding: 22px 0 0;
+  }
+
+  .pg-desc {
+    margin-top: 14px;
+  }
+
+  .pg-link {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 22px;
+    padding-inline: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-links.open {
+    padding-inline: 20px;
+  }
+
+  .nav-links.open::before {
+    margin-bottom: 20px;
+  }
+
+  .nav-links.open a:not(.nav-cta) {
+    min-height: 58px;
+    font-size: clamp(27px, 8.4vw, 34px);
+  }
+
+  .nav-links.open .nav-cta {
+    width: 100%;
+    margin-top: 22px;
+  }
+}
+
+@media (max-height: 620px) and (max-width: 768px) {
+  .nav-links.open {
+    padding-top: max(68px, calc(env(safe-area-inset-top) + 60px));
+  }
+
+  .nav-links.open::before {
+    display: none;
+  }
+
+  .nav-links.open a:not(.nav-cta) {
+    min-height: 48px;
+    padding-block: 9px;
+    font-size: 27px;
+  }
+
+  .nav-links.open .nav-cta {
+    min-height: 46px;
+    margin-top: 16px;
+  }
+
+  .nav-links.open .lang-switcher {
+    padding-top: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-links.open {
+    animation: none;
+  }
+}
