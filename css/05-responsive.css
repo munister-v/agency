@@ -43,7 +43,7 @@
     flex-direction: column;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: #0a0a0a;
+    background: var(--black);
     padding: calc(var(--nav-h) + 32px) 28px 56px;
     z-index: 195;
     gap: 0;
@@ -130,7 +130,7 @@
 
   /* Nav bar dark when overlay is open */
   .nav.menu-open {
-    background: #0a0a0a !important;
+    background: var(--black) !important;
     border-bottom-color: transparent !important;
     backdrop-filter: none !important;
   }

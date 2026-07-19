@@ -142,7 +142,7 @@
 
 /* ─── HERO (black, centered, editorial) ─── */
 .hero {
-  background: #0c1020;
+  background: var(--black);
   color: #fff;
   min-height: 100vh;
   min-height: 100svh;
