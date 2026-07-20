@@ -611,42 +611,50 @@
 }
 
 .pg-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
-/* NOTE: portfolio section sits on the light cream background
-   (rgb(234,229,218)), so gallery text uses dark brand ink. */
+/* Portfolio sits on the light cream background — dark navy ink, EPRIS type roles */
 .pg-num {
-  font-family: 'Onest', sans-serif;
-  font-size: 12px; font-weight: 600; letter-spacing: 0.12em;
-  color: rgba(0,0,0,0.4);
+  font-family: var(--font-brand);
+  font-size: 11px; font-weight: 400; letter-spacing: 0.12em;
+  color: var(--gold);
 }
 .pg-cat {
-  font-size: 11px; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: rgba(0,0,0,0.5);
+  font-family: var(--font-brand);
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(20,24,58,0.55);
 }
 .pg-name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic; font-weight: 500;
-  color: #0a0a0a; line-height: 1.02;
-  letter-spacing: -0.01em;
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-style: normal; font-weight: 600;
+  color: var(--black); line-height: 1.08;
+  letter-spacing: -0.005em;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+  text-decoration-color: rgba(20,24,58,.3);
+  transition: color .3s, text-decoration-color .3s;
+  display: inline-block;
 }
-.pg-card .pg-name { font-size: 23px; }
+.pg-case:hover .pg-name,
+.pg-card:hover .pg-name { color: var(--gold); text-decoration-color: var(--gold); }
+.pg-card .pg-name { font-size: 22px; }
 .pg-case .pg-name { font-size: clamp(28px, 3.4vw, 42px); }
 .pg-url {
-  font-family: 'Onest', sans-serif;
-  font-size: 12.5px; letter-spacing: 0.01em;
-  color: rgba(0,0,0,0.42);
+  font-family: var(--font-brand);
+  font-size: 10px; letter-spacing: 0.08em;
+  color: rgba(20,24,58,0.4);
   margin-top: 8px;
 }
-.pg-link, .pg-cat, .pg-desc { font-family: 'Onest', sans-serif; }
+.pg-link, .pg-desc { font-family: 'Crimson Text', 'Cormorant Garamond', serif; }
 .pg-desc {
-  font-size: 14px; line-height: 1.62;
-  color: rgba(0,0,0,0.66);
+  font-size: 15px; line-height: 1.6;
+  color: rgba(20,24,58,0.7);
   margin-top: 16px;
   max-width: 34ch;
   min-height: 6.5em;
 }
 .pg-case .pg-desc {
-  font-size: 16px;
+  font-size: 17px;
   max-width: 46ch;
   min-height: 0;
 }
@@ -654,20 +662,21 @@
   align-self: flex-start;
   margin-top: auto;
   position: relative; z-index: 2;
-  font-size: 13px; letter-spacing: 0.02em;
-  color: rgba(0,0,0,0.82);
-  border: 1px solid rgba(0,0,0,0.22);
-  min-height: 42px;
+  font-family: var(--font-brand);
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--black);
+  border: 1px solid rgba(20,24,58,0.3);
+  min-height: 40px;
   display: inline-flex;
   align-items: center;
-  padding: 9px 22px; border-radius: 40px;
+  padding: 9px 22px; border-radius: 999px;
   transition: background .25s, border-color .25s, color .25s;
 }
-.pg-link::after { content: " ↗"; opacity: 0.6; }
+.pg-link::after { content: " ↗"; opacity: 0.7; }
 .pg-link:hover {
-  background: rgba(0,0,0,0.06);
-  border-color: rgba(0,0,0,0.5);
-  color: #000;
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
 }
 
 /* ── Reveal stagger ── */

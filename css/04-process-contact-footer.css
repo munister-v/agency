@@ -8,64 +8,85 @@
 }
 
 .how-head .section-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gray);
+  color: var(--gold);
   margin-bottom: 24px;
 }
 
 .how-head h2 {
-  font-size: clamp(44px, 7vw, 96px);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(38px, 6vw, 84px);
   line-height: 1.04;
 }
 
+/* manifesto-style steps — ported from EPRIS AboutSection */
 .steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--light);
+  gap: 48px;
+  border-top: 1px solid var(--light);
+  padding-top: 56px;
 }
 
 .step {
-  background: var(--white);
-  padding: 48px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .step-num {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 72px;
-  color: var(--light);
-  line-height: 1;
-  margin-bottom: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--black);
+  margin-bottom: 24px;
 }
 
 .step h3 {
-  font-size: 18px;
-  font-weight: 600;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   margin-bottom: 16px;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 .step p {
-  font-size: 14px;
-  color: var(--gray);
-  line-height: 1.8;
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: rgba(20,24,58,.75);
+  line-height: 1.6;
 }
 
 .step-meta {
   margin-top: 20px;
   padding-top: 16px;
   border-top: 1px solid var(--light);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--black);
+  color: rgba(20,24,58,.5);
   line-height: 1.9;
+}
+
+@media (max-width: 768px) {
+  .steps { grid-template-columns: 1fr; gap: 40px; }
 }
 
 /* ─── BANNER (dark) ─── */
@@ -83,34 +104,39 @@
 }
 
 .banner-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
+  color: var(--gold);
   margin-bottom: 32px;
 }
 
 .banner-title {
-  font-size: clamp(44px, 7vw, 92px);
-  line-height: 1.04;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(38px, 6.4vw, 84px);
+  line-height: 1.06;
   margin-bottom: 0;
 }
+.banner-title em { color: var(--gold); font-style: italic; font-weight: 400; }
 
 .banner-right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 20px;
+  gap: 24px;
   padding-bottom: 8px;
 }
 
 .banner-right p {
-  font-size: 14px;
-  color: rgba(255,255,255,0.5);
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: rgba(255,255,255,0.65);
   max-width: 300px;
   text-align: right;
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
 /* ─── BUTTONS ─── */
@@ -118,37 +144,35 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 28px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  padding: 13px 26px;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   cursor: pointer;
-  border: none;
-  transition: all .2s;
-  font-family: 'Onest', sans-serif;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  transition: background .25s, color .25s;
+  font-family: var(--font-brand);
 }
 
 .btn-dark {
-  background: var(--black);
-  color: var(--white);
+  color: var(--black);
 }
-.btn-dark:hover { background: #333; }
+.btn-dark:hover { background: var(--black); color: var(--white); }
 
 .btn-outline {
-  background: transparent;
   color: var(--black);
-  border: 1px solid var(--black);
 }
 .btn-outline:hover { background: var(--black); color: var(--white); }
 
 .btn-white {
-  background: var(--white);
-  color: var(--black);
+  color: var(--white);
 }
-.btn-white:hover { background: var(--off); }
+.btn-white:hover { background: var(--white); color: var(--black); }
 
-.btn-arrow::after { content: '→'; font-size: 14px; }
+.btn-arrow::after { content: '→'; font-size: 13px; }
 
 /* ─── CONTACT ─── */
 .contact {
@@ -282,49 +306,58 @@
 
 .lang-list span { font-size: 15px; }
 
-/* ─── FOOTER ─── */
+/* ─── FOOTER — ported from EPRIS inverted footer band ─── */
 .footer {
   background: var(--black);
   color: var(--white);
-  padding: 44px 40px;
+  padding: 64px 40px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 24px;
+  gap: 40px;
   flex-wrap: wrap;
 }
 
 .footer-contacts {
   display: flex;
-  gap: 32px;
-  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
 }
 
 .footer-logo {
-  font-family: 'Onest', sans-serif;
+  font-family: var(--font-display);
   font-weight: 600;
-  font-size: 18px;
-  letter-spacing: 0.01em;
+  font-size: clamp(30px, 4vw, 48px);
+  letter-spacing: 0;
+  display: block;
+  margin-bottom: 8px;
 }
 
 .footer-copy {
-  font-size: 12px;
-  color: rgba(255,255,255,0.45);
-  letter-spacing: 0.05em;
+  font-family: var(--font-brand);
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .footer-link {
-  font-size: 12px;
-  color: rgba(255,255,255,0.45);
-  letter-spacing: 0.05em;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   transition: color .2s;
 }
-.footer-link:hover { color: #fff; }
+.footer-link:hover { color: var(--gold); }
 
 .footer-domain {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.55);
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
 }
 
