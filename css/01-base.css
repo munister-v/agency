@@ -207,3 +207,19 @@ button:focus-visible, a:focus-visible {
   letter-spacing: 0;
   line-height: 0.9;
 }
+
+/* Bracketed eyebrow labels — every section kicker reads "[ LIKE THIS ]" */
+.section-num,
+.section-tag-light,
+.how-head .section-tag,
+.banner-tag {
+  display: inline-block;
+}
+.section-num::before,
+.section-tag-light::before,
+.how-head .section-tag::before,
+.banner-tag::before { content: '[ '; }
+.section-num::after,
+.section-tag-light::after,
+.how-head .section-tag::after,
+.banner-tag::after { content: ' ]'; }
