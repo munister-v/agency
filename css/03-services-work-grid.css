@@ -37,107 +37,156 @@
   padding-bottom: 8px;
 }
 
-/* Rate list — editorial price list, ported from EPRIS issue-contents pattern
-   (numbered rows + dotted leader to a right-aligned value, see IssuePage.tsx) */
+/* Rate list — editorial price list: heading column + price-tag panel,
+   ported in spirit from EPRIS's issue-contents numbering + gallery scope */
 .rate-list {
   display: flex;
   flex-direction: column;
 }
 
 .rate-row {
-  padding: 34px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 44px 0;
   border-top: 1px solid rgba(255,255,255,0.14);
+  transition: background .3s;
 }
 .rate-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
+.rate-row:hover { background: rgba(255,255,255,0.02); }
 
-.rate-head {
+.rate-main { flex: 1; min-width: 0; }
+
+.rate-heading {
   display: flex;
-  align-items: baseline;
-  gap: 14px;
-  margin-bottom: 14px;
+  align-items: flex-start;
+  gap: 22px;
+  margin-bottom: 18px;
 }
 
 .rate-num {
-  font-family: var(--font-brand);
-  font-size: 11px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
   color: var(--gold-dark);
   flex-shrink: 0;
+  padding-top: 6px;
+}
+
+.rate-sphere {
+  display: block;
+  font-family: var(--font-brand);
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 8px;
 }
 
 .rate-title {
   font-family: 'Crimson Text', 'Cormorant Garamond', serif;
   font-weight: 600;
-  font-size: clamp(21px, 2.6vw, 28px);
-  line-height: 1.15;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.12;
   color: #fff;
-  flex-shrink: 0;
   transition: color .25s;
 }
 .rate-row:hover .rate-title { color: var(--gold-dark); }
 
-.rate-leader {
-  flex: 1;
-  border-bottom: 1px dotted rgba(255,255,255,0.28);
-  margin-bottom: 7px;
-  min-width: 24px;
-}
-
-.rate-price {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 20px;
-  color: var(--gold-dark);
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-.rate-price [data-i18n="price_from"] {
-  font-family: var(--font-brand);
-  font-weight: 400;
-  font-size: 10px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-  margin-right: 2px;
-}
-
-.rate-body { padding-left: 30px; max-width: 720px; }
-
 .rate-desc {
   font-family: 'Crimson Text', 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 16.5px;
+  font-size: 17px;
   line-height: 1.55;
   color: rgba(255,255,255,0.65);
-  margin-bottom: 14px;
+  max-width: 620px;
+  margin: 0 0 22px 56px;
 }
 
 .rate-scope {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0 10px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 32px;
+  max-width: 620px;
+  margin-left: 56px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.rate-scope li {
   font-family: var(--font-brand);
-  font-size: 10px;
-  letter-spacing: .04em;
-  color: rgba(255,255,255,0.5);
+  font-size: 10.5px;
+  letter-spacing: .03em;
+  color: rgba(255,255,255,0.55);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
 }
-.rate-sphere {
-  color: var(--gold-dark);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  margin-right: 4px;
-}
-.rate-scope span:not(.rate-sphere) + span::before {
-  content: '·';
-  margin-right: 10px;
-  opacity: .5;
+.rate-scope li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 7px;
+  height: 1px;
+  background: var(--gold-dark);
 }
 
-@media (max-width: 640px) {
-  .rate-head { flex-wrap: wrap; }
-  .rate-leader { display: none; }
-  .rate-price { margin-left: auto; }
-  .rate-body { padding-left: 0; margin-top: 10px; }
+/* Price tag — bordered panel, distinct from the running text */
+.rate-tag {
+  flex-shrink: 0;
+  width: 156px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+  padding: 24px 16px 20px;
+  border: 1px solid rgba(255,255,255,0.18);
+  transition: border-color .3s;
+}
+.rate-row:hover .rate-tag { border-color: var(--gold-dark); }
+
+.rate-tag-from {
+  font-family: var(--font-brand);
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.rate-tag-price {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 1;
+  color: #fff;
+}
+.rate-tag-price em {
+  font-style: normal;
+  font-size: .56em;
+  color: var(--gold-dark);
+  margin-left: 2px;
+}
+
+.rate-tag-time {
+  font-family: var(--font-brand);
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.14);
+  width: 100%;
+}
+
+@media (max-width: 760px) {
+  .rate-row { flex-direction: column; gap: 24px; }
+  .rate-tag { width: 100%; flex-direction: row; justify-content: space-between; text-align: left; padding: 16px 20px; }
+  .rate-tag-time { width: auto; border-top: none; padding-top: 0; margin-top: 0; }
+  .rate-desc, .rate-scope { margin-left: 0; }
+  .rate-scope { grid-template-columns: 1fr; }
 }
 
 /* Works grid */
