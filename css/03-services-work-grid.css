@@ -37,100 +37,107 @@
   padding-bottom: 8px;
 }
 
-/* Service pricing plans — detailed cards with EUR price + scope of work */
-.plan-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.14);
-}
-
-.plan-card {
-  background: var(--black);
-  padding: 36px 32px;
+/* Rate list — editorial price list, ported from EPRIS issue-contents pattern
+   (numbered rows + dotted leader to a right-aligned value, see IssuePage.tsx) */
+.rate-list {
   display: flex;
   flex-direction: column;
-  transition: background .25s;
 }
-.plan-card:hover { background: #11152e; }
 
-.plan-top {
+.rate-row {
+  padding: 34px 0;
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+.rate-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
+
+.rate-head {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 22px;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 14px;
 }
 
-.plan-sphere {
+.rate-num {
   font-family: var(--font-brand);
-  font-size: 9px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
+  font-size: 11px;
+  color: var(--gold);
+  flex-shrink: 0;
 }
 
-.plan-price {
-  font-family: var(--font-brand);
-  font-size: 10px;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-  white-space: nowrap;
-}
-.plan-price b { font-family: var(--font-display); font-weight: 600; font-size: 17px; color: var(--gold); font-style: normal; letter-spacing: 0; margin-left: 2px; }
-
-.plan-card h3 {
+.rate-title {
   font-family: 'Crimson Text', 'Cormorant Garamond', serif;
   font-weight: 600;
-  font-size: 25px;
+  font-size: clamp(21px, 2.6vw, 28px);
   line-height: 1.15;
   color: #fff;
-  margin-bottom: 12px;
+  flex-shrink: 0;
+  transition: color .25s;
+}
+.rate-row:hover .rate-title { color: var(--gold); }
+
+.rate-leader {
+  flex: 1;
+  border-bottom: 1px dotted rgba(255,255,255,0.28);
+  margin-bottom: 7px;
+  min-width: 24px;
 }
 
-.plan-card > p {
-  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
-  font-size: 15.5px;
-  line-height: 1.55;
-  color: rgba(255,255,255,0.62);
-  margin-bottom: 22px;
+.rate-price {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--gold);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
-
-.plan-list {
-  list-style: none;
-  margin: auto 0 0;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.12);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.plan-list li {
+.rate-price [data-i18n="price_from"] {
   font-family: var(--font-brand);
-  font-size: 10.5px;
-  letter-spacing: .04em;
-  color: rgba(255,255,255,0.55);
-  padding-left: 16px;
-  position: relative;
-  line-height: 1.5;
-}
-.plan-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 6px;
-  width: 6px;
-  height: 1px;
-  background: var(--gold);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-right: 2px;
 }
 
-@media (max-width: 900px) {
-  .plan-grid { grid-template-columns: repeat(2, 1fr); }
+.rate-body { padding-left: 30px; max-width: 720px; }
+
+.rate-desc {
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16.5px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 14px;
 }
-@media (max-width: 620px) {
-  .plan-grid { grid-template-columns: 1fr; }
+
+.rate-scope {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 10px;
+  font-family: var(--font-brand);
+  font-size: 10px;
+  letter-spacing: .04em;
+  color: rgba(255,255,255,0.5);
+}
+.rate-sphere {
+  color: var(--gold);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-right: 4px;
+}
+.rate-scope span:not(.rate-sphere) + span::before {
+  content: '·';
+  margin-right: 10px;
+  opacity: .5;
+}
+
+@media (max-width: 640px) {
+  .rate-head { flex-wrap: wrap; }
+  .rate-leader { display: none; }
+  .rate-price { margin-left: auto; }
+  .rate-body { padding-left: 0; margin-top: 10px; }
 }
 
 /* Works grid */
