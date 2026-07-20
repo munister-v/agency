@@ -18,7 +18,7 @@
 
 .nav-logo {
   font-family: var(--font-brand);
-  font-weight: 700;
+  font-weight: 400;
   font-size: 16px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -27,11 +27,9 @@
   gap: 10px;
 }
 .nav-logo-mark {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  object-fit: cover;
-  transform: scale(1.15);
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
   flex-shrink: 0;
 }
 .nav-logo em,
@@ -155,7 +153,7 @@
   flex-wrap: wrap;
 }
 .masthead-brand { line-height: 1; flex-shrink: 0; }
-.masthead-mark { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; transform: scale(1.15); display: block; }
+.masthead-mark { width: 52px; height: 52px; object-fit: contain; display: block; }
 .masthead-tagline {
   display: flex; align-items: center; gap: 16px; flex: 1; justify-content: center; min-width: 0;
   font-family: var(--font-brand); font-size: 10px; letter-spacing: .28em; text-transform: uppercase;
@@ -185,7 +183,7 @@
   margin-top: 40px;
   font-family: var(--font-brand);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--black);
