@@ -1,12 +1,16 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --black: #1a1611;
-  --white: #f7f1e6;
-  --off: #efe6d8;
-  --gray: #8a8172;
-  --light: #e4dbc9;
-  --gold: #c9a690;
+  --black: #14183a;
+  --white: #f1e8dd;
+  --off: #e8dcca;
+  --gray: #6d7093;
+  --light: #ded2ba;
+  --gold: #1228b0;
+  --navy-cover: #04071c;
+  --font-brand: 'Orbit', ui-monospace, monospace;
+  --font-display: 'Playfair Display', 'Times New Roman', serif;
+  --font-crimson: 'Crimson Text', 'Cormorant Garamond', serif;
   --max: 1280px;
   --nav-h: 60px;
 }
@@ -185,9 +189,9 @@ button:focus-visible, a:focus-visible {
 
 /* ─── FONTS - unified with hero (DM Sans + Cormorant italic accents) ─── */
 .f-display {
-  font-family: 'Onest', sans-serif;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.005em;
   line-height: 1.06;
   text-transform: none;
 }

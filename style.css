@@ -1,10 +1,10 @@
-@import url("./css/01-base.css?v=21");
-@import url("./css/02-nav-hero-about.css?v=21");
-@import url("./css/03-services-work-grid.css?v=21");
-@import url("./css/04-process-contact-footer.css?v=21");
-@import url("./css/05-responsive.css?v=21");
-@import url("./css/06-portfolio.css?v=21");
-@import url("./css/07-production.css?v=21");
+@import url("./css/01-base.css?v=22");
+@import url("./css/02-nav-hero-about.css?v=22");
+@import url("./css/03-services-work-grid.css?v=22");
+@import url("./css/04-process-contact-footer.css?v=22");
+@import url("./css/05-responsive.css?v=22");
+@import url("./css/06-portfolio.css?v=22");
+@import url("./css/07-production.css?v=22");
 @import url("./css/08-mobile-polish.css?v=22");
 
 /* ══════════════════════════════════════════
@@ -21,12 +21,6 @@ a, button, input, select, textarea {
   .container {
     padding: 0 20px !important;
   }
-}
-
-/* ── #7: 100dvh for Hero ── */
-.hero {
-  min-height: 100dvh !important;
-  min-height: 100svh !important;
 }
 
 /* ── #8: 44px min-height for touch targets on mobile ── */

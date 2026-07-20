@@ -8,36 +8,31 @@
   justify-content: space-between;
   padding: 0 40px;
   z-index: 200;
-  background: rgba(255,255,255,0.97);
+  background: rgba(241,232,221,0.97);
   border-bottom: 1px solid var(--light);
   backdrop-filter: blur(8px);
   transition: background .35s ease, border-color .35s ease, backdrop-filter .35s ease;
 }
 
-/* Transparent over the black hero (toggled to .scrolled via JS) */
-.nav:not(.scrolled) {
-  background: transparent;
-  border-bottom-color: transparent;
-  backdrop-filter: none;
-}
-.nav:not(.scrolled) .nav-logo { color: #fff; }
-.nav:not(.scrolled) .nav-links a:not(.nav-cta) { color: rgba(255,255,255,0.7); }
-.nav:not(.scrolled) .nav-links a:not(.nav-cta):hover,
-.nav:not(.scrolled) .nav-links a.active { color: #fff; }
-.nav:not(.scrolled) .lang-btn { color: rgba(255,255,255,0.5); }
-.nav:not(.scrolled) .lang-btn.active,
-.nav:not(.scrolled) .lang-btn:hover { color: #fff; }
-.nav:not(.scrolled) .burger span { background: #fff; }
-.nav:not(.scrolled) .nav-cta { background: #fff; color: #000 !important; }
-.nav:not(.scrolled) .nav-cta:hover { background: rgba(255,255,255,0.85) !important; color: #000 !important; }
-
 .nav-logo, .nav-links a, .lang-btn, .burger span { transition: color .35s ease, background-color .35s ease; }
 
 .nav-logo {
-  font-family: 'Onest', sans-serif;
-  font-weight: 600;
-  font-size: 19px;
-  letter-spacing: 0.01em;
+  font-family: var(--font-brand);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-logo-mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: scale(1.15);
+  flex-shrink: 0;
 }
 .nav-logo em,
 .footer-logo em {
@@ -65,11 +60,11 @@
 }
 .logo-mark-svg path {
   fill: none;
-  stroke: currentColor;
+  stroke: var(--gold);
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: 0.55;
+  opacity: .9;
 }
 
 .nav-links {
@@ -140,33 +135,69 @@
   display: none;
 }
 
-/* ─── HERO (black, centered, editorial) ─── */
+/* ─── HERO — ported 1:1 from EPRIS SectionMasthead + GallerySection ─── */
 .hero {
-  background: var(--black);
-  color: #fff;
-  min-height: 100vh;
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: calc(var(--nav-h) + 24px) 24px 80px;
+  background: var(--white);
+  color: var(--black);
+  padding: calc(var(--nav-h) + 20px) 0 0;
   position: relative;
-  overflow: hidden;
 }
 
-.hero-center {
-  max-width: 1120px;
-  width: 100%;
+/* SectionMasthead variant="plain" */
+.masthead-lockup {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 40px 40px 34px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
 }
+.masthead-brand { line-height: 1; flex-shrink: 0; }
+.masthead-mark { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; transform: scale(1.15); display: block; }
+.masthead-tagline {
+  display: flex; align-items: center; gap: 16px; flex: 1; justify-content: center; min-width: 0;
+  font-family: var(--font-brand); font-size: 10px; letter-spacing: .28em; text-transform: uppercase;
+}
+.masthead-tagline .m-rule { height: 1px; flex: 1; max-width: 80px; background: currentColor; opacity: .35; }
+.masthead-tagline2 {
+  font-family: var(--font-brand); font-size: 10px; letter-spacing: .28em; text-transform: uppercase;
+  opacity: .9; flex-shrink: 0;
+}
+
+.masthead-dotted {
+  border-bottom: 1px dotted rgba(20,24,58,.4);
+}
+
+.hero-center { max-width: var(--max); width: 100%; margin: 0 auto; padding: 64px 40px 96px; text-align: center; }
 
 .hero-headline {
-  font-family: 'Onest', sans-serif;
-  font-weight: 400;
-  font-size: clamp(32px, 6vw, 84px);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(32px, 5.6vw, 68px);
   line-height: 1.14;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.005em;
+}
+
+.hero-more {
+  display: inline-block;
+  margin-top: 40px;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--black);
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 4px;
+  text-decoration: none;
+  transition: color .25s, border-color .25s;
+}
+.hero-more:hover { color: var(--gold); border-color: var(--gold); }
+
+@media (max-width: 768px) {
+  .masthead-tagline { display: none; }
 }
 
 .hero-headline .hl1,
@@ -185,6 +216,7 @@
   font-weight: 400;
   font-size: 1.08em;
   letter-spacing: 0;
+  color: var(--gold);
 }
 .hero-mark-svg {
   position: absolute;
@@ -197,7 +229,7 @@
 }
 .hero-mark-svg path {
   fill: none;
-  stroke: #fff;
+  stroke: var(--gold);
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -264,17 +296,20 @@
 }
 
 .about-left .section-num {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gray);
-  margin-bottom: 40px;
+  color: var(--gold);
+  margin-bottom: 24px;
 }
 
 .about-headline {
-  font-size: clamp(40px, 6vw, 84px);
-  line-height: 1.04;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(36px, 5.4vw, 72px);
+  line-height: 1.06;
 }
 
 .about-right {
@@ -282,12 +317,14 @@
 }
 
 .about-right p {
-  font-size: 16px;
-  color: var(--gray);
-  line-height: 1.8;
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: rgba(20,24,58,.78);
+  line-height: 1.7;
   margin-bottom: 20px;
 }
 
+/* manifesto-style stat circles — ported from EPRIS AboutSection */
 .about-stats {
   display: flex;
   gap: 48px;
@@ -295,22 +332,27 @@
   padding-top: 40px;
   border-top: 1px solid var(--light);
 }
+.about-stats > div { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; }
 
 .stat-num {
-  font-family: 'Onest', sans-serif;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(40px, 5vw, 56px);
-  letter-spacing: -0.02em;
-  line-height: 1;
-  display: block;
+  font-size: 17px;
+  letter-spacing: -0.01em;
 }
 
 .stat-label {
-  font-size: 11px;
-  letter-spacing: 0.12em;
+  font-family: var(--font-brand);
+  font-size: 9px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gray);
-  margin-top: 4px;
-  display: block;
+  color: rgba(20,24,58,.6);
 }
 

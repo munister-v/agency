@@ -1,7 +1,7 @@
 /* Production polish - final visual pass */
 
 body {
-  background: #f4f1ea;
+  background: var(--white);
 }
 
 .nav {
@@ -10,10 +10,6 @@ body {
 
 .nav.scrolled {
   background: rgba(255,255,255,0.92);
-}
-
-.hero {
-  min-height: 100svh;
 }
 
 .hero::after {
@@ -35,15 +31,15 @@ body {
 }
 
 .about {
-  background: #f7f6f4;
+  background: var(--white);
 }
 
 .about-right p {
-  color: rgba(10,10,10,0.62);
+  color: rgba(20,24,58,0.62);
 }
 
 .about-stats {
-  border-top-color: rgba(10,10,10,0.1);
+  border-top-color: rgba(20,24,58,0.1);
 }
 
 .services {
@@ -76,7 +72,7 @@ body {
 .services.portfolio-section .services-head h2,
 .services.portfolio-section .services-head h2 em,
 .services.portfolio-section .pg-name {
-  color: #0a0a0a;
+  color: var(--black);
 }
 
 .services.portfolio-section .services-head-right,
@@ -126,16 +122,16 @@ body {
 
 .pg-card:has(.pg-cover:focus-visible) .pg-phone,
 .pg-case:has(.pg-cover:focus-visible) .pg-browser {
-  outline: 2px solid rgba(10,10,10,0.5);
+  outline: 2px solid rgba(20,24,58,0.5);
   outline-offset: 8px;
 }
 
 .how {
-  background: #f7f6f4;
+  background: var(--white);
 }
 
 .step {
-  border-color: rgba(10,10,10,0.1);
+  border-color: rgba(20,24,58,0.1);
 }
 
 .banner {
@@ -144,7 +140,7 @@ body {
 }
 
 .contact {
-  background: #f7f6f4;
+  background: var(--white);
 }
 
 .back-to-top {

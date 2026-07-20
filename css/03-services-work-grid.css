@@ -114,77 +114,69 @@
   text-align: center;
 }
 
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.service-card {
-  min-height: 292px;
+/* Service list — ported from EPRIS GallerySection rest-items (numbered, no card chrome) */
+.service-rows {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 28px;
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px;
-  background: rgba(255,255,255,0.045);
-  transition: transform .25s, border-color .25s, background .25s;
 }
 
-.service-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(var(--accent), 0.5);
-  background: rgba(var(--accent), 0.1);
+.service-row {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 26px 4px;
+  border-top: 1px solid rgba(255,255,255,0.14);
+  transition: background .25s;
 }
+.service-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
+.service-row:hover { background: rgba(255,255,255,0.03); }
 
-.service-card--wide {
-  grid-column: span 2;
-  min-height: 248px;
-}
-
-.service-card-top {
+.service-row-num {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--gold);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 44px;
+  justify-content: center;
 }
 
-.service-num {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-size: 46px;
-  line-height: 1;
-  color: rgba(var(--accent), 0.72);
-}
-
-.service-tag {
-  min-height: 28px;
-  display: inline-flex;
-  align-items: center;
-  padding: 0 10px;
-  border: 1px solid rgba(var(--accent), 0.32);
-  border-radius: 999px;
-  color: rgba(var(--accent), 0.95);
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.service-card h3 {
-  font-size: 24px;
-  line-height: 1.22;
+.service-row-body h3 {
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
   font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
   color: #fff;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+  transition: color .25s;
+}
+.service-row:hover .service-row-body h3 { color: var(--gold); }
+
+.service-row-body p {
+  max-width: 560px;
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
 }
 
-.service-card p {
-  max-width: 560px;
-  font-size: 14px;
-  line-height: 1.72;
-  color: rgba(255,255,255,0.62);
+.service-row-tag {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .service-row { grid-template-columns: 40px 1fr; }
+  .service-row-tag { grid-column: 2; margin-top: 4px; }
 }
 
 /* Works grid */

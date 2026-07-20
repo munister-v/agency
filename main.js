@@ -5,7 +5,6 @@ const navEl       = document.getElementById('nav');
 const heroEl      = document.getElementById('home');
 
 function navThreshold() {
-  // Switch nav to solid white shortly before the black hero ends
   const h = heroEl ? heroEl.offsetHeight : window.innerHeight;
   return Math.max(h - 80, 60);
 }

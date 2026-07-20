@@ -111,7 +111,7 @@
   <link rel="preload" as="image" href="cover.webp" type="image/webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbit&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css?v=22" />
 </head>
 <body>
@@ -123,7 +123,7 @@
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <a href="#" class="nav-logo">Munister <span class="logo-mark"><em>Agency</em><svg class="logo-mark-svg" viewBox="0 0 200 70" preserveAspectRatio="none" aria-hidden="true"><path d="M8,35 C10,6 190,6 192,35 C190,64 10,64 8,35 Z"/></svg></span></a>
+  <a href="#" class="nav-logo"><img class="nav-logo-mark" src="assets/logo-badge.png" alt="" aria-hidden="true" />Munister <span class="logo-mark"><em>Agency</em><svg class="logo-mark-svg" viewBox="0 0 200 70" preserveAspectRatio="none" aria-hidden="true"><path d="M8,35 C10,6 190,6 192,35 C190,64 10,64 8,35 Z"/></svg></span></a>
   <div class="nav-links" id="nav-links">
     <button class="menu-close" id="menu-close" type="button" aria-label="Close menu">
       <span></span><span></span>
@@ -146,6 +146,19 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
+  <div class="masthead-lockup">
+    <div class="masthead-brand">
+      <img class="masthead-mark" src="assets/logo-badge.png" alt="" aria-hidden="true" />
+    </div>
+    <div class="masthead-tagline">
+      <span class="m-rule"></span>
+      <span data-i18n="hero_tagline1">web · erp · automation</span>
+      <span class="m-rule"></span>
+    </div>
+    <div class="masthead-tagline2" data-i18n="hero_tagline2">рішення без підрядників</div>
+  </div>
+  <div class="masthead-dotted"></div>
+
   <div class="hero-center">
     <h1 class="hero-headline">
       <span class="hl1">
@@ -160,8 +173,8 @@
       </span>
       <span class="hl2" data-i18n="hero_c">будуємо рішення для дому, сім'ї та бізнесу</span>
     </h1>
+    <a class="hero-more" href="#portfolio" data-i18n="hero_more">Переглянути проєкти →</a>
   </div>
-  <div class="hero-scroll-hint" data-i18n="hero_scroll">Гортайте</div>
 </section>
 
 <!-- ABOUT -->
@@ -169,7 +182,7 @@
   <div class="container">
     <div class="about-inner reveal">
       <div class="about-left">
-        <p class="section-num">- 01</p>
+        <p class="section-num" data-i18n="about_kicker">01 · Про студію</p>
         <h2 class="about-headline f-display">
           <span data-i18n="about_title">IT рішення</span><br/>
           <em data-i18n="about_em">будь-якої</em><br/>
@@ -230,59 +243,59 @@
         </div>
       </aside>
 
-      <div class="service-grid">
-        <article class="service-card service-card--wide reveal" style="--accent: 89,151,245">
-          <div class="service-card-top">
-            <span class="service-num">01</span>
-            <span class="service-tag">Web</span>
+      <div class="service-rows">
+        <article class="service-row reveal">
+          <span class="service-row-num">01</span>
+          <div class="service-row-body">
+            <h3 data-i18n="s1_title">Веб-розробка</h3>
+            <p data-i18n="s1_desc">Лендінги, корпоративні сайти, медіа й магазини з чистою структурою, швидким завантаженням і нормальною SEO-базою.</p>
           </div>
-          <h3 data-i18n="s1_title">Веб-розробка</h3>
-          <p data-i18n="s1_desc">Лендінги, корпоративні сайти, медіа й магазини з чистою структурою, швидким завантаженням і нормальною SEO-базою.</p>
+          <span class="service-row-tag">Web</span>
         </article>
 
-        <article class="service-card reveal reveal-delay-1" style="--accent: 168,119,255">
-          <div class="service-card-top">
-            <span class="service-num">02</span>
-            <span class="service-tag">PWA</span>
+        <article class="service-row reveal reveal-delay-1">
+          <span class="service-row-num">02</span>
+          <div class="service-row-body">
+            <h3 data-i18n="s2_title">Мобільні рішення</h3>
+            <p data-i18n="s2_desc">PWA та адаптивні інтерфейси, які однаково зручні на телефоні, планшеті й desktop.</p>
           </div>
-          <h3 data-i18n="s2_title">Мобільні рішення</h3>
-          <p data-i18n="s2_desc">PWA та адаптивні інтерфейси, які однаково зручні на телефоні, планшеті й desktop.</p>
+          <span class="service-row-tag">PWA</span>
         </article>
 
-        <article class="service-card reveal reveal-delay-2" style="--accent: 250,169,82">
-          <div class="service-card-top">
-            <span class="service-num">03</span>
-            <span class="service-tag">Ops</span>
+        <article class="service-row reveal reveal-delay-2">
+          <span class="service-row-num">03</span>
+          <div class="service-row-body">
+            <h3 data-i18n="s3_title">Автоматизація</h3>
+            <p data-i18n="s3_desc">CRM-логіка, Telegram-боти, адмін-панелі, API та сценарії, які прибирають ручну рутину.</p>
           </div>
-          <h3 data-i18n="s3_title">Автоматизація</h3>
-          <p data-i18n="s3_desc">CRM-логіка, Telegram-боти, адмін-панелі, API та сценарії, які прибирають ручну рутину.</p>
+          <span class="service-row-tag">Ops</span>
         </article>
 
-        <article class="service-card reveal reveal-delay-1" style="--accent: 75,207,157">
-          <div class="service-card-top">
-            <span class="service-num">04</span>
-            <span class="service-tag">AI</span>
+        <article class="service-row reveal reveal-delay-1">
+          <span class="service-row-num">04</span>
+          <div class="service-row-body">
+            <h3 data-i18n="s4_title">AI та контент</h3>
+            <p data-i18n="s4_desc">Практичні AI-функції: помічники, редакційні пайплайни, пошук, чернетки й модерація там, де це справді корисно.</p>
           </div>
-          <h3 data-i18n="s4_title">AI та контент</h3>
-          <p data-i18n="s4_desc">Практичні AI-функції: помічники, редакційні пайплайни, пошук, чернетки й модерація там, де це справді корисно.</p>
+          <span class="service-row-tag">AI</span>
         </article>
 
-        <article class="service-card reveal reveal-delay-2" style="--accent: 242,96,96">
-          <div class="service-card-top">
-            <span class="service-num">05</span>
-            <span class="service-tag">ERP</span>
+        <article class="service-row reveal reveal-delay-2">
+          <span class="service-row-num">05</span>
+          <div class="service-row-body">
+            <h3 data-i18n="s5_title">E-commerce &amp; ERP</h3>
+            <p data-i18n="s5_desc">Каталоги, кошики, оплати, склад, замовлення й звітність у власній системі без зайвих підписок.</p>
           </div>
-          <h3 data-i18n="s5_title">E-commerce &amp; ERP</h3>
-          <p data-i18n="s5_desc">Каталоги, кошики, оплати, склад, замовлення й звітність у власній системі без зайвих підписок.</p>
+          <span class="service-row-tag">ERP</span>
         </article>
 
-        <article class="service-card service-card--wide reveal reveal-delay-3" style="--accent: 245,198,103">
-          <div class="service-card-top">
-            <span class="service-num">06</span>
-            <span class="service-tag">Home</span>
+        <article class="service-row reveal reveal-delay-3">
+          <span class="service-row-num">06</span>
+          <div class="service-row-body">
+            <h3 data-i18n="s6_title">IT для дому</h3>
+            <p data-i18n="s6_desc">Домашні сервери, NAS, мережі, сімейні архіви, персональні сайти й приватні інструменти для щоденного життя.</p>
           </div>
-          <h3 data-i18n="s6_title">IT для дому</h3>
-          <p data-i18n="s6_desc">Домашні сервери, NAS, мережі, сімейні архіви, персональні сайти й приватні інструменти для щоденного життя.</p>
+          <span class="service-row-tag">Home</span>
         </article>
       </div>
     </div>
