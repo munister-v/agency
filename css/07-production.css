@@ -157,10 +157,6 @@ body {
     line-height: 1.12;
   }
 
-  .hero {
-    min-height: 100svh;
-  }
-
   .service-lead,
   .service-card {
     border-color: rgba(255,255,255,0.15);
