@@ -292,7 +292,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: end;
+  align-items: start;
 }
 
 .about-left .section-num {
