@@ -60,7 +60,7 @@
 .rate-num {
   font-family: var(--font-brand);
   font-size: 11px;
-  color: var(--gold);
+  color: var(--gold-dark);
   flex-shrink: 0;
 }
 
@@ -73,7 +73,7 @@
   flex-shrink: 0;
   transition: color .25s;
 }
-.rate-row:hover .rate-title { color: var(--gold); }
+.rate-row:hover .rate-title { color: var(--gold-dark); }
 
 .rate-leader {
   flex: 1;
@@ -86,7 +86,7 @@
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 20px;
-  color: var(--gold);
+  color: var(--gold-dark);
   flex-shrink: 0;
   white-space: nowrap;
 }
@@ -122,7 +122,7 @@
   color: rgba(255,255,255,0.5);
 }
 .rate-sphere {
-  color: var(--gold);
+  color: var(--gold-dark);
   letter-spacing: .1em;
   text-transform: uppercase;
   margin-right: 4px;

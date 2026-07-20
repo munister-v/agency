@@ -109,7 +109,7 @@
   font-weight: 400;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-dark);
   margin-bottom: 32px;
 }
 
@@ -120,7 +120,7 @@
   line-height: 1.06;
   margin-bottom: 0;
 }
-.banner-title em { color: var(--gold); font-style: italic; font-weight: 400; }
+.banner-title em { color: var(--gold-dark); font-style: italic; font-weight: 400; }
 
 .banner-right {
   display: flex;
@@ -333,6 +333,7 @@
   display: block;
   margin-bottom: 8px;
 }
+.footer-logo .logo-mark { border-bottom-color: var(--gold-dark); }
 
 .footer-copy {
   font-family: var(--font-brand);
@@ -350,7 +351,7 @@
   text-transform: uppercase;
   transition: color .2s;
 }
-.footer-link:hover { color: var(--gold); }
+.footer-link:hover { color: var(--gold-dark); }
 
 .footer-domain {
   font-family: var(--font-brand);
