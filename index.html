@@ -112,7 +112,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbit&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=27" />
+  <link rel="stylesheet" href="style.css?v=29" />
 </head>
 <body>
 <!-- Scroll progress bar -->
@@ -226,75 +226,98 @@
       <p class="services-head-right" data-i18n="services_sub">Збираємо сайт, систему й запуск в одну чітку лінію: структура, дизайн, код, контент, інтеграції та підтримка.</p>
     </div>
 
-    <div class="service-showcase">
-      <aside class="service-lead reveal">
-        <div>
-          <p class="service-kicker" data-i18n="services_kicker">Повний цикл</p>
-          <h3 data-i18n="services_panel_title">Не просто сторінка, а робочий продукт</h3>
-          <p data-i18n="services_panel_desc">Беремо задачу цілком: формулюємо сценарії, проектуємо інтерфейс, пишемо код, підключаємо сервіси й доводимо до стабільного продакшну.</p>
+    <div class="plan-grid">
+
+      <article class="plan-card reveal">
+        <div class="plan-top">
+          <span class="plan-sphere" data-i18n="s1_sphere">Web-розробка</span>
+          <span class="plan-price"><span data-i18n="price_from">від</span> <b>350€</b></span>
         </div>
-        <div class="service-proof" aria-label="Delivery stages">
-          <span data-i18n="services_proof_1">Стратегія</span>
-          <span data-i18n="services_proof_2">Дизайн</span>
-          <span data-i18n="services_proof_3">Запуск</span>
+        <h3 data-i18n="s1_title">Сайти та веб-сервіси</h3>
+        <p data-i18n="s1_desc">Лендінги, корпоративні сайти, медіа й магазини з чистою структурою, швидким завантаженням і нормальною SEO-базою.</p>
+        <ul class="plan-list">
+          <li data-i18n="s1_i1">Дизайн у Figma, до 5 сторінок</li>
+          <li data-i18n="s1_i2">Адаптивна вьорстка під усі екрани</li>
+          <li data-i18n="s1_i3">Базове SEO та мета-розмітка</li>
+          <li data-i18n="s1_i4">Деплой, домен, 3 місяці підтримки</li>
+        </ul>
+      </article>
+
+      <article class="plan-card reveal reveal-delay-1">
+        <div class="plan-top">
+          <span class="plan-sphere" data-i18n="s2_sphere">Mobile · PWA</span>
+          <span class="plan-price"><span data-i18n="price_from">від</span> <b>600€</b></span>
         </div>
-      </aside>
+        <h3 data-i18n="s2_title">Мобільні рішення</h3>
+        <p data-i18n="s2_desc">PWA та адаптивні інтерфейси, які однаково зручні на телефоні, планшеті й desktop.</p>
+        <ul class="plan-list">
+          <li data-i18n="s2_i1">Встановлення на головний екран</li>
+          <li data-i18n="s2_i2">Офлайн-режим і кешування</li>
+          <li data-i18n="s2_i3">Push-сповіщення</li>
+          <li data-i18n="s2_i4">Тестування на iOS та Android</li>
+        </ul>
+      </article>
 
-      <div class="service-rows">
-        <article class="service-row reveal">
-          <span class="service-row-num">01</span>
-          <div class="service-row-body">
-            <h3 data-i18n="s1_title">Веб-розробка</h3>
-            <p data-i18n="s1_desc">Лендінги, корпоративні сайти, медіа й магазини з чистою структурою, швидким завантаженням і нормальною SEO-базою.</p>
-          </div>
-          <span class="service-row-tag">Web</span>
-        </article>
+      <article class="plan-card reveal reveal-delay-2">
+        <div class="plan-top">
+          <span class="plan-sphere" data-i18n="s3_sphere">Automation · Ops</span>
+          <span class="plan-price"><span data-i18n="price_from">від</span> <b>250€</b></span>
+        </div>
+        <h3 data-i18n="s3_title">Автоматизація процесів</h3>
+        <p data-i18n="s3_desc">CRM-логіка, Telegram-боти, адмін-панелі, API та сценарії, які прибирають ручну рутину.</p>
+        <ul class="plan-list">
+          <li data-i18n="s3_i1">Telegram-бот або CRM-логіка</li>
+          <li data-i18n="s3_i2">Інтеграція із зовнішніми API</li>
+          <li data-i18n="s3_i3">Адмін-панель керування</li>
+          <li data-i18n="s3_i4">Документація сценаріїв</li>
+        </ul>
+      </article>
 
-        <article class="service-row reveal reveal-delay-1">
-          <span class="service-row-num">02</span>
-          <div class="service-row-body">
-            <h3 data-i18n="s2_title">Мобільні рішення</h3>
-            <p data-i18n="s2_desc">PWA та адаптивні інтерфейси, які однаково зручні на телефоні, планшеті й desktop.</p>
-          </div>
-          <span class="service-row-tag">PWA</span>
-        </article>
+      <article class="plan-card reveal reveal-delay-1">
+        <div class="plan-top">
+          <span class="plan-sphere" data-i18n="s4_sphere">AI · Content</span>
+          <span class="plan-price"><span data-i18n="price_from">від</span> <b>300€</b></span>
+        </div>
+        <h3 data-i18n="s4_title">AI та контент</h3>
+        <p data-i18n="s4_desc">Практичні AI-функції: помічники, редакційні пайплайни, пошук, чернетки й модерація там, де це справді корисно.</p>
+        <ul class="plan-list">
+          <li data-i18n="s4_i1">Чат-помічник на базі LLM API</li>
+          <li data-i18n="s4_i2">Контентний пайплайн і чернетки</li>
+          <li data-i18n="s4_i3">Модерація та фільтрація</li>
+          <li data-i18n="s4_i4">Аналітика використання</li>
+        </ul>
+      </article>
 
-        <article class="service-row reveal reveal-delay-2">
-          <span class="service-row-num">03</span>
-          <div class="service-row-body">
-            <h3 data-i18n="s3_title">Автоматизація</h3>
-            <p data-i18n="s3_desc">CRM-логіка, Telegram-боти, адмін-панелі, API та сценарії, які прибирають ручну рутину.</p>
-          </div>
-          <span class="service-row-tag">Ops</span>
-        </article>
+      <article class="plan-card reveal reveal-delay-2">
+        <div class="plan-top">
+          <span class="plan-sphere" data-i18n="s5_sphere">E-commerce · ERP</span>
+          <span class="plan-price"><span data-i18n="price_from">від</span> <b>900€</b></span>
+        </div>
+        <h3 data-i18n="s5_title">E-commerce &amp; ERP</h3>
+        <p data-i18n="s5_desc">Каталоги, кошики, оплати, склад, замовлення й звітність у власній системі без зайвих підписок.</p>
+        <ul class="plan-list">
+          <li data-i18n="s5_i1">Каталог товарів і кошик</li>
+          <li data-i18n="s5_i2">Інтеграція платіжних систем</li>
+          <li data-i18n="s5_i3">Складський облік і замовлення</li>
+          <li data-i18n="s5_i4">Звітність без сторонніх підписок</li>
+        </ul>
+      </article>
 
-        <article class="service-row reveal reveal-delay-1">
-          <span class="service-row-num">04</span>
-          <div class="service-row-body">
-            <h3 data-i18n="s4_title">AI та контент</h3>
-            <p data-i18n="s4_desc">Практичні AI-функції: помічники, редакційні пайплайни, пошук, чернетки й модерація там, де це справді корисно.</p>
-          </div>
-          <span class="service-row-tag">AI</span>
-        </article>
+      <article class="plan-card reveal reveal-delay-3">
+        <div class="plan-top">
+          <span class="plan-sphere" data-i18n="s6_sphere">Home · IT</span>
+          <span class="plan-price"><span data-i18n="price_from">від</span> <b>150€</b></span>
+        </div>
+        <h3 data-i18n="s6_title">IT для дому</h3>
+        <p data-i18n="s6_desc">Домашні сервери, NAS, мережі, сімейні архіви, персональні сайти й приватні інструменти для щоденного життя.</p>
+        <ul class="plan-list">
+          <li data-i18n="s6_i1">Налаштування NAS і сервера</li>
+          <li data-i18n="s6_i2">Домашня мережа та Wi-Fi</li>
+          <li data-i18n="s6_i3">Резервне копіювання даних</li>
+          <li data-i18n="s6_i4">Сімейний архів і приватні інструменти</li>
+        </ul>
+      </article>
 
-        <article class="service-row reveal reveal-delay-2">
-          <span class="service-row-num">05</span>
-          <div class="service-row-body">
-            <h3 data-i18n="s5_title">E-commerce &amp; ERP</h3>
-            <p data-i18n="s5_desc">Каталоги, кошики, оплати, склад, замовлення й звітність у власній системі без зайвих підписок.</p>
-          </div>
-          <span class="service-row-tag">ERP</span>
-        </article>
-
-        <article class="service-row reveal reveal-delay-3">
-          <span class="service-row-num">06</span>
-          <div class="service-row-body">
-            <h3 data-i18n="s6_title">IT для дому</h3>
-            <p data-i18n="s6_desc">Домашні сервери, NAS, мережі, сімейні архіви, персональні сайти й приватні інструменти для щоденного життя.</p>
-          </div>
-          <span class="service-row-tag">Home</span>
-        </article>
-      </div>
     </div>
   </div>
 </section>
@@ -537,7 +560,7 @@
 <!-- Back to top -->
 <button class="back-to-top" id="backToTop" aria-label="Вгору">↑</button>
 
-<script src="i18n.js?v=7"></script>
+<script src="i18n.js?v=9"></script>
 <script src="main.js?v=6"></script>
 </body>
 </html>

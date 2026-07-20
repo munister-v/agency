@@ -37,146 +37,100 @@
   padding-bottom: 8px;
 }
 
-.service-showcase {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1.45fr);
-  gap: 32px;
-  align-items: start;
-}
-
-.service-lead {
-  position: sticky;
-  top: calc(var(--nav-h) + 32px);
-  min-height: 560px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 36px;
-  border: 1px solid rgba(255,255,255,0.14);
-  border-radius: 8px;
-  background:
-    linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02)),
-    #11162a;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.28);
-}
-
-.service-kicker {
-  display: inline-flex;
-  align-items: center;
-  min-height: 28px;
-  padding: 0 10px;
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.62);
-  margin-bottom: 28px;
-}
-
-.service-lead h3 {
-  max-width: 360px;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 46px;
-  line-height: 1.03;
-  color: #fff;
-  margin-bottom: 24px;
-}
-
-.service-lead p:not(.service-kicker) {
-  max-width: 420px;
-  font-size: 15px;
-  line-height: 1.8;
-  color: rgba(255,255,255,0.68);
-}
-
-.service-proof {
+/* Service pricing plans — detailed cards with EUR price + scope of work */
+.plan-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.14);
 }
 
-.service-proof span {
-  min-height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 10px;
+.plan-card {
   background: var(--black);
-  color: rgba(255,255,255,0.7);
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-/* Service list — ported from EPRIS GallerySection rest-items (numbered, no card chrome) */
-.service-rows {
+  padding: 36px 32px;
   display: flex;
   flex-direction: column;
-}
-
-.service-row {
-  display: grid;
-  grid-template-columns: 56px 1fr auto;
-  align-items: center;
-  gap: 24px;
-  padding: 26px 4px;
-  border-top: 1px solid rgba(255,255,255,0.14);
   transition: background .25s;
 }
-.service-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
-.service-row:hover { background: rgba(255,255,255,0.03); }
+.plan-card:hover { background: #11152e; }
 
-.service-row-num {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 15px;
-  color: var(--gold);
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
+.plan-top {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
 }
 
-.service-row-body h3 {
-  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 1.2;
-  color: #fff;
-  margin-bottom: 8px;
-  transition: color .25s;
-}
-.service-row:hover .service-row-body h3 { color: var(--gold); }
-
-.service-row-body p {
-  max-width: 560px;
-  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
-  font-size: 15px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.6);
-}
-
-.service-row-tag {
+.plan-sphere {
   font-family: var(--font-brand);
-  font-size: 10px;
-  letter-spacing: .18em;
+  font-size: 9px;
+  letter-spacing: .14em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.5);
-  white-space: nowrap;
 }
 
-@media (max-width: 640px) {
-  .service-row { grid-template-columns: 40px 1fr; }
-  .service-row-tag { grid-column: 2; margin-top: 4px; }
+.plan-price {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  white-space: nowrap;
+}
+.plan-price b { font-family: var(--font-display); font-weight: 600; font-size: 17px; color: var(--gold); font-style: normal; letter-spacing: 0; margin-left: 2px; }
+
+.plan-card h3 {
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.plan-card > p {
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.62);
+  margin-bottom: 22px;
+}
+
+.plan-list {
+  list-style: none;
+  margin: auto 0 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.plan-list li {
+  font-family: var(--font-brand);
+  font-size: 10.5px;
+  letter-spacing: .04em;
+  color: rgba(255,255,255,0.55);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+.plan-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 6px;
+  height: 1px;
+  background: var(--gold);
+}
+
+@media (max-width: 900px) {
+  .plan-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .plan-grid { grid-template-columns: 1fr; }
 }
 
 /* Works grid */
