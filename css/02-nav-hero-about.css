@@ -343,3 +343,63 @@
   color: rgba(20,24,58,.6);
 }
 
+/* Manifesto — ported 1:1 from EPRIS AboutSection's principles block */
+.manifesto {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 80px 40px 0;
+  border-top: 1px solid var(--light);
+}
+
+.manifesto-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(26px, 3.2vw, 36px);
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  text-align: center;
+}
+
+.manifesto-num {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.manifesto-item h4 {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: var(--gold);
+}
+
+.manifesto-item p {
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(20,24,58,.75);
+  max-width: 32ch;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .manifesto-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
