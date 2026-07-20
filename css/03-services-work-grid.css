@@ -122,7 +122,7 @@
 }
 
 .rate-title {
-  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond', 'Crimson Text', serif;
   font-weight: 600;
   font-size: clamp(24px, 3vw, 34px);
   line-height: 1.12;
@@ -143,44 +143,38 @@
 
 .rate-scope {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   max-width: 620px;
-  margin-left: 56px;
+  margin: 0 0 0 56px;
   padding-top: 20px;
   border-top: 1px solid rgba(255,255,255,0.1);
 }
 .rate-scope li {
   font-family: var(--font-brand);
-  font-size: 10.5px;
-  letter-spacing: .03em;
-  color: rgba(255,255,255,0.55);
-  padding-left: 16px;
-  position: relative;
-  line-height: 1.5;
+  font-size: 10px;
+  letter-spacing: .04em;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.4;
+  padding: 6px 14px;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 999px;
+  transition: border-color .25s, color .25s;
 }
-.rate-scope li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 6px;
-  width: 7px;
-  height: 1px;
-  background: var(--gold-dark);
+.rate-row:hover .rate-scope li {
+  border-color: rgba(255,255,255,0.28);
 }
 
-/* Price tag — bordered panel, distinct from the running text */
+/* Price — no box, just a strong number set off by a thin left rule */
 .rate-tag {
   flex-shrink: 0;
-  width: 156px;
+  width: 140px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 6px;
-  padding: 24px 16px 20px;
-  border: 1px solid rgba(255,255,255,0.18);
+  gap: 8px;
+  padding-left: 24px;
+  border-left: 1px solid rgba(255,255,255,0.16);
   transition: border-color .3s;
 }
 .rate-row:hover .rate-tag { border-color: var(--gold-dark); }
@@ -196,13 +190,13 @@
 .rate-tag-price {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 34px;
+  font-size: 38px;
   line-height: 1;
   color: #fff;
 }
 .rate-tag-price em {
   font-style: normal;
-  font-size: .56em;
+  font-size: .5em;
   color: var(--gold-dark);
   margin-left: 2px;
 }
@@ -213,18 +207,12 @@
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--gold-dark);
-  margin-top: 6px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255,255,255,0.14);
-  width: 100%;
 }
 
 @media (max-width: 760px) {
-  .rate-row { flex-direction: column; gap: 24px; }
-  .rate-tag { width: 100%; flex-direction: row; justify-content: space-between; text-align: left; padding: 16px 20px; }
-  .rate-tag-time { width: auto; border-top: none; padding-top: 0; margin-top: 0; }
+  .rate-row { flex-direction: column; gap: 20px; }
+  .rate-tag { width: 100%; flex-direction: row; align-items: baseline; gap: 12px; padding-left: 0; padding-top: 16px; border-left: none; border-top: 1px solid rgba(255,255,255,0.16); }
   .rate-desc, .rate-scope { margin-left: 0; }
-  .rate-scope { grid-template-columns: 1fr; }
 }
 
 /* Works grid */
