@@ -37,6 +37,44 @@
   padding-bottom: 8px;
 }
 
+/* Capability columns — breadth overview, ported from Lama Lama's WHAT WE DO */
+.capability-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 48px 0 64px;
+  margin-bottom: 8px;
+  border-top: 1px solid rgba(255,255,255,0.14);
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+
+.capability-head {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 20px;
+}
+
+.capability-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.capability-col li {
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: 16px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.4;
+}
+
+@media (max-width: 760px) {
+  .capability-grid { grid-template-columns: 1fr; gap: 32px; padding: 40px 0 48px; }
+}
+
 /* Rate list — editorial price list: heading column + price-tag panel,
    ported in spirit from EPRIS's issue-contents numbering + gallery scope */
 .rate-list {
