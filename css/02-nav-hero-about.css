@@ -46,24 +46,10 @@
   position: relative;
   display: inline-block;
   white-space: nowrap;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 1px;
 }
-.logo-mark-svg {
-  position: absolute;
-  left: -14%;
-  top: -24%;
-  width: 128%;
-  height: 148%;
-  overflow: visible;
-  pointer-events: none;
-}
-.logo-mark-svg path {
-  fill: none;
-  stroke: var(--gold);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: .9;
-}
+.logo-mark-svg { display: none; }
 
 .nav-links {
   display: flex;
