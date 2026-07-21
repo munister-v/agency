@@ -137,7 +137,6 @@
 #services .rate-row { padding: 56px 0; }
 
 @media (max-width: 760px) {
-  #services { padding: 96px 0; }
   #services .rate-num {
     font-size: clamp(40px, 12vw, 56px);
     width: auto;
@@ -145,6 +144,16 @@
   #services .rate-heading { gap: 18px; }
   #services .rate-desc,
   #services .rate-scope { margin-left: 0; }
+}
+
+/* ── Mobile balance: tighter, aligned, no dead air ── */
+@media (max-width: 640px) {
+  #services { padding: 52px 0; }
+  #services .services-head { margin-bottom: 32px; align-items: flex-start; }
+  #services .services-head h2 { font-size: 44px; text-align: left; }
+  #services .ink-mark-svg { display: none; }
+  #services .services-head-right { font-size: 14px; margin-top: 4px; text-align: left; }
+
 }
 
 /* ── #about: larger headline + stronger body ── */
@@ -157,6 +166,7 @@
 }
 #about .manifesto-title { font-size: clamp(30px, 3.6vw, 46px); }
 
-@media (max-width: 760px) {
-  #about { padding: 96px 0; }
+@media (max-width: 640px) {
+  #about { padding: 48px 0; }
 }
+
