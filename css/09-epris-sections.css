@@ -83,3 +83,80 @@
 #about .manifesto-num { border-color: var(--e-ink); }
 #about .manifesto-item h4 { color: var(--e-mute); }
 #about .manifesto-item p { color: var(--e-soft); }
+
+/* ══════════════════════════════════════════
+   Editorial scale + character — the sections read
+   larger, bolder and more "magazine": oversized
+   serif numerals as the signature accent, bigger
+   display type, stronger ink.
+   ══════════════════════════════════════════ */
+
+/* ── #services: big display header + editorial rate list ── */
+#services { padding: 150px 0; }
+
+#services .services-head { margin-bottom: 88px; }
+#services .services-head h2 { font-size: clamp(56px, 9vw, 132px); }
+#services .section-tag-light { font-size: 12px; letter-spacing: 0.24em; }
+
+/* Oversized serif numeral — the signature editorial mark */
+#services .rate-heading { gap: 28px; align-items: flex-start; }
+#services .rate-num {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(46px, 5vw, 76px);
+  line-height: 0.86;
+  color: rgba(17, 17, 17, 0.20);
+  width: 92px;
+  flex-shrink: 0;
+  padding-top: 0;
+  text-align: left;
+  transition: color .3s;
+}
+#services .rate-row:hover .rate-num { color: rgba(17, 17, 17, 0.42); }
+
+#services .rate-sphere {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  margin-bottom: 12px;
+}
+#services .rate-title {
+  font-size: clamp(30px, 3.6vw, 48px);
+  line-height: 1.04;
+}
+#services .rate-desc {
+  font-size: 19px;
+  line-height: 1.6;
+  color: rgba(17, 17, 17, 0.74);
+  margin-left: 120px;
+  max-width: 640px;
+}
+#services .rate-scope { margin-left: 120px; }
+
+/* Price reads as a strong editorial figure */
+#services .rate-tag-price { font-size: 48px; }
+#services .rate-row { padding: 56px 0; }
+
+@media (max-width: 760px) {
+  #services { padding: 96px 0; }
+  #services .rate-num {
+    font-size: clamp(40px, 12vw, 56px);
+    width: auto;
+  }
+  #services .rate-heading { gap: 18px; }
+  #services .rate-desc,
+  #services .rate-scope { margin-left: 0; }
+}
+
+/* ── #about: larger headline + stronger body ── */
+#about { padding: 150px 0; }
+#about .about-headline { font-size: clamp(44px, 6.6vw, 96px); line-height: 1.02; }
+#about .about-left .section-num { font-size: 11px; letter-spacing: 0.3em; }
+#about .about-right p {
+  font-size: 18px;
+  color: rgba(17, 17, 17, 0.82);
+}
+#about .manifesto-title { font-size: clamp(30px, 3.6vw, 46px); }
+
+@media (max-width: 760px) {
+  #about { padding: 96px 0; }
+}
