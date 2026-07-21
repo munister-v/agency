@@ -1,0 +1,85 @@
+/* ══════════════════════════════════════════
+   EPRIS-styled sections — #about ("IT solutions")
+   and #services ("What we do"), matched 1:1 to
+   eprisjournal.com: cream #f5f0eb, near-black #111
+   ink, Crimson Text serif + Orbit mono labels,
+   monochrome (no blue accent).
+   ══════════════════════════════════════════ */
+
+#about,
+#services {
+  --e-bg:   #f5f0eb;             /* EPRIS body background */
+  --e-ink:  #111111;             /* EPRIS text */
+  --e-mute: rgba(17, 17, 17, 0.6);
+  --e-soft: rgba(17, 17, 17, 0.78);
+  --e-line: rgba(17, 17, 17, 0.14);
+
+  background: var(--e-bg);
+  color: var(--e-ink);
+}
+
+/* ── #services: flip from dark navy to EPRIS cream ── */
+.services#services {
+  background: var(--e-bg);
+  color: var(--e-ink);
+}
+
+#services .section-tag-light {
+  color: var(--e-mute);
+  font-family: var(--font-brand);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+}
+
+#services .services-head-right { color: var(--e-mute); }
+
+#services .capability-grid {
+  border-top: 1px solid var(--e-line);
+  border-bottom: 1px solid var(--e-line);
+}
+#services .capability-head { color: var(--e-mute); }
+#services .capability-col li { color: var(--e-soft); }
+
+/* Rate list — editorial price rows on cream */
+#services .rate-row { border-top: 1px solid var(--e-line); }
+#services .rate-row:last-child { border-bottom: 1px solid var(--e-line); }
+#services .rate-row:hover { background: rgba(17, 17, 17, 0.02); }
+
+#services .rate-num,
+#services .rate-sphere { color: var(--e-mute); }
+
+#services .rate-title { color: var(--e-ink); }
+#services .rate-row:hover .rate-title { color: var(--e-mute); }
+
+#services .rate-desc { color: var(--e-soft); }
+
+#services .rate-scope { border-top: 1px solid var(--e-line); }
+#services .rate-scope li {
+  color: var(--e-mute);
+  border: 1px solid var(--e-line);
+}
+#services .rate-row:hover .rate-scope li { border-color: rgba(17, 17, 17, 0.3); }
+
+#services .rate-tag { border-left: 1px solid var(--e-line); }
+#services .rate-row:hover .rate-tag { border-color: var(--e-ink); }
+#services .rate-tag-from,
+#services .rate-tag-time { color: var(--e-mute); }
+#services .rate-tag-price { color: var(--e-ink); }
+#services .rate-tag-price em { color: var(--e-mute); }
+
+@media (max-width: 760px) {
+  #services .rate-tag { border-top: 1px solid var(--e-line); }
+}
+
+/* ── #about: keep cream but align ink + drop blue accents ── */
+#about .about-left .section-num { color: var(--e-mute); }
+#about .about-right p { color: var(--e-soft); }
+
+#about .about-stats { border-top: 1px solid var(--e-line); }
+#about .stat-num { border-color: var(--e-ink); }
+#about .stat-label { color: var(--e-mute); }
+
+#about .manifesto { border-top: 1px solid var(--e-line); }
+#about .manifesto-num { border-color: var(--e-ink); }
+#about .manifesto-item h4 { color: var(--e-mute); }
+#about .manifesto-item p { color: var(--e-soft); }
