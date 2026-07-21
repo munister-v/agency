@@ -1,0 +1,128 @@
+/* ══════════════════════════════════════════
+   #about "Про студію" — rebuilt as an EPRIS
+   editorial layout: kicker + big serif headline, a
+   lead paragraph with inline stats, then the
+   principles as vertical article blocks (index +
+   serif title + text, split by thin rules).
+   ══════════════════════════════════════════ */
+
+/* ── Head ── */
+.studio-head { margin-bottom: clamp(36px, 4vw, 56px); }
+#about .studio-head .section-num {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.55);
+  margin-bottom: 24px;
+}
+#about .studio-head .about-headline {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(44px, 6.6vw, 96px);
+  line-height: 1.0;
+  max-width: 14ch;
+}
+
+/* ── Lead + stats ── */
+.studio-lead {
+  max-width: 900px;
+  margin-bottom: clamp(56px, 7vw, 96px);
+}
+.studio-lead-p {
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: clamp(21px, 2.1vw, 27px);
+  line-height: 1.5;
+  color: #111;
+  max-width: 32ch;
+  margin-bottom: 36px;
+}
+.studio-lead-sub {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 760px;
+}
+.studio-lead-sub p {
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(17, 17, 17, 0.72);
+}
+
+.studio-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(40px, 5vw, 72px);
+  margin-top: 44px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(17, 17, 17, 0.14);
+}
+.studio-stat { display: flex; flex-direction: column; gap: 8px; }
+.studio-stat-num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(30px, 3vw, 44px);
+  line-height: 1;
+  color: #111;
+}
+.studio-stat-label {
+  font-family: var(--font-brand);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.5);
+}
+
+/* ── Principles as vertical article blocks ── */
+.studio-blocks-tag {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.5);
+  margin-bottom: 8px;
+}
+
+.studio-block {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: clamp(24px, 4vw, 64px);
+  align-items: start;
+  padding: clamp(32px, 3.4vw, 48px) 0;
+  border-top: 1px solid rgba(17, 17, 17, 0.16);
+}
+.studio-block:last-child { border-bottom: 1px solid rgba(17, 17, 17, 0.16); }
+
+.studio-block-num {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(34px, 3.4vw, 52px);
+  line-height: 0.8;
+  color: rgba(17, 17, 17, 0.22);
+  transition: color .3s;
+}
+.studio-block:hover .studio-block-num { color: rgba(17, 17, 17, 0.5); }
+
+.studio-block-main { max-width: 720px; }
+.studio-block-title {
+  font-family: 'Cormorant Garamond', 'Crimson Text', serif;
+  font-weight: 600;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.04;
+  letter-spacing: -0.005em;
+  color: #111;
+  margin-bottom: 14px;
+}
+.studio-block-text {
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.6;
+  color: rgba(17, 17, 17, 0.72);
+}
+
+@media (max-width: 680px) {
+  .studio-lead-sub { grid-template-columns: 1fr; gap: 18px; }
+  .studio-block { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
+  .studio-block-num { font-size: 34px; }
+}

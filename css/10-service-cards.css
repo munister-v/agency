@@ -1,43 +1,40 @@
 /* ══════════════════════════════════════════
-   Service cards — the priced services rebuilt as
-   EPRIS-style article cards: a fine-art image on
-   top, mono category, serif title, short lede and a
-   price footer. Sharp corners, slow image zoom on
-   hover, monochrome ink on cream.
+   Service cards — priced services as a clean
+   typographic grid, no imagery. Editorial like an
+   EPRIS issue-contents: a thin top rule, an oversized
+   faint serif index, mono category, serif title,
+   short lede and a price footer. Monochrome on cream.
    ══════════════════════════════════════════ */
 
 .svc-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(40px, 4vw, 64px) clamp(24px, 2.4vw, 40px);
-  margin-top: clamp(8px, 2vw, 28px);
+  gap: 0 clamp(32px, 3.4vw, 64px);
+  margin-top: clamp(8px, 2vw, 24px);
 }
 
 .svc-card {
   display: flex;
   flex-direction: column;
+  padding: 32px 0 36px;
+  border-top: 1px solid rgba(17, 17, 17, 0.16);
 }
 
-.svc-card-media {
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
-  background: rgba(17, 17, 17, 0.05);
+.svc-card-top {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
   margin-bottom: 22px;
 }
-.svc-card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 1.25s cubic-bezier(.4, 0, .2, 1);
+.svc-num {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(30px, 2.6vw, 40px);
+  line-height: 0.8;
+  color: rgba(17, 17, 17, 0.22);
+  transition: color .3s;
 }
-.svc-card:hover .svc-card-media img { transform: scale(1.045); }
-
-.svc-card-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
+.svc-card:hover .svc-num { color: rgba(17, 17, 17, 0.5); }
 
 .svc-cat {
   font-family: var(--font-brand);
@@ -45,17 +42,16 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: rgba(17, 17, 17, 0.55);
-  margin-bottom: 12px;
 }
 
 .svc-title {
   font-family: 'Cormorant Garamond', 'Crimson Text', serif;
   font-weight: 600;
-  font-size: clamp(24px, 2.3vw, 32px);
-  line-height: 1.06;
+  font-size: clamp(26px, 2.6vw, 36px);
+  line-height: 1.04;
   letter-spacing: -0.005em;
   color: #111;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .svc-desc {
@@ -63,7 +59,8 @@
   font-size: 16px;
   line-height: 1.55;
   color: rgba(17, 17, 17, 0.7);
-  margin-bottom: 24px;
+  margin-bottom: 26px;
+  max-width: 34ch;
 }
 
 .svc-price-row {
@@ -72,7 +69,7 @@
   align-items: baseline;
   gap: 12px;
   padding-top: 18px;
-  border-top: 1px solid rgba(17, 17, 17, 0.14);
+  border-top: 1px solid rgba(17, 17, 17, 0.12);
 }
 .svc-from {
   font-family: var(--font-brand);
@@ -84,7 +81,7 @@
 .svc-price {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 30px;
+  font-size: 32px;
   line-height: 1;
   color: #111;
 }
@@ -104,8 +101,10 @@
 }
 
 @media (max-width: 900px) {
-  .svc-grid { grid-template-columns: repeat(2, 1fr); }
+  .svc-grid { grid-template-columns: repeat(2, 1fr); gap: 0 clamp(28px, 4vw, 44px); }
 }
 @media (max-width: 560px) {
-  .svc-grid { grid-template-columns: 1fr; gap: 48px; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .svc-card { padding: 26px 0 30px; }
+  .svc-desc { max-width: none; }
 }
