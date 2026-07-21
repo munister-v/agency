@@ -7,7 +7,7 @@
    ══════════════════════════════════════════ */
 
 /* ── Head ── */
-.studio-head { margin-bottom: clamp(36px, 4vw, 56px); }
+.studio-head { margin-bottom: clamp(20px, 2.4vw, 32px); }
 #about .studio-head .section-num {
   font-family: var(--font-brand);
   font-size: 11px;
@@ -27,7 +27,7 @@
 /* ── Lead + stats ── */
 .studio-lead {
   max-width: 900px;
-  margin-bottom: clamp(56px, 7vw, 96px);
+  margin-bottom: clamp(36px, 4vw, 56px);
 }
 .studio-lead-p {
   font-family: 'Crimson Text', 'Cormorant Garamond', serif;
@@ -89,7 +89,7 @@
   grid-template-columns: 96px 1fr;
   gap: clamp(24px, 4vw, 64px);
   align-items: start;
-  padding: clamp(32px, 3.4vw, 48px) 0;
+  padding: clamp(22px, 2.4vw, 32px) 0;
   border-top: 1px solid rgba(17, 17, 17, 0.16);
 }
 .studio-block:last-child { border-bottom: 1px solid rgba(17, 17, 17, 0.16); }

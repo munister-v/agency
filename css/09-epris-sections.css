@@ -92,9 +92,9 @@
    ══════════════════════════════════════════ */
 
 /* ── #services: big display header + editorial rate list ── */
-#services { padding: 150px 0; }
+#services { padding: 88px 0; }
 
-#services .services-head { margin-bottom: 88px; }
+#services .services-head { margin-bottom: 44px; }
 #services .services-head h2 { font-size: clamp(56px, 9vw, 132px); }
 #services .section-tag-light { font-size: 12px; letter-spacing: 0.24em; }
 
@@ -148,7 +148,7 @@
 }
 
 /* ── #about: larger headline + stronger body ── */
-#about { padding: 150px 0; }
+#about { padding: 88px 0; }
 #about .about-headline { font-size: clamp(44px, 6.6vw, 96px); line-height: 1.02; }
 #about .about-left .section-num { font-size: 11px; letter-spacing: 0.3em; }
 #about .about-right p {
