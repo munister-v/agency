@@ -1,0 +1,111 @@
+/* ══════════════════════════════════════════
+   Service cards — the priced services rebuilt as
+   EPRIS-style article cards: a fine-art image on
+   top, mono category, serif title, short lede and a
+   price footer. Sharp corners, slow image zoom on
+   hover, monochrome ink on cream.
+   ══════════════════════════════════════════ */
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(40px, 4vw, 64px) clamp(24px, 2.4vw, 40px);
+  margin-top: clamp(8px, 2vw, 28px);
+}
+
+.svc-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.svc-card-media {
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: rgba(17, 17, 17, 0.05);
+  margin-bottom: 22px;
+}
+.svc-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.25s cubic-bezier(.4, 0, .2, 1);
+}
+.svc-card:hover .svc-card-media img { transform: scale(1.045); }
+
+.svc-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.svc-cat {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.55);
+  margin-bottom: 12px;
+}
+
+.svc-title {
+  font-family: 'Cormorant Garamond', 'Crimson Text', serif;
+  font-weight: 600;
+  font-size: clamp(24px, 2.3vw, 32px);
+  line-height: 1.06;
+  letter-spacing: -0.005em;
+  color: #111;
+  margin-bottom: 12px;
+}
+
+.svc-desc {
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(17, 17, 17, 0.7);
+  margin-bottom: 24px;
+}
+
+.svc-price-row {
+  margin-top: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(17, 17, 17, 0.14);
+}
+.svc-from {
+  font-family: var(--font-brand);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.5);
+}
+.svc-price {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1;
+  color: #111;
+}
+.svc-price em {
+  font-style: normal;
+  font-size: 0.5em;
+  color: rgba(17, 17, 17, 0.5);
+  margin-left: 2px;
+}
+.svc-time {
+  margin-left: auto;
+  font-family: var(--font-brand);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.5);
+}
+
+@media (max-width: 900px) {
+  .svc-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .svc-grid { grid-template-columns: 1fr; gap: 48px; }
+}
