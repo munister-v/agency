@@ -96,7 +96,7 @@
   letter-spacing: 0.08em;
   color: var(--gray);
   cursor: pointer;
-  padding: 4px 6px;
+  padding: 4px 5px;
   font-family: var(--font-brand);
   transition: color .2s;
 }
