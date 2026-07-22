@@ -9,7 +9,7 @@
 /* ── Head ── */
 .studio-head {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   gap: clamp(24px, 4vw, 56px);
   margin-bottom: clamp(20px, 2.4vw, 32px);
@@ -31,6 +31,14 @@
   max-width: 14ch;
 }
 
+.studio-head-photo-wrap {
+  flex-shrink: 0;
+  width: clamp(180px, 18vw, 230px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 .studio-head-photo {
   flex-shrink: 0;
   width: clamp(110px, 12vw, 176px);
@@ -44,6 +52,46 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.studio-head-caption {
+  margin-top: 16px;
+}
+.studio-head-name {
+  font-family: var(--font-brand);
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: 0.02em;
+}
+.studio-head-role {
+  font-family: var(--font-brand);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.5);
+  margin-top: 3px;
+}
+.studio-head-bio {
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(17, 17, 17, 0.7);
+  margin-top: 12px;
+}
+.studio-head-link {
+  display: inline-block;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #111;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.3);
+  margin-top: 14px;
+  transition: color .2s, border-color .2s;
+}
+.studio-head-link:hover {
+  color: var(--bf, #0055aa);
+  border-color: currentColor;
 }
 
 /* ── Lead + stats ── */
@@ -155,7 +203,10 @@
     align-items: flex-start;
     gap: 16px;
   }
+  .studio-head-photo-wrap { width: auto; align-items: flex-start; text-align: left; }
   .studio-head-photo { width: 88px; height: 88px; }
+  .studio-head-caption { margin-top: 12px; }
+  .studio-head-bio { max-width: 40ch; }
   #about .studio-head .section-num { margin-bottom: 14px; }
   #about .studio-head .about-headline { font-size: 38px; }
 
