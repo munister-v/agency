@@ -1,0 +1,201 @@
+/* ─────────────────────────────────────────────────────────────
+   International offer — a compact proof layer for teams that need
+   more than a visual refresh: stack literacy, a low-risk entry
+   point and three clear engagement models.
+   ───────────────────────────────────────────────────────────── */
+
+.stack-strip {
+  display: grid;
+  grid-template-columns: minmax(180px, .7fr) minmax(0, 2.3fr);
+  gap: 24px 40px;
+  align-items: start;
+  padding: 20px 0 42px;
+  border-bottom: 1px solid rgba(17,17,17,.14);
+}
+
+.stack-strip-label {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  line-height: 1.55;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(17,17,17,.56);
+  max-width: 23ch;
+}
+
+.stack-strip-items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.stack-strip-items span {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: .08em;
+  color: rgba(17,17,17,.78);
+  border: 1px solid rgba(17,17,17,.16);
+  border-radius: 999px;
+  padding: 9px 12px;
+  white-space: nowrap;
+}
+
+.engagements {
+  margin-top: clamp(76px, 10vw, 138px);
+  padding-top: clamp(64px, 8vw, 104px);
+  border-top: 1px solid rgba(17,17,17,.24);
+}
+
+.engagements-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+  align-items: end;
+  gap: 40px 80px;
+  margin-bottom: clamp(40px, 5vw, 68px);
+}
+
+.engagements-heading .section-tag-light { margin-bottom: 18px; }
+
+.engagements-heading h2 {
+  font-size: clamp(44px, 6.2vw, 88px);
+  line-height: .98;
+  color: #111;
+}
+
+.engagements-heading h2 em {
+  color: rgba(17,17,17,.58);
+}
+
+.engagements-heading > p {
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: clamp(17px, 1.45vw, 20px);
+  line-height: 1.52;
+  color: rgba(17,17,17,.68);
+  max-width: 34ch;
+  padding-bottom: 4px;
+}
+
+.engagement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(17,17,17,.16);
+}
+
+.engagement-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 334px;
+  padding: clamp(22px, 3vw, 42px) clamp(18px, 3.2vw, 44px) 28px 0;
+  border-right: 1px solid rgba(17,17,17,.16);
+}
+
+.engagement-card + .engagement-card {
+  padding-left: clamp(18px, 3.2vw, 44px);
+}
+
+.engagement-card:last-child { border-right: 0; padding-right: 0; }
+
+.engagement-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: var(--font-brand);
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(17,17,17,.5);
+}
+
+.engagement-card h3 {
+  margin-top: clamp(42px, 5vw, 70px);
+  font-family: 'Cormorant Garamond', 'Crimson Text', serif;
+  font-size: clamp(31px, 3vw, 44px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -.01em;
+  color: #111;
+}
+
+.engagement-card > p:not(.engagement-deliverable) {
+  margin-top: 16px;
+  max-width: 30ch;
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(17,17,17,.7);
+}
+
+.engagement-deliverable {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid rgba(17,17,17,.14);
+  font-family: var(--font-brand);
+  font-size: 9px;
+  line-height: 1.55;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: rgba(17,17,17,.58);
+}
+
+.engagement-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 24px 0 0;
+  border-top: 1px solid rgba(17,17,17,.16);
+}
+
+.engagement-note p {
+  max-width: 66ch;
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: 17px;
+  line-height: 1.5;
+  color: rgba(17,17,17,.72);
+}
+
+.engagement-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  flex-shrink: 0;
+  font-family: var(--font-brand);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #111;
+  border-bottom: 1px solid rgba(17,17,17,.55);
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.engagement-cta:hover { color: rgba(17,17,17,.62); border-color: currentColor; }
+
+@media (max-width: 880px) {
+  .engagements-heading { grid-template-columns: 1fr; gap: 22px; }
+  .engagements-heading > p { max-width: 46ch; }
+  .engagement-grid { grid-template-columns: 1fr; }
+  .engagement-card,
+  .engagement-card + .engagement-card,
+  .engagement-card:last-child {
+    min-height: 0;
+    padding: 28px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(17,17,17,.16);
+  }
+  .engagement-card h3 { margin-top: 30px; }
+  .engagement-card > p:not(.engagement-deliverable) { max-width: 54ch; }
+  .engagement-deliverable { margin-top: 26px; }
+}
+
+@media (max-width: 700px) {
+  .stack-strip { grid-template-columns: 1fr; gap: 16px; padding: 22px 0 36px; }
+  .stack-strip-label { max-width: none; }
+  .stack-strip-items { gap: 7px; }
+  .stack-strip-items span { font-size: 9px; padding: 8px 10px; }
+  .engagements { margin-top: 64px; padding-top: 58px; }
+  .engagements-heading h2 { font-size: clamp(42px, 14vw, 64px); }
+  .engagement-note { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .engagement-note p { font-size: 16px; }
+}

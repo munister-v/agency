@@ -85,6 +85,15 @@
   line-height: 1;
   color: #111;
 }
+.svc-price--scope {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #111;
+  white-space: nowrap;
+}
 .svc-price em {
   font-style: normal;
   font-size: 0.5em;

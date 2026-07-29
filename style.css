@@ -9,6 +9,7 @@
 @import url("./css/09-epris-sections.css?v=39");
 @import url("./css/10-service-cards.css?v=39");
 @import url("./css/11-studio.css?v=40");
+@import url("./css/12-international-offer.css?v=41");
 
 /* ══════════════════════════════════════════
    UI/UX Audit Fixes — 2026-07-10
@@ -24,6 +25,15 @@ a, button, input, select, textarea {
   .container {
     padding: 0 20px !important;
   }
+}
+
+/* One extra navigation point for international buyers without making
+   the intermediate desktop widths feel cramped. */
+@media (min-width: 769px) and (max-width: 1160px) {
+  .nav { padding-inline: 28px; }
+  .nav-links { gap: 20px; }
+  .nav-links a { font-size: 10px; }
+  .lang-switcher { margin-left: 0; }
 }
 
 /* ── #8: 44px min-height for touch targets on mobile ── */

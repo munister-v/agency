@@ -38,7 +38,7 @@ backToTop.addEventListener('click', () => {
 });
 
 // ─── Active nav highlighting ───
-const sections = ['home','about','services','portfolio','how'].map(id => document.getElementById(id)).filter(Boolean);
+const sections = ['home','about','services','engagements','portfolio','how'].map(id => document.getElementById(id)).filter(Boolean);
 
 function updateActiveNav() {
   const scrollY = window.scrollY + 100;
