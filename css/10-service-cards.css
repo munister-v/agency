@@ -59,8 +59,36 @@
   font-size: 16px;
   line-height: 1.55;
   color: rgba(17, 17, 17, 0.7);
-  margin-bottom: 26px;
+  margin-bottom: 20px;
   max-width: 34ch;
+}
+
+.svc-includes {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.svc-includes li {
+  position: relative;
+  padding-left: 17px;
+  font-family: var(--font-brand);
+  font-size: 9px;
+  line-height: 1.55;
+  letter-spacing: .055em;
+  color: rgba(17, 17, 17, .57);
+}
+
+.svc-includes li::before {
+  position: absolute;
+  top: .62em;
+  left: 0;
+  width: 7px;
+  height: 1px;
+  background: currentColor;
+  content: "";
 }
 
 .svc-price-row {

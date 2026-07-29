@@ -1333,6 +1333,163 @@ const translations = {
   },
 };
 
+// 2026 international offer expansion. English remains the authoritative
+// technical copy; Ukrainian is fully localised. Other language editions use
+// explicit service labels below and safely fall back to English for the new
+// long-form standards material until an editorial translation is approved.
+Object.assign(translations.en, {
+  nav_standards: "Standards",
+  cap3_head: "Systems & Advisory",
+  cap3_4: "Product and UX audits",
+  cap3_5: "Architecture and technical rescue",
+  cap3_6: "Roadmaps and ongoing product care",
+  s6_sphere: "Audit · Advisory",
+  s6_title: "Audit, rescue & advisory",
+  s6_desc: "Independent product, UX, SEO and technical review for inherited systems, stalled launches and expensive uncertainty.",
+  s6_i1: "Code, UX and architecture review",
+  s6_i2: "Performance, SEO and security risks",
+  s6_i3: "Prioritised remediation roadmap",
+  s6_i4: "Senior implementation support",
+  s6_time: "Review · direction · support",
+  std_kicker: "02 · Standards & technology",
+  std_title_1: "Beautiful outside.",
+  std_title_2: "Disciplined underneath.",
+  std_intro: "We treat design quality and engineering quality as the same job. The exact stack changes; the production discipline does not.",
+  std1_label: "Experience",
+  std1_title: "Accessible by default",
+  std1_desc: "Semantic structure, keyboard paths, visible focus, readable contrast and touch targets designed toward WCAG 2.2 AA.",
+  std1_a: "Responsive from 360 px upward",
+  std1_b: "Reduced-motion support",
+  std1_c: "Content hierarchy and form clarity",
+  std2_label: "Performance",
+  std2_title: "Fast enough to feel immediate",
+  std2_desc: "Core Web Vitals guide image strategy, bundle size, rendering and caching — measured on real devices, not assumed.",
+  std2_a: "LCP, INP and CLS budgets",
+  std2_b: "Responsive images and lazy loading",
+  std2_c: "Caching and delivery strategy",
+  std3_label: "Reliability",
+  std3_title: "Safe releases, visible systems",
+  std3_desc: "Validation, permissions, backups, logs and rollback thinking are designed before launch — not after the first incident.",
+  std3_a: "Staging and release checks",
+  std3_b: "Monitoring and actionable errors",
+  std3_c: "Backup and recovery plan",
+  std4_label: "Security",
+  std4_title: "Minimum access, explicit trust",
+  std4_desc: "We reduce attack surface with role-based access, input validation, secret separation and dependency review appropriate to the product.",
+  std4_a: "Least-privilege permissions",
+  std4_b: "Validated uploads and API inputs",
+  std4_c: "Privacy-aware integrations",
+  tech_kicker: "Architecture, deliberately chosen",
+  tech_title: "One stack is not a strategy.",
+  tech_desc: "We choose the lightest architecture that can carry the product safely. A campaign site should not inherit SaaS complexity; an ERP should not be built like a landing page.",
+  tech1_title: "Experience layer",
+  tech1_desc: "Semantic HTML, modern CSS, TypeScript, React and Next.js when component state or server rendering creates real value.",
+  tech2_title: "Application layer",
+  tech2_desc: "Node.js or Python services, REST APIs, background jobs and admin tools designed around the operational workflow.",
+  tech3_title: "Data & operations",
+  tech3_desc: "Relational data models, safe imports, search, roles and reporting that remain understandable as the product grows.",
+  tech4_title: "Infrastructure & delivery",
+  tech4_desc: "Cloudflare, Linux, Docker, Nginx and Git-based deployment with monitoring, cache rules and documented ownership.",
+  tech5_title: "AI & integrations",
+  tech5_desc: "LLM workflows, structured retrieval and external services with human review, cost controls and graceful fallbacks.",
+  gates_label: "Every production release passes through",
+  gate1: "Scope & architecture",
+  gate2: "Responsive QA",
+  gate3: "Accessibility review",
+  gate4: "Performance & SEO",
+  gate5: "Security & data paths",
+  gate6: "Handover & recovery",
+  std_note: "Not every project needs every technology. Every project does need a clear reason for what is included, what is excluded and how it will be maintained.",
+  std_cta: "Request a technical audit →",
+});
+
+Object.assign(translations.uk, {
+  nav_standards: "Стандарти",
+  cap3_head: "Системи та консалтинг",
+  cap3_4: "Продуктовий та UX-аудит",
+  cap3_5: "Архітектура і технічне відновлення",
+  cap3_6: "Роадмапи та розвиток продукту",
+  s6_sphere: "Аудит · Консалтинг",
+  s6_title: "Аудит, відновлення та консалтинг",
+  s6_desc: "Незалежний продуктовий, UX-, SEO- і технічний аналіз успадкованих систем, зупинених запусків і дорогої невизначеності.",
+  s6_i1: "Ревʼю коду, UX та архітектури",
+  s6_i2: "Ризики продуктивності, SEO й безпеки",
+  s6_i3: "Пріоритетний план виправлень",
+  s6_i4: "Senior-підтримка реалізації",
+  s6_time: "Аналіз · напрям · підтримка",
+  std_kicker: "02 · Стандарти й технології",
+  std_title_1: "Красиво зовні.",
+  std_title_2: "Дисципліновано всередині.",
+  std_intro: "Якість дизайну та інженерії для нас — одна робота. Конкретний стек змінюється, продакшн-дисципліна — ні.",
+  std1_label: "Досвід",
+  std1_title: "Доступність за замовчуванням",
+  std1_desc: "Семантична структура, клавіатурна навігація, видимий фокус, читабельний контраст і touch-зони з орієнтиром на WCAG 2.2 AA.",
+  std1_a: "Адаптивність від 360 px",
+  std1_b: "Підтримка reduced motion",
+  std1_c: "Чітка ієрархія та зрозумілі форми",
+  std2_label: "Швидкість",
+  std2_title: "Швидко настільки, щоб відчуватися миттєво",
+  std2_desc: "Core Web Vitals визначають роботу із зображеннями, розмір коду, рендеринг і кеш — усе вимірюємо на реальних пристроях.",
+  std2_a: "Бюджети LCP, INP і CLS",
+  std2_b: "Адаптивні зображення та lazy loading",
+  std2_c: "Стратегія кешування й доставки",
+  std3_label: "Надійність",
+  std3_title: "Безпечні релізи, видимі системи",
+  std3_desc: "Валідацію, права, резервні копії, журнали та сценарій відкату проєктуємо до запуску, а не після першого інциденту.",
+  std3_a: "Staging і перевірки релізу",
+  std3_b: "Моніторинг і зрозумілі помилки",
+  std3_c: "План резервування та відновлення",
+  std4_label: "Безпека",
+  std4_title: "Мінімальний доступ, явна довіра",
+  std4_desc: "Зменшуємо поверхню атаки через рольовий доступ, валідацію вводу, розділення секретів і перевірку залежностей під конкретний продукт.",
+  std4_a: "Принцип найменших привілеїв",
+  std4_b: "Перевірені завантаження та API-дані",
+  std4_c: "Інтеграції з урахуванням приватності",
+  tech_kicker: "Архітектура, обрана свідомо",
+  tech_title: "Один стек — це не стратегія.",
+  tech_desc: "Обираємо найлегшу архітектуру, яка безпечно витримає продукт. Промосайту не потрібна складність SaaS, а ERP не можна будувати як лендінг.",
+  tech1_title: "Рівень взаємодії",
+  tech1_desc: "Семантичний HTML, сучасний CSS, TypeScript, React і Next.js там, де стан компонентів чи серверний рендеринг дають реальну користь.",
+  tech2_title: "Рівень застосунку",
+  tech2_desc: "Node.js або Python-сервіси, REST API, фонові задачі й адмін-інструменти, спроєктовані навколо операційного процесу.",
+  tech3_title: "Дані та операції",
+  tech3_desc: "Реляційні моделі, безпечні імпорти, пошук, ролі й звітність, які залишаються зрозумілими зі зростанням продукту.",
+  tech4_title: "Інфраструктура та доставка",
+  tech4_desc: "Cloudflare, Linux, Docker, Nginx і Git-деплой із моніторингом, правилами кешу та задокументованою відповідальністю.",
+  tech5_title: "AI та інтеграції",
+  tech5_desc: "LLM-сценарії, структурований пошук і зовнішні сервіси з людською перевіркою, контролем витрат і резервними сценаріями.",
+  gates_label: "Кожен продакшн-реліз проходить",
+  gate1: "Обсяг та архітектура",
+  gate2: "Адаптивний QA",
+  gate3: "Перевірка доступності",
+  gate4: "Продуктивність і SEO",
+  gate5: "Безпека та шляхи даних",
+  gate6: "Передача й відновлення",
+  std_note: "Не кожному проєкту потрібна кожна технологія. Але кожному потрібне чітке пояснення, що входить, що не входить і як усе підтримувати.",
+  std_cta: "Замовити технічний аудит →",
+});
+
+Object.assign(translations.de, {
+  nav_standards: "Standards", cap3_head: "Systeme & Beratung", cap3_4: "Produkt- und UX-Audits", cap3_5: "Architektur und technische Sanierung", cap3_6: "Roadmaps und laufende Produktpflege",
+  s6_sphere: "Audit · Beratung", s6_title: "Audit, Sanierung & Beratung", s6_desc: "Unabhängige Produkt-, UX-, SEO- und technische Prüfung für bestehende Systeme, blockierte Launches und teure Unsicherheit.", s6_i1: "Code-, UX- und Architekturprüfung", s6_i2: "Performance-, SEO- und Sicherheitsrisiken", s6_i3: "Priorisierter Maßnahmenplan", s6_i4: "Senior-Unterstützung bei der Umsetzung", s6_time: "Prüfung · Richtung · Begleitung",
+});
+Object.assign(translations.pl, {
+  nav_standards: "Standardy", cap3_head: "Systemy i doradztwo", cap3_4: "Audyty produktu i UX", cap3_5: "Architektura i naprawa techniczna", cap3_6: "Roadmapy i rozwój produktu",
+  s6_sphere: "Audyt · Doradztwo", s6_title: "Audyt, naprawa i doradztwo", s6_desc: "Niezależny audyt produktu, UX, SEO i technologii dla odziedziczonych systemów, opóźnionych wdrożeń i kosztownej niepewności.", s6_i1: "Przegląd kodu, UX i architektury", s6_i2: "Ryzyka wydajności, SEO i bezpieczeństwa", s6_i3: "Priorytetowy plan naprawczy", s6_i4: "Wsparcie seniora we wdrożeniu", s6_time: "Audyt · kierunek · wsparcie",
+});
+Object.assign(translations.es, {
+  nav_standards: "Estándares", cap3_head: "Sistemas y consultoría", cap3_4: "Auditorías de producto y UX", cap3_5: "Arquitectura y rescate técnico", cap3_6: "Roadmaps y evolución del producto",
+  s6_sphere: "Auditoría · Consultoría", s6_title: "Auditoría, rescate y consultoría", s6_desc: "Revisión independiente de producto, UX, SEO y tecnología para sistemas heredados, lanzamientos bloqueados e incertidumbre costosa.", s6_i1: "Revisión de código, UX y arquitectura", s6_i2: "Riesgos de rendimiento, SEO y seguridad", s6_i3: "Hoja de ruta priorizada", s6_i4: "Apoyo senior en la implementación", s6_time: "Revisión · dirección · apoyo",
+});
+Object.assign(translations.pt, {
+  nav_standards: "Normas", cap3_head: "Sistemas e consultoria", cap3_4: "Auditorias de produto e UX", cap3_5: "Arquitetura e recuperação técnica", cap3_6: "Roadmaps e evolução do produto",
+  s6_sphere: "Auditoria · Consultoria", s6_title: "Auditoria, recuperação e consultoria", s6_desc: "Revisão independente de produto, UX, SEO e tecnologia para sistemas herdados, lançamentos bloqueados e incerteza dispendiosa.", s6_i1: "Revisão de código, UX e arquitetura", s6_i2: "Riscos de desempenho, SEO e segurança", s6_i3: "Plano de correção priorizado", s6_i4: "Apoio sénior à implementação", s6_time: "Revisão · direção · apoio",
+});
+Object.assign(translations.it, {
+  nav_standards: "Standard", cap3_head: "Sistemi e consulenza", cap3_4: "Audit di prodotto e UX", cap3_5: "Architettura e recupero tecnico", cap3_6: "Roadmap e crescita del prodotto",
+  s6_sphere: "Audit · Consulenza", s6_title: "Audit, recupero e consulenza", s6_desc: "Revisione indipendente di prodotto, UX, SEO e tecnologia per sistemi ereditati, lanci bloccati e incertezza costosa.", s6_i1: "Revisione di codice, UX e architettura", s6_i2: "Rischi di performance, SEO e sicurezza", s6_i3: "Piano di intervento prioritario", s6_i4: "Supporto senior all'implementazione", s6_time: "Revisione · direzione · supporto",
+});
+
 let currentLang = 'en';
 
 function applyLang(lang) {
@@ -1350,13 +1507,14 @@ function applyLang(lang) {
   const t = translations[lang];
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) {
+    const value = t[key] !== undefined ? t[key] : translations.en[key];
+    if (value !== undefined) {
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-        el.placeholder = t[key];
+        el.placeholder = value;
       } else if (el.tagName === 'OPTION') {
-        el.textContent = t[key];
+        el.textContent = value;
       } else {
-        el.innerHTML = t[key];
+        el.innerHTML = value;
       }
     }
   });
