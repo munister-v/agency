@@ -13,13 +13,24 @@ function updateNavState(scrolled) {
   navEl.classList.toggle('scrolled', scrolled > navThreshold());
 }
 
+function backToTopThreshold() {
+  if (window.innerWidth <= 700) {
+    const portfolioEl = document.getElementById('portfolio');
+    if (portfolioEl) {
+      return Math.max(portfolioEl.offsetTop - window.innerHeight * 0.35, 1800);
+    }
+    return Math.max(window.innerHeight * 4, 1800);
+  }
+  return 600;
+}
+
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
   const total    = document.documentElement.scrollHeight - window.innerHeight;
   progressBar.style.width = total > 0 ? (scrolled / total * 100) + '%' : '0%';
 
   // Back to top visibility
-  if (scrolled > 600) backToTop.classList.add('visible');
+  if (scrolled > backToTopThreshold()) backToTop.classList.add('visible');
   else backToTop.classList.remove('visible');
 
   // Nav transparent-over-hero → solid
