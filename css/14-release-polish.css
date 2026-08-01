@@ -1,0 +1,85 @@
+/* Release typography and interaction pass — deliberately quiet, with stronger hierarchy. */
+:root { --measure: 66ch; }
+
+body { text-wrap: pretty; }
+
+.f-display {
+  letter-spacing: clamp(-.025em, -.6vw, -.008em);
+  line-height: .98;
+}
+
+.hero-headline {
+  max-width: min(1120px, 18ch);
+  margin-inline: auto;
+  text-wrap: balance;
+}
+
+.hero p,
+.about-right p,
+.service-card p,
+.pg-desc {
+  max-width: var(--measure);
+  text-wrap: pretty;
+}
+
+.section-tag,
+.section-num,
+.pg-num,
+.pg-cat,
+.pg-url { font-variant-numeric: tabular-nums; }
+
+.service-card,
+.service-lead,
+.pg-card,
+.pg-case {
+  transition: transform .28s cubic-bezier(.22, 1, .36, 1), box-shadow .28s ease, border-color .28s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover,
+  .pg-card:hover,
+  .pg-case:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 45px rgba(20, 24, 58, .12);
+  }
+}
+
+.pg-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+}
+
+.nav-cta,
+.hero-cta-pill,
+.engagement-cta { min-height: 46px; }
+
+@media (max-width: 768px) {
+  .hero-headline {
+    max-width: 14ch;
+    letter-spacing: -.025em;
+  }
+
+  .f-display { line-height: 1.01; }
+
+  .about-right p,
+  .service-card p,
+  .pg-desc {
+    font-size: 1.06rem;
+    line-height: 1.52;
+  }
+
+  .section-tag,
+  .section-num { letter-spacing: .08em; }
+
+  .pg-card,
+  .pg-case { overflow: clip; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .service-lead,
+  .pg-card,
+  .pg-case { transition: none; }
+}
