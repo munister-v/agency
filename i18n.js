@@ -1539,7 +1539,23 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 
 const urlLang = new URLSearchParams(window.location.search).get('lang');
 const requested = ['uk', 'en', 'de', 'pl', 'es', 'pt', 'it'].includes(urlLang) ? urlLang : null;
-const saved = localStorage.getItem('lang');
-const browser = navigator.language.slice(0, 2);
-const preferred = requested || saved || (['uk','en','de','pl','es','pt','it'].includes(browser) ? browser : 'en');
-applyLang(preferred);
+// English is the public default. A translated URL is intentionally explicit:
+// it is shareable, predictable for international visitors and never silently
+// changes because a browser or a previous session happened to use another locale.
+applyLang(requested || 'en');
+
+Object.assign(translations.en, {
+  proof_tag: 'What stays with your team',
+  proof_title_1: 'Clear work,',
+  proof_title_2: 'not agency theatre.',
+  proof_intro: 'Every engagement leaves behind useful artefacts, not a black box: a decision trail, production-ready work and a team that can continue without us.',
+  proof_1_title: 'A shared decision frame',
+  proof_1_desc: 'Goals, constraints, user paths and success measures written down before the work becomes expensive.',
+  proof_1_meta: 'Brief · scope · assumptions',
+  proof_2_title: 'A build your team can own',
+  proof_2_desc: 'Readable interface patterns, documented integrations, sensible permissions and deployment that is not dependent on a mystery vendor.',
+  proof_2_meta: 'Design system · code · handover',
+  proof_3_title: 'A measured next move',
+  proof_3_desc: 'We leave a focused backlog, analytics signals and an honest view of what to improve next — and what can wait.',
+  proof_3_meta: 'QA · signals · roadmap'
+});

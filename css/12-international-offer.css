@@ -172,6 +172,68 @@
 
 .engagement-cta:hover { color: rgba(17,17,17,.62); border-color: currentColor; }
 
+/* A proof layer makes the offer tangible without turning the page into a pitch deck. */
+.delivery-proof {
+  margin-top: clamp(70px, 9vw, 128px);
+  padding-top: clamp(62px, 8vw, 104px);
+  border-top: 1px solid rgba(17,17,17,.24);
+}
+.delivery-proof-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, .65fr);
+  column-gap: clamp(32px, 9vw, 148px);
+  align-items: end;
+  margin-bottom: clamp(44px, 6vw, 76px);
+}
+.delivery-proof-intro .section-tag-light { grid-column: 1; margin-bottom: 18px; }
+.delivery-proof-intro h2 { grid-column: 1; font-size: clamp(44px, 6.2vw, 88px); line-height: .98; color: #111; }
+.delivery-proof-intro h2 em { color: rgba(17,17,17,.58); }
+.delivery-proof-intro > p {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  max-width: 34ch;
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: clamp(17px, 1.45vw, 20px);
+  line-height: 1.52;
+  color: rgba(17,17,17,.7);
+}
+.delivery-proof-list { border-top: 1px solid rgba(17,17,17,.16); }
+.delivery-proof-list article {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr) minmax(160px, .45fr);
+  align-items: start;
+  gap: 18px 36px;
+  padding: clamp(28px, 3.5vw, 46px) 0;
+  border-bottom: 1px solid rgba(17,17,17,.16);
+}
+.delivery-proof-list article > span,
+.delivery-proof-list article b {
+  font-family: var(--font-brand);
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(17,17,17,.52);
+}
+.delivery-proof-list h3 {
+  font-family: 'Cormorant Garamond', 'Crimson Text', serif;
+  font-size: clamp(29px, 3.2vw, 44px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -.015em;
+  color: #111;
+}
+.delivery-proof-list p {
+  max-width: 52ch;
+  margin-top: 12px;
+  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(17,17,17,.7);
+}
+.delivery-proof-list article b { padding-top: 8px; text-align: right; }
+
 @media (max-width: 880px) {
   .engagements-heading { grid-template-columns: 1fr; gap: 22px; }
   .engagements-heading > p { max-width: 46ch; }
@@ -187,6 +249,10 @@
   .engagement-card h3 { margin-top: 30px; }
   .engagement-card > p:not(.engagement-deliverable) { max-width: 54ch; }
   .engagement-deliverable { margin-top: 26px; }
+  .delivery-proof-intro { grid-template-columns: 1fr; gap: 20px; }
+  .delivery-proof-intro > p { grid-column: 1; grid-row: auto; max-width: 46ch; }
+  .delivery-proof-list article { grid-template-columns: 52px minmax(0, 1fr); }
+  .delivery-proof-list article b { grid-column: 2; padding-top: 2px; text-align: left; }
 }
 
 @media (max-width: 700px) {
@@ -198,4 +264,9 @@
   .engagements-heading h2 { font-size: clamp(42px, 14vw, 64px); }
   .engagement-note { align-items: flex-start; flex-direction: column; gap: 16px; }
   .engagement-note p { font-size: 16px; }
+  .delivery-proof { margin-top: 62px; padding-top: 56px; }
+  .delivery-proof-intro h2 { font-size: clamp(42px, 14vw, 64px); }
+  .delivery-proof-list article { grid-template-columns: 34px minmax(0, 1fr); gap: 14px; padding: 28px 0; }
+  .delivery-proof-list h3 { font-size: 32px; }
+  .delivery-proof-list p { font-size: 16px; }
 }
