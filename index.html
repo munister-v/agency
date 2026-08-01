@@ -31,6 +31,8 @@
   <meta property="og:image" content="https://agency.munister.com.ua/cover.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:alt" content="Munister Agency — hybrid agency: web, ERP, automation. 10 projects shipped, 7 languages, no subcontractors." />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="uk_UA" />
   <meta property="og:locale:alternate" content="de_DE" />
@@ -45,40 +47,170 @@
   <meta name="twitter:title" content="Munister Agency — Digital products, systems & intelligent workflows" />
   <meta name="twitter:description" content="Strategy, design, code, automation and stable launch in one senior delivery line." />
   <meta name="twitter:image" content="https://agency.munister.com.ua/cover.png" />
+  <meta name="twitter:image:alt" content="Munister Agency — hybrid agency: web, ERP, automation." />
 
   <!-- Theme -->
-  <meta name="theme-color" content="#ffffff" />
-  <meta name="msapplication-TileColor" content="#0a0a0a" />
+  <meta name="theme-color" content="#f1e8dd" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#14183a" media="(prefers-color-scheme: dark)" />
+  <meta name="msapplication-TileColor" content="#1228b0" />
 
   <!-- JSON-LD: Organization -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Munister Agency",
-    "url": "https://agency.munister.com.ua",
-    "logo": "https://agency.munister.com.ua/favicon.svg",
-    "image": "https://agency.munister.com.ua/cover.png",
-    "description": "Independent hybrid agency for international teams: digital products, brand-led websites, AI workflows, CRM and ERP systems, technical audits and product consulting.",
-    "email": "munister@outlook.com",
-    "sameAs": ["https://munister.agency", "https://instagram.com/munister.agency"],
-    "areaServed": "Worldwide",
-    "availableLanguage": ["English", "Ukrainian", "German", "Polish", "Spanish", "Portuguese", "Italian"],
-    "knowsAbout": ["Digital product strategy", "Product design", "Web development", "Systems architecture", "Technical audit", "UX audit", "Accessibility", "Core Web Vitals", "Technical SEO", "Application security", "Business automation", "CRM", "ERP", "AI workflows", "E-commerce", "Cloud infrastructure"],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Munister Agency IT services",
-      "itemListElement": [
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Digital products and web platforms"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Product strategy, UX and technical audits"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Business automation, CRM and ERP"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI workflows and editorial systems"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "E-commerce and customer portals"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Technical rescue, architecture and product advisory"}},
-        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ongoing product support"}}
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "name": "Munister Agency",
+      "url": "https://agency.munister.com.ua",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://agency.munister.com.ua/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://agency.munister.com.ua/cover.png",
+      "description": "Independent hybrid agency for international teams: digital products, brand-led websites, AI workflows, CRM and ERP systems, technical audits and product consulting.",
+      "email": "munister@outlook.com",
+      "sameAs": [
+        "https://www.instagram.com/munister.agency",
+        "https://munister.com.ua/"
+      ],
+      "areaServed": "Worldwide",
+      "availableLanguage": [
+        "English",
+        "Ukrainian",
+        "German",
+        "Polish",
+        "Spanish",
+        "Portuguese",
+        "Italian"
+      ],
+      "knowsAbout": [
+        "Digital product strategy",
+        "Product design",
+        "Web development",
+        "Systems architecture",
+        "Technical audit",
+        "UX audit",
+        "Accessibility",
+        "Core Web Vitals",
+        "Technical SEO",
+        "Application security",
+        "Business automation",
+        "CRM",
+        "ERP",
+        "AI workflows",
+        "E-commerce",
+        "Cloud infrastructure"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Munister Agency IT services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Digital products and web platforms"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Product strategy, UX and technical audits"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Business automation, CRM and ERP"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI workflows and editorial systems"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "E-commerce and customer portals"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Technical rescue, architecture and product advisory"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Ongoing product support"
+            }
+          }
+        ]
+      },
+      "@id": "https://agency.munister.com.ua/#organization",
+      "founder": {
+        "@type": "Person",
+        "name": "Viacheslav Munister",
+        "url": "https://munister.com.ua/",
+        "sameAs": [
+          "https://scholar.google.com/citations?user=kdqMqoQAAAAJ"
+        ]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Kyiv Oblast",
+        "addressCountry": "UA"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "munister@outlook.com",
+          "availableLanguage": [
+            "English",
+            "Ukrainian",
+            "German",
+            "Polish",
+            "Spanish",
+            "Portuguese",
+            "Italian"
+          ],
+          "areaServed": "Worldwide"
+        }
       ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://agency.munister.com.ua/#website",
+      "url": "https://agency.munister.com.ua/",
+      "name": "Munister Agency",
+      "inLanguage": [
+        "en",
+        "uk",
+        "de",
+        "pl",
+        "es",
+        "pt",
+        "it"
+      ],
+      "publisher": {
+        "@id": "https://agency.munister.com.ua/#organization"
+      }
     }
-  }
+  ]
+}
   </script>
 
   <!-- JSON-LD: FAQ -->
@@ -112,9 +244,12 @@
   </script>
 
   <!-- Favicon & PWA -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="favicon.svg" />
-  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+  <link rel="manifest" href="/manifest.json" />
 
   <!-- Preload critical assets -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />

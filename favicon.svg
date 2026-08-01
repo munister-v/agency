@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#0a0a0a"/>
-  <text x="16" y="23" font-family="serif" font-size="20" font-style="italic" fill="white" text-anchor="middle">M</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Munister Agency">
+  <!-- Знак агентства: синий круг бейджа из шапки и монограмма M.
+       Буква нарисована путями, а не <text> — иначе иконка зависела бы от
+       того, есть ли нужный шрифт в браузере, ОС или у бота соцсети,
+       и на чужой машине вместо знака появлялась бы чужая буква. -->
+  <rect width="64" height="64" fill="#f1e8dd"/>
+  <circle cx="32" cy="32" r="30" fill="#1228b0"/>
+  <path fill="#f1e8dd" d="M17 45V19h6.9l8.1 12.2L40.1 19H47v26h-6.4V30.4l-7 10.4h-3.2l-7-10.4V45z"/>
 </svg>
