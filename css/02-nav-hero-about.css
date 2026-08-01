@@ -403,3 +403,117 @@
   .manifesto-grid { grid-template-columns: 1fr; gap: 40px; }
 }
 
+
+/* ─── ЛЕНТА РАБОТ ПОД ПЕРВЫМ ЭКРАНОМ ───────────────────────────────────
+   Первый экран заканчивался пустой полосой, а проекты начинались через
+   несколько экранов текста. Лента закрывает разрыв: четыре живых снимка
+   в чернильных рамках, подписи машинописным — тем же языком, что и весь
+   сайт. На узком экране превращается в горизонтальную прокрутку с
+   прилипанием, чтобы карточки не сжимались в нечитаемые марки. */
+.hero-strip {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 40px 72px;
+}
+.hero-strip-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(20, 24, 58, .18);
+  margin-bottom: 22px;
+}
+.hero-strip-label,
+.hero-strip-all {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+}
+.hero-strip-label { opacity: .55; }
+.hero-strip-all {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color .2s ease, border-color .2s ease;
+}
+.hero-strip-all:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+.hero-strip-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.hs-item a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.hs-shot {
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid rgba(20, 24, 58, .28);
+  background: var(--off);
+  transition: border-color .25s ease, transform .25s ease;
+}
+.hs-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;    /* пропускаем статус-бар телефонных скринов */
+  display: block;
+  transition: transform .5s cubic-bezier(.22, .61, .36, 1);
+}
+.hs-item a:hover .hs-shot { border-color: var(--gold); }
+
+/* У ARM Bank смысловой центр — логотип на пейзаже посередине кадра;
+   верхний край там просто тёмная заливка и карточка выглядит пустой. */
+.hs-shot.hs-center img { object-position: 50% 45%; }
+.hs-item a:hover .hs-shot img { transform: scale(1.04); }
+.hs-item a:focus-visible .hs-shot { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+.hs-meta {
+  display: block;
+  margin-top: 12px;
+}
+.hs-meta em {
+  display: block;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-size: 17px;
+  line-height: 1.25;
+}
+.hs-meta span {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-brand);
+  font-size: 9.5px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  opacity: .55;
+}
+
+@media (max-width: 900px) {
+  .hero-strip { padding: 0 20px 52px; }
+  .hero-strip-row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 14px;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+  .hero-strip-row::-webkit-scrollbar { display: none; }
+  .hs-item { flex: 0 0 78%; scroll-snap-align: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-shot, .hs-shot img { transition: none; }
+  .hs-item a:hover .hs-shot img { transform: none; }
+}

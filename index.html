@@ -255,7 +255,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbit&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Cormorant+Garamond:ital,wght@0,600;1,400;1,500&amp;family=Onest:wght@300;400;500;600&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=44" />
+  <link rel="stylesheet" href="style.css?v=45" />
 </head>
 <body>
 <!-- Scroll progress bar -->
@@ -319,6 +319,43 @@
       <span class="hl2" data-i18n="hero_c">digital products, operational systems &amp; intelligent workflows</span>
     </h1>
     <a class="hero-more" href="#portfolio" data-i18n="hero_more">Explore selected work →</a>
+  </div>
+
+  <!-- Лента работ прямо под первым экраном: раньше он заканчивался пустой
+       полосой, а доказательства лежали в самом низу страницы. Картинки и
+       подписи — те же, что в портфолио, поэтому лента ничего не дублирует
+       по смыслу и не требует новых переводов, кроме заголовка. -->
+  <div class="hero-strip">
+    <div class="hero-strip-head">
+      <span class="hero-strip-label" data-i18n="hero_strip">Recent work</span>
+      <a class="hero-strip-all" href="#portfolio"><span data-i18n="hero_strip_all">All projects</span> →</a>
+    </div>
+    <ul class="hero-strip-row">
+      <li class="hs-item">
+        <a href="#portfolio">
+          <span class="hs-shot"><img src="works/radio.webp" fetchpriority="high" alt="Radio Winnipeg — live radio interface" width="1280" height="800" /></span>
+          <span class="hs-meta"><em>Radio Winnipeg</em><span data-i18n="p1_cat">Radio · WebRTC</span></span>
+        </a>
+      </li>
+      <li class="hs-item">
+        <a href="#portfolio">
+          <span class="hs-shot"><img src="works/teached.webp" decoding="async" alt="TeachEd — teacher tools" width="800" height="1200" /></span>
+          <span class="hs-meta"><em>TeachEd</em><span data-i18n="p2_cat">EdTech · SaaS</span></span>
+        </a>
+      </li>
+      <li class="hs-item">
+        <a href="#portfolio">
+          <span class="hs-shot"><img src="works/epris.webp" decoding="async" alt="EPRIS Journal — editorial platform" width="800" height="1200" /></span>
+          <span class="hs-meta"><em>EPRIS Journal</em><span data-i18n="p3_cat">Media · Editorial</span></span>
+        </a>
+      </li>
+      <li class="hs-item">
+        <a href="#portfolio">
+          <span class="hs-shot hs-center"><img src="works/armbank.webp" decoding="async" alt="ARM Bank — banking demo" width="800" height="1200" /></span>
+          <span class="hs-meta"><em>ARM Bank</em><span data-i18n="p4_cat">FinTech · CRM</span></span>
+        </a>
+      </li>
+    </ul>
   </div>
 </section>
 
