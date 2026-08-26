@@ -145,3 +145,27 @@
   .svc-card { padding: 26px 0 30px; }
   .svc-desc { max-width: none; }
 }
+
+/* ─── Price + scope, side by side ───
+   The card used to end on a scope in weeks alone. A U.S. buyer compares
+   studios on a number first, so the number leads and the scope stays with
+   it as context rather than as a substitute. */
+.svc-price-row { flex-wrap: wrap; row-gap: 10px; }
+.svc-scope { display: flex; flex-direction: column; gap: 3px; }
+.svc-scope em {
+  font-style: normal;
+  font-family: var(--font-brand);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.5);
+}
+.svc-scope b {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.svc-time { flex-basis: 100%; margin-left: 0; }

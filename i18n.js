@@ -231,7 +231,7 @@ const translations = {
     hero_strip: "Recent work",
     hero_strip_all: "All projects",
     hero_kicker: "featured case",
-    fc_desc: "Branded apparel store with its own ERP: size matrices, smart XLS import with AI detection, a 3000+ item catalogue.",
+    fc_desc: "Branded apparel store with its own ERP: size matrices, smart XLS import with AI detection, a 3000+ item catalog.",
     fc_read: "view",
     fc_full: "Full case →",
     about_kicker: "01 · About the studio",
@@ -292,7 +292,7 @@ const translations = {
     cap2_5: "Admin panels",
     cap2_6: "Third-party API integrations",
     cap3_head: "Business Systems",
-    cap3_1: "E-commerce and catalogues",
+    cap3_1: "E-commerce and catalogs",
     cap3_2: "ERP and inventory",
     cap3_3: "Payment integrations",
     cap3_4: "Home infrastructure, NAS",
@@ -313,7 +313,7 @@ const translations = {
     s4_title: "AI and content",
     s4_desc: "Practical AI features: assistants, editorial pipelines, search, drafts and moderation where they genuinely help.",
     s5_title: "E-commerce & ERP",
-    s5_desc: "Catalogues, carts, payments, inventory, orders and reports in your own system without extra subscriptions.",
+    s5_desc: "Catalogs, carts, payments, inventory, orders and reports in your own system without extra subscriptions.",
     s6_title: "IT for home",
     s6_desc: "Home servers, NAS, networks, family archives, personal sites and private tools for everyday life.",
     price_from: "from",
@@ -345,7 +345,7 @@ const translations = {
     s4_i3: "Moderation and filtering",
     s4_i4: "Usage analytics",
     s5_sphere: "E-commerce · ERP",
-    s5_i1: "Product catalogue and cart",
+    s5_i1: "Product catalog and cart",
     s5_i2: "Payment system integration",
     s5_i3: "Inventory and order tracking",
     s5_i4: "Reporting without third-party subscriptions",
@@ -374,11 +374,11 @@ const translations = {
     p4_cat: "FinTech · Tools",
     p4_desc: "Personal finance cabinet: currency converter, loan calculator, expense tracking and clear navigation for everyday money decisions.",
     p5_cat: "Publishing · Shop",
-    p5_desc: "Website for a Berlin publisher: book catalogue, cart, author pages, legal sections and an editorial presentation that supports the literary brand.",
+    p5_desc: "Website for a Berlin publisher: book catalog, cart, author pages, legal sections and an editorial presentation that supports the literary brand.",
     p6_cat: "Retail · ERP",
-    p6_desc: "Operating system for a clothing store: catalogue from XLS exports, S-XXL size matrix, inventory, orders and assortment control without extra platforms.",
+    p6_desc: "Operating system for a clothing store: catalog from XLS exports, S-XXL size matrix, inventory, orders and assortment control without extra platforms.",
     p7_cat: "Publishing · Games",
-    p7_desc: "Board-game publisher website: clean catalogue, cover-led product pages and fast static delivery on its own domain.",
+    p7_desc: "Board-game publisher website: clean catalog, cover-led product pages and fast static delivery on its own domain.",
     p8_cat: "E-commerce · Interiors",
     p8_desc: "Interior-goods storefront for EPRIS: curated selections, moodboard logic, product cards and a calm magazine rhythm instead of a generic shop.",
     p9_cat: "Nonprofit · Web",
@@ -1362,7 +1362,7 @@ Object.assign(translations.en, {
   s6_desc: "Independent product, UX, SEO and technical review for inherited systems, stalled launches and expensive uncertainty.",
   s6_i1: "Code, UX and architecture review",
   s6_i2: "Performance, SEO and security risks",
-  s6_i3: "Prioritised remediation roadmap",
+  s6_i3: "Prioritized remediation roadmap",
   s6_i4: "Senior implementation support",
   s6_time: "Review · direction · support",
   std_kicker: "02 · Standards & technology",
@@ -1504,6 +1504,176 @@ Object.assign(translations.it, {
   s6_sphere: "Audit · Consulenza", s6_title: "Audit, recupero e consulenza", s6_desc: "Revisione indipendente di prodotto, UX, SEO e tecnologia per sistemi ereditati, lanci bloccati e incertezza costosa.", s6_i1: "Revisione di codice, UX e architettura", s6_i2: "Rischi di performance, SEO e sicurezza", s6_i3: "Piano di intervento prioritario", s6_i4: "Supporto senior all'implementazione", s6_time: "Revisione · direzione · supporto",
 });
 
+/* U.S. positioning, pricing and the coverage map */
+Object.assign(translations.en, {
+  nav_coverage: "Coverage",
+  hero_tagline2: "U.S. clients · studio in Europe",
+  cov_tag: "Working with U.S. teams",
+  cov_title_1: "Fifty states,",
+  cov_title_2: "one working day.",
+  cov_intro: "We are a European studio and we do not pretend otherwise. What matters to a U.S. client is simpler than a flag on a page: how many hours a day we are awake at the same time, and who answers when something breaks. Both are on this map.",
+  cov_stat1: "states & D.C. served",
+  cov_stat2: "time zones covered",
+  cov_stat3: "our day, Kyiv time",
+  cov_stat4: "daily overlap, coast to coast",
+  cov_noscript: "Eastern, Central, Mountain, Pacific, Alaska and Hawai‘i–Aleutian time are all covered. Our working day runs 10:00–22:00 Kyiv time, which is 3:00 a.m. to 3:00 p.m. Eastern.",
+  cov_index: "Every state, by postal code",
+  cov_note: "Overlap is calculated live from the IANA time-zone database against a 9-to-5 workday in your state, so it stays right through both countries’ daylight-saving changes. Split states are named honestly: Florida’s Panhandle, West River in South Dakota and El Paso keep their own clocks. Boundaries come from the U.S. Census Bureau.",
+  cov_cta: "Ask about your time zone →",
+  service_from: "Starting at",
+  eng1_price: "$600 flat",
+  eng2_price: "from $1,200",
+  eng3_price: "from $900 / month"
+});
+
+/* U.S. positioning, pricing and the coverage map */
+Object.assign(translations.uk, {
+  nav_coverage: "Покриття",
+  hero_tagline2: "Клієнти у США · студія в Європі",
+  cov_tag: "Робота з командами у США",
+  cov_title_1: "П’ятдесят штатів,",
+  cov_title_2: "один робочий день.",
+  cov_intro: "Ми європейська студія і не вдаємо іншого. Клієнту у США важливе простіше за прапорець на сторінці: скільки годин на день ми не спимо одночасно і хто відповідає, коли щось ламається. І те, і те є на цій карті.",
+  cov_stat1: "штатів і округ Колумбія",
+  cov_stat2: "часових поясів",
+  cov_stat3: "наш день за Києвом",
+  cov_stat4: "перетину щодня, від берега до берега",
+  cov_noscript: "Ми працюємо зі східним, центральним, гірським, тихоокеанським, аляскинським і гавайсько-алеутським поясами. Наш день триває 10:00–22:00 за Києвом, тобто з 3:00 до 15:00 за східним часом.",
+  cov_index: "Кожен штат за поштовим кодом",
+  cov_note: "Перетин рахується наживо з бази часових поясів IANA проти робочого дня 9:00–17:00 у вашому штаті, тож він лишається правильним і після переходу на літній час у обох країнах. Розділені штати названі чесно: Панхендл Флориди, Вест-Рівер у Південній Дакоті та Ель-Пасо живуть за власним годинником. Межі — з Бюро перепису США.",
+  cov_cta: "Запитати про ваш пояс →",
+  service_from: "Від",
+  eng1_price: "$600 фікс",
+  eng2_price: "від $1 200",
+  eng3_price: "від $900 / міс"
+});
+
+/* U.S. positioning, pricing and the coverage map */
+Object.assign(translations.de, {
+  nav_coverage: "Abdeckung",
+  hero_tagline2: "US-Kunden · Studio in Europa",
+  cov_tag: "Arbeit mit US-Teams",
+  cov_title_1: "Fünfzig Staaten,",
+  cov_title_2: "ein Arbeitstag.",
+  cov_intro: "Wir sind ein europäisches Studio und geben nichts anderes vor. Für einen US-Kunden zählt etwas Einfacheres als eine Flagge auf der Seite: wie viele Stunden am Tag wir gleichzeitig wach sind und wer antwortet, wenn etwas ausfällt. Beides steht auf dieser Karte.",
+  cov_stat1: "Staaten und D.C.",
+  cov_stat2: "Zeitzonen abgedeckt",
+  cov_stat3: "unser Tag, Kyiv-Zeit",
+  cov_stat4: "Überschneidung täglich, Küste zu Küste",
+  cov_noscript: "Eastern, Central, Mountain, Pacific, Alaska und Hawaii-Aleuten sind abgedeckt. Unser Arbeitstag läuft von 10:00 bis 22:00 Kyiv-Zeit, also von 3:00 bis 15:00 Eastern.",
+  cov_index: "Jeder Staat nach Kürzel",
+  cov_note: "Die Überschneidung wird live aus der IANA-Zeitzonendatenbank gegen einen Arbeitstag von 9 bis 17 Uhr in Ihrem Staat berechnet und bleibt damit über die Zeitumstellungen beider Länder hinweg korrekt. Geteilte Staaten werden ehrlich benannt: der Panhandle Floridas, West River in South Dakota und El Paso behalten ihre eigene Uhr. Die Grenzen stammen vom U.S. Census Bureau.",
+  cov_cta: "Nach Ihrer Zeitzone fragen →",
+  service_from: "Ab",
+  eng1_price: "$600 pauschal",
+  eng2_price: "ab $1.200",
+  eng3_price: "ab $900 / Monat"
+});
+
+/* U.S. positioning, pricing and the coverage map */
+Object.assign(translations.pl, {
+  nav_coverage: "Zasięg",
+  hero_tagline2: "Klienci w USA · studio w Europie",
+  cov_tag: "Praca z zespołami w USA",
+  cov_title_1: "Pięćdziesiąt stanów,",
+  cov_title_2: "jeden dzień pracy.",
+  cov_intro: "Jesteśmy europejskim studiem i nie udajemy inaczej. Dla klienta w USA liczy się coś prostszego niż flaga na stronie: ile godzin dziennie nie śpimy w tym samym czasie i kto odpowiada, gdy coś się psuje. Jedno i drugie jest na tej mapie.",
+  cov_stat1: "stanów i D.C.",
+  cov_stat2: "stref czasowych",
+  cov_stat3: "nasz dzień, czas kijowski",
+  cov_stat4: "wspólnych godzin dziennie",
+  cov_noscript: "Obsługujemy strefy Eastern, Central, Mountain, Pacific, Alaska i Hawaje-Aleuty. Nasz dzień pracy trwa 10:00–22:00 czasu kijowskiego, czyli 3:00–15:00 czasu wschodniego.",
+  cov_index: "Każdy stan według kodu",
+  cov_note: "Wspólne godziny liczymy na żywo z bazy stref czasowych IANA względem dnia pracy 9–17 w Twoim stanie, więc pozostają poprawne mimo zmian czasu w obu krajach. Stany podzielone nazywamy uczciwie: Panhandle na Florydzie, West River w Dakocie Południowej i El Paso mają własny zegar. Granice pochodzą z U.S. Census Bureau.",
+  cov_cta: "Zapytaj o swoją strefę →",
+  service_from: "Od",
+  eng1_price: "$600 ryczałt",
+  eng2_price: "od $1 200",
+  eng3_price: "od $900 / mies."
+});
+
+/* U.S. positioning, pricing and the coverage map */
+Object.assign(translations.es, {
+  nav_coverage: "Cobertura",
+  hero_tagline2: "Clientes en EE. UU. · estudio en Europa",
+  cov_tag: "Trabajo con equipos de EE. UU.",
+  cov_title_1: "Cincuenta estados,",
+  cov_title_2: "una jornada de trabajo.",
+  cov_intro: "Somos un estudio europeo y no fingimos lo contrario. A un cliente estadounidense le importa algo más simple que una bandera en la página: cuántas horas al día estamos despiertos a la vez y quién responde cuando algo se rompe. Las dos cosas están en este mapa.",
+  cov_stat1: "estados y D.C.",
+  cov_stat2: "zonas horarias",
+  cov_stat3: "nuestra jornada, hora de Kyiv",
+  cov_stat4: "de coincidencia diaria, de costa a costa",
+  cov_noscript: "Cubrimos las zonas Eastern, Central, Mountain, Pacific, Alaska y Hawái-Aleutianas. Nuestra jornada va de 10:00 a 22:00 hora de Kyiv, es decir, de 3:00 a 15:00 hora del Este.",
+  cov_index: "Cada estado por su código",
+  cov_note: "La coincidencia se calcula en vivo desde la base de zonas horarias IANA frente a una jornada de 9 a 17 en tu estado, así que sigue siendo correcta pese a los cambios de horario de ambos países. Los estados divididos se nombran con honestidad: el Panhandle de Florida, West River en Dakota del Sur y El Paso llevan su propio reloj. Las fronteras provienen del U.S. Census Bureau.",
+  cov_cta: "Pregunta por tu zona horaria →",
+  service_from: "Desde",
+  eng1_price: "$600 fijo",
+  eng2_price: "desde $1.200",
+  eng3_price: "desde $900 / mes"
+});
+
+/* U.S. positioning, pricing and the coverage map */
+Object.assign(translations.pt, {
+  nav_coverage: "Cobertura",
+  hero_tagline2: "Clientes nos EUA · estúdio na Europa",
+  cov_tag: "Trabalho com equipas dos EUA",
+  cov_title_1: "Cinquenta estados,",
+  cov_title_2: "um dia de trabalho.",
+  cov_intro: "Somos um estúdio europeu e não fingimos o contrário. Para um cliente nos EUA importa algo mais simples do que uma bandeira na página: quantas horas por dia estamos acordados ao mesmo tempo e quem responde quando algo falha. Ambas estão neste mapa.",
+  cov_stat1: "estados e D.C.",
+  cov_stat2: "fusos horários",
+  cov_stat3: "o nosso dia, hora de Kyiv",
+  cov_stat4: "de sobreposição diária, de costa a costa",
+  cov_noscript: "Cobrimos os fusos Eastern, Central, Mountain, Pacific, Alasca e Havai-Aleutas. O nosso dia decorre das 10:00 às 22:00 de Kyiv, ou seja, das 3:00 às 15:00 no fuso Este.",
+  cov_index: "Cada estado pelo código",
+  cov_note: "A sobreposição é calculada em direto a partir da base de fusos IANA face a um dia de trabalho das 9 às 17 no seu estado, pelo que continua correta apesar das mudanças de hora nos dois países. Os estados divididos são nomeados com honestidade: o Panhandle da Florida, West River no Dakota do Sul e El Paso mantêm o seu próprio relógio. As fronteiras vêm do U.S. Census Bureau.",
+  cov_cta: "Pergunte pelo seu fuso →",
+  service_from: "A partir de",
+  eng1_price: "$600 fixo",
+  eng2_price: "desde $1.200",
+  eng3_price: "desde $900 / mês"
+});
+
+/* U.S. positioning, pricing and the coverage map */
+Object.assign(translations.it, {
+  nav_coverage: "Copertura",
+  hero_tagline2: "Clienti negli USA · studio in Europa",
+  cov_tag: "Lavoro con team statunitensi",
+  cov_title_1: "Cinquanta stati,",
+  cov_title_2: "una giornata di lavoro.",
+  cov_intro: "Siamo uno studio europeo e non fingiamo diversamente. A un cliente statunitense interessa qualcosa di più semplice di una bandiera sulla pagina: quante ore al giorno siamo svegli nello stesso momento e chi risponde quando qualcosa si rompe. Entrambe sono su questa mappa.",
+  cov_stat1: "stati e D.C.",
+  cov_stat2: "fusi orari coperti",
+  cov_stat3: "la nostra giornata, ora di Kyiv",
+  cov_stat4: "di sovrapposizione al giorno, costa a costa",
+  cov_noscript: "Copriamo i fusi Eastern, Central, Mountain, Pacific, Alaska e Hawaii-Aleutine. La nostra giornata va dalle 10:00 alle 22:00 ora di Kyiv, cioè dalle 3:00 alle 15:00 ora dell’Est.",
+  cov_index: "Ogni stato per sigla",
+  cov_note: "La sovrapposizione è calcolata dal vivo dal database dei fusi IANA rispetto a una giornata 9–17 nel vostro stato, quindi resta corretta anche dopo i cambi d’ora dei due paesi. Gli stati divisi sono indicati con onestà: il Panhandle della Florida, West River nel South Dakota ed El Paso tengono il proprio orologio. I confini provengono dallo U.S. Census Bureau.",
+  cov_cta: "Chiedete del vostro fuso →",
+  service_from: "A partire da",
+  eng1_price: "$600 forfait",
+  eng2_price: "da $1.200",
+  eng3_price: "da $900 / mese"
+});
+
+Object.assign(translations.en, {
+  proof_tag: 'What stays with your team',
+  proof_title_1: 'Clear work,',
+  proof_title_2: 'not agency theatre.',
+  proof_intro: 'Every engagement leaves behind useful artifacts, not a black box: a decision trail, production-ready work and a team that can continue without us.',
+  proof_1_title: 'A shared decision frame',
+  proof_1_desc: 'Goals, constraints, user paths and success measures written down before the work becomes expensive.',
+  proof_1_meta: 'Brief · scope · assumptions',
+  proof_2_title: 'A build your team can own',
+  proof_2_desc: 'Readable interface patterns, documented integrations, sensible permissions and deployment that is not dependent on a mystery vendor.',
+  proof_2_meta: 'Design system · code · handover',
+  proof_3_title: 'A measured next move',
+  proof_3_desc: 'We leave a focused backlog, analytics signals and an honest view of what to improve next — and what can wait.',
+  proof_3_meta: 'QA · signals · roadmap'
+});
+
 let currentLang = 'en';
 
 function applyLang(lang) {
@@ -1545,6 +1715,9 @@ function applyLang(lang) {
     url.searchParams.set('lang', lang);
   }
   window.history.replaceState({}, '', url);
+
+  // Sections rendered in JS (the coverage map) redraw their own strings.
+  document.dispatchEvent(new CustomEvent('langchange', { detail: lang }));
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -1558,18 +1731,3 @@ const requested = ['uk', 'en', 'de', 'pl', 'es', 'pt', 'it'].includes(urlLang) ?
 // changes because a browser or a previous session happened to use another locale.
 applyLang(requested || 'en');
 
-Object.assign(translations.en, {
-  proof_tag: 'What stays with your team',
-  proof_title_1: 'Clear work,',
-  proof_title_2: 'not agency theatre.',
-  proof_intro: 'Every engagement leaves behind useful artefacts, not a black box: a decision trail, production-ready work and a team that can continue without us.',
-  proof_1_title: 'A shared decision frame',
-  proof_1_desc: 'Goals, constraints, user paths and success measures written down before the work becomes expensive.',
-  proof_1_meta: 'Brief · scope · assumptions',
-  proof_2_title: 'A build your team can own',
-  proof_2_desc: 'Readable interface patterns, documented integrations, sensible permissions and deployment that is not dependent on a mystery vendor.',
-  proof_2_meta: 'Design system · code · handover',
-  proof_3_title: 'A measured next move',
-  proof_3_desc: 'We leave a focused backlog, analytics signals and an honest view of what to improve next — and what can wait.',
-  proof_3_meta: 'QA · signals · roadmap'
-});

@@ -270,3 +270,15 @@
   .delivery-proof-list h3 { font-size: 32px; }
   .delivery-proof-list p { font-size: 16px; }
 }
+
+/* Engagement models carry their own entry price, so the three ways to
+   start are comparable at a glance. */
+.engagement-meta { flex-wrap: wrap; }
+.engagement-price {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--gold);
+}
