@@ -112,7 +112,10 @@
   padding: 24px 24px 26px;
   position: sticky;
   top: calc(var(--nav-h) + 20px);
-  background: rgba(241, 232, 221, .7);
+  /* Opaque, and above what it sticks over: at .7 the legend scrolling
+     underneath showed straight through the card. */
+  background: var(--white);
+  z-index: 2;
 }
 .cv-panel-name {
   display: flex;

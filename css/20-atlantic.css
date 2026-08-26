@@ -41,6 +41,7 @@
   color: var(--gray);
 }
 .atl-clocks b {
+  white-space: nowrap;
   font-family: var(--font-brand);
   font-size: 17px;
   font-weight: 400;
@@ -370,6 +371,8 @@
   font-weight: 400;
   color: var(--gold);
   font-variant-numeric: tabular-nums;
+  /* "5 Std." broke after the number in German. */
+  white-space: nowrap;
 }
 .atl-link {
   font-family: var(--font-brand);

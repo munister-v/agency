@@ -64,7 +64,7 @@
 .studio-blocks-tag::before,
 .cv-index-label::before,
 .hero-strip-label::before {
-  content: '★';
+  content: '\2605\FE0E';
   margin-right: .5em;
   color: var(--red);
   letter-spacing: 0;
@@ -79,7 +79,7 @@
 /* The process eyebrow is styled from a two-class selector in the base
    sheet, so it kept its brackets while every other one took the star. */
 .how-head .section-tag::before {
-  content: '★';
+  content: '\2605\FE0E';
   margin-right: .5em;
   color: var(--red);
   letter-spacing: 0;
@@ -89,7 +89,7 @@
 /* The service list drew its marker as a positioned 1px rule; the star
    has to undo that geometry before it can stand in its place. */
 .svc-includes li::before {
-  content: '★';
+  content: '\2605\FE0E';
   position: absolute;
   top: 0;
   left: 0;
@@ -102,7 +102,7 @@
 }
 
 .standard-card li::before {
-  content: '★';
+  content: '\2605\FE0E';
   color: var(--red);
   font-size: .95em;
   line-height: 1;

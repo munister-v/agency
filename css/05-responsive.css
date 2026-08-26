@@ -206,8 +206,12 @@
 
   /* Footer */
   .footer {
-    padding: 24px 20px;
+    padding: 24px 20px 40px;
     flex-direction: column;
+    /* text-align centres the lines, not the boxes: without this the
+       stacked logo, contacts and domain kept hugging the right edge
+       from the desktop rule and ran under the back-to-top button. */
+    align-items: center;
     text-align: center;
     gap: 8px;
   }

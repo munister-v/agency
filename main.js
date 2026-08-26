@@ -48,6 +48,16 @@ backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+/* The button floats over the bottom-right corner, which is exactly where
+   the footer puts its contact links. Once the footer is on screen the
+   page is already at its end, so the button steps aside. */
+const footerEl = document.querySelector('.footer');
+if (footerEl && 'IntersectionObserver' in window) {
+  new IntersectionObserver(entries => {
+    entries.forEach(e => backToTop.classList.toggle('at-end', e.isIntersecting));
+  }, { threshold: 0 }).observe(footerEl);
+}
+
 // ─── Active nav highlighting ───
 const sections = ['home','about','services','engagements','standards','portfolio','how'].map(id => document.getElementById(id)).filter(Boolean);
 

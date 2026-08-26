@@ -107,6 +107,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
   transform: translateY(0);
 }
 .back-to-top:hover { background: #333; }
+/* Sits over the footer links otherwise; see main.js. */
+.back-to-top.at-end { opacity: 0; pointer-events: none; transform: translateY(8px); }
 
 /* ─── FORM TOAST ─── */
 .form-toast {

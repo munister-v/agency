@@ -1,0 +1,33 @@
+/* ─── SYMBOLS STAY TYPE, NOT STICKERS ───────────────────────────
+   On iOS the arrows and stars were resolving to Apple Color Emoji:
+   a blue rounded sticker sat inside the "Open" button and drowned
+   the label. The variation selector in the content string asks for
+   the text form; this asks the same of the font stack, and keeps a
+   symbol font ahead of any emoji font for the elements that draw
+   one. Nothing here changes what the marks are, only how they are
+   rendered. */
+
+.pg-link::after,
+.btn-arrow::after,
+.hero-cta-pill::after,
+.hero-cta-solid::after,
+.standard-card li::before,
+.studio-head-link,
+.hero-more,
+.atl-link,
+.cv-panel-cta,
+.coverage-note a,
+.footer-domain,
+.hero-strip-all,
+.engagements-cta {
+  font-variant-emoji: text;
+}
+
+.pg-link::after,
+.btn-arrow::after,
+.hero-cta-pill::after,
+.hero-cta-solid::after,
+.standard-card li::before {
+  font-family: 'Libre Franklin', 'Helvetica Neue', Helvetica, Arial,
+               'Segoe UI Symbol', 'Apple Symbols', sans-serif;
+}

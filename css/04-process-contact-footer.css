@@ -172,7 +172,7 @@
 }
 .btn-white:hover { background: var(--white); color: var(--black); }
 
-.btn-arrow::after { content: '→'; font-size: 13px; }
+.btn-arrow::after { content: '\2192\FE0E'; font-size: 13px; }
 
 /* ─── FOOTER — ported from EPRIS inverted footer band ─── */
 .footer {
@@ -201,7 +201,7 @@
   display: block;
   margin-bottom: 8px;
 }
-.footer-logo .logo-mark { border-bottom-color: var(--gold-dark); }
+.footer-logo .logo-mark::after { background: var(--gold-dark); }
 
 .footer-copy {
   font-family: var(--font-brand);

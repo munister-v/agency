@@ -46,8 +46,20 @@
   position: relative;
   display: inline-block;
   white-space: nowrap;
-  border-bottom: 2px solid var(--gold);
   padding-bottom: 1px;
+}
+/* The rule under "Agency" was a border on the inline box, which sits at
+   the bottom of the line box rather than under the word: on an italic
+   serif that put it a third of a line too low and hanging past the "y".
+   A pseudo-element can be placed against the type instead. */
+.logo-mark::after {
+  content: "";
+  position: absolute;
+  left: 0.04em;
+  right: 0.10em;
+  bottom: 0.13em;
+  height: 2px;
+  background: var(--gold);
 }
 .logo-mark-svg { display: none; }
 
@@ -242,7 +254,7 @@
   border-radius: 100px;
   transition: background .25s, color .25s, border-color .25s;
 }
-.hero-cta-pill::after { content: '→'; font-size: 14px; }
+.hero-cta-pill::after { content: '\2192\FE0E'; font-size: 14px; }
 .hero-cta-pill:hover { background: #fff; color: #000; border-color: #fff; }
 
 /* Scroll hint */

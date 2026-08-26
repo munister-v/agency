@@ -188,7 +188,7 @@ body { font-size: 17px; line-height: 1.48; }
   text-transform: uppercase;
   transition: background .25s ease, color .25s ease;
 }
-.hero-cta-solid::after { content: '→'; font-size: 14px; }
+.hero-cta-solid::after { content: '\2192\FE0E'; font-size: 14px; }
 .hero-cta-solid:hover { background: transparent; color: var(--black); }
 
 .nav-cta {

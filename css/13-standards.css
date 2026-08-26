@@ -137,7 +137,7 @@
   opacity: .64;
 }
 
-.standard-card li::before { content: "✓"; opacity: .8; }
+.standard-card li::before { content: "\2713\FE0E"; opacity: .8; }
 
 .technology-panel {
   display: grid;
