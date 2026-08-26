@@ -83,10 +83,8 @@
 .cv-panel-cta { font-size: 12.5px; letter-spacing: .12em; }
 .cv-chip { font-size: 12px; letter-spacing: .05em; padding: 8px 10px; min-width: 44px; }
 .cv-legend span { font-size: 11px; letter-spacing: .1em; }
-.coverage-note .coverage-credit { font-size: 11px; letter-spacing: .09em; }
 .coverage-note p { font-size: 16.5px; }
 .coverage-note a { font-size: 12.5px; letter-spacing: .12em; }
-.plate figcaption span { font-size: 11.5px; letter-spacing: .1em; }
 /* SVG units, not pixels: the map is drawn in a 1080-wide viewBox and
    rendered around 790, so 17 units land at the same ~12px floor. */
 .cv-abbr { font-size: 17px; }
@@ -119,7 +117,6 @@
 
 @media (max-width: 560px) {
   .cv-chip { font-size: 11.5px; min-width: 40px; padding: 7px 8px; }
-  .plate figcaption span { font-size: 10px; }
   .svc-includes li { font-size: 13px; }
 }
 

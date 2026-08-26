@@ -1,80 +1,14 @@
 /* ─────────────────────────────────────────────────────────────
-   Americana — three plates and a field.
+   Americana — the field.
 
-   The photographs are public domain (Carol M. Highsmith Archive,
-   Library of Congress) and are mapped to the studio's own two-colour
-   ramp before they are committed, so they read as part of the palette
+   The photograph is public domain (Carol M. Highsmith Archive,
+   Library of Congress) and is mapped to the studio's own two-colour
+   ramp before it is committed, so it reads as part of the palette
    rather than as stock colour dropped into it.
 
-   They also earn their place: the triptych is the coverage section's
-   three time zones stated as pictures before they are stated as data,
-   and the field band carries the positioning line that the rest of
-   the page implies but never says out loud.
+   It also earns its place: the band carries the positioning line
+   that the rest of the page implies but never says out loud.
    ───────────────────────────────────────────────────────────── */
-
-/* ── triptych ────────────────────────────────────────────────── */
-
-.plates {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(14px, 1.8vw, 26px);
-  margin: 4px 0 clamp(28px, 3.2vw, 44px);
-}
-
-.plate { margin: 0; min-width: 0; }
-
-.plate img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  display: block;
-  border: 1px solid rgba(20, 24, 58, .16);
-  filter: saturate(.96);
-  transition: transform .5s cubic-bezier(.22, 1, .36, 1);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .plate:hover img { transform: translateY(-4px); }
-}
-
-.plate figcaption {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding-top: 10px;
-  margin-top: 10px;
-  border-top: 1px solid rgba(20, 24, 58, .2);
-}
-
-.plate figcaption b {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 19px;
-  line-height: 1.1;
-}
-
-.plate figcaption span {
-  font-family: var(--font-brand);
-  font-weight: 600;
-  font-size: 9.5px;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  color: var(--gray);
-}
-
-.coverage-note .coverage-credit {
-  grid-column: 1 / -1;
-  margin-top: 14px;
-  font-family: var(--font-brand);
-  font-weight: 500;
-  font-size: 9.5px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(20, 24, 58, .45);
-}
 
 /* ── field band ──────────────────────────────────────────────── */
 
@@ -145,21 +79,18 @@
 .field-band-cta:hover { background: transparent; color: var(--white); border-color: var(--white); }
 
 @media (max-width: 900px) {
-  .plates { gap: 10px; }
-  .plate figcaption b { font-size: 16px; }
-  .plate figcaption { display: block; }
-  .plate figcaption span { display: block; margin-top: 4px; }
   .field-band { padding: 64px 0; }
   .field-band::before {
     background: linear-gradient(180deg, rgba(12, 15, 40, .94) 0%, rgba(12, 15, 40, .86) 60%, rgba(12, 15, 40, .55) 100%);
   }
 }
 
-/* All three stay on a phone: the trio is the claim (three zones), so
-   dropping one to save width would make the picture lie. */
-@media (max-width: 560px) {
-  .plates { gap: 7px; }
-  .plate figcaption { padding-top: 7px; margin-top: 7px; }
-  .plate figcaption b { font-size: 13px; line-height: 1.15; }
-  .plate figcaption span { font-size: 8px; letter-spacing: .1em; }
+.field-band-credit {
+  margin-top: 26px;
+  font-family: var(--font-brand);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(241, 232, 221, .45);
 }

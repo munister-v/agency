@@ -76,6 +76,16 @@
 .banner-tag::after,
 .field-band-tag::after { content: ''; }
 
+/* The process eyebrow is styled from a two-class selector in the base
+   sheet, so it kept its brackets while every other one took the star. */
+.how-head .section-tag::before {
+  content: '★';
+  margin-right: .5em;
+  color: var(--red);
+  letter-spacing: 0;
+}
+.how-head .section-tag::after { content: ''; }
+
 /* The service list drew its marker as a positioned 1px rule; the star
    has to undo that geometry before it can stand in its place. */
 .svc-includes li::before {
@@ -137,8 +147,6 @@
 .cv-abbr.is-active { fill: var(--red); }
 .cv-leader.is-active { stroke: var(--red); }
 .cv-panel-name i { color: var(--red); }
-
-.plate figcaption { border-top-color: var(--red); }
 
 .field-band-title em { color: #e2b0b8; }
 
