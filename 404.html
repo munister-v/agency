@@ -1,27 +1,63 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 — Munister Agency</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <title>Page not found — Munister Agency</title>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="icon" href="/favicon.ico?v=3" sizes="32x32"/>
+  <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbit&amp;family=Libre+Franklin:wght@400;500&amp;family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
   <style>
+    /* Отдельная страница, но не отдельный сайт: те же цвета, шрифты и
+       ритм, что на главной. Прежняя версия была на чужой типографике,
+       только на украинском при английской странице по умолчанию, и
+       цифра 404 налезала на текст. */
+    :root{ --ink:#14183a; --cream:#f1e8dd; --blue:#1228b0; --gray:#6d7093; --rule:#ded2ba; }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Georgia',serif;background:#f5f0ea;color:#0a0a0a;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px}
-    .num{font-size:clamp(120px,20vw,200px);font-style:italic;line-height:1;color:#0a0a0a;opacity:.08;position:absolute}
-    .inner{position:relative;z-index:1}
-    h1{font-size:clamp(32px,6vw,64px);font-style:italic;font-weight:400;margin-bottom:16px}
-    p{font-size:16px;color:#888;margin-bottom:40px;font-family:'DM Sans',sans-serif}
-    a{display:inline-block;background:#0a0a0a;color:#fff;padding:14px 32px;font-family:sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
-    a:hover{background:#333}
+    body{
+      font-family:'Crimson Text',Georgia,serif;background:var(--cream);color:var(--ink);
+      min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 24px;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{max-width:560px;width:100%;text-align:center}
+    .mark{
+      display:inline-flex;align-items:center;gap:12px;margin-bottom:40px;
+      font-family:'Orbit',ui-monospace,monospace;font-size:15px;letter-spacing:.06em;color:var(--ink);
+      text-decoration:none;
+    }
+    .mark img{width:34px;height:34px}
+    .code{
+      font-family:'Libre Franklin',sans-serif;font-size:11px;font-weight:500;letter-spacing:.28em;
+      text-transform:uppercase;color:var(--gray);
+    }
+    h1{font-size:clamp(30px,6vw,52px);font-weight:400;line-height:1.1;margin:14px 0 16px}
+    h1 em{font-style:italic;color:var(--blue)}
+    p{font-size:18px;line-height:1.5;color:var(--gray);margin:0 auto 36px;max-width:38ch}
+    .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    a.btn{
+      font-family:'Libre Franklin',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+      text-decoration:none;padding:15px 28px;border-radius:999px;min-height:46px;
+      display:inline-flex;align-items:center;transition:background .25s,color .25s,border-color .25s;
+    }
+    a.solid{background:var(--ink);color:var(--cream);border:1px solid var(--ink)}
+    a.solid:hover{background:var(--blue);border-color:var(--blue)}
+    a.ghost{color:var(--ink);border:1px solid var(--rule)}
+    a.ghost:hover{border-color:var(--blue);color:var(--blue)}
+    .rule{height:1px;background:var(--rule);margin:40px auto 0;max-width:280px}
   </style>
 </head>
 <body>
-  <span class="num">404</span>
-  <div class="inner">
-    <h1>Сторінку не знайдено</h1>
-    <p>Схоже, ця сторінка переїхала або не існує.</p>
-    <a href="/">← На головну</a>
+  <div class="wrap">
+    <a class="mark" href="/"><img src="/assets/logo-badge.png?v=2" alt="" width="512" height="512"/>MUNISTER AGENCY</a>
+    <div class="code">Error 404</div>
+    <h1>This page <em>moved on.</em></h1>
+    <p>The address does not lead anywhere on this site. The work, the services and a way to reach us are all one click away.</p>
+    <div class="row">
+      <a class="btn solid" href="/">Back to the site</a>
+      <a class="btn ghost" href="/#contact">Write to us</a>
+    </div>
+    <div class="rule"></div>
   </div>
 </body>
 </html>
