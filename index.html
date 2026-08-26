@@ -312,7 +312,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbit&amp;family=Libre+Franklin:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Cormorant+Garamond:ital,wght@0,600;1,400;1,500&amp;family=Onest:wght@300;400;500;600&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=64" />
+  <link rel="stylesheet" href="style.css?v=65" />
 </head>
 <body>
 <!-- Scroll progress bar -->
@@ -334,7 +334,7 @@
     <a href="#coverage" data-i18n="nav_coverage">Coverage</a>
     <a href="#how" data-i18n="nav_how">Process</a>
     <a href="#engagements" data-i18n="nav_approach">Approach</a>
-    <a href="mailto:munister@outlook.com" class="nav-cta" data-i18n="nav_contact">Contact</a>
+    <a href="#contact" class="nav-cta" data-i18n="nav_contact">Contact</a>
     <div class="lang-switcher">
       <button class="lang-btn active" data-lang="en">EN</button>
       <button class="lang-btn" data-lang="uk">UA</button>
@@ -377,7 +377,7 @@
       <span class="hl2" data-i18n="hero_c">digital products, operational systems &amp; intelligent workflows</span>
     </h1>
     <div class="hero-actions">
-      <a class="hero-cta-solid" href="mailto:munister@outlook.com?subject=Project%20inquiry%20%E2%80%94%20Munister%20Agency" data-i18n="hero_cta1">Discuss a project</a>
+      <a class="hero-cta-solid" href="#contact" data-i18n="hero_cta1">Discuss a project</a>
       <a class="hero-more" href="#portfolio" data-i18n="hero_more">Explore selected work →</a>
     </div>
   </div>
@@ -679,7 +679,7 @@
 
       <div class="engagement-note">
         <p data-i18n="engagements_note">No account layer, no hand-off chain. The people shaping the strategy are close to the people shipping the work.</p>
-        <a href="mailto:munister@outlook.com?subject=Project%20inquiry%20%E2%80%94%20Munister%20Agency" class="engagement-cta" data-i18n="engagements_cta">Start with a short note →</a>
+        <a href="#contact" class="engagement-cta" data-i18n="engagements_cta">Start with a short note →</a>
       </div>
     </section>
 
@@ -742,7 +742,7 @@
 
     <div class="standards-note reveal">
       <p data-i18n="std_note">Not every project needs every technology. Every project does need a clear reason for what is included, what is excluded and how it will be maintained.</p>
-      <a href="mailto:munister@outlook.com?subject=Technical%20audit%20%E2%80%94%20Munister%20Agency" data-i18n="std_cta">Request a technical audit →</a>
+      <a href="#contact" data-i18n="std_cta">Request a technical audit →</a>
     </div>
   </div>
 </section>
@@ -798,7 +798,7 @@
 
     <div class="coverage-note reveal">
       <p data-i18n="cov_note">Overlap is calculated live from the IANA time-zone database against a 9-to-5 workday in your state, so it stays right through both countries’ daylight-saving changes. Split states are named honestly: Florida’s Panhandle, West River in South Dakota and El Paso keep their own clocks. Boundaries come from the U.S. Census Bureau.</p>
-      <a href="mailto:munister@outlook.com?subject=Project%20inquiry%20%E2%80%94%20Munister%20Agency" data-i18n="cov_cta">Ask about your time zone →</a>
+      <a href="#contact" data-i18n="cov_cta">Ask about your time zone →</a>
     </div>
 
   </div>
@@ -989,7 +989,7 @@
       <em data-i18n="band_l2">is in the middle.</em>
     </h2>
     <p class="field-band-sub" data-i18n="band_sub">Manufacturers, distributors, clinics, school districts and family firms run on systems nobody has redrawn in fifteen years. They rarely make a design award list. They are the briefs we like most, and the ones where a working system changes the week of everyone who touches it.</p>
-    <a class="hero-cta-solid field-band-cta" href="mailto:munister@outlook.com?subject=Project%20inquiry%20%E2%80%94%20Munister%20Agency" data-i18n="hero_cta1">Discuss a project</a>
+    <a class="hero-cta-solid field-band-cta" href="#contact" data-i18n="hero_cta1">Discuss a project</a>
     <p class="field-band-credit">Photograph: Carol M. Highsmith Archive, Library of Congress · public domain</p>
   </div>
 </section>
@@ -1039,8 +1039,105 @@
       </div>
       <div class="banner-right">
         <p data-i18n="banner_sub">Bring the awkward brief, inherited platform or ambitious new idea. We will help find the useful next move.</p>
-        <a href="mailto:munister@outlook.com?subject=Project%20inquiry%20%E2%80%94%20Munister%20Agency" class="btn btn-white btn-arrow" data-i18n="banner_cta">Tell us what you are solving</a>
+        <a href="#contact" class="btn btn-white btn-arrow" data-i18n="banner_cta">Tell us what you are solving</a>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<!-- Заявка уходит в ARM CRM (POST /api/leads/intake) и появляется в панели
+     «Ліди» как карточка воронки Inbound. Почта осталась запасным путём
+     на случай, если запрос не прошёл. -->
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="contact-side reveal">
+        <p class="section-tag-light" data-i18n="ct_tag">Start a project</p>
+        <h2 class="f-display" id="contact-title">
+          <span data-i18n="ct_title_1">Tell us what</span><br/>
+          <em data-i18n="ct_title_2">you are solving.</em>
+        </h2>
+        <p class="contact-lead" data-i18n="ct_lead">A few lines are enough to start. We read every message ourselves and answer with a real next step, not a brochure.</p>
+        <ul class="contact-facts">
+          <li data-i18n="ct_fact1">One senior team, no subcontractors</li>
+          <li data-i18n="ct_fact2">An answer within one working day</li>
+          <li data-i18n="ct_fact3">No obligation and no sales sequence</li>
+        </ul>
+        <p class="contact-direct">
+          <span data-i18n="ct_direct">Prefer email?</span>
+          <a href="mailto:munister@outlook.com?subject=Project%20inquiry">munister@outlook.com</a>
+        </p>
+      </div>
+
+      <form class="contact-form reveal" id="contact-form" novalidate
+            data-endpoint="https://bank.munister.com.ua/api/leads/intake">
+        <div class="cf-row">
+          <label class="cf-field">
+            <span data-i18n="ct_f_name">Your name</span>
+            <input type="text" name="name" autocomplete="name" maxlength="120" required />
+          </label>
+          <label class="cf-field">
+            <span data-i18n="ct_f_company">Company</span>
+            <input type="text" name="company" autocomplete="organization" maxlength="160" />
+          </label>
+        </div>
+
+        <div class="cf-row">
+          <label class="cf-field">
+            <span data-i18n="ct_f_email">Email</span>
+            <input type="email" name="email" autocomplete="email" maxlength="200" inputmode="email" required />
+          </label>
+          <label class="cf-field">
+            <span data-i18n="ct_f_phone">Phone or messenger</span>
+            <input type="text" name="phone" autocomplete="tel" maxlength="60" />
+          </label>
+        </div>
+
+        <div class="cf-row">
+          <label class="cf-field">
+            <span data-i18n="ct_f_service">What you need</span>
+            <select name="service">
+              <option value="" data-i18n="ct_s_pick">Not sure yet</option>
+              <option value="Web platform" data-i18n="ct_s_web">Website or web platform</option>
+              <option value="Mobile and PWA" data-i18n="ct_s_mobile">Mobile app or PWA</option>
+              <option value="Automation and AI" data-i18n="ct_s_auto">Automation and AI workflows</option>
+              <option value="E-commerce and ERP" data-i18n="ct_s_erp">E-commerce, CRM or ERP</option>
+              <option value="Audit and consulting" data-i18n="ct_s_audit">Audit and consulting</option>
+            </select>
+          </label>
+          <label class="cf-field">
+            <span data-i18n="ct_f_budget">Budget in mind</span>
+            <select name="budget">
+              <option value="" data-i18n="ct_b_pick">Tell us later</option>
+              <option value="under $1,200">under $1,200</option>
+              <option value="$1,200–3,000">$1,200–3,000</option>
+              <option value="$3,000–7,000">$3,000–7,000</option>
+              <option value="$7,000+">$7,000+</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="cf-field cf-wide">
+          <span data-i18n="ct_f_message">What are you solving?</span>
+          <textarea name="message" rows="5" maxlength="4000" required></textarea>
+        </label>
+
+        <!-- Приманка для ботов: человек этого поля не видит и не заполняет. -->
+        <div class="cf-trap" aria-hidden="true">
+          <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+        </div>
+
+        <div class="cf-actions">
+          <button type="submit" class="cf-submit" data-i18n="ct_send">Send the enquiry</button>
+          <p class="cf-note" data-i18n="ct_privacy">We use what you write to answer you. Nothing else, nobody else.</p>
+        </div>
+
+        <p class="cf-status" id="contact-status" role="status" aria-live="polite"></p>
+      </form>
+
     </div>
   </div>
 </section>
@@ -1058,10 +1155,11 @@
 <!-- Back to top -->
 <button class="back-to-top" id="backToTop" aria-label="Вгору">↑</button>
 
-<script src="i18n.js?v=24"></script>
+<script src="i18n.js?v=25"></script>
 <script src="main.js?v=11"></script>
 <script src="us-coverage.js?v=3" defer></script>
 <script src="europe.js?v=1" defer></script>
 <script src="atlantic.js?v=5" defer></script>
+<script src="contact.js?v=2" defer></script>
 </body>
 </html>
