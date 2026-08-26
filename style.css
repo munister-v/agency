@@ -95,3 +95,103 @@ a, button, input, select, textarea {
     transform: none !important;
   }
 }
+
+/* The offer has a deliberately separate mobile composition. It must never
+   inherit the desktop side-by-side columns, even through a cached import. */
+@media (max-width: 760px) {
+  #engagements .engagements-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 24px;
+    margin-bottom: 34px;
+  }
+
+  #engagements .engagements-heading h2 {
+    max-width: none;
+    font-size: clamp(44px, 14vw, 58px);
+    line-height: .96;
+  }
+
+  #engagements .engagements-heading > p {
+    max-width: 34ch;
+    padding-bottom: 0;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  #engagements .engagement-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #engagements .engagement-card,
+  #engagements .engagement-card + .engagement-card,
+  #engagements .engagement-card:last-child {
+    min-width: 0;
+    min-height: 0;
+    padding: 28px 0 32px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(17,17,17,.16);
+  }
+
+  #engagements .engagement-card:last-child { border-bottom: 0; }
+
+  #engagements .engagement-meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+    gap: 8px 16px;
+  }
+
+  #engagements .engagement-meta span:nth-child(2) { justify-self: end; }
+
+  #engagements .engagement-price {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+    font-size: 22px;
+  }
+
+  #engagements .engagement-card h3 {
+    max-width: 13ch;
+    margin-top: 22px;
+    font-size: clamp(34px, 10vw, 44px);
+    line-height: 1;
+  }
+
+  #engagements .engagement-card > p:not(.engagement-deliverable) {
+    max-width: 34ch;
+    margin-top: 14px;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  #engagements .engagement-deliverable {
+    margin-top: 26px;
+    padding-top: 16px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  #engagements .engagement-note {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+    gap: 20px;
+    padding-top: 28px;
+  }
+
+  #engagements .engagement-note p {
+    max-width: 34ch;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  #engagements .engagement-cta {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 52px;
+    padding-bottom: 10px;
+    font-size: 11px;
+  }
+}
