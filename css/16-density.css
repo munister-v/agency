@@ -36,8 +36,8 @@ body { font-size: 17px; line-height: 1.48; }
 .technology-lanes h4,
 .cv-panel-name span { font-weight: 600; }
 
-/* Eyebrows are set in Orbit, which ships one weight — asking for 600 only
-   buys a synthetic smear at 10 px. Strength comes from ink instead. */
+/* Eyebrows gain ink as well as weight; the weight itself is set further
+   down, once the label face has been replaced. */
 .section-num,
 .section-tag,
 .section-tag-light,
@@ -213,3 +213,73 @@ body { font-size: 17px; line-height: 1.48; }
 .nav-cta:hover { background: transparent; color: var(--black) !important; }
 
 .nav-links a { font-size: 11px; }
+
+/* ── the American voice ──────────────────────────────────────
+   Orbit is a decorative single-weight face: charming as a wordmark,
+   thin and foreign as the voice of every label on the page. Labels,
+   navigation, buttons and figures move to Libre Franklin — the open
+   revival of Franklin Gothic, drawn by Morris Fuller Benton for
+   American Type Founders in 1902 and the working voice of American
+   newspapers ever since. The serif spine of the site does not move.
+   The wordmark keeps Orbit, because that is the mark. */
+
+:root {
+  --font-brand: 'Libre Franklin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mark: 'Orbit', ui-monospace, monospace;
+}
+
+.nav-logo,
+.footer-logo { font-family: var(--font-mark); }
+
+/* Franklin sets tighter than a monospace at the same tracking. */
+.section-num,
+.section-tag,
+.section-tag-light,
+.standards-kicker,
+.banner-tag,
+.studio-blocks-tag,
+.cv-index-label,
+.stack-strip-label,
+.capability-head,
+.svc-cat,
+.svc-from,
+.svc-time,
+.pg-cat,
+.pg-num,
+.pg-url,
+.engagement-meta,
+.studio-stat-label,
+.coverage-stat span,
+.cv-panel-rows dt,
+.cv-legend span,
+.quality-gates li b { font-weight: 600; letter-spacing: .13em; }
+
+.nav-links a { font-weight: 600; letter-spacing: .1em; }
+.nav-cta,
+.hero-cta-solid,
+.hero-more,
+.btn,
+.engagement-cta,
+.cv-panel-cta,
+.cv-chip,
+.pg-link,
+.hero-strip-label,
+.hero-strip-all { font-weight: 600; }
+
+/* Figures in a gothic, the way an American price list sets them. */
+.studio-stat-num,
+.coverage-stat b,
+.svc-price,
+.stats b,
+.engagement-price,
+.cv-panel-rows dd.cv-live {
+  font-family: var(--font-brand);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+}
+.engagement-price { font-weight: 600; letter-spacing: 0; }
+.cv-panel-rows dd.cv-live { font-weight: 600; letter-spacing: .01em; }
+
+/* The map keeps its own small labels legible in the new face. */
+.cv-abbr { font-weight: 600; letter-spacing: .02em; }

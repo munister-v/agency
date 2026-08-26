@@ -1674,6 +1674,56 @@ Object.assign(translations.en, {
   proof_3_meta: 'QA · signals · roadmap'
 });
 
+/* The field band */
+Object.assign(translations.en, {
+  band_tag: "Two coasts and everything between",
+  band_l1: "Most of the work",
+  band_l2: "is in the middle.",
+  band_sub: "Manufacturers, distributors, clinics, school districts and family firms run on systems nobody has redrawn in fifteen years. They rarely make a design award list. They are the briefs we like most, and the ones where a working system changes the week of everyone who touches it."
+});
+
+Object.assign(translations.uk, {
+  band_tag: "Два узбережжя і все між ними",
+  band_l1: "Більшість роботи",
+  band_l2: "лежить посередині.",
+  band_sub: "Виробництва, дистрибуція, клініки, шкільні округи та сімейні компанії живуть на системах, які ніхто не перемальовував п’ятнадцять років. Вони рідко потрапляють у списки дизайн-премій. Це наші улюблені завдання: саме там робоча система змінює тиждень кожному, хто її торкається."
+});
+
+Object.assign(translations.de, {
+  band_tag: "Zwei Küsten und alles dazwischen",
+  band_l1: "Die meiste Arbeit",
+  band_l2: "liegt in der Mitte.",
+  band_sub: "Hersteller, Distributoren, Kliniken, Schulbezirke und Familienbetriebe laufen auf Systemen, die seit fünfzehn Jahren niemand neu gezeichnet hat. Sie stehen selten auf Designpreislisten. Es sind die Aufgaben, die wir am liebsten mögen: dort verändert ein funktionierendes System die Woche aller, die damit arbeiten."
+});
+
+Object.assign(translations.pl, {
+  band_tag: "Dwa wybrzeża i wszystko pomiędzy",
+  band_l1: "Większość pracy",
+  band_l2: "jest pośrodku.",
+  band_sub: "Producenci, dystrybutorzy, przychodnie, okręgi szkolne i firmy rodzinne działają na systemach, których nikt nie przerysował od piętnastu lat. Rzadko trafiają na listy nagród designerskich. To zlecenia, które lubimy najbardziej: tam działający system zmienia tydzień każdemu, kto go dotyka."
+});
+
+Object.assign(translations.es, {
+  band_tag: "Dos costas y todo lo que hay en medio",
+  band_l1: "La mayor parte del trabajo",
+  band_l2: "está en el medio.",
+  band_sub: "Fabricantes, distribuidores, clínicas, distritos escolares y empresas familiares funcionan con sistemas que nadie ha rediseñado en quince años. Rara vez aparecen en una lista de premios de diseño. Son los encargos que más nos gustan: ahí un sistema que funciona cambia la semana de todos los que lo tocan."
+});
+
+Object.assign(translations.pt, {
+  band_tag: "Duas costas e tudo o que há no meio",
+  band_l1: "A maior parte do trabalho",
+  band_l2: "está no meio.",
+  band_sub: "Fabricantes, distribuidores, clínicas, agrupamentos escolares e empresas familiares funcionam com sistemas que ninguém redesenhou em quinze anos. Raramente entram numa lista de prémios de design. São os projetos de que mais gostamos: é aí que um sistema que funciona muda a semana de toda a gente que lhe toca."
+});
+
+Object.assign(translations.it, {
+  band_tag: "Due coste e tutto quello che c’è in mezzo",
+  band_l1: "Il grosso del lavoro",
+  band_l2: "sta nel mezzo.",
+  band_sub: "Produttori, distributori, cliniche, distretti scolastici e imprese familiari vivono su sistemi che nessuno ridisegna da quindici anni. Raramente finiscono in una lista di premi di design. Sono i progetti che preferiamo: lì un sistema che funziona cambia la settimana a chiunque lo tocchi."
+});
+
 let currentLang = 'en';
 
 function applyLang(lang) {
