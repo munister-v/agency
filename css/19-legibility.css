@@ -87,6 +87,9 @@
 .coverage-note p { font-size: 16.5px; }
 .coverage-note a { font-size: 12.5px; letter-spacing: .12em; }
 .plate figcaption span { font-size: 11.5px; letter-spacing: .1em; }
+/* SVG units, not pixels: the map is drawn in a 1080-wide viewBox and
+   rendered around 790, so 17 units land at the same ~12px floor. */
+.cv-abbr { font-size: 17px; }
 
 /* ── portfolio ──────────────────────────────────────────────── */
 .pg-num { font-size: 12.5px; }
