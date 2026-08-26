@@ -312,7 +312,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbit&amp;family=Libre+Franklin:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Cormorant+Garamond:ital,wght@0,600;1,400;1,500&amp;family=Onest:wght@300;400;500;600&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=60" />
+  <link rel="stylesheet" href="style.css?v=61" />
 </head>
 <body>
 <!-- Scroll progress bar -->
@@ -379,6 +379,30 @@
     <div class="hero-actions">
       <a class="hero-cta-solid" href="mailto:munister@outlook.com?subject=Project%20inquiry%20%E2%80%94%20Munister%20Agency" data-i18n="hero_cta1">Discuss a project</a>
       <a class="hero-more" href="#portfolio" data-i18n="hero_more">Explore selected work →</a>
+    </div>
+  </div>
+
+  <!-- Трансатлантическая сцена: студия в Европе и клиенты в США.
+       Карта штатов и часовые пояса берутся из того же файла границ,
+       что и секция #coverage, а время считается вживую по IANA. -->
+  <div class="atl" id="atlantic" aria-hidden="false">
+    <div class="atl-head">
+      <span class="atl-label" data-i18n="atl_label">Live delivery line</span>
+      <span class="atl-clocks">
+        <b id="atl-clock-eu">--:--</b><span data-i18n="atl_eu">Kyiv, studio</span>
+        <i class="atl-arrow" aria-hidden="true">→</i>
+        <b id="atl-clock-us">--:--</b><span id="atl-us-name">United States</span>
+      </span>
+    </div>
+    <div class="atl-stage" id="atl-stage">
+      <noscript>
+        <p class="atl-noscript" data-i18n="atl_noscript">A studio in Europe, clients in all fifty states. Our working day runs 10:00 to 22:00 Kyiv time and overlaps every U.S. time zone, coast to coast.</p>
+      </noscript>
+    </div>
+    <div class="atl-foot">
+      <p class="atl-caption"><em id="atl-city">Atlantic route</em><span id="atl-note" data-i18n="atl_note">one senior team, six time zones</span></p>
+      <p class="atl-overlap"><b id="atl-hours">0 h</b><span data-i18n="atl_overlap">overlap with your workday today</span></p>
+      <a class="atl-link" href="#coverage" data-i18n="atl_cta">See all fifty states →</a>
     </div>
   </div>
 
@@ -1014,8 +1038,9 @@
 <!-- Back to top -->
 <button class="back-to-top" id="backToTop" aria-label="Вгору">↑</button>
 
-<script src="i18n.js?v=19"></script>
+<script src="i18n.js?v=20"></script>
 <script src="main.js?v=10"></script>
-<script src="us-coverage.js?v=2" defer></script>
+<script src="us-coverage.js?v=3" defer></script>
+<script src="atlantic.js?v=1" defer></script>
 </body>
 </html>

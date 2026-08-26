@@ -1724,6 +1724,64 @@ Object.assign(translations.it, {
   band_sub: "Produttori, distributori, cliniche, distretti scolastici e imprese familiari vivono su sistemi che nessuno ridisegna da quindici anni. Raramente finiscono in una lista di premi di design. Sono i progetti che preferiamo: lì un sistema che funziona cambia la settimana a chiunque lo tocchi."
 });
 
+/* Hero: the transatlantic delivery line */
+Object.assign(translations.en, {
+  atl_label: "Live delivery line",
+  atl_eu: "Kyiv, studio",
+  atl_note: "one senior team, six time zones",
+  atl_overlap: "overlap with your workday today",
+  atl_cta: "See all fifty states →",
+  atl_noscript: "A studio in Europe, clients in all fifty states. Our working day runs 10:00 to 22:00 Kyiv time and overlaps every U.S. time zone, coast to coast."
+});
+Object.assign(translations.uk, {
+  atl_label: "Лінія роботи наживо",
+  atl_eu: "Київ, студія",
+  atl_note: "одна досвідчена команда, шість поясів",
+  atl_overlap: "перетину з вашим робочим днем сьогодні",
+  atl_cta: "Побачити всі п’ятдесят штатів →",
+  atl_noscript: "Студія в Європі, клієнти в усіх п’ятдесяти штатах. Наш день триває з 10:00 до 22:00 за Києвом і перетинається з кожним поясом США, від берега до берега."
+});
+Object.assign(translations.de, {
+  atl_label: "Arbeitslinie in Echtzeit",
+  atl_eu: "Kyjiw, Studio",
+  atl_note: "ein erfahrenes Team, sechs Zeitzonen",
+  atl_overlap: "Überschneidung mit Ihrem Arbeitstag heute",
+  atl_cta: "Alle fünfzig Staaten ansehen →",
+  atl_noscript: "Ein Studio in Europa, Kunden in allen fünfzig Staaten. Unser Arbeitstag läuft von 10:00 bis 22:00 Kyjiwer Zeit und überschneidet sich mit jeder US-Zeitzone, von Küste zu Küste."
+});
+Object.assign(translations.pl, {
+  atl_label: "Linia pracy na żywo",
+  atl_eu: "Kijów, studio",
+  atl_note: "jeden doświadczony zespół, sześć stref",
+  atl_overlap: "wspólnych godzin z Twoim dniem pracy dzisiaj",
+  atl_cta: "Zobacz wszystkie pięćdziesiąt stanów →",
+  atl_noscript: "Studio w Europie, klienci we wszystkich pięćdziesięciu stanach. Nasz dzień trwa od 10:00 do 22:00 czasu kijowskiego i pokrywa się z każdą strefą czasową USA, od wybrzeża do wybrzeża."
+});
+Object.assign(translations.es, {
+  atl_label: "Línea de trabajo en vivo",
+  atl_eu: "Kyiv, estudio",
+  atl_note: "un equipo sénior, seis husos horarios",
+  atl_overlap: "de coincidencia con su jornada hoy",
+  atl_cta: "Ver los cincuenta estados →",
+  atl_noscript: "Un estudio en Europa y clientes en los cincuenta estados. Nuestra jornada va de 10:00 a 22:00 hora de Kyiv y coincide con todos los husos horarios de EE. UU., de costa a costa."
+});
+Object.assign(translations.pt, {
+  atl_label: "Linha de trabalho ao vivo",
+  atl_eu: "Kyiv, estúdio",
+  atl_note: "uma equipa sénior, seis fusos horários",
+  atl_overlap: "de sobreposição com o seu dia de trabalho hoje",
+  atl_cta: "Ver os cinquenta estados →",
+  atl_noscript: "Um estúdio na Europa e clientes nos cinquenta estados. O nosso dia vai das 10:00 às 22:00 hora de Kyiv e cruza-se com todos os fusos horários dos EUA, de costa a costa."
+});
+Object.assign(translations.it, {
+  atl_label: "Linea di lavoro in diretta",
+  atl_eu: "Kyiv, studio",
+  atl_note: "una squadra senior, sei fusi orari",
+  atl_overlap: "di sovrapposizione con la vostra giornata oggi",
+  atl_cta: "Vedere tutti i cinquanta stati →",
+  atl_noscript: "Uno studio in Europa e clienti in tutti i cinquanta stati. La nostra giornata va dalle 10:00 alle 22:00 ora di Kyiv e si sovrappone a ogni fuso orario degli Stati Uniti, da costa a costa."
+});
+
 let currentLang = 'en';
 
 function applyLang(lang) {

@@ -1,0 +1,260 @@
+/* ─── HERO: THE TRANSATLANTIC DELIVERY LINE ─────────────────────
+   A studio node in Europe, real state boundaries, live clocks. The
+   scene sits between the headline and the work strip, so the first
+   screen states the positioning and proves it in the same breath. */
+
+.atl {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 40px 56px;
+}
+
+/* The headline no longer needs to carry the whole first screen. */
+.hero-center { padding-bottom: 56px; }
+
+.atl-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--light);
+}
+
+.atl-label {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.atl-clocks {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.atl-clocks b {
+  font-family: var(--font-brand);
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: .04em;
+  color: var(--black);
+  font-variant-numeric: tabular-nums;
+}
+.atl-clocks #atl-clock-us { color: var(--gold); }
+.atl-arrow { font-style: normal; color: var(--light); padding: 0 4px; }
+
+/* ── the stage ─────────────────────────────────────────────── */
+
+.atl-stage {
+  position: relative;
+  margin-top: 6px;
+  background:
+    radial-gradient(120% 90% at 78% 30%, rgba(18,40,176,0.055), transparent 62%),
+    var(--white);
+  border-bottom: 1px solid var(--light);
+}
+.atl-svg { display: block; width: 100%; height: auto; }
+.atl-noscript {
+  padding: 28px 0;
+  font-family: var(--font-crimson);
+  font-size: 17px;
+  color: var(--gray);
+}
+
+.atl-land .atl-state {
+  fill: rgba(20, 24, 58, 0.055);
+  stroke: rgba(20, 24, 58, 0.20);
+  stroke-width: 0.7;
+  stroke-linejoin: round;
+  transition: fill .5s ease, stroke .5s ease;
+}
+/* Tinted by time zone: the map should read as a clock, not a country.
+   The band a client sits in is visible before anything animates. */
+.atl-land .atl-state[data-zone="ET"] { fill: rgba(18, 40, 176, 0.13); }
+.atl-land .atl-state[data-zone="CT"] { fill: rgba(18, 40, 176, 0.105); }
+.atl-land .atl-state[data-zone="MT"],
+.atl-land .atl-state[data-zone="AZ"] { fill: rgba(18, 40, 176, 0.08); }
+.atl-land .atl-state[data-zone="PT"] { fill: rgba(18, 40, 176, 0.055); }
+.atl-land .atl-state[data-zone="AK"],
+.atl-land .atl-state[data-zone="HI"] { fill: rgba(18, 40, 176, 0.04); }
+
+.atl-land .atl-state.is-live {
+  fill: rgba(18, 40, 176, 0.22);
+  stroke: var(--gold);
+  stroke-width: 1.1;
+}
+
+.atl-zonebar {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  letter-spacing: .2em;
+  fill: var(--gray);
+  text-anchor: middle;
+}
+.atl-zonerule {
+  stroke: rgba(20, 24, 58, 0.14);
+  stroke-width: 1;
+  stroke-dasharray: 2 6;
+}
+
+.atl-rails path {
+  fill: none;
+  stroke: rgba(20, 24, 58, 0.13);
+  stroke-width: 1;
+  stroke-dasharray: 1 7;
+  stroke-linecap: round;
+}
+
+.atl-leg {
+  fill: none;
+  stroke: rgba(20, 24, 58, 0.14);
+  stroke-width: 1;
+  stroke-dasharray: 2 6;
+  transition: stroke .4s ease;
+}
+.atl-leg.is-live { stroke: rgba(18, 40, 176, 0.30); }
+
+.atl-leg-live {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.atl-leg-live.is-flying { opacity: .9; }
+
+.atl-dot {
+  fill: var(--white);
+  stroke: rgba(20, 24, 58, 0.35);
+  stroke-width: 1.2;
+  transition: fill .35s ease, stroke .35s ease, r .35s ease;
+}
+.atl-dot.is-live { fill: var(--gold); stroke: var(--gold); }
+.atl-dot.is-landing { animation: atl-land 900ms ease-out; }
+
+@keyframes atl-land {
+  0%   { r: 4.5; }
+  35%  { r: 11; }
+  100% { r: 5.5; }
+}
+
+.atl-packet {
+  fill: var(--gold);
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(18, 40, 176, 0.55));
+  transition: opacity .2s ease;
+}
+.atl-packet.is-flying { opacity: 1; }
+
+.atl-home-core { fill: var(--gold); }
+.atl-home-ring {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1;
+  opacity: .45;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: atl-pulse 3.4s ease-out infinite;
+}
+@keyframes atl-pulse {
+  0%   { transform: scale(.42); opacity: .6; }
+  70%  { transform: scale(1.15); opacity: 0; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+.atl-home-label {
+  font-family: var(--font-brand);
+  font-size: 12px;
+  letter-spacing: .22em;
+  fill: var(--black);
+  text-anchor: middle;
+}
+
+/* ── the readout ───────────────────────────────────────────── */
+
+.atl-foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+}
+.atl-caption {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.atl-caption em {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 24px;
+  color: var(--black);
+}
+.atl-caption span,
+.atl-overlap span {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.atl-overlap {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.atl-overlap b {
+  font-family: var(--font-brand);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+.atl-link {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--black);
+  border-bottom: 1px solid var(--light);
+  padding-bottom: 2px;
+}
+.atl-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ── narrow screens ────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .atl { padding: 0 20px 40px; }
+  .atl-head { gap: 12px; }
+  .atl-clocks b { font-size: 15px; }
+  .atl-caption em { font-size: 20px; }
+  .atl-foot { gap: 14px; }
+  .atl-home-label { font-size: 18px; }
+  .atl-zonebar { font-size: 15px; letter-spacing: .12em; }
+}
+
+@media (max-width: 620px) {
+  .atl-head, .atl-foot { flex-direction: column; align-items: flex-start; }
+  .atl-link { align-self: flex-start; }
+  /* Small type inside the SVG scales with the frame, so at phone widths
+     the zone ruler would land at three pixels. It goes rather than
+     turning into noise; the same information sits in #coverage. */
+  .atl-ruler { display: none; }
+  .atl-home-label { font-size: 30px; letter-spacing: .18em; }
+  .atl-dot { stroke-width: 2.4; }
+  .atl-land .atl-state { stroke-width: 1.1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atl-home-ring { animation: none; opacity: .3; }
+  .atl-dot.is-landing { animation: none; }
+}
