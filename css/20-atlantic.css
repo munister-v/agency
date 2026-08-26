@@ -76,6 +76,22 @@
   stroke-linejoin: round;
   transition: fill .5s ease, stroke .5s ease;
 }
+.atl-land .atl-country {
+  fill: rgba(20, 24, 58, 0.075);
+  stroke: rgba(20, 24, 58, 0.22);
+  stroke-width: 0.7;
+  stroke-linejoin: round;
+}
+
+/* The two halves are named once, in the quietest voice on the page. */
+.atl-side {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  letter-spacing: .28em;
+  fill: var(--gray);
+  opacity: .7;
+}
+
 /* Tinted by time zone: the map should read as a clock, not a country.
    The band a client sits in is visible before anything animates. */
 .atl-land .atl-state[data-zone="ET"] { fill: rgba(18, 40, 176, 0.13); }
@@ -142,9 +158,14 @@
 .atl-dot.is-landing { animation: atl-land 900ms ease-out; }
 
 @keyframes atl-land {
-  0%   { r: 4.5; }
-  35%  { r: 11; }
-  100% { r: 5.5; }
+  0%   { r: 5; }
+  35%  { r: 12; }
+  100% { r: 6; }
+}
+@keyframes atl-land-lg {
+  0%   { r: 7; }
+  35%  { r: 16; }
+  100% { r: 8; }
 }
 
 .atl-packet {
@@ -172,11 +193,142 @@
 }
 .atl-home-label {
   font-family: var(--font-brand);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: .22em;
   fill: var(--black);
-  text-anchor: middle;
 }
+.atl-home-sub {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  letter-spacing: .1em;
+  fill: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Client cities. The three European ones keep their names on the map;
+   a U.S. city gets its name when the line reaches it. */
+.atl-tag {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  letter-spacing: .12em;
+  fill: var(--gray);
+  transition: fill .35s ease;
+}
+.atl-tag.is-live { fill: var(--gold); }
+
+.atl-flag {
+  font-family: var(--font-brand);
+  font-size: 12px;
+  letter-spacing: .12em;
+  fill: var(--gold);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.atl-flag.is-on { opacity: 1; }
+
+/* ── the day bar ───────────────────────────────────────────── */
+
+.atl-bar {
+  position: relative;
+  padding: 14px 0 30px;
+  margin-top: -8px;
+}
+.atl-bar-scale {
+  position: relative;
+  height: 14px;
+  margin-left: 92px;
+}
+.atl-bar-scale span {
+  position: absolute;
+  transform: translateX(-50%);
+  font-family: var(--font-brand);
+  font-size: 9px;
+  letter-spacing: .1em;
+  color: var(--gray);
+}
+.atl-bar-scale span:first-child { transform: none; }
+.atl-bar-scale span:last-child { transform: translateX(-100%); }
+
+.atl-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+.atl-bar-name {
+  width: 80px;
+  flex: 0 0 80px;
+  text-align: right;
+  font-family: var(--font-brand);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.atl-bar-track {
+  position: relative;
+  display: block;
+  flex: 1 1 auto;
+  height: 14px;
+  background: rgba(20, 24, 58, 0.05);
+  border-radius: 2px;
+}
+.atl-band {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 2px;
+}
+.atl-band-ours   { background: rgba(20, 24, 58, 0.62); }
+.atl-band-theirs { background: rgba(18, 40, 176, 0.20); }
+.atl-band-shared { background: var(--gold); }
+
+/* One vertical line for the present moment, crossing both rows. */
+.atl-bar-now {
+  position: absolute;
+  top: 20px;
+  bottom: 44px;
+  left: 0;
+  width: 1px;
+  margin-left: 92px;
+  background: var(--black);
+  opacity: .55;
+}
+.atl-bar-now::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -2.5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--black);
+}
+
+.atl-bar-key {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 12px 0 0 92px;
+  font-family: var(--font-brand);
+  font-size: 9px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.atl-bar-key span {
+  width: 16px;
+  height: 7px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.atl-bar-key em { font-style: normal; margin-right: 10px; }
+.atl-bar-key .k-ours   { background: rgba(20, 24, 58, 0.62); }
+.atl-bar-key .k-theirs { background: rgba(18, 40, 176, 0.20); }
+.atl-bar-key .k-shared { background: var(--gold); }
 
 /* ── the readout ───────────────────────────────────────────── */
 
@@ -238,20 +390,42 @@
   .atl-clocks b { font-size: 15px; }
   .atl-caption em { font-size: 20px; }
   .atl-foot { gap: 14px; }
-  .atl-home-label { font-size: 18px; }
-  .atl-zonebar { font-size: 15px; letter-spacing: .12em; }
+  /* Still the wide frame here, just a smaller window for it. */
+  .atl-home-label { font-size: 17px; }
+  .atl-home-sub { font-size: 15px; }
+  .atl-tag, .atl-flag { font-size: 15px; }
+  .atl-side { font-size: 14px; letter-spacing: .22em; }
+  .atl-zonebar { font-size: 14px; letter-spacing: .14em; }
+  .atl-bar-name { width: 66px; flex-basis: 66px; }
+  .atl-bar-scale, .atl-bar-key, .atl-bar-now { margin-left: 78px; }
 }
 
 @media (max-width: 620px) {
   .atl-head, .atl-foot { flex-direction: column; align-items: flex-start; }
   .atl-link { align-self: flex-start; }
-  /* Small type inside the SVG scales with the frame, so at phone widths
-     the zone ruler would land at three pixels. It goes rather than
-     turning into noise; the same information sits in #coverage. */
-  .atl-ruler { display: none; }
-  .atl-home-label { font-size: 30px; letter-spacing: .18em; }
-  .atl-dot { stroke-width: 2.4; }
-  .atl-land .atl-state { stroke-width: 1.1; }
+  /* The narrow scene is drawn in a 760-unit frame instead of 1520, so
+     everything inside it is specified again at that scale rather than
+     inheriting numbers meant for a frame twice as wide. */
+  .atl-home-label { font-size: 26px; letter-spacing: .16em; }
+  .atl-home-sub { font-size: 22px; letter-spacing: .04em; }
+  .atl-tag, .atl-flag { font-size: 24px; letter-spacing: .04em; }
+  .atl-side { font-size: 22px; letter-spacing: .2em; }
+  .atl-zonebar { font-size: 20px; letter-spacing: .12em; }
+  .atl-dot { r: 7; stroke-width: 1.8; }
+  .atl-dot.is-landing { animation-name: atl-land-lg; }
+  .atl-home-ring { r: 36; stroke-width: 1.6; }
+  .atl-home-core { r: 9; }
+  .atl-packet { r: 7.5; }
+  .atl-leg { stroke-width: 1.4; stroke-dasharray: 3 8; }
+  .atl-leg-live { stroke-width: 2.4; }
+  .atl-land .atl-state,
+  .atl-land .atl-country { stroke-width: 0.9; }
+  .atl-rails path { stroke-width: 1.4; stroke-dasharray: 1.5 9; }
+
+  .atl-bar-scale, .atl-bar-key, .atl-bar-now { margin-left: 0; }
+  .atl-bar-row { flex-direction: column; align-items: stretch; gap: 4px; }
+  .atl-bar-name { width: auto; flex: none; text-align: left; }
+  .atl-bar-now { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

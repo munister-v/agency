@@ -1724,62 +1724,90 @@ Object.assign(translations.it, {
   band_sub: "Produttori, distributori, cliniche, distretti scolastici e imprese familiari vivono su sistemi che nessuno ridisegna da quindici anni. Raramente finiscono in una lista di premi di design. Sono i progetti che preferiamo: lì un sistema che funziona cambia la settimana a chiunque lo tocchi."
 });
 
-/* Hero: the transatlantic delivery line */
+/* Hero: the working line, its client cities and the shared-day bar */
 Object.assign(translations.en, {
-  atl_label: "Live delivery line",
+  atl_hours_unit: "h",
+  atl_label: "Live working line",
   atl_eu: "Kyiv, studio",
-  atl_note: "one senior team, six time zones",
-  atl_overlap: "overlap with your workday today",
+  atl_day_ours: "Our day",
+  atl_key_ours: "studio",
+  atl_key_theirs: "client",
+  atl_key_shared: "shared hours",
+  atl_overlap: "hours we share with this team today",
   atl_cta: "See all fifty states →",
-  atl_noscript: "A studio in Europe, clients in all fifty states. Our working day runs 10:00 to 22:00 Kyiv time and overlaps every U.S. time zone, coast to coast."
+  atl_noscript: "A studio in Kyiv, client teams in Lviv, Berlin and Rome and across all fifty U.S. states. Our working day runs 10:00 to 22:00 Kyiv time and overlaps every U.S. time zone, coast to coast."
 });
 Object.assign(translations.uk, {
-  atl_label: "Лінія роботи наживо",
+  atl_hours_unit: "год",
+  atl_label: "Робоча лінія наживо",
   atl_eu: "Київ, студія",
-  atl_note: "одна досвідчена команда, шість поясів",
-  atl_overlap: "перетину з вашим робочим днем сьогодні",
+  atl_day_ours: "Наш день",
+  atl_key_ours: "студія",
+  atl_key_theirs: "клієнт",
+  atl_key_shared: "спільні години",
+  atl_overlap: "годин спільної роботи з цією командою сьогодні",
   atl_cta: "Побачити всі п’ятдесят штатів →",
-  atl_noscript: "Студія в Європі, клієнти в усіх п’ятдесяти штатах. Наш день триває з 10:00 до 22:00 за Києвом і перетинається з кожним поясом США, від берега до берега."
+  atl_noscript: "Студія в Києві, команди клієнтів у Львові, Берліні й Римі та в усіх п’ятдесяти штатах США. Наш день триває з 10:00 до 22:00 за Києвом і перетинається з кожним поясом США, від берега до берега."
 });
 Object.assign(translations.de, {
+  atl_hours_unit: "Std.",
   atl_label: "Arbeitslinie in Echtzeit",
   atl_eu: "Kyjiw, Studio",
-  atl_note: "ein erfahrenes Team, sechs Zeitzonen",
-  atl_overlap: "Überschneidung mit Ihrem Arbeitstag heute",
+  atl_day_ours: "Unser Tag",
+  atl_key_ours: "Studio",
+  atl_key_theirs: "Kunde",
+  atl_key_shared: "gemeinsame Stunden",
+  atl_overlap: "Stunden gemeinsamer Arbeitszeit mit diesem Team heute",
   atl_cta: "Alle fünfzig Staaten ansehen →",
-  atl_noscript: "Ein Studio in Europa, Kunden in allen fünfzig Staaten. Unser Arbeitstag läuft von 10:00 bis 22:00 Kyjiwer Zeit und überschneidet sich mit jeder US-Zeitzone, von Küste zu Küste."
+  atl_noscript: "Ein Studio in Kyjiw, Kundenteams in Lwiw, Berlin und Rom sowie in allen fünfzig US-Staaten. Unser Arbeitstag läuft von 10:00 bis 22:00 Kyjiwer Zeit und überschneidet sich mit jeder US-Zeitzone, von Küste zu Küste."
 });
 Object.assign(translations.pl, {
+  atl_hours_unit: "godz.",
   atl_label: "Linia pracy na żywo",
   atl_eu: "Kijów, studio",
-  atl_note: "jeden doświadczony zespół, sześć stref",
-  atl_overlap: "wspólnych godzin z Twoim dniem pracy dzisiaj",
+  atl_day_ours: "Nasz dzień",
+  atl_key_ours: "studio",
+  atl_key_theirs: "klient",
+  atl_key_shared: "wspólne godziny",
+  atl_overlap: "godzin wspólnej pracy z tym zespołem dzisiaj",
   atl_cta: "Zobacz wszystkie pięćdziesiąt stanów →",
-  atl_noscript: "Studio w Europie, klienci we wszystkich pięćdziesięciu stanach. Nasz dzień trwa od 10:00 do 22:00 czasu kijowskiego i pokrywa się z każdą strefą czasową USA, od wybrzeża do wybrzeża."
+  atl_noscript: "Studio w Kijowie, zespoły klientów we Lwowie, Berlinie i Rzymie oraz we wszystkich pięćdziesięciu stanach USA. Nasz dzień trwa od 10:00 do 22:00 czasu kijowskiego i pokrywa się z każdą strefą czasową USA, od wybrzeża do wybrzeża."
 });
 Object.assign(translations.es, {
+  atl_hours_unit: "h",
   atl_label: "Línea de trabajo en vivo",
   atl_eu: "Kyiv, estudio",
-  atl_note: "un equipo sénior, seis husos horarios",
-  atl_overlap: "de coincidencia con su jornada hoy",
+  atl_day_ours: "Nuestra jornada",
+  atl_key_ours: "estudio",
+  atl_key_theirs: "cliente",
+  atl_key_shared: "horas compartidas",
+  atl_overlap: "horas de trabajo compartido con este equipo hoy",
   atl_cta: "Ver los cincuenta estados →",
-  atl_noscript: "Un estudio en Europa y clientes en los cincuenta estados. Nuestra jornada va de 10:00 a 22:00 hora de Kyiv y coincide con todos los husos horarios de EE. UU., de costa a costa."
+  atl_noscript: "Un estudio en Kyiv, equipos de clientes en Leópolis, Berlín y Roma y en los cincuenta estados de EE. UU. Nuestra jornada va de 10:00 a 22:00 hora de Kyiv y coincide con todos los husos horarios de EE. UU., de costa a costa."
 });
 Object.assign(translations.pt, {
+  atl_hours_unit: "h",
   atl_label: "Linha de trabalho ao vivo",
   atl_eu: "Kyiv, estúdio",
-  atl_note: "uma equipa sénior, seis fusos horários",
-  atl_overlap: "de sobreposição com o seu dia de trabalho hoje",
+  atl_day_ours: "O nosso dia",
+  atl_key_ours: "estúdio",
+  atl_key_theirs: "cliente",
+  atl_key_shared: "horas em comum",
+  atl_overlap: "horas de trabalho em comum com esta equipa hoje",
   atl_cta: "Ver os cinquenta estados →",
-  atl_noscript: "Um estúdio na Europa e clientes nos cinquenta estados. O nosso dia vai das 10:00 às 22:00 hora de Kyiv e cruza-se com todos os fusos horários dos EUA, de costa a costa."
+  atl_noscript: "Um estúdio em Kyiv, equipas de clientes em Lviv, Berlim e Roma e nos cinquenta estados dos EUA. O nosso dia vai das 10:00 às 22:00 hora de Kyiv e cruza-se com todos os fusos horários dos EUA, de costa a costa."
 });
 Object.assign(translations.it, {
+  atl_hours_unit: "h",
   atl_label: "Linea di lavoro in diretta",
   atl_eu: "Kyiv, studio",
-  atl_note: "una squadra senior, sei fusi orari",
-  atl_overlap: "di sovrapposizione con la vostra giornata oggi",
+  atl_day_ours: "La nostra giornata",
+  atl_key_ours: "studio",
+  atl_key_theirs: "cliente",
+  atl_key_shared: "ore in comune",
+  atl_overlap: "ore di lavoro in comune con questa squadra oggi",
   atl_cta: "Vedere tutti i cinquanta stati →",
-  atl_noscript: "Uno studio in Europa e clienti in tutti i cinquanta stati. La nostra giornata va dalle 10:00 alle 22:00 ora di Kyiv e si sovrappone a ogni fuso orario degli Stati Uniti, da costa a costa."
+  atl_noscript: "Uno studio a Kyiv, squadre di clienti a Leopoli, Berlino e Roma e in tutti i cinquanta stati americani. La nostra giornata va dalle 10:00 alle 22:00 ora di Kyiv e si sovrappone a ogni fuso orario degli Stati Uniti, da costa a costa."
 });
 
 let currentLang = 'en';
