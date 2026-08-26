@@ -1,0 +1,137 @@
+/* ─────────────────────────────────────────────────────────────
+   Legibility pass.
+
+   The site was carrying roughly 270 pieces of text below 13px, and a
+   handful at 8px. That reads as a specimen sheet, not as a page a
+   client is meant to get through: labels, list items, captions,
+   metadata and even the buttons were all set at sizes that only work
+   as texture. Nothing here changes the hierarchy — every label is
+   still smaller than the thing it labels — it just lifts the floor to
+   a size that can actually be read, and lets tracking out of the way
+   as the type grows.
+   ───────────────────────────────────────────────────────────── */
+
+/* ── navigation ─────────────────────────────────────────────── */
+.nav-links a { font-size: 12px; letter-spacing: .08em; }
+.nav-cta { font-size: 12px; letter-spacing: .1em; }
+.lang-btn { font-size: 11.5px; }
+
+/* ── hero ───────────────────────────────────────────────────── */
+.masthead-tagline span,
+.masthead-tagline2 span { font-size: 11.5px; letter-spacing: .13em; }
+.hero-cta-solid { font-size: 13px; letter-spacing: .1em; }
+.hero-more { font-size: 12.5px; letter-spacing: .1em; }
+.hero-strip-label,
+.hero-strip-all,
+.hero-strip-all span { font-size: 12px; letter-spacing: .1em; }
+.hs-meta span { font-size: 11.5px; letter-spacing: .1em; }
+.hs-meta em { font-size: 17px; }
+
+/* ── section eyebrows ───────────────────────────────────────── */
+.section-num,
+.section-tag,
+.section-tag-light,
+.standards-kicker,
+.banner-tag,
+.field-band-tag,
+.studio-blocks-tag,
+.cv-index-label { font-size: 12.5px; letter-spacing: .14em; }
+#services .section-tag-light,
+.portfolio-section .section-tag-light { font-size: 12.5px; letter-spacing: .16em; }
+/* Two eyebrows are set from more specific rules and need to be met there. */
+#about .studio-head .section-num { font-size: 12.5px; letter-spacing: .14em; }
+.how-head .section-tag { font-size: 12.5px; letter-spacing: .14em; }
+
+/* ── studio ─────────────────────────────────────────────────── */
+.studio-stat-label { font-size: 12px; letter-spacing: .12em; }
+.studio-head-role { font-size: 12px; letter-spacing: .1em; }
+.studio-head-link { font-size: 13px; }
+.studio-head-bio { font-size: 15.5px; line-height: 1.5; }
+
+/* ── service cards ──────────────────────────────────────────── */
+.svc-cat { font-size: 12px; letter-spacing: .12em; }
+.svc-desc { font-size: 17px; line-height: 1.45; }
+.svc-includes li { font-size: 12.5px; line-height: 1.5; letter-spacing: .03em; padding-left: 20px; }
+.svc-includes li::before { font-size: 1em; }
+.svc-from,
+.svc-time { font-size: 11.5px; letter-spacing: .12em; }
+.svc-scope em { font-size: 11.5px; letter-spacing: .12em; }
+.svc-scope b { font-size: 12px; letter-spacing: .08em; }
+
+/* ── ways to work ───────────────────────────────────────────── */
+.engagement-meta { font-size: 12px; letter-spacing: .12em; }
+.engagement-card p { font-size: 16.5px; line-height: 1.45; }
+.engagement-deliverable { font-size: 12px; letter-spacing: .1em; }
+.engagement-cta,
+.engagement-note a { font-size: 12.5px; letter-spacing: .12em; }
+.engagement-note p { font-size: 16.5px; }
+
+/* ── standards ──────────────────────────────────────────────── */
+.standard-card-top span { font-size: 11.5px; letter-spacing: .12em; }
+.standard-card > p { font-size: 16.5px; line-height: 1.5; }
+.standard-card li { font-size: 12px; letter-spacing: .06em; line-height: 1.4; }
+.technology-lanes article b { font-size: 11.5px; letter-spacing: .1em; }
+.technology-lanes article > span { font-size: 11.5px; }
+.technology-lanes p { font-size: 16px; line-height: 1.5; }
+.standards-note p { font-size: 16.5px; }
+.standards-note a { font-size: 12.5px; letter-spacing: .12em; }
+
+/* ── coverage ───────────────────────────────────────────────── */
+.coverage-stat span { font-size: 12px; letter-spacing: .12em; }
+.cv-panel-rows dt { font-size: 11.5px; letter-spacing: .13em; }
+.cv-panel-rows dd { font-size: 17px; }
+.cv-panel-cta { font-size: 12.5px; letter-spacing: .12em; }
+.cv-chip { font-size: 12px; letter-spacing: .05em; padding: 8px 10px; min-width: 44px; }
+.cv-legend span { font-size: 11px; letter-spacing: .1em; }
+.coverage-note .coverage-credit { font-size: 11px; letter-spacing: .09em; }
+.coverage-note p { font-size: 16.5px; }
+.coverage-note a { font-size: 12.5px; letter-spacing: .12em; }
+.plate figcaption span { font-size: 11.5px; letter-spacing: .1em; }
+
+/* ── portfolio ──────────────────────────────────────────────── */
+.pg-num { font-size: 12.5px; }
+.pg-cat { font-size: 12px; letter-spacing: .12em; }
+.pg-url { font-size: 12px; letter-spacing: .06em; }
+.pg-desc { font-size: 16.5px; line-height: 1.45; }
+.pg-link { font-size: 12px; letter-spacing: .12em; }
+
+/* ── process, band, footer ──────────────────────────────────── */
+.step h3 { font-size: 12.5px; letter-spacing: .12em; }
+.step p { font-size: 16.5px; line-height: 1.5; }
+.step-meta { font-size: 12.5px; }
+.field-band-sub { font-size: 18px; }
+.banner-right p { font-size: 17px; }
+.btn,
+.btn-white { font-size: 12.5px; letter-spacing: .11em; }
+.footer-link { font-size: 13px; }
+.footer-domain { font-size: 12px; letter-spacing: .1em; }
+
+/* Between 769 and 1160 the navigation is already tight; it gets the
+   smaller step rather than the full one. */
+@media (min-width: 769px) and (max-width: 1240px) {
+  .nav-links a { font-size: 11px; letter-spacing: .06em; }
+  .nav-cta { font-size: 11px; padding: 10px 16px; }
+  .lang-btn { font-size: 10.5px; }
+}
+
+@media (max-width: 560px) {
+  .cv-chip { font-size: 11.5px; min-width: 40px; padding: 7px 8px; }
+  .plate figcaption span { font-size: 10px; }
+  .svc-includes li { font-size: 13px; }
+}
+
+/* The three engagement cards never had a stacked variant: at the old
+   label sizes their content happened to fit three-across on a phone,
+   and at readable sizes it does not. Two columns on a tablet, one on
+   a phone. */
+@media (max-width: 900px) {
+  .engagement-grid { grid-template-columns: 1fr 1fr; }
+  .engagement-card { padding-right: 20px; }
+}
+@media (max-width: 620px) {
+  .engagement-grid { grid-template-columns: 1fr; }
+  .engagement-card { border-bottom: 1px solid rgba(17, 17, 17, .14); }
+  .engagement-card:last-child { border-bottom: 0; }
+  .engagement-card h3 { margin-top: 14px; }
+  .engagement-meta { gap: 10px 14px; }
+}
