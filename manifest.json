@@ -1,7 +1,7 @@
 {
   "name": "Munister Agency",
   "short_name": "Munister",
-  "description": "Full-cycle IT agency — web, ERP, automation for home, family and business",
+  "description": "Independent hybrid agency for U.S. and European teams: digital products, operational systems, AI workflows, CRM and ERP, technical audits.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f1e8dd",
@@ -26,7 +26,7 @@
       "purpose": "any"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/icon-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
