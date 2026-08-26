@@ -33,12 +33,6 @@
 
 #services .services-head-right { color: var(--e-mute); }
 
-#services .capability-grid {
-  border-top: 1px solid var(--e-line);
-  border-bottom: 1px solid var(--e-line);
-}
-#services .capability-head { color: var(--e-mute); }
-#services .capability-col li { color: var(--e-soft); }
 
 /* Rate list — editorial price rows on cream */
 #services .rate-row { border-top: 1px solid var(--e-line); }

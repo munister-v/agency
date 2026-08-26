@@ -32,7 +32,6 @@ body { font-size: 17px; line-height: 1.48; }
 .engagement-card h3,
 .standard-card h3,
 .step h3,
-.delivery-proof-list h3,
 .technology-lanes h4,
 .cv-panel-name span { font-weight: 600; }
 
@@ -44,7 +43,6 @@ body { font-size: 17px; line-height: 1.48; }
 .standards-kicker,
 .studio-blocks-tag,
 .cv-index-label,
-.stack-strip-label,
 .svc-cat,
 .pg-cat { color: rgba(20, 24, 58, .82); }
 .coverage .section-tag-light { color: rgba(20, 24, 58, .82); }
@@ -67,7 +65,6 @@ body { font-size: 17px; line-height: 1.48; }
 .how-head { margin-bottom: 52px; }
 
 .engagements { margin-top: clamp(48px, 5.5vw, 78px); }
-.delivery-proof { margin-top: clamp(44px, 5vw, 72px); }
 .technology-panel { padding: clamp(52px, 6vw, 82px) 0 52px; }
 
 /* The single largest hole on the page: a 70 px gap between an
@@ -102,9 +99,7 @@ body { font-size: 17px; line-height: 1.48; }
 /* ── structure you can see ──────────────────────────────────── */
 
 .svc-card { border-top-color: var(--rule); padding: 22px 0 24px; }
-.capability-col ul li,
 .studio-block,
-.delivery-proof-list article { border-color: var(--rule-soft); }
 .coverage-stats,
 .coverage-head + .coverage-stats { border-color: var(--rule); }
 .cv-panel { border-color: var(--rule); }
@@ -130,11 +125,6 @@ body { font-size: 17px; line-height: 1.48; }
 .portfolio-section .services-head h2 { font-size: clamp(44px, 6vw, 82px); }
 .portfolio-section .services-head-right { font-size: 17px; max-width: 40ch; }
 
-.capability-grid { padding: 32px 0 40px; gap: 34px; }
-.capability-col ul { gap: 7px; }
-.capability-col li { font-size: 16.5px; line-height: 1.38; }
-.capability-head { margin-bottom: 14px; }
-.stack-strip { padding: 16px 0 32px; }
 
 @media (max-width: 900px) {
   .about, .services, .how { padding: 60px 0; }
@@ -154,8 +144,6 @@ body { font-size: 17px; line-height: 1.48; }
 .standards-head { gap: 32px 72px; margin-bottom: clamp(34px, 4vw, 52px); }
 .technology-panel { gap: clamp(36px, 5vw, 72px); }
 .technology-lanes article { padding: 18px 0; }
-.quality-gates { padding: 30px 0; }
-.quality-gates li span { margin-bottom: 16px; }
 .standards-note { padding-top: 24px; }
 
 .pg-phones { gap: clamp(18px, 2.2vw, 34px); }
@@ -167,8 +155,6 @@ body { font-size: 17px; line-height: 1.48; }
 .step h3 { margin-top: 16px; }
 
 .banner-inner { gap: 56px; }
-.delivery-proof-list article { padding: clamp(18px, 2vw, 30px) 0; }
-.delivery-proof-intro { margin-bottom: 22px; }
 
 
 /* ── the ask, stated twice and stated solid ──────────────────
@@ -239,8 +225,6 @@ body { font-size: 17px; line-height: 1.48; }
 .banner-tag,
 .studio-blocks-tag,
 .cv-index-label,
-.stack-strip-label,
-.capability-head,
 .svc-cat,
 .svc-from,
 .svc-time,
@@ -252,7 +236,7 @@ body { font-size: 17px; line-height: 1.48; }
 .coverage-stat span,
 .cv-panel-rows dt,
 .cv-legend span,
-.quality-gates li b { font-weight: 600; letter-spacing: .13em; }
+{ font-weight: 600; letter-spacing: .13em; }
 
 .nav-links a { font-weight: 600; letter-spacing: .1em; }
 .nav-cta,

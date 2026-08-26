@@ -35,8 +35,7 @@
   margin-bottom: clamp(54px, 7vw, 92px);
 }
 
-.standards-kicker,
-.quality-gates-label {
+.standards-kicker {
   margin-bottom: 20px;
   font-family: var(--font-brand);
   font-size: 9px;
@@ -214,27 +213,9 @@
   color: #97a4f2;
 }
 
-.quality-gates {
-  padding: 42px 0;
-  border-top: 1px solid rgba(241, 232, 221, .24);
-  border-bottom: 1px solid rgba(241, 232, 221, .24);
-}
 
-.quality-gates ol {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  list-style: none;
-}
 
-.quality-gates li {
-  min-height: 104px;
-  padding: 0 18px;
-  border-left: 1px solid rgba(241, 232, 221, .16);
-}
 
-.quality-gates li:first-child { padding-left: 0; border-left: 0; }
-.quality-gates li span { display: block; margin-bottom: 30px; font-family: var(--font-brand); font-size: 8px; color: #97a4f2; }
-.quality-gates li b { display: block; max-width: 14ch; font-family: var(--font-brand); font-size: 9px; font-weight: 400; line-height: 1.45; letter-spacing: .07em; }
 
 .standards-note {
   display: flex;
@@ -276,8 +257,6 @@
   .standards-intro { max-width: 47ch; }
   .technology-lead { position: static; }
   .technology-lead h3 { max-width: 16ch; }
-  .quality-gates ol { grid-template-columns: repeat(3, 1fr); gap: 28px 0; }
-  .quality-gates li:nth-child(4) { padding-left: 0; border-left: 0; }
 }
 
 @media (max-width: 700px) {
@@ -300,9 +279,6 @@
   .standard-card h3 { margin-top: 58px; }
   .technology-panel { padding: 78px 0 58px; gap: 44px; }
   .technology-lanes article { grid-template-columns: 30px minmax(0, 1fr); gap: 8px 14px; }
-  .quality-gates ol { grid-template-columns: repeat(2, 1fr); gap: 30px 0; }
-  .quality-gates li:nth-child(odd) { padding-left: 0; border-left: 0; }
-  .quality-gates li:nth-child(even) { padding-left: 18px; border-left: 1px solid rgba(241, 232, 221, .16); }
   .standards-note { align-items: flex-start; flex-direction: column; }
 }
 

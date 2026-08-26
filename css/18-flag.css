@@ -1,0 +1,167 @@
+/* ─────────────────────────────────────────────────────────────
+   The flag, used as a system rather than as a sticker.
+
+   Old Glory Red joins the palette the studio already had: the site's
+   ink (#14183a) sits a shade under Old Glory Blue and the paper reads
+   as the white. From there the flag supplies three working parts —
+   seven red stripes as the rule between bands, a star as the marker
+   in front of every label and list item, and a field of stars behind
+   the dark sections. No eagles.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  --red: #b22234;      /* Old Glory Red */
+  --red-deep: #8f1b2a; /* for hover and small type on paper */
+}
+
+/* ── the thirteen stripes ─────────────────────────────────────
+   Generated as thirteen hard stops rather than a repeating pattern,
+   so it is thirteen bands at any width — seven red, six of paper. */
+.us-rule,
+.coverage::before,
+.field-band::after,
+.banner::before,
+.hero::after {
+  content: '';
+  display: block;
+  height: 5px;
+  background: linear-gradient(90deg,
+    var(--red) 0.0000% 7.6923%,
+    transparent 7.6923% 15.3846%,
+    var(--red) 15.3846% 23.0769%,
+    transparent 23.0769% 30.7692%,
+    var(--red) 30.7692% 38.4615%,
+    transparent 38.4615% 46.1538%,
+    var(--red) 46.1538% 53.8462%,
+    transparent 53.8462% 61.5385%,
+    var(--red) 61.5385% 69.2308%,
+    transparent 69.2308% 76.9231%,
+    var(--red) 76.9231% 84.6154%,
+    transparent 84.6154% 92.3077%,
+    var(--red) 92.3077% 100.0000%);
+}
+
+.coverage { position: relative; }
+.coverage::before { position: absolute; inset: 0 0 auto 0; }
+
+.banner { position: relative; }
+.banner::before { position: absolute; inset: 0 0 auto 0; z-index: 1; }
+
+.field-band::after { position: absolute; inset: auto 0 0 0; z-index: 1; }
+
+.hero::after { position: absolute; inset: auto 0 0 0; }
+.hero { position: relative; }
+
+/* ── the star, as the marker ──────────────────────────────────
+   It replaces the bracket eyebrow the site used to wear and the
+   dashes in front of every deliverable. */
+.section-num::before,
+.section-tag::before,
+.section-tag-light::before,
+.standards-kicker::before,
+.banner-tag::before,
+.field-band-tag::before,
+.studio-blocks-tag::before,
+.cv-index-label::before,
+.hero-strip-label::before {
+  content: '★';
+  margin-right: .5em;
+  color: var(--red);
+  letter-spacing: 0;
+}
+
+.section-num::after,
+.section-tag::after,
+.section-tag-light::after,
+.banner-tag::after,
+.field-band-tag::after { content: ''; }
+
+/* The service list drew its marker as a positioned 1px rule; the star
+   has to undo that geometry before it can stand in its place. */
+.svc-includes li::before {
+  content: '★';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  background: none;
+  color: var(--red);
+  font-size: 1.05em;
+  line-height: 1.5;
+}
+
+.standard-card li::before {
+  content: '★';
+  color: var(--red);
+  font-size: .95em;
+  line-height: 1;
+}
+
+/* Dark sections carry the star in paper on ink. */
+.standards .standards-kicker::before,
+.banner .banner-tag::before,
+.field-band .field-band-tag::before,
+.standard-card--ink li::before { color: rgba(241, 232, 221, .8); }
+/* The accent card is light periwinkle: paper-coloured stars vanish on it. */
+.standard-card--accent li::before { color: var(--red-deep); }
+
+/* ── the star field ───────────────────────────────────────────
+   Half a percent of opacity: felt, never counted. */
+.standards,
+.banner,
+.field-band { position: relative; }
+
+.standards::after,
+.banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23f1e8dd' d='M12 1.6l2.9 6.6 7.1.7-5.3 4.8 1.5 7-6.2-3.6-6.2 3.6 1.5-7L2 8.9l7.1-.7z'/%3E%3C/svg%3E");
+  background-size: 46px 46px;
+  background-position: 0 0;
+}
+.standards > *,
+.banner > * { position: relative; z-index: 1; }
+
+/* ── red where the eye is meant to land ───────────────────────── */
+
+.hero-mark em { color: var(--red); }
+.hero-mark .hero-mark-svg path { stroke: var(--red); }
+
+.cv-state.is-active { fill: var(--red); }
+.cv-chip.is-active { background: var(--red); border-color: var(--red); }
+.cv-abbr.is-active { fill: var(--red); }
+.cv-leader.is-active { stroke: var(--red); }
+.cv-panel-name i { color: var(--red); }
+
+.plate figcaption { border-top-color: var(--red); }
+
+.field-band-title em { color: #e2b0b8; }
+
+.footer-logo em { color: var(--red); }
+
+/* ── the flag itself, once, where the claim is made ───────────── */
+.us-flag {
+  display: inline-block;
+  width: 21px;
+  height: 14px;
+  vertical-align: -2px;
+  margin-right: 9px;
+  border: 1px solid rgba(20, 24, 58, .25);
+}
+
+@media (max-width: 720px) {
+  .us-rule, .coverage::before, .field-band::after, .banner::before, .hero::after { height: 4px; }
+}
+
+/* The density pass gave every eyebrow the studio's ink. On the dark
+   sections that puts navy on navy — the label survived only as its
+   star. These read in paper instead. */
+.standards .standards-kicker,
+.standards .section-tag-light { color: #97a4f2; }
+.banner .banner-tag { color: rgba(241, 232, 221, .72); }
+.field-band .field-band-tag { color: rgba(241, 232, 221, .7); }
