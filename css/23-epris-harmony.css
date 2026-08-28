@@ -201,3 +201,43 @@
   font-size:12px;
   letter-spacing:.1em;
 }
+
+/* ═══ НАБОР: ЖУРНАЛ НЕ ПОЛЬЗУЕТСЯ ПОЛУЖИРНЫМ ═══
+ *
+ * Гарнитуры совпали ещё в прошлом заходе, но набор — нет. Замер живого
+ * eprisjournal.com: ВСЁ стоит в весе 400 с трекингом +0,08px, иерархия
+ * держится размером и воздухом. У агентства 38 селекторов задавали 600–700,
+ * включая основной текст (17px полужирным, 51 элемент), и 12 селекторов
+ * сжимали трекинг до −0,025em. Отсюда и ощущение тяжёлой, недорисованной
+ * страницы: жирным набрано то, что должно просто читаться.
+ *
+ * Ставим один вес. Там, где нужен акцент, его даёт размер и место, а не
+ * насыщенность — иначе акцентом становится вся страница.
+ */
+.skip-link, .hero-cta-pill, .manifesto-title, .section-tag-light,
+.rate-num, .rate-title, .rate-tag-price,
+.work-coming, .work-num, .work-title, .work-tag,
+.footer-logo, .pcard-task-label, .pg-name,
+.svc-title, .svc-price, .studio-head-name, .studio-head-link,
+.studio-stat-num, .studio-block-title,
+.engagement-card h3, .engagement-price,
+.standard-card h3, .technology-lead h3, .technology-lanes h4,
+.cv-panel-rows dd.cv-strong, .cv-panel-rows dd.cv-live, .cv-abbr,
+.coverage-stat b, .stats b, .field-band-tag,
+.about-headline, .step h3, .cv-panel-name span,
+.f-display, .hero-headline, .standards-head h2, .stat-num,
+.nav-links a, .nav-cta, .hero-cta-solid, .hero-more, .btn,
+.engagement-cta, .cv-panel-cta, .cv-chip, .pg-link,
+.hero-strip-label, .hero-strip-all{
+  font-weight:400;
+  letter-spacing:normal;
+}
+
+/* Капительные метки трекинг сохраняют — он там работает, а не сжимает. */
+.section-tag, .section-tag-light, .section-num, .nav-links a, .nav-cta,
+.hero-more, .btn, .engagement-cta, .cv-panel-cta, .hero-strip-all,
+.hero-strip-label, .field-band-tag{ letter-spacing:.1em; }
+
+/* Заголовки шли с интерлиньяжем 1.0 — строки слипались. У журнала 1.2. */
+.hero-headline, .f-display, .about-headline, .standards-head h2,
+.manifesto-title{ line-height:1.2; }
