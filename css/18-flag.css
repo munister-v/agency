@@ -2,7 +2,7 @@
    The flag, used as a system rather than as a sticker.
 
    Old Glory Red joins the palette the studio already had: the site's
-   ink (#14183a) sits a shade under Old Glory Blue and the paper reads
+   ink (#111111) sits a shade under Old Glory Blue and the paper reads
    as the white. From there the flag supplies three working parts —
    seven red stripes as the rule between bands, a star as the marker
    in front of every label and list item, and a field of stars behind
@@ -10,8 +10,10 @@
    ───────────────────────────────────────────────────────────── */
 
 :root {
-  --red: #b22234;      /* Old Glory Red */
-  --red-deep: #8f1b2a; /* for hover and small type on paper */
+  /* Цвет снят намеренно: см. 23-epris-harmony.css. Имена сохранены,
+     чтобы флаговая геометрия ниже читалась как единое целое. */
+  --red: #111111;
+  --red-deep: #C9A690;
 }
 
 /* ── the thirteen stripes ─────────────────────────────────────
@@ -112,7 +114,7 @@
 .standards .standards-kicker::before,
 .banner .banner-tag::before,
 .field-band .field-band-tag::before,
-.standard-card--ink li::before { color: rgba(241, 232, 221, .8); }
+.standard-card--ink li::before { color: rgba(255, 255, 255, .8); }
 /* The accent card is light periwinkle: paper-coloured stars vanish on it. */
 .standard-card--accent li::before { color: var(--red-deep); }
 
@@ -148,7 +150,7 @@
 .cv-leader.is-active { stroke: var(--red); }
 .cv-panel-name i { color: var(--red); }
 
-.field-band-title em { color: #e2b0b8; }
+.field-band-title em { color: var(--gold); }
 
 .footer-logo em { color: var(--red); }
 
@@ -170,6 +172,6 @@
    sections that puts navy on navy — the label survived only as its
    star. These read in paper instead. */
 .standards .standards-kicker,
-.standards .section-tag-light { color: #97a4f2; }
-.banner .banner-tag { color: rgba(241, 232, 221, .72); }
-.field-band .field-band-tag { color: rgba(241, 232, 221, .7); }
+.standards .section-tag-light { color: var(--gold); }
+.banner .banner-tag { color: rgba(255, 255, 255, .72); }
+.field-band .field-band-tag { color: rgba(255, 255, 255, .7); }

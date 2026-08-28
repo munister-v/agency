@@ -89,7 +89,7 @@
 }
 
 .rate-title {
-  font-family: 'Cormorant Garamond', 'Crimson Text', serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(24px, 3vw, 34px);
   line-height: 1.12;
@@ -99,7 +99,7 @@
 .rate-row:hover .rate-title { color: var(--gold-dark); }
 
 .rate-desc {
-  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 17px;
   line-height: 1.55;

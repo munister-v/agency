@@ -74,7 +74,7 @@
   margin-top: 3px;
 }
 .studio-head-bio {
-  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 15px;
   line-height: 1.5;
   color: rgba(17, 17, 17, 0.7);
@@ -105,7 +105,7 @@
   margin-bottom: clamp(36px, 4vw, 56px);
 }
 .studio-lead-p {
-  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: clamp(21px, 1.7vw, 25px);
   line-height: 1.55;
   color: #111;
@@ -119,7 +119,7 @@
   max-width: 42ch;
 }
 .studio-lead-sub p {
-  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 16px;
   line-height: 1.6;
   color: rgba(17, 17, 17, 0.72);
@@ -182,7 +182,7 @@
 
 .studio-block-main { max-width: 720px; }
 .studio-block-title {
-  font-family: 'Cormorant Garamond', 'Crimson Text', serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(28px, 3.2vw, 44px);
   line-height: 1.04;
@@ -191,7 +191,7 @@
   margin-bottom: 14px;
 }
 .studio-block-text {
-  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: clamp(16px, 1.4vw, 18px);
   line-height: 1.6;
   color: rgba(17, 17, 17, 0.72);

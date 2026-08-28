@@ -85,7 +85,7 @@
   }
 
   .nav-links.open a:not(.nav-cta) {
-    font-family: 'Onest', sans-serif;
+    font-family: var(--font-brand);
     font-size: 32px;
     font-weight: 300;
     color: rgba(255,255,255,0.55);

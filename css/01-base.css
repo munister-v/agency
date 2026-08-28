@@ -11,7 +11,7 @@
   --navy-cover: #04071c;
   --font-brand: 'Orbit', ui-monospace, monospace;
   --font-display: 'Crimson Text', 'Cormorant Garamond', 'Times New Roman', serif;
-  --font-crimson: 'Crimson Text', 'Cormorant Garamond', serif;
+  --font-crimson: var(--font-display);
   --max: 1280px;
   --nav-h: 60px;
 }
@@ -25,7 +25,9 @@ html {
 }
 
 body {
-  font-family: 'Crimson Text', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  /* Основной текст — Iowan Old Style, как в живом журнале. Crimson Text
+     остаётся голосом заголовков, а не всей страницы. */
+  font-family: var(--font-brand);
   background: var(--white);
   color: var(--black);
   line-height: 1.5;
@@ -207,7 +209,7 @@ button:focus-visible, a:focus-visible {
 /* Every italic accent word across the site shares one look */
 .f-display em,
 .f-italic {
-  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-family: var(--font-display);
   font-style: italic;
   font-weight: 400;
   font-size: 1.12em;

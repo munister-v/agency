@@ -348,7 +348,7 @@
 .pg-bar i:nth-child(3) { background: #28c840; }
 .pg-bar span {
   margin-left: 14px;
-  font-family: 'Onest', sans-serif;
+  font-family: var(--font-brand);
   font-size: 12px;
   letter-spacing: 0.02em;
   color: rgba(255,255,255,0.42);
@@ -386,7 +386,7 @@
   color: rgba(20,24,58,0.55);
 }
 .pg-name {
-  font-family: 'Cormorant Garamond', 'Crimson Text', serif;
+  font-family: var(--font-display);
   font-style: normal; font-weight: 600;
   color: var(--black); line-height: 1.08;
   letter-spacing: -0.005em;
@@ -407,7 +407,7 @@
   color: rgba(20,24,58,0.4);
   margin-top: 8px;
 }
-.pg-link, .pg-desc { font-family: 'Crimson Text', 'Cormorant Garamond', serif; }
+.pg-link, .pg-desc { font-family: var(--font-display); }
 .pg-desc {
   font-size: 15px; line-height: 1.6;
   color: rgba(20,24,58,0.7);

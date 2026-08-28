@@ -35,7 +35,7 @@
 }
 
 .engagements-heading > p {
-  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: clamp(17px, 1.45vw, 20px);
   line-height: 1.52;
   color: rgba(17,17,17,.68);
@@ -76,7 +76,7 @@
 
 .engagement-card h3 {
   margin-top: clamp(42px, 5vw, 70px);
-  font-family: 'Cormorant Garamond', 'Crimson Text', serif;
+  font-family: var(--font-display);
   font-size: clamp(31px, 3vw, 44px);
   font-weight: 600;
   line-height: 1.02;
@@ -87,7 +87,7 @@
 .engagement-card > p:not(.engagement-deliverable) {
   margin-top: 16px;
   max-width: 30ch;
-  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 16px;
   line-height: 1.55;
   color: rgba(17,17,17,.7);
@@ -116,7 +116,7 @@
 
 .engagement-note p {
   max-width: 66ch;
-  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 17px;
   line-height: 1.5;
   color: rgba(17,17,17,.72);

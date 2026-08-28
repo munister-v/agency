@@ -45,7 +45,7 @@
 }
 
 .svc-title {
-  font-family: 'Cormorant Garamond', 'Crimson Text', serif;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(26px, 2.6vw, 36px);
   line-height: 1.04;
@@ -55,7 +55,7 @@
 }
 
 .svc-desc {
-  font-family: 'Crimson Text', 'Cormorant Garamond', serif;
+  font-family: var(--font-display);
   font-size: 16px;
   line-height: 1.55;
   color: rgba(17, 17, 17, 0.7);
