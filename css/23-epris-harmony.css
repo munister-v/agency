@@ -241,3 +241,17 @@
 /* Заголовки шли с интерлиньяжем 1.0 — строки слипались. У журнала 1.2. */
 .hero-headline, .f-display, .about-headline, .standards-head h2,
 .manifesto-title{ line-height:1.2; }
+
+/* ═══ МЕТКИ БЕЗ СКОБОК ═══
+ *
+ * «[ ВОТ ТАК ]» — своя интонация, машинная и техническая. У журнала подписи
+ * голые: их держит трекинг и волосяная линия рядом, а не пунктуация. Скобки
+ * ещё и ломают выключку — левый край метки визуально сдвигается на ширину
+ * скобки относительно заголовка под ней.
+ */
+.section-num::before, .section-tag-light::before,
+.how-head .section-tag::before, .banner-tag::before,
+.field-band-tag::before{ content:none; }
+.section-num::after, .section-tag-light::after,
+.how-head .section-tag::after, .banner-tag::after,
+.field-band-tag::after{ content:none; }
