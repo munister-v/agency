@@ -161,7 +161,7 @@
   height: 14px;
   vertical-align: -2px;
   margin-right: 9px;
-  border: 1px solid rgba(20, 24, 58, .25);
+  border: 1px solid rgba(17, 17, 17, .25);
 }
 
 @media (max-width: 720px) {

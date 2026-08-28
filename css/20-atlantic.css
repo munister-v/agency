@@ -58,7 +58,7 @@
   position: relative;
   margin-top: 6px;
   background:
-    radial-gradient(120% 90% at 78% 30%, rgba(18,40,176,0.055), transparent 62%),
+    radial-gradient(120% 90% at 78% 30%, rgba(17, 17, 17,0.055), transparent 62%),
     var(--white);
   border-bottom: 1px solid var(--light);
 }
@@ -71,15 +71,15 @@
 }
 
 .atl-land .atl-state {
-  fill: rgba(20, 24, 58, 0.055);
-  stroke: rgba(20, 24, 58, 0.20);
+  fill: rgba(17, 17, 17, 0.055);
+  stroke: rgba(17, 17, 17, 0.20);
   stroke-width: 0.7;
   stroke-linejoin: round;
   transition: fill .5s ease, stroke .5s ease;
 }
 .atl-land .atl-country {
-  fill: rgba(20, 24, 58, 0.075);
-  stroke: rgba(20, 24, 58, 0.22);
+  fill: rgba(17, 17, 17, 0.075);
+  stroke: rgba(17, 17, 17, 0.22);
   stroke-width: 0.7;
   stroke-linejoin: round;
 }
@@ -95,16 +95,16 @@
 
 /* Tinted by time zone: the map should read as a clock, not a country.
    The band a client sits in is visible before anything animates. */
-.atl-land .atl-state[data-zone="ET"] { fill: rgba(18, 40, 176, 0.13); }
-.atl-land .atl-state[data-zone="CT"] { fill: rgba(18, 40, 176, 0.105); }
+.atl-land .atl-state[data-zone="ET"] { fill: rgba(17, 17, 17, 0.13); }
+.atl-land .atl-state[data-zone="CT"] { fill: rgba(17, 17, 17, 0.105); }
 .atl-land .atl-state[data-zone="MT"],
-.atl-land .atl-state[data-zone="AZ"] { fill: rgba(18, 40, 176, 0.08); }
-.atl-land .atl-state[data-zone="PT"] { fill: rgba(18, 40, 176, 0.055); }
+.atl-land .atl-state[data-zone="AZ"] { fill: rgba(17, 17, 17, 0.08); }
+.atl-land .atl-state[data-zone="PT"] { fill: rgba(17, 17, 17, 0.055); }
 .atl-land .atl-state[data-zone="AK"],
-.atl-land .atl-state[data-zone="HI"] { fill: rgba(18, 40, 176, 0.04); }
+.atl-land .atl-state[data-zone="HI"] { fill: rgba(17, 17, 17, 0.04); }
 
 .atl-land .atl-state.is-live {
-  fill: rgba(18, 40, 176, 0.22);
+  fill: rgba(17, 17, 17, 0.22);
   stroke: var(--gold);
   stroke-width: 1.1;
 }
@@ -117,14 +117,14 @@
   text-anchor: middle;
 }
 .atl-zonerule {
-  stroke: rgba(20, 24, 58, 0.14);
+  stroke: rgba(17, 17, 17, 0.14);
   stroke-width: 1;
   stroke-dasharray: 2 6;
 }
 
 .atl-rails path {
   fill: none;
-  stroke: rgba(20, 24, 58, 0.13);
+  stroke: rgba(17, 17, 17, 0.13);
   stroke-width: 1;
   stroke-dasharray: 1 7;
   stroke-linecap: round;
@@ -132,12 +132,12 @@
 
 .atl-leg {
   fill: none;
-  stroke: rgba(20, 24, 58, 0.14);
+  stroke: rgba(17, 17, 17, 0.14);
   stroke-width: 1;
   stroke-dasharray: 2 6;
   transition: stroke .4s ease;
 }
-.atl-leg.is-live { stroke: rgba(18, 40, 176, 0.30); }
+.atl-leg.is-live { stroke: rgba(17, 17, 17, 0.30); }
 
 .atl-leg-live {
   fill: none;
@@ -151,7 +151,7 @@
 
 .atl-dot {
   fill: var(--white);
-  stroke: rgba(20, 24, 58, 0.35);
+  stroke: rgba(17, 17, 17, 0.35);
   stroke-width: 1.2;
   transition: fill .35s ease, stroke .35s ease, r .35s ease;
 }
@@ -172,7 +172,7 @@
 .atl-packet {
   fill: var(--gold);
   opacity: 0;
-  filter: drop-shadow(0 0 6px rgba(18, 40, 176, 0.55));
+  filter: drop-shadow(0 0 6px rgba(17, 17, 17, 0.55));
   transition: opacity .2s ease;
 }
 .atl-packet.is-flying { opacity: 1; }
@@ -274,7 +274,7 @@
   display: block;
   flex: 1 1 auto;
   height: 14px;
-  background: rgba(20, 24, 58, 0.05);
+  background: rgba(17, 17, 17, 0.05);
   border-radius: 2px;
 }
 .atl-band {
@@ -283,8 +283,8 @@
   bottom: 0;
   border-radius: 2px;
 }
-.atl-band-ours   { background: rgba(20, 24, 58, 0.62); }
-.atl-band-theirs { background: rgba(18, 40, 176, 0.20); }
+.atl-band-ours   { background: rgba(17, 17, 17, 0.62); }
+.atl-band-theirs { background: rgba(17, 17, 17, 0.20); }
 .atl-band-shared { background: var(--gold); }
 
 /* One vertical line for the present moment, crossing both rows. */
@@ -327,8 +327,8 @@
   display: inline-block;
 }
 .atl-bar-key em { font-style: normal; margin-right: 10px; }
-.atl-bar-key .k-ours   { background: rgba(20, 24, 58, 0.62); }
-.atl-bar-key .k-theirs { background: rgba(18, 40, 176, 0.20); }
+.atl-bar-key .k-ours   { background: rgba(17, 17, 17, 0.62); }
+.atl-bar-key .k-theirs { background: rgba(17, 17, 17, 0.20); }
 .atl-bar-key .k-shared { background: var(--gold); }
 
 /* ── the readout ───────────────────────────────────────────── */

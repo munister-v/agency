@@ -40,7 +40,7 @@ body { text-wrap: pretty; }
   .pg-card:hover,
   .pg-case:hover {
     transform: translateY(-5px);
-    box-shadow: 0 22px 45px rgba(20, 24, 58, .12);
+    box-shadow: 0 22px 45px rgba(17, 17, 17, .12);
   }
 }
 

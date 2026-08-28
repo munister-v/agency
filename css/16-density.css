@@ -15,8 +15,8 @@
 :root {
   --max: 1360px;
   /* Structure should be visible, not implied. */
-  --rule: rgba(20, 24, 58, .22);
-  --rule-soft: rgba(20, 24, 58, .13);
+  --rule: rgba(17, 17, 17, .22);
+  --rule-soft: rgba(17, 17, 17, .13);
 }
 
 body { font-size: 17px; line-height: 1.48; }
@@ -44,8 +44,8 @@ body { font-size: 17px; line-height: 1.48; }
 .studio-blocks-tag,
 .cv-index-label,
 .svc-cat,
-.pg-cat { color: rgba(20, 24, 58, .82); }
-.coverage .section-tag-light { color: rgba(20, 24, 58, .82); }
+.pg-cat { color: rgba(17, 17, 17, .82); }
+.coverage .section-tag-light { color: rgba(17, 17, 17, .82); }
 
 /* ── vertical rhythm: close the bands ───────────────────────── */
 

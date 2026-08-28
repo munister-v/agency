@@ -274,7 +274,7 @@
   }
   .standards-grid { grid-template-columns: 1fr; }
   .standard-card { min-height: 390px; }
-  .standard-card:nth-child(n) { border-right: 0; border-bottom: 1px solid rgba(20, 24, 58, .18); }
+  .standard-card:nth-child(n) { border-right: 0; border-bottom: 1px solid rgba(17, 17, 17, .18); }
   .standard-card:last-child { border-bottom: 0; }
   .standard-card h3 { margin-top: 58px; }
   .technology-panel { padding: 78px 0 58px; gap: 44px; }

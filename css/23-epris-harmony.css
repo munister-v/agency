@@ -95,3 +95,109 @@
 /* Словесный знак в наборе EPRIS: капитель с широким трекингом. */
 .nav-logo{ font-family:var(--font-display); letter-spacing:.22em;
   text-transform:uppercase; font-size:15px; }
+
+/* ═══ ШАПКА ПО ГРАММАТИКЕ ЖУРНАЛА ═══
+ *
+ * Снято с живого eprisjournal.com: полоса 64px, слева чернильный блок с белым
+ * словесным знаком, дальше разделы как РЯД ЯЧЕЕК во всю высоту, разделённых
+ * волосяной линией в чернила (не в серое — у журнала именно #111), набор
+ * 12px / 1.2px трекинг / капитель.
+ *
+ * Ячейка вместо расстояния — это и есть разница между «список ссылок» и
+ * шапкой издания: линия между разделами держит ритм и на широком экране,
+ * где gap просто расползается.
+ *
+ * Только десктоп: мобильная шапка с бургером остаётся как была.
+ */
+@media (min-width: 1161px){
+  .nav{ height:64px; padding:0; background:#fff; border-bottom:1px solid var(--black); }
+
+  /* Знак стоит в чернильном блоке — единственная тёмная плашка в шапке. */
+  .nav-logo{ align-self:stretch; display:flex; align-items:center;
+    background:var(--black); color:#fff; padding:0 24px; margin:0;
+    font-size:12px; letter-spacing:.1em; min-width:200px; }
+  .nav-logo:hover{ color:#fff; }
+
+  /* Ячейки идут сразу за знаком, как в журнале, а языки уходят вправо —
+     иначе между блоком и первым разделом висит пустая ячейка. */
+  .nav-links{ align-self:stretch; gap:0; margin-left:0; flex:1; }
+  .nav-links > a:first-of-type{ border-left:0; }
+  .lang-switcher{ margin-left:auto; }
+  .nav-links a{ align-self:stretch; display:flex; align-items:center;
+    padding:0 22px; font-size:12px; letter-spacing:.1em; color:var(--black);
+    border-left:1px solid var(--black); }
+  .nav-links a:hover{ background:var(--off); color:var(--black); }
+
+  /* Контакт остаётся акцентом, но в той же прямоугольной грамматике:
+     не пилюля, а инвертированная ячейка. */
+  .nav-links a.nav-cta{ background:var(--black); color:#fff !important;
+    border:0; border-left:1px solid var(--black); border-radius:0;
+    padding:0 26px; }
+  .nav-links a.nav-cta:hover{ background:#000; }
+
+  /* Языки — своя ячейка справа, той же высоты и с той же линией. */
+  .lang-switcher{ align-self:stretch; align-items:center;
+    padding:0 16px; border-left:1px solid var(--black); }
+}
+
+/* ═══ ОДНА МЕТКА ВМЕСТО ДВАДЦАТИ ЧЕТЫРЁХ ═══
+ *
+ * Замер живой страницы дал 24 разных сочетания размера и трекинга у мелких
+ * капительных подписей: 9 / 9,5 / 10 / 11 / 11,5 / 12 / 12,5 / 13 px и трекинг
+ * от 0,68 до 2,64. Каждая по отдельности выглядит осмысленно, вместе это и
+ * читается как «сделано без системы» — глазу не за что зацепиться, потому что
+ * ни один размер не повторяется дважды.
+ *
+ * У журнала ступень одна: 12px, трекинг 0.1em, капитель, тот же серифный
+ * набор. Сводим к ней всё, что мельче 13px. Крупные подписи (16,5px в
+ * карточках работ и шагов процесса) не трогаем — это уже подзаголовки,
+ * а не метки.
+ */
+.section-tag, .section-tag-light, .section-num, .standards-kicker,
+.studio-stat-label, .studio-blocks-tag, .banner-tag, .masthead-tagline,
+.masthead-tagline2, .svc-cat, .svc-from, .svc-time, .svc-scope,
+.hs-meta, .engagement-cta, .standards-note, .cv-index-label,
+.atl-caption, .atl-overlap, .atl-label, .atl-link, .atl-bar-key,
+.atl-bar-name, .atl-arrow, .field-band-credit, .field-band-tag,
+.hero-more, .hero-strip-all, .cf-note, .cf-submit, .pg-cat, .pg-num,
+.footer-links a, .contact-direct{
+  font-size:12px;
+  letter-spacing:.1em;
+}
+
+/* Догоняем ступень там, где размер задавался вложенному элементу (span, em, b
+   внутри метки) или через id-селектор: у таких правил специфичность выше
+   одиночного класса, и первый блок им проигрывал. Селекторы повторяют форму
+   исходных — побеждает порядок, а не !important. */
+.atl-caption span, .atl-overlap span,
+.hs-meta span,
+.svc-scope em, .svc-scope b,
+.masthead-tagline span, .masthead-tagline2 span,
+.engagement-cta, .engagement-note a, .engagement-meta,
+.section-num, .section-tag, .section-tag-light,
+#about .studio-head .section-num,
+#services .section-tag-light,
+.coverage .section-tag-light,
+.portfolio-section .section-tag-light,
+.atl-clocks .atl-arrow,
+.btn, .btn-white, .hero-cta-solid{
+  font-size:12px;
+  letter-spacing:.1em;
+}
+
+/* Последняя горсть: подписи полей формы, факты в контактах, шапки карточек
+   стандартов, строки панели покрытия, названия часовых поясов, ссылки-подписи
+   и цифры покрытия. Все они — вложенные span / dt / li внутри блоков. */
+.cf-field span,
+.contact-facts li,
+.standard-card-top span,
+.cv-panel-rows dt,
+.atl-clocks span,
+.standards-note a,
+.cv-panel-cta,
+.how-head .section-tag,
+.coverage-stat span,
+.footer-contacts .footer-link{
+  font-size:12px;
+  letter-spacing:.1em;
+}

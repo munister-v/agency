@@ -166,7 +166,7 @@
 }
 
 .masthead-dotted {
-  border-bottom: 1px dotted rgba(20,24,58,.4);
+  border-bottom: 1px dotted rgba(17, 17, 17,.4);
 }
 
 .hero-center { max-width: var(--max); width: 100%; margin: 0 auto; padding: 64px 40px 96px; text-align: center; }
@@ -318,7 +318,7 @@
 .about-right p {
   font-family: var(--font-display);
   font-size: 17px;
-  color: rgba(20,24,58,.78);
+  color: rgba(17, 17, 17,.78);
   line-height: 1.7;
   margin-bottom: 20px;
 }
@@ -352,7 +352,7 @@
   font-size: 9px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(20,24,58,.6);
+  color: rgba(17, 17, 17,.6);
 }
 
 /* Manifesto — ported 1:1 from EPRIS AboutSection's principles block */
@@ -406,7 +406,7 @@
   font-family: var(--font-display);
   font-size: 16px;
   line-height: 1.6;
-  color: rgba(20,24,58,.75);
+  color: rgba(17, 17, 17,.75);
   max-width: 32ch;
   margin: 0 auto;
 }
@@ -433,7 +433,7 @@
   justify-content: space-between;
   gap: 16px;
   padding-bottom: 14px;
-  border-bottom: 1px solid rgba(20, 24, 58, .18);
+  border-bottom: 1px solid rgba(17, 17, 17, .18);
   margin-bottom: 22px;
 }
 .hero-strip-label,
@@ -469,7 +469,7 @@
   display: block;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  border: 1px solid rgba(20, 24, 58, .28);
+  border: 1px solid rgba(17, 17, 17, .28);
   background: var(--off);
   transition: border-color .25s ease, transform .25s ease;
 }

@@ -68,7 +68,7 @@
 .step p {
   font-family: var(--font-display);
   font-size: 16px;
-  color: rgba(20,24,58,.75);
+  color: rgba(17, 17, 17,.75);
   line-height: 1.6;
 }
 
@@ -81,7 +81,7 @@
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(20,24,58,.5);
+  color: rgba(17, 17, 17,.5);
   line-height: 1.9;
 }
 
