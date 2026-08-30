@@ -1,0 +1,114 @@
+/* ДВА ГОЛОСА — ТИПОГРАФИКА В ОДНОМ КЛЮЧЕ С EPRIS
+ *
+ * У обоих соседей набор держится на паре: старостильная антиква и нейтральный
+ * гротеск. eprisjournal.com ведёт антиквой (Iowan Old Style в теле, Crimson
+ * Text в заголовках), museum.eprisjournal.com — гротеском (KTF Prima, тот же
+ * системный стек, что и на munister.com.ua). Роли у второго голоса везде
+ * одинаковые: служебные подписи, цифры и кнопки.
+ *
+ * Здесь после слоя 23 остался ОДИН голос: он перевёл --font-brand и
+ * --font-mark на антикву, и вместе с ними ушли Libre Franklin (гротеск
+ * американского паса) и Orbit (вордмарк). Антиква оказалась и в навигации,
+ * и в подписях, и в ценах: $1,200 набраны старостильными цифрами 42px без
+ * табличной ширины — числа в колонках не выстраиваются.
+ *
+ * Слой возвращает вторую половину пары и раздаёт роли как у соседей:
+ *
+ *   антиква  — заявления, заголовки работ и услуг, тело текста;
+ *   гротеск  — вордмарк, навигация, служебные подписи, ЦИФРЫ, кнопки.
+ *
+ * Гротеск взят тем же системным стеком, что у музея и munister.com.ua:
+ * ни одного лишнего запроса, и семья читается буквально.
+ */
+
+:root {
+  --font-grotesque: 'KTF Prima', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ── 1. Вордмарк и навигация ─────────────────────────────────────────── */
+/* На munister.com.ua шапка набрана гротеском в разрядку — здесь так же. */
+.nav-logo,
+.footer-logo,
+.nav-links a,
+.nav-menu a,
+.nav-cta,
+.lang-btn {
+  font-family: var(--font-grotesque);
+}
+.nav-logo,
+.footer-logo { letter-spacing: .19em; }
+
+/* ── 2. Служебные подписи ────────────────────────────────────────────── */
+/* Размер и разрядка уже приведены в слое 24; здесь меняется голос. */
+.masthead-tagline,
+.masthead-tagline2,
+.section-tag,
+.section-tag-light,
+.section-num,
+.studio-blocks-tag,
+.studio-stat-label,
+.standards-kicker,
+.banner-tag,
+.field-band-tag,
+.hero-strip-label,
+.atl-label,
+.atl-clocks,
+.hs-meta,
+.svc-from,
+.svc-scope,
+.svc-time,
+.engagement-meta,
+.step-meta,
+.cv-index-label,
+.pg-num,
+.pg-cat,
+.pg-url {
+  font-family: var(--font-grotesque);
+  font-weight: 400;
+}
+
+/* ── 3. Цифры ────────────────────────────────────────────────────────── */
+/* Данные на странице — цены, статистика студии и покрытия, часы, номера
+   разделов. У музея данные набраны гротеском и выстроены по вертикали;
+   старостильные цифры антиквы этого не умеют. */
+.svc-price,
+.engagement-price,
+.studio-stat-num,
+.coverage-stat b,
+.cv-panel-rows dd.cv-live,
+.cv-panel-name small,
+.atl-clocks,
+.step-num,
+.svc-num,
+.studio-block-num,
+.pg-num,
+.cv-panel-time {
+  font-family: var(--font-grotesque);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
+  letter-spacing: -.02em;
+}
+
+/* Гротеск на том же кегле читается крупнее антиквы: цены и статистика
+   уравниваются по оптическому размеру, а не по числу пикселей. */
+.svc-price { font-size: 37px; }
+.studio-stat-num { font-size: 53px; }
+
+/* ── 4. Кнопки ───────────────────────────────────────────────────────── */
+/* «Walk the route» и «Visit» в музее — гротеск, без верхнего регистра. */
+.btn,
+.btn-white,
+.hero-cta-solid,
+.hero-more,
+.engagement-cta,
+.cv-panel-cta,
+.field-band-cta,
+.pg-open {
+  font-family: var(--font-grotesque);
+  letter-spacing: .04em;
+}
+
+/* ── 5. Тело текста ──────────────────────────────────────────────────── */
+/* Журнал набирает тело антиквой 16px; на странице было 17px с плотным
+   интерлиньяжем от паса плотности. Разница в один пункт заметна рядом. */
+body { font-size: 16.5px; }
