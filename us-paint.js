@@ -53,6 +53,8 @@
   const paint = new Map();      // fips → {c, n, t}
   const shapes = new Map();     // fips → <path>
   const names = new Map();      // fips → «Harris County, TX»
+  const index = [];             // строки поиска: округа и штаты
+  const stateShapes = new Map(); // почтовый код → <path> контура штата
 
   /* ── дата закраски: день и месяц, как просили, без года и часов ────── */
   const stamp = (iso) => {
@@ -202,7 +204,11 @@
   };
 
   /* ── отправка закраски ─────────────────────────────────────────────── */
-  let sending = false;
+  /* Замок ставится на округ, а не на всю карту: общий замок «пока идёт
+     запрос, ничего не красим» превращал зависший запрос в мёртвую карту, и
+     подряд закрашивать несколько округов было нельзя. Один и тот же округ
+     дважды подряд по-прежнему не уходит. */
+  const inFlight = new Set();
   const sendPaint = async (fips) => {
     const who = (nameInput?.value || '').trim();
     const note = (noteInput?.value || '').trim();
@@ -211,8 +217,8 @@
       nameInput?.focus();
       return;
     }
-    if (sending) return;
-    sending = true;
+    if (inFlight.has(fips)) return;
+    inFlight.add(fips);
     localStorage.setItem(NAME_KEY, who);
     if (note) localStorage.setItem(NOTE_KEY, note);
 
@@ -228,6 +234,9 @@
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ fips, color: brush, name: who, note }),
+        /* Сеть в дороге отваливается молча: без срока ожидания заливка
+           висела бы «отправленной» до конца сеанса. */
+        signal: AbortSignal.timeout(12000),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || String(res.status));
@@ -251,7 +260,7 @@
         'warn'
       );
     } finally {
-      sending = false;
+      inFlight.delete(fips);
     }
   };
 
@@ -286,6 +295,11 @@
       p.appendChild(title);
       gCounties.appendChild(p);
       shapes.set(c.i, p);
+      index.push({
+        kind: 'county', id: c.i, label,
+        name: c.n.toLowerCase(),
+        key: (c.n + ' ' + c.s).toLowerCase(),
+      });
     }
 
     /* Границы штатов рисуются поверх округов и не ловят мышь: иначе клик у
@@ -297,6 +311,13 @@
       p.dataset.state = s.i;
       p.appendChild(document.createElementNS(SVG, 'title')).textContent = stateName[s.i] || s.i;
       gStates.appendChild(p);
+      stateShapes.set(s.i, p);
+      index.push({
+        kind: 'state', id: s.i,
+        label: `${stateName[s.i] || s.i} (${s.i})`,
+        name: (stateName[s.i] || s.i).toLowerCase(),
+        key: ((stateName[s.i] || '') + ' ' + s.i).toLowerCase(),
+      });
     }
 
     svg.append(gCounties, gStates);
@@ -313,8 +334,14 @@
        считается кликом, только если указатель прошёл меньше четырёх
        пикселей: иначе всякая попытка сдвинуть карту красила бы округ. */
     const HOME = { x: 0, y: 0, w: 1080, h: 610 };
-    let view = { ...HOME };
-    const MIN_W = 1080 / 24;
+    /* На телефоне карта во всю страну это полоса в 190 пикселей высотой, где
+       округ меньше буквы. Поэтому на узком экране открывается материковая
+       часть без врезок Аляски и Гавайев, а кнопка «вся страна» возвращает
+       полный кадр вместе с ними. */
+    const MAINLAND = { x: 150, y: 0, w: 930, h: 525 };
+    const narrow = window.matchMedia('(max-width: 760px)');
+    let view = narrow.matches ? { ...MAINLAND } : { ...HOME };
+    const MIN_W = 1080 / 40;
 
     const applyView = () => {
       svg.setAttribute('viewBox', `${view.x} ${view.y} ${view.w} ${view.h}`);
@@ -376,7 +403,7 @@
         const fips = countyAt(e);
         if (fips) describe(fips);
       }
-      if (!drag || e.pointerId !== drag.id) return;
+      if (!drag || e.pointerId !== drag.id || pinch) return;
       const r = svg.getBoundingClientRect();
       const dx = e.clientX - drag.sx;
       const dy = e.clientY - drag.sy;
@@ -413,7 +440,59 @@
     const zoomHome = document.getElementById('paint-zoom-home');
     zoomIn?.addEventListener('click', () => zoomBy(1 / 1.5));
     zoomOut?.addEventListener('click', () => zoomBy(1.5));
-    zoomHome?.addEventListener('click', () => { view = { ...HOME }; applyView(); });
+    zoomHome?.addEventListener('click', () => { view = { ...HOME }; clampView(); applyView(); });
+
+    /* Приближение к области: поиск и двойной клик показывают округ не в
+       упор, а с полем вокруг, иначе непонятно, куда именно попали. */
+    const zoomToBox = (box, pad = 2.6) => {
+      const w = Math.max(MIN_W, Math.max(box.width, box.height * (HOME.w / HOME.h)) * pad);
+      view.w = Math.min(HOME.w, w);
+      view.h = view.w * (HOME.h / HOME.w);
+      view.x = box.x + box.width / 2 - view.w / 2;
+      view.y = box.y + box.height / 2 - view.h / 2;
+      clampView();
+      applyView();
+    };
+    root.zoomToBox = zoomToBox;   // поиск живёт снаружи карты
+
+    /* Щипок двумя пальцами: на телефоне колеса нет, а кнопками возить долго. */
+    const active = new Map();
+    let pinch = null;
+    svg.addEventListener('pointerdown', (e) => {
+      active.set(e.pointerId, e);
+      if (active.size === 2) {
+        drag = null;
+        const [a, b] = [...active.values()];
+        pinch = { d: Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY) };
+      }
+    });
+    svg.addEventListener('pointermove', (e) => {
+      if (!active.has(e.pointerId)) return;
+      active.set(e.pointerId, e);
+      if (active.size !== 2 || !pinch) return;
+      const [a, b] = [...active.values()];
+      const d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+      if (!d || !pinch.d) return;
+      zoomBy(pinch.d / d, atPointer({
+        clientX: (a.clientX + b.clientX) / 2,
+        clientY: (a.clientY + b.clientY) / 2,
+      }));
+      pinch.d = d;
+    });
+    const dropPointer = (e) => {
+      active.delete(e.pointerId);
+      if (active.size < 2) pinch = null;
+    };
+    svg.addEventListener('pointerup', dropPointer);
+    svg.addEventListener('pointercancel', dropPointer);
+
+    /* Двойной клик приближает к округу, а не красит его: закраска висит на
+       одиночном нажатии. */
+    svg.addEventListener('dblclick', (e) => {
+      const fips = countyAt(e);
+      const el = fips && shapes.get(fips);
+      if (el) zoomToBox(el.getBBox());
+    });
 
     applyView();
 
@@ -425,6 +504,78 @@
       if (fips) describe(fips);
     });
   };
+
+  /* ── поиск по названию ──────────────────────────────────────────────
+     Три тысячи округов мышью не перебирают, а половина названий повторяется
+     в разных штатах (округов Washington девять), поэтому в строке подсказки
+     всегда стоит штат, а в ключе поиска и название, и его почтовый код. */
+  const search = document.getElementById('paint-search');
+  const results = document.getElementById('paint-results');
+
+  const goTo = (item) => {
+    const el = item.kind === 'county' ? shapes.get(item.id) : stateShapes.get(item.id);
+    if (!el || !root.zoomToBox) return;
+    root.zoomToBox(el.getBBox(), item.kind === 'county' ? 3.4 : 1.25);
+    if (item.kind === 'county') {
+      describe(item.id);
+      showMarks(item.id);
+    }
+    if (results) results.hidden = true;
+    if (search) search.value = item.label;
+  };
+
+  const runSearch = () => {
+    if (!search || !results) return;
+    const q = search.value.trim().toLowerCase();
+    results.innerHTML = '';
+    if (q.length < 2) { results.hidden = true; return; }
+    /* Порядок подсказок решает больше, чем сам поиск: округов с именем
+       Washington девять, и человек, набравший «harris», ждёт Техас, а не
+       случайный первый в списке. Поэтому сначала точное совпадение имени,
+       затем начало имени, затем всё прочее; в пределах одной ступени
+       по алфавиту. Штат при равном счёте идёт выше округа: их всего
+       пятьдесят один, и промахнуться по ним дороже. */
+    const score = (item) => {
+      const name = item.name;
+      if (name === q) return 0;
+      if (item.key.startsWith(q)) return 1;
+      if (name.startsWith(q)) return 2;
+      if (item.key.includes(' ' + q)) return 3;
+      if (item.key.includes(q)) return 4;
+      return 9;
+    };
+    const hits = [];
+    for (const item of index) {
+      const sc = score(item);
+      if (sc < 9) hits.push({ item, sc });
+    }
+    hits.sort((a, b) =>
+      a.sc - b.sc ||
+      (a.item.kind === b.item.kind ? 0 : a.item.kind === 'state' ? -1 : 1) ||
+      a.item.label.localeCompare(b.item.label));
+    for (const { item } of hits.slice(0, 10)) {
+      const li = document.createElement('li');
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = item.label;
+      b.addEventListener('click', () => goTo(item));
+      li.appendChild(b);
+      results.appendChild(li);
+    }
+    results.hidden = !results.children.length;
+  };
+
+  search?.addEventListener('input', runSearch);
+  search?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      results?.querySelector('button')?.click();
+    }
+    if (e.key === 'Escape' && results) results.hidden = true;
+  });
+  document.addEventListener('click', (e) => {
+    if (results && !results.hidden && !e.target.closest('.pm-search')) results.hidden = true;
+  });
 
   /* ── состояние со службы ───────────────────────────────────────────── */
   const load = async (quiet) => {

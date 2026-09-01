@@ -22,7 +22,7 @@
   <link rel="manifest" href="../manifest.json" />
 
   <link rel="preconnect" href="https://bank.munister.com.ua" crossorigin />
-  <link rel="stylesheet" href="../style.css?v=78" />
+  <link rel="stylesheet" href="../style.css?v=80" />
 </head>
 <body class="paint-page">
 
@@ -74,10 +74,16 @@
           <p data-i18n="pm_noscript">The shared county wall needs JavaScript. The coverage map on the main page works without it.</p>
         </noscript>
         </div>
-        <p class="pm-hint" data-i18n="pm_hint">Wheel or the buttons to zoom, drag to move, click a county to claim it.</p>
+        <p class="pm-hint" data-i18n="pm_hint">Wheel, pinch or the buttons to zoom, drag to move, click a county to claim it, double-click to zoom into it.</p>
       </div>
 
       <div class="pm-side">
+        <div class="pm-field pm-search">
+          <label for="paint-search" data-i18n="pm_search_label">Find a state or county</label>
+          <input id="paint-search" type="search" autocomplete="off" placeholder="Harris, TX" />
+          <ul class="pm-results" id="paint-results" hidden></ul>
+        </div>
+
         <div class="pm-field">
           <label for="paint-name" data-i18n="pm_name_label">Your name</label>
           <input id="paint-name" type="text" maxlength="40" autocomplete="name" placeholder="Alex" />
@@ -118,6 +124,6 @@
 </footer>
 
 <script src="../i18n.js?v=26"></script>
-<script src="../us-paint.js?v=6" defer></script>
+<script src="../us-paint.js?v=9" defer></script>
 </body>
 </html>
