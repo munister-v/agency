@@ -289,7 +289,12 @@
     svg.addEventListener('pointerdown', (e) => {
       if (e.button !== 0) return;
       drag = { id: e.pointerId, sx: e.clientX, sy: e.clientY, vx: view.x, vy: view.y, moved: 0 };
-      svg.setPointerCapture(e.pointerId);
+      /* Захват указателя удерживает перетаскивание, когда курсор выходит за
+         край карты. Он же бросает исключение, если указателя с таким номером
+         уже нет (курсор увели, событие пришло синтетическим), а исключение
+         здесь оборвало бы обработчик и вместе с ним и перетаскивание, и
+         закраску. Захват это удобство, а не условие работы. */
+      try { svg.setPointerCapture(e.pointerId); } catch { /* без захвата тоже работает */ }
     });
     svg.addEventListener('pointermove', (e) => {
       const fips = e.target?.dataset?.fips;
