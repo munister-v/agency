@@ -1,5 +1,10 @@
 const translations = {
   uk: {
+    pm_note_label: "Пометка по округу",
+    pm_marks_short: "поміток",
+    pm_marks_fail: "Помітки не завантажилися.",
+    pm_feed_label: "Останні помітки",
+    pm_marks_hint: "Клік по округу показує всі помітки по ньому: на одне місце їх може бути кілька.",
     pm_zoom_home: "Уся країна",
     pm_hint: "Колесо або кнопки — масштаб, перетягування — рух, клік по округу — зайняти.",
     nav_map: "Стіна карти",
@@ -234,6 +239,11 @@ const translations = {
   },
 
   en: {
+    pm_note_label: "Note on the county",
+    pm_marks_short: "marks",
+    pm_marks_fail: "Marks failed to load.",
+    pm_feed_label: "Latest marks",
+    pm_marks_hint: "Clicking a county shows every mark left on it: one place can hold several.",
     pm_zoom_home: "Whole country",
     pm_hint: "Wheel or the buttons to zoom, drag to move, click a county to claim it.",
     nav_map: "Map wall",
@@ -468,6 +478,11 @@ const translations = {
   },
 
   de: {
+    pm_note_label: "Notiz zum County",
+    pm_marks_short: "Notizen",
+    pm_marks_fail: "Notizen nicht geladen.",
+    pm_feed_label: "Neueste Notizen",
+    pm_marks_hint: "Ein Klick zeigt alle Notizen zu diesem County: es können mehrere sein.",
     pm_zoom_home: "Ganzes Land",
     pm_hint: "Rad oder Tasten zoomen, Ziehen verschiebt, Klick belegt ein County.",
     nav_map: "Kartenwand",
@@ -676,6 +691,11 @@ const translations = {
   },
 
   pl: {
+    pm_note_label: "Notatka o hrabstwie",
+    pm_marks_short: "notatek",
+    pm_marks_fail: "Notatki się nie wczytały.",
+    pm_feed_label: "Ostatnie notatki",
+    pm_marks_hint: "Kliknięcie hrabstwa pokazuje wszystkie notatki: na jedno miejsce może być ich kilka.",
     pm_zoom_home: "Cały kraj",
     pm_hint: "Kółko lub przyciski przybliżają, przeciąganie przesuwa, kliknięcie zajmuje hrabstwo.",
     nav_map: "Ściana mapy",
@@ -884,6 +904,11 @@ const translations = {
   },
 
   es: {
+    pm_note_label: "Nota sobre el condado",
+    pm_marks_short: "notas",
+    pm_marks_fail: "Las notas no se cargaron.",
+    pm_feed_label: "Últimas notas",
+    pm_marks_hint: "Al pulsar un condado se ven todas sus notas: un mismo lugar puede tener varias.",
     pm_zoom_home: "Todo el país",
     pm_hint: "La rueda o los botones acercan, arrastrar mueve, un clic ocupa el condado.",
     nav_map: "Muro del mapa",
@@ -1092,6 +1117,11 @@ const translations = {
   },
 
   pt: {
+    pm_note_label: "Nota sobre o condado",
+    pm_marks_short: "notas",
+    pm_marks_fail: "As notas não carregaram.",
+    pm_feed_label: "Últimas notas",
+    pm_marks_hint: "Clicar num condado mostra todas as notas: um mesmo lugar pode ter várias.",
     pm_zoom_home: "Todo o país",
     pm_hint: "A roda ou os botões aproximam, arrastar move, um clique ocupa o condado.",
     nav_map: "Muro do mapa",
@@ -1300,6 +1330,11 @@ const translations = {
   },
 
   it: {
+    pm_note_label: "Nota sulla contea",
+    pm_marks_short: "note",
+    pm_marks_fail: "Le note non si sono caricate.",
+    pm_feed_label: "Ultime note",
+    pm_marks_hint: "Un clic sulla contea mostra tutte le note: uno stesso luogo può averne più di una.",
     pm_zoom_home: "Tutto il paese",
     pm_hint: "La rotella o i pulsanti ingrandiscono, il trascinamento sposta, un clic prende la contea.",
     nav_map: "Muro della mappa",

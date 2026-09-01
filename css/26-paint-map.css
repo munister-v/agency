@@ -186,6 +186,52 @@
 .pm-feed span { grid-area: where; color: var(--gray); }
 .pm-feed time { grid-area: when; color: var(--gray); text-align: right; white-space: nowrap; }
 
+/* ── пометки по одному округу ──────────────────────────────────────
+   Список того, что оставили на этом округе: на одно место лидов может быть
+   несколько, и последний не отменяет предыдущих. */
+.pm-marks {
+  border-top: 1px solid rgba(17, 17, 17, .14);
+  padding-top: 10px;
+  font-size: 13px;
+}
+.pm-marks-head {
+  margin: 0 0 6px;
+  font-weight: 500;
+  font-size: 13.5px;
+}
+.pm-marks-empty { margin: 0; color: var(--gray); }
+.pm-marks ul { list-style: none; margin: 0; padding: 0; max-height: 210px; overflow-y: auto; }
+.pm-marks li {
+  display: grid;
+  grid-template-columns: 10px minmax(0, auto) minmax(0, 1fr);
+  grid-template-areas: "dot who when" "dot note note";
+  gap: 2px 8px;
+  align-items: baseline;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(17, 17, 17, .1);
+}
+.pm-marks i { grid-area: dot; width: 10px; height: 10px; border-radius: 50%; }
+.pm-marks b { grid-area: who; font-weight: 500; }
+.pm-marks time { grid-area: when; color: var(--gray); text-align: right; white-space: nowrap; }
+.pm-marks span { grid-area: note; color: var(--gray); }
+
+.pm-readout em {
+  font-style: normal;
+  color: #1c1c1c;
+  font-size: 13.5px;
+}
+
+.pm-feed-label {
+  margin: 0;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.pm-feed em { grid-area: note; font-style: normal; color: #1c1c1c; }
+.pm-feed li { grid-template-areas: "dot who when" "dot where where" "dot note note"; }
+
 .paintmap-note {
   margin-top: 28px;
   padding-top: 18px;

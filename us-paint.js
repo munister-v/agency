@@ -22,14 +22,17 @@
   const API = root.dataset.endpoint || 'https://bank.munister.com.ua/api/map';
   const GEOMETRY = root.dataset.geometry || 'data/us-counties.json?v=1';
   const NAME_KEY = 'munister:paint:name';
+  const NOTE_KEY = 'munister:paint:note';
   const COLOR_KEY = 'munister:paint:color';
 
   const palette = document.getElementById('paint-palette');
   const nameInput = document.getElementById('paint-name');
+  const noteInput = document.getElementById('paint-note');
   const readout = document.getElementById('paint-readout');
   const feed = document.getElementById('paint-feed');
   const counter = document.getElementById('paint-counter');
   const status = document.getElementById('paint-status');
+  const marksBox = document.getElementById('paint-marks');
 
   /* Словарь i18n объявлен в i18n.js как const верхнего уровня, поэтому он
      виден по имени и НЕ висит на window: обращение через window вернуло бы
@@ -103,6 +106,11 @@
       when.dateTime = r.t;
       when.textContent = stamp(r.t);
       li.append(dot, who, where, when);
+      if (r.m) {
+        const note = document.createElement('em');
+        note.textContent = r.m;
+        li.appendChild(note);
+      }
       feed.appendChild(li);
     }
   };
@@ -130,15 +138,74 @@
     readout.appendChild(head);
     const line = document.createElement('span');
     line.textContent = rec
-      ? `${rec.n} · ${stamp(rec.t)}`
+      ? `${rec.n} · ${stamp(rec.t)}${rec.k > 1 ? ` · ${rec.k} ${t('pm_marks_short', 'пометок')}` : ''}`
       : t('pm_free', 'ещё никем не закрашен');
     readout.appendChild(line);
+    if (rec?.m) {
+      const note = document.createElement('em');
+      note.textContent = rec.m;
+      readout.appendChild(note);
+    }
+  };
+
+  /* ── все пометки одного округа ──────────────────────────────────────
+     Округ закрашивают не один раз: по одному месту может пройти несколько
+     лидов, и каждый остаётся отдельной строкой. Поэтому клик показывает не
+     последнюю запись, а весь список по этому округу. */
+  let marksFor = null;
+  const showMarks = async (fips) => {
+    if (!marksBox) return;
+    marksFor = fips;
+    marksBox.innerHTML = '';
+    const head = document.createElement('p');
+    head.className = 'pm-marks-head';
+    head.textContent = names.get(fips) || fips;
+    marksBox.appendChild(head);
+
+    try {
+      const res = await fetch(`${API}/county?fips=${encodeURIComponent(fips)}`, { cache: 'no-store' });
+      if (!res.ok) throw new Error(String(res.status));
+      const data = await res.json();
+      if (marksFor !== fips) return;            // пока ждали, кликнули другой округ
+      if (!data.marks?.length) {
+        const empty = document.createElement('p');
+        empty.className = 'pm-marks-empty';
+        empty.textContent = t('pm_free', 'ещё никем не закрашен');
+        marksBox.appendChild(empty);
+        return;
+      }
+      const list = document.createElement('ul');
+      for (const m of data.marks) {
+        const li = document.createElement('li');
+        const dot = document.createElement('i');
+        dot.style.background = COLORS[m.c] || '#999';
+        const who = document.createElement('b');
+        who.textContent = m.n;
+        const when = document.createElement('time');
+        when.dateTime = m.t;
+        when.textContent = stamp(m.t);
+        li.append(dot, who, when);
+        if (m.m) {
+          const text = document.createElement('span');
+          text.textContent = m.m;
+          li.appendChild(text);
+        }
+        list.appendChild(li);
+      }
+      marksBox.appendChild(list);
+    } catch {
+      const fail = document.createElement('p');
+      fail.className = 'pm-marks-empty';
+      fail.textContent = t('pm_marks_fail', 'Пометки не загрузились.');
+      marksBox.appendChild(fail);
+    }
   };
 
   /* ── отправка закраски ─────────────────────────────────────────────── */
   let sending = false;
   const sendPaint = async (fips) => {
     const who = (nameInput?.value || '').trim();
+    const note = (noteInput?.value || '').trim();
     if (who.length < 2) {
       say(t('pm_need_name', 'Сначала имя: оно будет стоять рядом с округом.'), 'warn');
       nameInput?.focus();
@@ -147,25 +214,27 @@
     if (sending) return;
     sending = true;
     localStorage.setItem(NAME_KEY, who);
+    if (note) localStorage.setItem(NOTE_KEY, note);
 
     /* Оптимистично красим сразу: ответ службы приходит через сеть, а рука
        уже нажала, и ждать полсекунды на каждый округ невозможно. При отказе
        возвращаем прежний вид. */
     const before = paint.get(fips);
-    applyPaint(fips, { c: brush, n: who, t: new Date().toISOString() });
+    applyPaint(fips, { c: brush, n: who, t: new Date().toISOString(), m: note, k: (before?.k || 0) + 1 });
     describe(fips);
 
     try {
       const res = await fetch(`${API}/paint`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ fips, color: brush, name: who }),
+        body: JSON.stringify({ fips, color: brush, name: who, note }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || String(res.status));
-      applyPaint(fips, { c: data.color, n: data.name, t: data.painted_at });
+      applyPaint(fips, { c: data.color, n: data.name, t: data.painted_at, m: data.note, k: (before?.k || 0) + 1 });
       setCounter(paint.size);
       describe(fips);
+      showMarks(fips);
       say('', '');
       load(true);
     } catch (err) {
@@ -288,7 +357,13 @@
     let drag = null;
     svg.addEventListener('pointerdown', (e) => {
       if (e.button !== 0) return;
-      drag = { id: e.pointerId, sx: e.clientX, sy: e.clientY, vx: view.x, vy: view.y, moved: 0 };
+      drag = {
+        id: e.pointerId, sx: e.clientX, sy: e.clientY,
+        vx: view.x, vy: view.y, moved: 0,
+        /* Округ, на котором нажали: запасной ответ, если под курсором к
+           моменту отпускания уже ничего нет (палец увели за край). */
+        hit: e.target?.dataset?.fips || null,
+      };
       /* Захват указателя удерживает перетаскивание, когда курсор выходит за
          край карты. Он же бросает исключение, если указателя с таким номером
          уже нет (курсор увели, событие пришло синтетическим), а исключение
@@ -297,8 +372,10 @@
       try { svg.setPointerCapture(e.pointerId); } catch { /* без захвата тоже работает */ }
     });
     svg.addEventListener('pointermove', (e) => {
-      const fips = e.target?.dataset?.fips;
-      if (fips && !drag) describe(fips);
+      if (!drag) {
+        const fips = countyAt(e);
+        if (fips) describe(fips);
+      }
       if (!drag || e.pointerId !== drag.id) return;
       const r = svg.getBoundingClientRect();
       const dx = e.clientX - drag.sx;
@@ -309,13 +386,23 @@
       clampView();
       applyView();
     });
+    /* Округ под указателем берётся по координатам, а НЕ из e.target.
+       Причина: захват указателя перенаправляет все следующие события на svg,
+       поэтому у pointerup target это сама карта, а не округ, и закраска молча
+       не срабатывала. elementFromPoint отвечает про то, что под курсором на
+       самом деле, и одинаково верен на любом увеличении. */
+    const countyAt = (e) => {
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      return el?.dataset?.fips || null;
+    };
+
     const endDrag = (e) => {
       if (!drag || e.pointerId !== drag.id) return;
       const clicked = drag.moved < 4;
+      const hit = countyAt(e) || drag.hit;
       drag = null;
-      if (!clicked) return;
-      const fips = e.target?.dataset?.fips;
-      if (fips) sendPaint(fips);
+      if (!clicked || !hit) return;
+      sendPaint(hit);
     };
     svg.addEventListener('pointerup', endDrag);
     svg.addEventListener('pointercancel', () => { drag = null; });
@@ -373,6 +460,7 @@
     }
   };
 
+  if (noteInput) noteInput.value = localStorage.getItem(NOTE_KEY) || '';
   if (nameInput) {
     nameInput.value = localStorage.getItem(NAME_KEY) || '';
     nameInput.addEventListener('change', () => {
