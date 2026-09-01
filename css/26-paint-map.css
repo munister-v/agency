@@ -141,6 +141,13 @@
   outline-offset: 2px;
 }
 
+/* Пустая подпись, статус и список пометок не должны рисовать волосяную
+   рамку до первого взаимодействия: на телефоне, где всё это встало над
+   картой, такая рамка выглядит обрывом вёрстки. */
+.pm-readout:empty,
+.pm-marks:empty,
+.pm-status:empty { border: 0; padding: 0; min-height: 0; margin: 0; }
+
 .pm-readout {
   display: grid;
   gap: 2px;
@@ -171,20 +178,23 @@
   overflow-y: auto;
   border-top: 1px solid rgba(17, 17, 17, .14);
 }
+/* Строка журнала: точка, текст события, время, и необязательная пометка
+   отдельной строкой снизу. Структуру собирает журнал (paint/remove), а не
+   старая лента закрасок, поэтому колонок меньше, чем было. */
 .pm-feed li {
   display: grid;
-  grid-template-columns: 10px minmax(0, auto) minmax(0, 1fr);
-  grid-template-areas: "dot who when" "dot where where";
+  grid-template-columns: 10px minmax(0, 1fr) auto;
+  grid-template-areas: "dot text when" "dot note note";
   gap: 2px 8px;
   align-items: baseline;
   padding: 9px 0;
   border-bottom: 1px solid rgba(17, 17, 17, .1);
   font-size: 13px;
 }
-.pm-feed i { grid-area: dot; width: 10px; height: 10px; border-radius: 50%; }
-.pm-feed b { grid-area: who; font-weight: 500; }
-.pm-feed span { grid-area: where; color: var(--gray); }
+.pm-feed i { grid-area: dot; width: 10px; height: 10px; border-radius: 50%; align-self: center; }
+.pm-feed li > span { grid-area: text; }
 .pm-feed time { grid-area: when; color: var(--gray); text-align: right; white-space: nowrap; }
+.pm-feed em { grid-area: note; font-style: normal; color: var(--gray); }
 
 /* ── пометки по одному округу ──────────────────────────────────────
    Список того, что оставили на этом округе: на одно место лидов может быть
@@ -203,13 +213,24 @@
 .pm-marks ul { list-style: none; margin: 0; padding: 0; max-height: 210px; overflow-y: auto; }
 .pm-marks li {
   display: grid;
-  grid-template-columns: 10px minmax(0, auto) minmax(0, 1fr);
-  grid-template-areas: "dot who when" "dot note note";
+  grid-template-columns: 10px minmax(0, auto) minmax(0, 1fr) auto;
+  grid-template-areas: "dot who when del" "dot note note note";
   gap: 2px 8px;
   align-items: baseline;
   padding: 7px 0;
   border-bottom: 1px solid rgba(17, 17, 17, .1);
 }
+.pm-mark-del {
+  grid-area: del;
+  padding: 2px 8px;
+  border: 1px solid rgba(180, 82, 58, .4);
+  background: none;
+  color: #b4523a;
+  font-size: 11px;
+  letter-spacing: .04em;
+  cursor: pointer;
+}
+.pm-mark-del:hover { background: rgba(180, 82, 58, .08); }
 .pm-marks i { grid-area: dot; width: 10px; height: 10px; border-radius: 50%; }
 .pm-marks b { grid-area: who; font-weight: 500; }
 .pm-marks time { grid-area: when; color: var(--gray); text-align: right; white-space: nowrap; }
@@ -229,8 +250,8 @@
   text-transform: uppercase;
   color: var(--gray);
 }
-.pm-feed em { grid-area: note; font-style: normal; color: #1c1c1c; }
-.pm-feed li { grid-template-areas: "dot who when" "dot where where" "dot note note"; }
+.pm-j-remove i { background: transparent !important; border: 1px solid rgba(17, 17, 17, .3); }
+.pm-j-remove > span, .pm-j-remove li > span { color: var(--gray); font-style: italic; }
 
 .paintmap-note {
   margin-top: 28px;

@@ -1,5 +1,9 @@
 const translations = {
   uk: {
+    pm_journal_label: "Журнал змін",
+    pm_remove: "Прибрати",
+    pm_removed: "Помітку прибрано.",
+    pm_j_removed: "Очищено",
     pm_search_label: "Знайти штат або округ",
     pm_note_label: "Пометка по округу",
     pm_marks_short: "поміток",
@@ -240,6 +244,10 @@ const translations = {
   },
 
   en: {
+    pm_journal_label: "Change log",
+    pm_remove: "Delete",
+    pm_removed: "Mark removed.",
+    pm_j_removed: "Cleared",
     pm_search_label: "Find a state or county",
     pm_note_label: "Note on the county",
     pm_marks_short: "marks",
@@ -480,6 +488,10 @@ const translations = {
   },
 
   de: {
+    pm_journal_label: "Änderungsprotokoll",
+    pm_remove: "Entfernen",
+    pm_removed: "Notiz entfernt.",
+    pm_j_removed: "Geleert",
     pm_search_label: "Staat oder County suchen",
     pm_note_label: "Notiz zum County",
     pm_marks_short: "Notizen",
@@ -694,6 +706,10 @@ const translations = {
   },
 
   pl: {
+    pm_journal_label: "Dziennik zmian",
+    pm_remove: "Usuń",
+    pm_removed: "Notatkę usunięto.",
+    pm_j_removed: "Wyczyszczone",
     pm_search_label: "Znajdź stan lub hrabstwo",
     pm_note_label: "Notatka o hrabstwie",
     pm_marks_short: "notatek",
@@ -908,6 +924,10 @@ const translations = {
   },
 
   es: {
+    pm_journal_label: "Registro de cambios",
+    pm_remove: "Eliminar",
+    pm_removed: "Nota eliminada.",
+    pm_j_removed: "Vaciado",
     pm_search_label: "Buscar estado o condado",
     pm_note_label: "Nota sobre el condado",
     pm_marks_short: "notas",
@@ -1122,6 +1142,10 @@ const translations = {
   },
 
   pt: {
+    pm_journal_label: "Registo de alterações",
+    pm_remove: "Eliminar",
+    pm_removed: "Nota eliminada.",
+    pm_j_removed: "Limpo",
     pm_search_label: "Procurar estado ou condado",
     pm_note_label: "Nota sobre o condado",
     pm_marks_short: "notas",
@@ -1336,6 +1360,10 @@ const translations = {
   },
 
   it: {
+    pm_journal_label: "Registro modifiche",
+    pm_remove: "Elimina",
+    pm_removed: "Nota eliminata.",
+    pm_j_removed: "Svuotato",
     pm_search_label: "Cerca stato o contea",
     pm_note_label: "Nota sulla contea",
     pm_marks_short: "note",

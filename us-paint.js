@@ -23,6 +23,8 @@
   const GEOMETRY = root.dataset.geometry || 'data/us-counties.json?v=1';
   const NAME_KEY = 'munister:paint:name';
   const NOTE_KEY = 'munister:paint:note';
+  const OWN_KEY = 'munister:paint:own';
+  const CURSOR_KEY = 'munister:paint:cursor';
   const COLOR_KEY = 'munister:paint:color';
 
   const palette = document.getElementById('paint-palette');
@@ -49,6 +51,23 @@
 
   let brush = localStorage.getItem(COLOR_KEY) || 'clay';
   if (!COLORS[brush]) brush = 'clay';
+
+  /* Своё удаляют только своим ключом, и ключ не выдаётся повторно: он живёт
+     только в этом браузере. Если очистить localStorage, право на удаление
+     теряется вместе с ним, как и было задумано — это не учётная запись. */
+  const own = (() => {
+    try { return JSON.parse(localStorage.getItem(OWN_KEY) || '[]'); }
+    catch { return []; }
+  })();
+  const rememberOwn = (id, fips, owner) => {
+    own.push({ id, fips, owner });
+    if (own.length > 500) own.shift();
+    localStorage.setItem(OWN_KEY, JSON.stringify(own));
+  };
+  const forgetOwn = (id) => {
+    const i = own.findIndex((o) => o.id === id);
+    if (i >= 0) { own.splice(i, 1); localStorage.setItem(OWN_KEY, JSON.stringify(own)); }
+  };
 
   const paint = new Map();      // fips → {c, n, t}
   const shapes = new Map();     // fips → <path>
@@ -92,31 +111,6 @@
     }
   };
 
-  /* ── лента последних закрасок ──────────────────────────────────────── */
-  const drawFeed = (rows) => {
-    if (!feed) return;
-    feed.innerHTML = '';
-    for (const r of rows) {
-      const li = document.createElement('li');
-      const dot = document.createElement('i');
-      dot.style.background = COLORS[r.c] || '#999';
-      const who = document.createElement('b');
-      who.textContent = r.n;
-      const where = document.createElement('span');
-      where.textContent = names.get(r.fips) || r.fips;
-      const when = document.createElement('time');
-      when.dateTime = r.t;
-      when.textContent = stamp(r.t);
-      li.append(dot, who, where, when);
-      if (r.m) {
-        const note = document.createElement('em');
-        note.textContent = r.m;
-        li.appendChild(note);
-      }
-      feed.appendChild(li);
-    }
-  };
-
   const applyPaint = (fips, rec) => {
     paint.set(fips, rec);
     const el = shapes.get(fips);
@@ -155,6 +149,32 @@
      лидов, и каждый остаётся отдельной строкой. Поэтому клик показывает не
      последнюю запись, а весь список по этому округу. */
   let marksFor = null;
+
+  const removeMark = async (id, fips) => {
+    const mine = own.find((o) => o.id === id);
+    if (!mine) return;
+    try {
+      const res = await fetch(`${API}/remove`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ id, owner: mine.owner }),
+        signal: AbortSignal.timeout(12000),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      forgetOwn(id);
+      await load(true);                 // текущий цвет округа мог смениться на предыдущий слой
+      if (!paint.has(fips)) {
+        const el = shapes.get(fips);
+        if (el) { el.setAttribute('fill', 'transparent'); delete el.dataset.painted; }
+      }
+      describe(fips);
+      showMarks(fips);
+      say(t('pm_removed', 'Пометка удалена.'), '');
+    } catch {
+      say(t('pm_fail', 'Не отправилось. Попробуйте ещё раз.'), 'warn');
+    }
+  };
+
   const showMarks = async (fips) => {
     if (!marksBox) return;
     marksFor = fips;
@@ -176,6 +196,7 @@
         marksBox.appendChild(empty);
         return;
       }
+      const mineIds = new Set(own.filter((o) => o.fips === fips).map((o) => o.id));
       const list = document.createElement('ul');
       for (const m of data.marks) {
         const li = document.createElement('li');
@@ -191,6 +212,17 @@
           const text = document.createElement('span');
           text.textContent = m.m;
           li.appendChild(text);
+        }
+        /* Кнопка удаления стоит только у пометок, оставленных этим же
+           браузером: у остальных id совпасть с записью в own не может,
+           потому что owner для них никогда сюда не приходил. */
+        if (mineIds.has(m.id)) {
+          const del = document.createElement('button');
+          del.type = 'button';
+          del.className = 'pm-mark-del';
+          del.textContent = t('pm_remove', 'Delete');
+          del.addEventListener('click', () => removeMark(m.id, fips));
+          li.appendChild(del);
         }
         list.appendChild(li);
       }
@@ -241,6 +273,7 @@
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || String(res.status));
       applyPaint(fips, { c: data.color, n: data.name, t: data.painted_at, m: data.note, k: (before?.k || 0) + 1 });
+      if (data.owner) rememberOwn(data.id ?? null, fips, data.owner);
       setCounter(paint.size);
       describe(fips);
       showMarks(fips);
@@ -578,18 +611,70 @@
   });
 
   /* ── состояние со службы ───────────────────────────────────────────── */
+  let cursor = 0;
   const load = async (quiet) => {
     try {
       const res = await fetch(`${API}/state`, { cache: 'no-store' });
       if (!res.ok) throw new Error(String(res.status));
       const data = await res.json();
+      const seen = new Set(Object.keys(data.counties || {}));
+      /* Округ, пропавший из ответа службы, был у нас закрашен в прошлый раз
+         и теперь очищен кем-то другим: сбрасываем заливку сами, не дожидаясь
+         следующего клика по нему. */
+      for (const fips of [...paint.keys()]) {
+        if (!seen.has(fips)) {
+          paint.delete(fips);
+          const el = shapes.get(fips);
+          if (el) { el.setAttribute('fill', 'transparent'); delete el.dataset.painted; }
+        }
+      }
       for (const [fips, rec] of Object.entries(data.counties || {})) applyPaint(fips, rec);
       setCounter(data.painted || 0);
-      drawFeed(data.recent || []);
+      if (typeof data.cursor === 'number') cursor = data.cursor;
       if (!quiet) say('', '');
     } catch {
       if (!quiet) say(t('pm_offline', 'Общая закраска сейчас недоступна: карта открыта только на просмотр.'), 'warn');
     }
+  };
+
+  /* ── журнал изменений ─────────────────────────────────────────────────
+     Лента показывает не срез, а сами события: закрасили, стёрли. Опрос раз
+     в 20 секунд — достаточно живо для настенной карты и не бьёт по службе
+     на общем домене с банком. */
+  const journalEntry = (e) => {
+    const li = document.createElement('li');
+    li.className = e.action === 'remove' ? 'pm-j-remove' : 'pm-j-paint';
+    const dot = document.createElement('i');
+    dot.style.background = e.action === 'remove' ? 'transparent' : (COLORS[e.c] || '#999');
+    const text = document.createElement('span');
+    const place = names.get(e.fips) || e.fips;
+    text.textContent = e.action === 'remove'
+      ? t('pm_j_removed', 'Cleared') + ' — ' + place
+      : `${e.n} — ${place}`;
+    const when = document.createElement('time');
+    when.dateTime = e.at;
+    when.textContent = stamp(e.at);
+    li.append(dot, text, when);
+    if (e.action !== 'remove' && e.m) {
+      const note = document.createElement('em');
+      note.textContent = e.m;
+      li.appendChild(note);
+    }
+    return li;
+  };
+
+  const pollJournal = async () => {
+    try {
+      const res = await fetch(`${API}/journal?since=${cursor}`, { cache: 'no-store' });
+      if (!res.ok) throw new Error(String(res.status));
+      const data = await res.json();
+      cursor = data.cursor ?? cursor;
+      if (feed && data.events?.length) {
+        for (const e of data.events.reverse()) feed.prepend(journalEntry(e));
+        while (feed.children.length > 40) feed.removeChild(feed.lastChild);
+      }
+      if (data.events?.length) load(true);   // событие чужого браузера меняет счётчик и заливку
+    } catch { /* тихий пропуск: журнал не критичен для самой карты */ }
   };
 
   /* ── ленивая загрузка геометрии ────────────────────────────────────── */
@@ -606,6 +691,14 @@
       drawPalette();
       say('', '');
       await load();
+      await pollJournal();
+      setInterval(pollJournal, 20000);
+      /* Скрытая вкладка усыпляет таймер браузером до минуты и реже: карта
+         могла простоять открытой полдня в фоне. При возврате видимости
+         подтягиваем упущенное сразу, а не ждём следующего тика. */
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') pollJournal();
+      });
     } catch {
       say(t('pm_geo_fail', 'Границы не загрузились. Обновите страницу.'), 'warn');
     }
