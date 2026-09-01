@@ -1,0 +1,202 @@
+/* ─────────────────────────────────────────────────────────────
+   Стена карты: 3142 округа, которые закрашивают посетители.
+
+   Карта покрытия выше по странице отвечает на вопрос о часах работы и
+   потому раскрашена одним фирменным синим. Здесь наоборот: цвет приносит
+   посетитель, а страница обязана его не портить. Поэтому вся секция набрана
+   в бумажной гамме сайта, а восемь цветов палитры остаются единственным
+   цветом на экране.
+   ───────────────────────────────────────────────────────────── */
+
+.paintmap {
+  padding: 96px 0 104px;
+  border-top: 1px solid rgba(17, 17, 17, .14);
+}
+
+.paintmap-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 24px 56px;
+  align-items: end;
+  margin-bottom: 36px;
+}
+.paintmap .section-tag-light {
+  font-family: var(--font-brand);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: .22em;
+  color: var(--gray);
+}
+.paintmap-head h2 { font-size: clamp(34px, 4.4vw, 58px); line-height: 1.02; }
+.paintmap-head h2 em { font-style: italic; }
+.paintmap-head-right { color: var(--gray); max-width: 46ch; }
+
+.paintmap-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 28px 40px;
+  align-items: start;
+}
+
+/* Страница отдана карте, поэтому полоса шире обычной сетки сайта: округ
+   Нью-Йорка на 1100 пикселях это два пикселя, на 1500 уже три. */
+.paintmap .container { max-width: 1560px; }
+
+.pm-stage { position: relative; }
+.pm-zoom {
+  position: absolute;
+  top: 12px; left: 12px;
+  z-index: 2;
+  display: flex;
+  gap: 6px;
+}
+.pm-zoom button {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 10px;
+  border: 1px solid rgba(17, 17, 17, .2);
+  background: rgba(255, 255, 255, .92);
+  font: inherit;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+}
+.pm-zoom button:hover { background: #fff; border-color: rgba(17, 17, 17, .45); }
+.pm-hint {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  color: var(--gray);
+}
+
+/* ── карта ─────────────────────────────────────────────────────────── */
+.pm-map {
+  border: 1px solid rgba(17, 17, 17, .14);
+  background: #fff;
+  /* Высота держится, пока грузится мегабайт границ: без неё страница
+     дёргается, когда карта наконец появляется. Как только карта построена,
+     коробка садится по ней. */
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pm-map:has(svg) { min-height: 0; }
+.pm-svg { display: block; width: 100%; height: auto; touch-action: none; }
+
+/* Округ по умолчанию прозрачный: заливка появляется только у закрашенных,
+   и белая карта с волосяной сеткой сама показывает, что она пустая. */
+.pm-counties path {
+  stroke: rgba(17, 17, 17, .16);
+  stroke-width: .3;
+  vector-effect: non-scaling-stroke;
+  cursor: crosshair;
+  transition: opacity .12s ease;
+}
+.pm-counties path:hover { opacity: .78; }
+/* На увеличении карта таскается, и курсор обязан это показывать. */
+.pm-map[data-zoom]:not([data-zoom="1.0"]) .pm-svg { cursor: grab; }
+.pm-counties path[data-painted] { stroke: rgba(255, 255, 255, .55); }
+
+/* Границы штатов идут поверх и мышь не ловят: клик у границы обязан попасть
+   в округ, а не в штат. */
+.pm-states path {
+  stroke: rgba(17, 17, 17, .55);
+  stroke-width: .9;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+  fill: none;
+}
+
+/* ── правая колонка ────────────────────────────────────────────────── */
+.pm-side { display: grid; gap: 18px; }
+
+.pm-field { display: grid; gap: 6px; }
+.pm-field label {
+  font-family: var(--font-brand);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.pm-field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(17, 17, 17, .2);
+  background: #fff;
+  font: inherit;
+  font-size: 15px;
+}
+.pm-field input:focus { outline: 2px solid rgba(17, 17, 17, .5); outline-offset: 1px; }
+
+.pm-palette { display: flex; flex-wrap: wrap; gap: 8px; }
+.pm-swatch {
+  width: 28px; height: 28px;
+  border: 1px solid rgba(17, 17, 17, .2);
+  background: var(--c);
+  cursor: pointer;
+  padding: 0;
+}
+.pm-swatch[aria-pressed="true"] {
+  outline: 2px solid #111;
+  outline-offset: 2px;
+}
+
+.pm-readout {
+  display: grid;
+  gap: 2px;
+  min-height: 46px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(17, 17, 17, .14);
+  border-bottom: 1px solid rgba(17, 17, 17, .14);
+  font-size: 14px;
+}
+.pm-readout b { font-weight: 500; }
+.pm-readout span { color: var(--gray); }
+
+.pm-status { min-height: 18px; font-size: 13px; color: var(--gray); }
+.pm-status[data-kind="warn"] { color: #b4523a; }
+
+.pm-count {
+  font-size: 13px;
+  color: var(--gray);
+  letter-spacing: .02em;
+}
+.pm-count b { font-size: 22px; color: #111; font-weight: 500; letter-spacing: -.01em; }
+
+.pm-feed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 320px;
+  overflow-y: auto;
+  border-top: 1px solid rgba(17, 17, 17, .14);
+}
+.pm-feed li {
+  display: grid;
+  grid-template-columns: 10px minmax(0, auto) minmax(0, 1fr);
+  grid-template-areas: "dot who when" "dot where where";
+  gap: 2px 8px;
+  align-items: baseline;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(17, 17, 17, .1);
+  font-size: 13px;
+}
+.pm-feed i { grid-area: dot; width: 10px; height: 10px; border-radius: 50%; }
+.pm-feed b { grid-area: who; font-weight: 500; }
+.pm-feed span { grid-area: where; color: var(--gray); }
+.pm-feed time { grid-area: when; color: var(--gray); text-align: right; white-space: nowrap; }
+
+.paintmap-note {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(17, 17, 17, .14);
+  color: var(--gray);
+  font-size: 14px;
+  max-width: 78ch;
+}
+
+@media (max-width: 900px) {
+  .paintmap-head { grid-template-columns: minmax(0, 1fr); }
+  .paintmap-body { grid-template-columns: minmax(0, 1fr); }
+  .pm-feed { max-height: 240px; }
+}

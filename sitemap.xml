@@ -107,4 +107,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://agency.munister.com.ua/"/>
   </url>
 
+
+  <url>
+    <loc>https://agency.munister.com.ua/map/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agency.munister.com.ua/map/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://agency.munister.com.ua/map/?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agency.munister.com.ua/map/"/>
+  </url>
+
 </urlset>

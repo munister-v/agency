@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+
+  <title>County wall — Munister Agency</title>
+  <meta name="description" content="An open wall over all 3142 counties of the United States. Pick a colour, sign with a name and claim a county. Everyone sees the same map, and every fill carries its author and date." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://agency.munister.com.ua/map/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Munister Agency" />
+  <meta property="og:title" content="County wall — Munister Agency" />
+  <meta property="og:description" content="All 3142 U.S. counties, open to anyone: pick a colour, sign with a name, claim a county." />
+  <meta property="og:url" content="https://agency.munister.com.ua/map/" />
+  <meta property="og:image" content="https://agency.munister.com.ua/cover.png" />
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="../favicon-32x32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+  <link rel="manifest" href="../manifest.json" />
+
+  <link rel="preconnect" href="https://bank.munister.com.ua" crossorigin />
+  <link rel="stylesheet" href="../style.css?v=77" />
+</head>
+<body class="paint-page">
+
+<a href="#paint" class="skip-link" tabindex="1">Skip to the map</a>
+
+<!-- Шапка проще, чем на главной: страница одна и вести с неё некуда, кроме
+     как обратно в агентство и в контакт. -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo"><img class="nav-logo-mark" src="../assets/logo-badge.png?v=2" alt="" aria-hidden="true" width="512" height="512" />Munister</a>
+  <div class="nav-links" id="nav-links">
+    <a href="/#coverage" data-i18n="nav_coverage">Coverage</a>
+    <a href="/#portfolio" data-i18n="nav_works">Projects</a>
+    <a href="/#contact" class="nav-cta" data-i18n="nav_contact">Contact</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="uk">UA</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+      <button class="lang-btn" data-lang="pl">PL</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="pt">PT</button>
+      <button class="lang-btn" data-lang="it">IT</button>
+    </div>
+  </div>
+</nav>
+
+<section class="paintmap" id="paint" aria-labelledby="paint-title">
+  <div class="container">
+
+    <header class="paintmap-head">
+      <div>
+        <p class="section-tag-light" data-i18n="pm_tag">Open wall</p>
+        <h1 class="f-display" id="paint-title">
+          <span data-i18n="pm_title_1">Three thousand counties,</span><br/>
+          <em data-i18n="pm_title_2">one shared wall.</em>
+        </h1>
+      </div>
+      <p class="paintmap-head-right" data-i18n="pm_intro">Every county in the United States, drawn from the Census Bureau's own boundaries. Pick a colour, sign with a name, and claim one. Everyone who opens this page sees the same wall, and every fill carries the name and the day it was made.</p>
+    </header>
+
+    <div class="paintmap-body">
+      <div class="pm-stage">
+        <div class="pm-zoom" role="group" aria-label="Zoom">
+          <button type="button" id="paint-zoom-in" aria-label="Zoom in">+</button>
+          <button type="button" id="paint-zoom-out" aria-label="Zoom out">−</button>
+          <button type="button" id="paint-zoom-home" data-i18n="pm_zoom_home">Whole country</button>
+        </div>
+        <div class="pm-map" id="paint-map" data-geometry="../data/us-counties.json?v=1">
+        <noscript>
+          <p data-i18n="pm_noscript">The shared county wall needs JavaScript. The coverage map on the main page works without it.</p>
+        </noscript>
+        </div>
+        <p class="pm-hint" data-i18n="pm_hint">Wheel or the buttons to zoom, drag to move, click a county to claim it.</p>
+      </div>
+
+      <div class="pm-side">
+        <div class="pm-field">
+          <label for="paint-name" data-i18n="pm_name_label">Your name</label>
+          <input id="paint-name" type="text" maxlength="40" autocomplete="name" placeholder="Alex" />
+        </div>
+
+        <div class="pm-field">
+          <span class="pm-field-label" id="paint-palette-label" data-i18n="pm_color_label">Colour</span>
+          <div class="pm-palette" id="paint-palette" role="group" aria-labelledby="paint-palette-label"></div>
+        </div>
+
+        <p class="pm-readout" id="paint-readout" aria-live="polite"></p>
+        <p class="pm-status" id="paint-status" role="status" aria-live="polite"></p>
+
+        <p class="pm-count"><b id="paint-counter">0</b> <span data-i18n="pm_counted">counties claimed</span></p>
+
+        <ul class="pm-feed" id="paint-feed" aria-label="Latest fills"></ul>
+      </div>
+    </div>
+
+    <p class="paintmap-note" data-i18n="pm_note">Boundaries: U.S. Census Bureau TIGER, public domain, 3142 counties in the Albers USA projection. Fills are stored with a name and a date; repainting a county does not erase the previous author, it adds the next line. One visitor may claim up to 120 counties an hour.</p>
+
+  </div>
+</section>
+
+<footer class="paint-foot">
+  <div class="container">
+    <a href="/" data-i18n="pm_back">← Munister Agency</a>
+    <span data-i18n="pm_foot">The same boundaries and the same frame as the coverage map on the main page.</span>
+  </div>
+</footer>
+
+<script src="../i18n.js?v=26"></script>
+<script src="../us-paint.js?v=4" defer></script>
+</body>
+</html>
