@@ -1,0 +1,530 @@
+/* РОЛИ И МЕТРИКИ — ОДНА СИСТЕМА С munister.com.ua
+ *
+ * 01-base объявляет две гарнитуры и палитру. Этот слой — единственное место,
+ * где раздаются РОЛИ: кто набран гротеском, кто антиквой, каким кеглем и с
+ * каким трекингом. Раньше роли раздавались в четырёх файлах вперемешку с
+ * объявлением токенов, и порядок импорта решал больше, чем смысл.
+ *
+ * Грамматика снята с munister.com.ua:
+ *
+ *   гротеск ведёт   — заявления с тесным трекингом, тело, подписи, цифры;
+ *   антиква вторит  — заголовки среднего уровня (названия работ, услуг,
+ *                     стандартов) и акцентные курсивы;
+ *   одна ступень метки — 10px, трекинг .2em, капитель, приглушённый тон;
+ *   шапка — полоса 56px из ячеек в волосяную линию, без тёмных плашек;
+ *   действие — таблетка 36px: залитая чернилами и контурная.
+ *
+ * Кегль метки на munister.com.ua — 9,5px. Здесь поставлено 10px: у личного
+ * сайта мелкого набора горсть, у агентства им подписан каждый блок, и на
+ * половине пунктa разница видна только рядом, а читаемость держится.
+ */
+
+/* ── 1. Антиква: заголовки среднего уровня ───────────────────────────── */
+/* Роль --font-head у соседа: названия работ, публикаций, пунктов практики.
+   Крупные заявления и тело остаются гротеском — они идут через --font-display
+   и --font-brand, а те в 01-base сведены на KTF Prima. */
+.svc-title,
+.rate-title,
+.pg-name,
+.work-title,
+.studio-block-title,
+.manifesto-item h4,
+.engagement-card h3,
+.standard-card h3,
+.technology-lead h3,
+.technology-lanes h4,
+.step h3,
+.cv-panel-name span {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -.014em;
+  line-height: 1.08;
+}
+
+/* Акцентный курсив — единственное место, где антиква выходит в крупный
+   кегль. Обведённое слово в первом экране это фирменный жест агентства,
+   и на гротескном заявлении он читается контрастнее, чем на серифном. */
+.f-display em,
+.f-italic,
+.hero-headline em,
+.hero-mark em,
+.about-headline em,
+.nav-logo em,
+.footer-logo em,
+.atl-caption em,
+.contact-side .f-display em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ── 2. Заявления: гротеск в тесный трекинг ──────────────────────────── */
+/* У соседа крупный набор идёт с отрицательным трекингом и плотным
+   интерлиньяжем (-.04em / .94): без этого гротеск на 60px рассыпается на
+   отдельные буквы. Слой 23 ставил здесь 1.2 и normal — метрики антиквы,
+   которой на этих строках больше нет. Кегли не трогаются: клампы подобраны
+   под длину строк в шести языках. */
+.hero-headline {
+  line-height: .98;
+  letter-spacing: -.038em;
+}
+
+.f-display,
+.about-headline,
+#about .studio-head .about-headline,
+.standards-head h2,
+.manifesto-title,
+.banner-title,
+.how-head h2 {
+  line-height: .96;
+  letter-spacing: -.04em;
+}
+
+/* Лид-абзацы под заявлением: у соседа .claim набран крупно и почти без
+   отрицательного трекинга — это ещё не текст, но уже не заголовок. */
+.standards-intro,
+.studio-lead-p,
+.engagements-heading > p {
+  letter-spacing: -.018em;
+  line-height: 1.16;
+}
+
+/* ── 3. Одна ступень мелкого набора ──────────────────────────────────── */
+/* Слой 23 свёл двадцать четыре сочетания кегля и трекинга к одному
+   (12px / .1em), сняв разнобой. Ступень остаётся одна, но берётся у
+   munister.com.ua: мельче и с широкой разрядкой, потому что метка должна
+   отходить от заголовка, а не спорить с ним кеглем.
+   Списки селекторов повторяют форму исходных из 23: у части правил
+   специфичность выше одиночного класса, и короткая запись им проиграет.
+   Регистр здесь НЕ задаётся: под одну ступень попадают и метки, и мелкий
+   текст — фразы, кредиты фотографий, адрес почты. Капитель раздаётся
+   отдельным списком ниже, иначе в неё уходит целое предложение. */
+.section-tag, .section-tag-light, .section-num, .standards-kicker,
+.studio-stat-label, .studio-blocks-tag, .banner-tag, .masthead-tagline,
+.masthead-tagline2, .svc-cat, .svc-from, .svc-time, .svc-scope,
+.hs-meta, .engagement-cta, .standards-note, .cv-index-label,
+.atl-caption, .atl-overlap, .atl-label, .atl-link, .atl-bar-key,
+.atl-bar-name, .atl-arrow, .field-band-credit, .field-band-tag,
+.hero-more, .hero-strip-all, .hero-strip-label, .cf-note, .cf-submit,
+.pg-cat, .pg-num, .pg-url, .pg-link, .footer-links a, .contact-direct,
+.atl-caption span, .atl-overlap span, .hs-meta span,
+.svc-scope em, .svc-scope b,
+.masthead-tagline span, .masthead-tagline2 span,
+.engagement-note a, .engagement-meta,
+#about .studio-head .section-num,
+#services .section-tag-light,
+.coverage .section-tag-light,
+.portfolio-section .section-tag-light,
+.atl-clocks .atl-arrow,
+.cf-field span, .contact-facts li, .standard-card-top span,
+.cv-panel-rows dt, .atl-clocks span, .standards-note a, .cv-panel-cta,
+.how-head .section-tag, .coverage-stat span, .cv-legend span,
+.footer-contacts .footer-link,
+.pm-field label, .pm-field-label, .pm-feed-label {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: .2em;
+}
+
+/* Капитель — только то, что и есть метка: короткая, служебная, из одного-двух
+   слов или короткого действия. Список задан явно, а не унаследован от базовых
+   правил: часть меток свой регистр нигде не объявляла и держалась на общем. */
+.section-tag, .section-tag-light, .section-num, .standards-kicker,
+.studio-stat-label, .studio-blocks-tag, .banner-tag, .masthead-tagline,
+.masthead-tagline2, .svc-cat, .svc-from, .svc-time, .svc-scope,
+.cv-index-label, .atl-label, .atl-link, .atl-bar-key, .atl-bar-name,
+.atl-arrow, .field-band-tag, .hero-more, .hero-strip-all,
+.hero-strip-label, .cf-submit, .pg-cat, .pg-num, .pg-url, .pg-link,
+.footer-links a, .engagement-cta, .engagement-meta, .engagement-note a,
+.hs-meta span, .atl-caption span, .atl-overlap span, .atl-clocks span,
+.svc-scope em, .svc-scope b,
+.masthead-tagline span, .masthead-tagline2 span,
+#about .studio-head .section-num,
+#services .section-tag-light,
+.coverage .section-tag-light,
+.portfolio-section .section-tag-light,
+.atl-clocks .atl-arrow,
+.cf-field span, .standard-card-top span, .cv-panel-rows dt,
+.standards-note a, .cv-panel-cta, .how-head .section-tag,
+.coverage-stat span, .cv-legend span, .footer-contacts .footer-link,
+.pm-field label, .pm-field-label, .pm-feed-label {
+  text-transform: uppercase;
+}
+
+/* Мелкое, но не метка: связная фраза, кредит снимка, список фактов, адрес
+   почты. Регистр обычный — иначе почта показывается капителью, а примечание
+   к стандартам разворачивается в полтораста заглавных букв. */
+.standards-note, .standards-note p, .cf-note, .field-band-credit,
+.contact-facts li, .contact-direct, .hs-meta, .atl-caption {
+  text-transform: none;
+}
+
+/* И трекинг обычный. Разрядка .2em существует, чтобы короткую метку было
+   видно как метку; на фразе она превращает чтение в разбор по буквам.
+   Кегль на полступени выше метки — это текст, пусть и служебный. */
+.cf-note, .field-band-credit, .contact-facts li, .contact-direct {
+  font-size: 12px;
+  letter-spacing: normal;
+}
+
+/* Имя внутри мелкой подписи — это заголовок, а не метка: антиква, прямое
+   начертание, свой кегль и трекинг вместо унаследованной разрядки. */
+.hs-meta em {
+  font-family: var(--font-serif);
+  font-style: normal;
+  font-size: 17px;
+  line-height: 1.2;
+  letter-spacing: -.014em;
+  text-transform: none;
+}
+
+/* Название города рядом с часами — акцентный курсив, как было задумано. */
+.atl-caption em {
+  font-size: 24px;
+  letter-spacing: -.01em;
+  text-transform: none;
+}
+
+/* Тон метки — приглушённый, как у соседа: иерархию держит не только кегль.
+   Отдельным списком, потому что часть меток стоит на тёмной плите и цвет
+   им задан осмысленно. */
+.section-tag, .section-num, .studio-blocks-tag,
+.masthead-tagline, .masthead-tagline2, .svc-cat, .svc-from, .svc-time,
+.studio-stat-label, .cv-index-label, .atl-label, .pg-cat, .pg-num,
+.coverage-stat span, .cv-panel-rows dt,
+.pm-field label, .pm-field-label, .pm-feed-label {
+  color: var(--faint);
+}
+/* .pm-field-label — это <span> с aria-labelledby, а не <label>, и правила
+   .pm-field label он никогда не получал: подпись палитры набиралась
+   основным текстом в 17px рядом с метками в 11. */
+.pm-field-label { display: block; }
+/* .standards-kicker и .field-band-credit сюда не входят намеренно: они стоят
+   на тёмных плитах, где #6e6e6e даёт 2,9:1. Их тон задан ниже. */
+
+/* ── 4. Цифры ────────────────────────────────────────────────────────── */
+/* Гротеск даёт цифры одной ширины — колонки цен и статистики выстраиваются.
+   Слой 25 включил это для части селекторов; здесь набор замкнут. */
+.rate-num, .rate-tag-price, .stat-num, .manifesto-num, .step-num,
+.svc-num, .svc-price, .studio-stat-num, .studio-block-num,
+.coverage-stat b, .engagement-price, .stats b {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
+  letter-spacing: -.02em;
+}
+
+/* ── 5. Шапка ────────────────────────────────────────────────────────── */
+/* Словесный знак: 15px, трекинг .19em, капитель — ровно как у соседа. */
+.nav-logo {
+  font-size: 15px;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+/* Слой 23 строил шапку по грамматике eprisjournal.com: чернильная плашка со
+   знаком, ячейки в линию цвета чернил, инвертированный «Контакт». На
+   munister.com.ua полоса светлая целиком — линии волосяные, тёмных плит нет,
+   а действие живёт в первом экране, не в навигации. Здесь то же самое.
+   Брейкпойнт повторяет исходный: мобильная шапка с бургером не трогается. */
+@media (min-width: 1161px) {
+  .nav {
+    height: 56px;
+    padding: 0;
+    align-items: stretch;
+    background: rgba(255, 255, 255, .92);
+    border-bottom: 1px solid var(--rule);
+    backdrop-filter: blur(14px);
+  }
+
+  .nav-logo {
+    background: transparent;
+    color: var(--ink);
+    padding: 0 26px 0 clamp(20px, 4vw, 54px);
+    min-width: 0;
+    font-size: 15px;
+    letter-spacing: .19em;
+    border-right: 1px solid var(--rule);
+  }
+  .nav-logo:hover { color: var(--ink); }
+
+  .nav-links a {
+    padding: 0 clamp(14px, 1.8vw, 26px);
+    font-size: 10px;
+    letter-spacing: .2em;
+    color: var(--muted);
+    border-left: 1px solid var(--rule);
+  }
+  .nav-links a:hover {
+    background: var(--paper-deep);
+    color: var(--ink);
+  }
+
+  /* «Контакт» остаётся такой же ячейкой, но набран чернилами, а не серым:
+     это единственный акцент, который шапке нужен, и он не стоит плашки. */
+  .nav-links a.nav-cta {
+    background: transparent;
+    color: var(--ink) !important;
+    border: 0;
+    border-left: 1px solid var(--rule);
+    border-radius: 0;
+    padding: 0 clamp(14px, 1.8vw, 26px);
+  }
+  .nav-links a.nav-cta:hover {
+    background: var(--paper-deep);
+    color: var(--ink) !important;
+  }
+
+  .lang-switcher {
+    padding: 0 clamp(20px, 4vw, 54px) 0 26px;
+    border-left: 1px solid var(--rule);
+  }
+}
+
+.lang-btn {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.lang-btn.active,
+.lang-btn:hover { color: var(--ink); }
+
+/* ── 6. Действия ─────────────────────────────────────────────────────── */
+/* Пара таблеток соседа: залитая чернилами и контурная. Высота 36, радиус
+   полный, набор строчный — без капители и разрядки, иначе кнопка читается
+   как ещё одна служебная метка. */
+.btn,
+.btn-white,
+.hero-cta-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 36px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--rule-strong);
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: -.005em;
+  text-transform: none;
+  color: var(--ink);
+  background: transparent;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.btn:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+/* .btn-white — та же таблетка, но живёт на тёмной плите баннера, поэтому
+   роли перевёрнуты: контур и текст бумагой, заливка бумагой на наведении.
+   Без этого кнопка получала чернильный текст по чернильному фону. */
+.btn-white {
+  color: var(--paper);
+  border-color: rgba(255, 255, 255, .38);
+}
+.btn-white:hover {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+
+.hero-cta-solid {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.hero-cta-solid:hover {
+  background: #2c2c2c;
+  border-color: #2c2c2c;
+  color: #fff;
+}
+
+/* ── 7. Тёмные плиты ─────────────────────────────────────────────────── */
+/* На munister.com.ua тёмных плит нет вовсе — там всё держится на белом. У
+   агентства их четыре: стандарты, баннер, полоса со снимком и подвал, и они
+   осмысленны (на них стоят заявления, а не текст). Ломает их не форма, а
+   цвет: акценты на этих плитах рисовались бывшим тёплым золотом, а золото
+   сведено в чернила — на #121212 чернила не видно вообще.
+   На тёмном роль акцента берёт бумага, роль приглушённого тона — бумага с
+   прозрачностью. Логика та же, что на светлом, только перевёрнутая. */
+.standards-head h2 em,
+.technology-lanes b,
+.banner-title em {
+  color: var(--paper);
+}
+
+.technology-lanes article > span {
+  color: rgba(255, 255, 255, .62);
+}
+
+/* Надзаголовок стандартов, метка баннера и курсив на полосе со снимком уже
+   переведены в бумагу в 18-flag: там для этого отдельный блок с более
+   высокой специфичностью (.standards .standards-kicker). Дублировать их
+   здесь значило бы завести второе место, где задаётся тот же цвет. */
+
+/* Кредит снимка стоял белым с прозрачностью .45 — там он и остаётся. */
+.field-band-credit { color: rgba(255, 255, 255, .45); }
+
+.standards-note a:hover,
+.footer-link:hover { color: var(--paper); }
+.standards-note a:hover { border-color: var(--paper); }
+.footer-logo .logo-mark::after { background: var(--paper); }
+
+/* ── 8. Ховеры ───────────────────────────────────────────────────────── */
+/* Раньше наведение уводило текст в золото. Цвета на странице больше нет, и
+   если оставить как есть, ховер станет пустым: чернила по чернилам.
+   У соседа наведение работает двумя приёмами — строка списка подсвечивается
+   подложкой, название подчёркивается волосяной линией. Здесь так же. */
+.rate-row:hover,
+.pg-card:hover,
+.hs-item a:hover { background: var(--paper-deep); }
+
+.rate-row:hover .rate-title,
+.pg-card:hover .pg-name,
+.pg-case:hover .pg-name {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--rule-strong);
+}
+
+.hero-more:hover,
+.hero-strip-all:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+/* ── 9. СВЕДЕНИЕ ШКАЛЫ ───────────────────────────────────────────────────
+ *
+ * Замер обеих страниц через getComputedStyle, не на глаз:
+ *
+ *                        munister.com.ua      agency до этого слоя
+ *   различных начертаний        18                    75
+ *   font-weight                 только 400            400 и 500
+ *   ступеней капители           одна, 9,5px/.2em      около семи
+ *   кеглей основного текста     два, 16 и 17          восемь, 15,5…21,8
+ *
+ * Соседний сайт держит строй не потому, что он меньше, а потому что у него
+ * на каждую роль ровно один набор цифр. Здесь роли те же, а цифр в разы
+ * больше — они накопились слоями 04, 12, 19 и 25, и каждый слой добавлял
+ * свой кегль вместо того, чтобы переиспользовать имеющийся.
+ */
+
+/* 9.1 Начертание. У соседа во всём документе только 400: вторая насыщенность
+   в паре не используется вообще.
+
+   Слой 23 уже сводил `.f-display` к 400, но заголовок раздела «О студии»
+   держался на 500 вопреки ему. Причина найдена замером, а не чтением:
+   одинаковый h2 с теми же классами даёт 400 где угодно на странице и 500
+   на своём месте. Вес ставит `#about .studio-head .about-headline` из
+   слоя 11 — селектор с идентификатором, (1,2,0), его не перебить ничем
+   одноклассовым. Поэтому здесь повторена ровно та же специфичность. */
+.f-display,
+.about-headline,
+.step-num,
+.f-display span,
+.about-headline span {
+  font-weight: 400;
+}
+#about .studio-head .about-headline,
+.how-head h2 {
+  font-weight: 400;
+}
+
+/* 9.2 Утечки специфичности.
+   `.engagement-card p` и `.step p` — это (0,1,1), а `.engagement-deliverable`
+   и `.step-meta`, которые должны были задать ступень метки, всего (0,1,0).
+   Правила проигрывали молча, и капитель набиралась кеглем основного текста:
+   замерено 16,5px вместо заявленных 12. Строчка капители в 16,5px — это уже
+   не метка, а заголовок, поэтому блоки и разъезжались.
+   Поднимаем вес селектора до (0,2,0) и возвращаем единственную ступень. */
+.engagement-card .engagement-deliverable,
+.step .step-meta {
+  font-family: var(--font-brand);
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+/* 9.3 Заголовок шага. Слой 1 отдал `.step h3` антикве как подзаголовку
+   среднего уровня, но не снял капитель и кегль 12,5px со слоёв 04 и 19.
+   Вышла антиква капителью — ни роль заголовка, ни роль метки.
+   Антиква капителью не набирается: у неё для этого нет рисунка. */
+.step h3 {
+  font-size: clamp(21px, 1.9vw, 25px);
+  letter-spacing: -.014em;
+  text-transform: none;
+  line-height: 1.12;
+}
+
+/* 9.4 Единственная ступень капители. У соседа она одна на весь документ.
+   Здесь разошлась на 11, 12, 12,5, 15, 16,5 и 17 пунктов с четырьмя
+   разными трекингами. Сводим всё, что набрано капителью, к одному набору;
+   исключение только логотип в шапке и подвале — у соседа он тоже отдельной
+   ступенью (15px/.19em). */
+.engagement-meta,
+.engagement-cta,
+.engagement-note a,
+.hero-strip-all span,
+.studio-head-caption .studio-head-role,
+.footer .footer-link,
+.coverage-note a,
+.standard-card .standard-card-top,
+.atl-head .atl-clocks,
+.atl-head .atl-clocks b {
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+/* Часы в атлантической полосе шли капителью с ОТРИЦАТЕЛЬНЫМ трекингом
+   (замерено -0.22px), а само время внутри — кеглем 17px. Капитель с
+   поджатым трекингом слипается: у прописных нет нижних выносных, которые
+   разводят буквы, поэтому им трекинг нужен положительный, и это ровно то,
+   что делает единственная ступень. */
+
+/* 9.5 Стрелка наверх набиралась Arial: единственное место во всём документе,
+   где вылезала гарнитура вне пары. Символ рисуется из шрифта, а не иконкой,
+   поэтому промах видно. */
+.back-to-top {
+  font-family: var(--font-brand);
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* 9.6 Шкала основного текста. У соседа её держат три кегля: 16 для тела,
+   17 для вводных абзацев и 18 для редких крупных. Здесь набралось восемь —
+   15,5 / 16 / 16,5 / 17 / 17,5 / 18 / 20 / 22. Разница в полпункта на глаз
+   не читается как замысел, она читается как небрежность: два соседних
+   блока набраны почти одинаково, но не одинаково.
+
+   Сводим к тем же трём ступеням. Кегли 20 и 22 не трогаем: это цифры
+   (цена, время в часовом поясе), у них своя роль в секции 4. */
+
+/* Тело: 15,5 и 16,5 сводим к 16. */
+.studio-head-caption .studio-head-bio,
+.engagement-note p,
+.standards-grid .standard-card p,
+.standards-note p,
+.coverage-note p,
+.pg-info .pg-desc,
+.steps .step p:not(.step-meta) {
+  font-size: 16px;
+}
+
+/* Вводный абзац: 17,5 сводим к 17. */
+.engagements-heading p,
+.standards-head .standards-intro,
+.coverage-head .coverage-head-right,
+.contact-side .contact-lead {
+  font-size: 17px;
+}

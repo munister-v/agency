@@ -13,12 +13,7 @@
    (полосы, звёзды, поле) удалена целиком — вернуть можно из истории.
    ───────────────────────────────────────────────────────────── */
 
-:root {
-  /* Цвет снят намеренно: см. 23-epris-harmony.css. Имена сохранены,
-     чтобы флаговая геометрия ниже читалась как единое целое. */
-  --red: #111111;
-  --red-deep: #C9A690;
-}
+/* --red и --red-deep объявлены в 01-base вместе с остальной палитрой. */
 
 /* Списки снова читаются штрихом, а не значком: у соседей маркер списка —
    тонкая линия или ничего. */
@@ -46,14 +41,17 @@
 .cv-leader.is-active { stroke: var(--red); }
 .cv-panel-name i { color: var(--red); }
 
-.field-band-title em { color: var(--gold); }
+.field-band-title em { color: var(--paper); }
 
-.footer-logo em { color: var(--red); }
+.footer-logo em { color: var(--paper); }
 
 /* The density pass gave every eyebrow the studio's ink. On the dark
-   sections that puts navy on navy — the label survived only as its
-   star. These read in paper instead. */
+   sections that puts ink on ink — the label survived only as its
+   star. These read in paper instead.
+   Раньше здесь стоял токен бывшего тёплого золота: по тёмному он читался.
+   Золото сведено в чернила вместе с остальным цветом, поэтому тон задан
+   бумагой напрямую — токена «акцент по тёмному» в системе нет. */
 .standards .standards-kicker,
-.standards .section-tag-light { color: var(--gold); }
+.standards .section-tag-light { color: rgba(255, 255, 255, .62); }
 .banner .banner-tag { color: rgba(255, 255, 255, .72); }
 .field-band .field-band-tag { color: rgba(255, 255, 255, .7); }

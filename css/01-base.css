@@ -1,19 +1,66 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ЕДИНСТВЕННЫЙ ИСТОЧНИК ТОКЕНОВ
+ *
+ * Раньше палитра и гарнитуры объявлялись четырежды: здесь, в 16-density,
+ * в 23-epris-harmony и в 25-epris-type. Побеждал тот, кто стоял последним,
+ * и роли переворачивались по дороге: --font-brand, которым набраны тело,
+ * навигация и все подписи, к концу каскада становился антиквой, а гротеск
+ * возвращали точечно списком из тридцати селекторов. Отсюда и ощущение
+ * сборной солянки — набор менялся не по смыслу, а по номеру файла.
+ *
+ * Теперь токены живут только здесь и сняты с munister.com.ua, чтобы оба
+ * сайта читались одной семьёй:
+ *
+ *   бумага  #FFFFFF     чернила  #121212
+ *   линейка rgba(18,18,18,.11)   подложка #F4F3F1
+ *   гротеск KTF Prima — заявления, тело, подписи, цифры, интерфейс
+ *   антиква Iowan Old Style — заголовки среднего уровня и акцентные курсивы
+ *
+ * Вебшрифтов нет ни одного: на munister.com.ua тоже системный стек, и
+ * Crimson Text с Google Fonts убран вместе с запросом за ним. Orbit и
+ * Libre Franklin из прежних слоёв не подключались никогда — страница всё
+ * это время падала на подстановку.
+ */
 :root {
-  --black: #14183a;
-  --white: #f1e8dd;
-  --off: #e8dcca;
-  --gray: #6d7093;
-  --light: #ded2ba;
-  --gold: #1228b0;
-  --gold-dark: #97a4f2;
-  --navy-cover: #04071c;
-  --font-brand: 'Orbit', ui-monospace, monospace;
-  --font-display: 'Crimson Text', 'Cormorant Garamond', 'Times New Roman', serif;
-  --font-crimson: var(--font-display);
-  --max: 1280px;
-  --nav-h: 60px;
+  /* Земля и чернила — значения munister.com.ua один в один. */
+  --paper: #ffffff;
+  --paper-deep: #f4f3f1;
+  --ink: #121212;
+  --muted: rgba(18, 18, 18, .68);
+  --faint: #6e6e6e;
+  --rule: rgba(18, 18, 18, .11);
+  --rule-strong: rgba(18, 18, 18, .30);
+
+  /* Исторические имена: через них рисуют остальные файлы, поэтому они
+     остаются псевдонимами, а не переписываются в двадцати четырёх местах.
+     Имена врут по смыслу (--gold давно не золото), но врут предсказуемо. */
+  --black: var(--ink);
+  --white: var(--paper);
+  --off: var(--paper-deep);
+  --gray: var(--faint);
+  --light: var(--rule);
+  --navy-cover: var(--ink);
+  /* Цвета на странице нет: у munister.com.ua единственный цвет — сама работа.
+     Акцент держат размер, регистр и линейка, поэтому бывшее золото и бывший
+     красный сведены в чернила, а ховер уводит в приглушённый тон. */
+  --gold: var(--ink);
+  --gold-dark: var(--muted);
+  --red: var(--ink);
+  --red-deep: var(--ink);
+
+  /* Две гарнитуры и роли при них. */
+  --font-sans: 'KTF Prima', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --font-brand: var(--font-sans);      /* интерфейс, навигация, подписи */
+  --font-display: var(--font-sans);    /* заявления, тело, цифры */
+  --font-crimson: var(--font-sans);
+  --font-mark: var(--font-sans);
+  --font-grotesque: var(--font-sans);
+  --font-head: var(--font-serif);      /* заголовки среднего уровня */
+
+  --max: 1240px;
+  --nav-h: 56px;
 }
 
 /* Smooth scroll with offset for fixed nav */
@@ -25,13 +72,13 @@ html {
 }
 
 body {
-  /* Основной текст — Iowan Old Style, как в живом журнале. Crimson Text
-     остаётся голосом заголовков, а не всей страницы. */
+  /* Тело набрано гротеском 17px/1.55 — метрики munister.com.ua. */
   font-family: var(--font-brand);
   background: var(--white);
   color: var(--black);
-  line-height: 1.5;
-  font-size: 16px;
+  line-height: 1.55;
+  font-size: 17px;
+  letter-spacing: -.004em;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

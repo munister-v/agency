@@ -79,7 +79,7 @@
   const stamp = (iso) => {
     const d = new Date(iso);
     if (Number.isNaN(+d)) return '';
-    const lang = document.documentElement.lang || 'uk';
+    const lang = document.documentElement.lang || 'en';
     return d.toLocaleDateString(lang, { day: 'numeric', month: 'long' });
   };
 

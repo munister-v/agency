@@ -7,49 +7,59 @@
   <meta name="robots" content="noindex, follow"/>
   <link rel="icon" href="/favicon.ico?v=3" sizes="32x32"/>
   <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml"/>
-  <link href="https://fonts.googleapis.com/css2?family=Orbit&amp;family=Libre+Franklin:wght@400;500&amp;family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
   <style>
-    /* Отдельная страница, но не отдельный сайт: те же цвета, шрифты и
-       ритм, что на главной. Прежняя версия была на чужой типографике,
-       только на украинском при английской странице по умолчанию, и
-       цифра 404 налезала на текст. */
-    :root{ --ink:#14183a; --cream:#f1e8dd; --blue:#1228b0; --gray:#6d7093; --rule:#ded2ba; }
+    /* Отдельная страница, но не отдельный сайт. Прежняя версия стояла на
+       собственной палитре — кремовый фон, синий акцент, тёмно-синие чернила —
+       и тянула три вебшрифта с Google Fonts, которых на главной больше нет.
+       Значения и роли здесь те же, что в css/01-base.css и css/27-system.css:
+       белое полотно, чернила #121212, волосяная линия, гротеск ведёт,
+       антиква держит акцентный курсив. Страница автономна намеренно: она
+       должна отрисоваться, даже если не подтянулся основной style.css. */
+    :root{
+      --paper:#ffffff; --ink:#121212; --faint:#6e6e6e;
+      --rule:rgba(18,18,18,.11); --rule-strong:rgba(18,18,18,.30);
+      --font-sans:'KTF Prima','Helvetica Neue',Helvetica,Arial,sans-serif;
+      --font-serif:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
+    }
     *{box-sizing:border-box;margin:0;padding:0}
     body{
-      font-family:'Crimson Text',Georgia,serif;background:var(--cream);color:var(--ink);
+      font-family:var(--font-sans);font-size:17px;line-height:1.55;letter-spacing:-.004em;
+      background:var(--paper);color:var(--ink);
       min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 24px;
-      -webkit-font-smoothing:antialiased;
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
     }
     .wrap{max-width:560px;width:100%;text-align:center}
     .mark{
-      display:inline-flex;align-items:center;gap:12px;margin-bottom:40px;
-      font-family:'Orbit',ui-monospace,monospace;font-size:15px;letter-spacing:.06em;color:var(--ink);
+      display:inline-block;margin-bottom:40px;
+      font-size:15px;letter-spacing:.19em;text-transform:uppercase;color:var(--ink);
       text-decoration:none;
     }
-    .mark img{width:34px;height:34px}
-    .code{
-      font-family:'Libre Franklin',sans-serif;font-size:11px;font-weight:500;letter-spacing:.28em;
-      text-transform:uppercase;color:var(--gray);
+    /* Ступень служебной метки — 10px, трекинг .2em, как на главной. */
+    .code{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+    h1{
+      font-size:clamp(30px,6vw,52px);font-weight:400;line-height:.96;letter-spacing:-.04em;
+      margin:14px 0 18px;text-wrap:balance;
     }
-    h1{font-size:clamp(30px,6vw,52px);font-weight:400;line-height:1.1;margin:14px 0 16px}
-    h1 em{font-style:italic;color:var(--blue)}
-    p{font-size:18px;line-height:1.5;color:var(--gray);margin:0 auto 36px;max-width:38ch}
+    /* Акцентный курсив — единственное место для антиквы, как и на главной. */
+    h1 em{font-family:var(--font-serif);font-style:italic}
+    p{font-size:17px;line-height:1.55;color:var(--faint);margin:0 auto 36px;max-width:38ch;text-wrap:pretty}
     .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
     a.btn{
-      font-family:'Libre Franklin',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-      text-decoration:none;padding:15px 28px;border-radius:999px;min-height:46px;
-      display:inline-flex;align-items:center;transition:background .25s,color .25s,border-color .25s;
+      font-family:var(--font-sans);font-size:12.5px;letter-spacing:-.005em;
+      text-decoration:none;padding:0 18px;border-radius:999px;min-height:36px;
+      display:inline-flex;align-items:center;justify-content:center;
+      border:1px solid var(--rule-strong);color:var(--ink);background:transparent;
+      transition:background .2s,color .2s,border-color .2s;
     }
-    a.solid{background:var(--ink);color:var(--cream);border:1px solid var(--ink)}
-    a.solid:hover{background:var(--blue);border-color:var(--blue)}
-    a.ghost{color:var(--ink);border:1px solid var(--rule)}
-    a.ghost:hover{border-color:var(--blue);color:var(--blue)}
+    a.solid{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+    a.solid:hover{background:#2c2c2c;border-color:#2c2c2c;color:#fff}
+    a.ghost:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
     .rule{height:1px;background:var(--rule);margin:40px auto 0;max-width:280px}
   </style>
 </head>
 <body>
   <div class="wrap">
-    <a class="mark" href="/"><img src="/assets/logo-badge.png?v=2" alt="" width="512" height="512"/>MUNISTER AGENCY</a>
+    <a class="mark" href="/">Munister Agency</a>
     <div class="code">Error 404</div>
     <h1>This page <em>moved on.</em></h1>
     <p>The address does not lead anywhere on this site. The work, the services and a way to reach us are all one click away.</p>

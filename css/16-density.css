@@ -209,13 +209,9 @@ body { font-size: 17px; line-height: 1.48; }
    newspapers ever since. The serif spine of the site does not move.
    The wordmark keeps Orbit, because that is the mark. */
 
-:root {
-  --font-brand: 'Libre Franklin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-mark: 'Orbit', ui-monospace, monospace;
-}
-
-.nav-logo,
-.footer-logo { font-family: var(--font-mark); }
+/* Токены отсюда убраны: гарнитуры объявляются только в 01-base.
+   Libre Franklin и Orbit не подключались ни одной строкой разметки —
+   правило описывало шрифты, которых на странице никогда не было. */
 
 /* Franklin sets tighter than a monospace at the same tracking. */
 .section-num,
@@ -235,8 +231,7 @@ body { font-size: 17px; line-height: 1.48; }
 .studio-stat-label,
 .coverage-stat span,
 .cv-panel-rows dt,
-.cv-legend span,
-{ font-weight: 600; letter-spacing: .13em; }
+.cv-legend span { font-weight: 600; letter-spacing: .13em; }
 
 .nav-links a { font-weight: 600; letter-spacing: .1em; }
 .nav-cta,
