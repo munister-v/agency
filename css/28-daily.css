@@ -102,6 +102,34 @@
   box-decoration-break: clone;
 }
 
+/* Тезисный крючок под прозой: 2-3 голых пункта, что именно предложить,
+   без аргументации — та уже сказана в offer/why выше. Свой маркер вместо
+   браузерной точки, тот же приём, что у .standard-card li, но другой
+   символ и без чекбоксной коннотации — это не «что входит», а «что сказать». */
+.lead-pitch {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px dashed rgba(17, 17, 17, .18);
+  display: grid;
+  gap: 7px;
+}
+.lead-pitch li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 15px;
+  line-height: 1.42;
+  color: rgba(17, 17, 17, .88);
+}
+.lead-pitch li::before {
+  content: "\2192";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(17, 17, 17, .4);
+  font-family: var(--font-brand);
+}
+
 .lead-offer p { margin: 0 0 10px; }
 .lead-offer p:last-child { margin-bottom: 0; }
 .lead-offer .why { color: rgba(17, 17, 17, .62); }
