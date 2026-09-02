@@ -87,7 +87,15 @@
 /* Отсутствие канала это тоже факт, и он важнее половины присутствий:
    писать некуда — значит и продавать нечем, кроме телефона. */
 .lead-none { color: rgba(17, 17, 17, .45); }
-.lead-flag { border-bottom: 1px solid currentColor; }
+/* Пометка проблемы. Подчёркиванием её больше не рисуем: с появлением
+   настоящих ссылок внутри строки линия под всей фразой читалась как одна
+   большая ссылка на весь текст. Теперь это подложка — она выделяет
+   область, а не имитирует переход. */
+.lead-flag {
+  background: rgba(17, 17, 17, .06);
+  box-shadow: 0 0 0 3px rgba(17, 17, 17, .06);
+  border-radius: 1px;
+}
 
 .lead-offer p { margin: 0 0 10px; }
 .lead-offer p:last-child { margin-bottom: 0; }
@@ -120,3 +128,50 @@
   font-style: normal;
   letter-spacing: -.008em;
 }
+
+/* ── Ссылки ─────────────────────────────────────────────────────────────
+   Лист лидов существует, чтобы по нему звонили и открывали. Пока домены и
+   ники были простым текстом, каждую строку приходилось выделять и
+   копировать руками — на двенадцати записях это и есть вся работа.
+
+   Подчёркивание волосяной линией, а не цветом: палитра здесь чёрно-белая,
+   и цветная ссылка выпала бы из неё сильнее, чем помогла. */
+.lead-name a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(17, 17, 17, .22);
+  transition: border-color .16s var(--ease, ease);
+}
+.lead-facts a,
+.daily-foot a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(17, 17, 17, .3);
+  transition: border-color .16s var(--ease, ease), background-color .16s var(--ease, ease);
+}
+
+/* Телефон и почта на десктопе не «переходят», а запускают приложение.
+   Пунктир отличает их от обычной ссылки заранее, до клика. */
+.lead-facts a[href^="tel:"],
+.lead-facts a[href^="mailto:"] {
+  border-bottom-style: dotted;
+  border-bottom-color: rgba(17, 17, 17, .45);
+  white-space: nowrap;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lead-name a:hover,
+  .lead-facts a:hover,
+  .daily-foot a:hover { border-bottom-color: var(--ink, #111); }
+  .lead-facts a.soc:hover { background: rgba(17, 17, 17, .05); }
+}
+
+/* На телефоне ссылка это цель для пальца: 24px по вертикали держат
+   строку кликабельной, не разгоняя вёрстку списка. */
+@media (hover: none) {
+  .lead-facts a { display: inline-block; min-height: 24px; }
+  .lead-facts a:active { background: rgba(17, 17, 17, .07); }
+}
+
+/* Своя пометка у внешней ссылки не нужна: на этой странице внешние ВСЕ,
+   кроме навигации, и стрелка у каждой строки превратилась бы в шум. */
