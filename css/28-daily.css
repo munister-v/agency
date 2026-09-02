@@ -1,0 +1,122 @@
+/* ЛИСТ ЛИДОВ — /daily
+ *
+ * Внутренняя рабочая страница, не для публики: закрыта от индексации, не
+ * стоит в навигации и в карте сайта. Здесь названы живые компании с их
+ * телефонами и разбором слабых мест их сайтов; попади это в поиск, ровно
+ * эти люди прочитали бы, как мы их описываем.
+ *
+ * Своих шрифтов и цветов слой не заводит — берёт роли из 27-system.css.
+ * Единственная новая величина здесь — ширина колонки таблицы, а не тип.
+ */
+
+.daily {
+  padding: clamp(48px, 6vw, 92px) 0 clamp(64px, 8vw, 120px);
+}
+
+.daily-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 76px);
+  align-items: end;
+  padding-bottom: var(--s5, 28px);
+  border-bottom: 1px solid var(--ink, #111);
+}
+.daily-head-right {
+  max-width: 46ch;
+  color: rgba(17, 17, 17, .74);
+}
+
+/* Служебная плашка: страница внутренняя, и это должно быть видно с первого
+   взгляда, а не только в мета-теге. */
+.daily-private {
+  margin: var(--s4, 20px) 0 0;
+  padding: 12px 16px;
+  border: 1px solid rgba(17, 17, 17, .18);
+  background: rgba(17, 17, 17, .035);
+  max-width: 62ch;
+}
+
+.daily-group {
+  margin-top: clamp(40px, 5vw, 72px);
+}
+.daily-group-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(17, 17, 17, .16);
+}
+.daily-group-head h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 400;
+  letter-spacing: -.014em;
+  line-height: 1.06;
+  margin: 0;
+}
+.daily-group-head .n { margin-left: auto; }
+
+.daily-list { list-style: none; margin: 0; padding: 0; }
+
+.lead {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(16px, 2.4vw, 40px);
+  padding: clamp(24px, 3vw, 38px) 0;
+  border-bottom: 1px solid rgba(17, 17, 17, .13);
+}
+.lead-num { color: rgba(17, 17, 17, .42); font-variant-numeric: tabular-nums; }
+
+.lead-name {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2vw, 27px);
+  font-weight: 400;
+  letter-spacing: -.014em;
+  line-height: 1.1;
+  margin: 0 0 6px;
+}
+.lead-where { color: rgba(17, 17, 17, .55); margin: 0 0 16px; }
+
+/* Факты идут парами «что : значение», как в паспорте работы у музея:
+   строка читается сверху вниз, а не расползается таблицей. */
+.lead-facts { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 7px 14px; }
+.lead-facts dt { color: rgba(17, 17, 17, .5); }
+.lead-facts dd { margin: 0; }
+.lead-facts a { color: inherit; border-bottom: 1px solid rgba(17, 17, 17, .28); }
+
+/* Отсутствие канала это тоже факт, и он важнее половины присутствий:
+   писать некуда — значит и продавать нечем, кроме телефона. */
+.lead-none { color: rgba(17, 17, 17, .45); }
+.lead-flag { border-bottom: 1px solid currentColor; }
+
+.lead-offer p { margin: 0 0 10px; }
+.lead-offer p:last-child { margin-bottom: 0; }
+.lead-offer .why { color: rgba(17, 17, 17, .62); }
+
+.daily-foot {
+  margin-top: clamp(40px, 5vw, 72px);
+  padding-top: var(--s5, 28px);
+  border-top: 1px solid var(--ink, #111);
+  max-width: 74ch;
+  color: rgba(17, 17, 17, .68);
+}
+.daily-foot p { margin: 0 0 12px; }
+
+@media (max-width: 900px) {
+  .daily-head { grid-template-columns: 1fr; align-items: start; }
+  .lead { grid-template-columns: 30px minmax(0, 1fr); }
+  .lead-offer { grid-column: 2; }
+}
+
+/* Выделение в предложении и в примечаниях. Обычный <b> даёт 700, а во всей
+   системе только 400: вторая насыщенность в паре не используется. Роль
+   акцента здесь у антиквы, как и на остальных страницах, — она выделяет
+   рисунком, а не жиром. */
+.lead-offer b,
+.daily-foot b,
+.daily-private b {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -.008em;
+}
