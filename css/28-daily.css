@@ -95,6 +95,11 @@
   background: rgba(17, 17, 17, .06);
   box-shadow: 0 0 0 3px rgba(17, 17, 17, .06);
   border-radius: 1px;
+  /* Без этого подложка считается на всю строчную коробку разом, и на
+     переносе (а на телефоне переносится почти каждая пометка) края
+     разъезжаются ступеньками. clone рисует фон заново для каждой строки. */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .lead-offer p { margin: 0 0 10px; }
