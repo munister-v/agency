@@ -208,3 +208,81 @@
 
 /* Своя пометка у внешней ссылки не нужна: на этой странице внешние ВСЕ,
    кроме навигации, и стрелка у каждой строки превратилась бы в шум. */
+
+/* ── Статус ────────────────────────────────────────────────────────────
+   Переключатель на языке «действия» из системы (раздел 6 в 27-system.css):
+   та же пара, залитая таблетка и контурная, тот же шрифт без капители и
+   разрядки. Компактнее оригинала — там кнопка одна на экран, здесь их
+   пять в ряду на карточку, и 36px кнопка есть смысл держать только по
+   высоте прицела пальца, не по ширине текста.
+
+   Без цвета: вся палитра листа чёрно-белая, и вводить зелёный/красный
+   ради статуса значило бы завести третий язык рядом с системой, которую
+   только что свели к одному. Состояние читается заливкой пилюли и
+   приглушением всей строки, не оттенком. */
+.lead-status {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(17, 17, 17, .1);
+}
+.lead-status-label { flex: none; }
+.lead-status-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.status-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 13px;
+  border-radius: 999px;
+  border: 1px solid var(--rule-strong);
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -.005em;
+  color: rgba(17, 17, 17, .62);
+  cursor: pointer;
+  transition: background .16s var(--ease, ease), color .16s var(--ease, ease), border-color .16s var(--ease, ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  .status-btn:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+}
+.status-btn.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+/* Наведение и активное состояние не спорят: активная пилюля не бледнеет
+   под курсором. */
+@media (hover: hover) and (pointer: fine) {
+  .status-btn.is-active:hover { background: #2c2c2c; border-color: #2c2c2c; }
+}
+@media (hover: none) {
+  .status-btn { min-height: 32px; }
+  .status-btn:active { background: rgba(17, 17, 17, .1); }
+  .status-btn.is-active:active { background: #2c2c2c; }
+}
+
+/* Карточка с исходом. «Won» получает более тёмную границу слева — вести
+   взглядом к тому, что сработало, вместо перекраски всей строки.
+   «Dead» гасится целиком: это лид, который сегодня можно пропустить
+   глазами и вернуться к нему в другом заходе. Оба переключаются через
+   data-lead-outcome на самой карточке, выставляется скриптом. */
+.lead[data-lead-outcome="dead"] { opacity: .46; }
+.lead[data-lead-outcome="dead"]:hover,
+.lead[data-lead-outcome="dead"]:focus-within { opacity: .78; }
+.lead[data-lead-outcome="won"] { border-left: 3px solid var(--ink); padding-left: 16px; }
+@media (max-width: 900px) {
+  .lead[data-lead-outcome="won"] { padding-left: 12px; }
+}
