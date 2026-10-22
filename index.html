@@ -48,7 +48,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="agency.css?v=5">
+<link rel="stylesheet" href="agency.css?v=7">
 </head>
 <body class="th">
 
@@ -56,14 +56,6 @@
 
 <header class="site-head">
   <a class="wordmark" href="/">Munister Agency</a>
-  <nav aria-label="Main">
-    <a href="#services">Services</a>
-    <a href="#stack">Stack</a>
-    <a href="#ml">ML</a>
-    <a href="#standards">Standards</a>
-    <a href="#team">Team</a>
-    <a href="#contact">Contact</a>
-  </nav>
 </header>
 
 <main class="site-main" id="main">
@@ -72,8 +64,7 @@
   <section class="opening">
     <div class="opening-grid">
       <div class="opening-copy">
-        <h1 class="name">Munister Agency</h1>
-        <p class="claim">Digital products, operational systems and intelligent workflows.</p>
+        <h1 class="claim">Digital products, operational systems and intelligent workflows.</h1>
         <p class="intro">A hybrid agency for <span class="nw"><a class="tag" href="#services">#websites</a>,</span> <span class="nw"><a class="tag" href="#services">#mobile</a>,</span> <span class="nw"><a class="tag" href="#services">#automation</a>,</span> <span class="nw"><a class="tag" href="#services">#AI workflows</a>,</span> <span class="nw"><a class="tag" href="#services">#e-commerce</a>,</span> <span class="nw"><a class="tag" href="#services">#CRM and ERP</a></span> and <a class="tag" href="#services">#audits</a>.</p>
       </div>
     </div>
@@ -298,48 +289,10 @@
       <div class="mono">Start a project</div>
       <h2 id="contact-title">Tell us what you are solving.</h2>
       <p>A few lines are enough. We read every message ourselves and answer within one working day with a real next step.</p>
-      <a class="mail" href="mailto:munister@outlook.com?subject=Project%20inquiry">munister<wbr>@outlook.com</a>
+      <a class="mail" href="mailto:munister@outlook.com?subject=Project%20inquiry">munister@outlook.com</a>
+      <a class="btn btn--light" href="mailto:munister@outlook.com?subject=Project%20inquiry">Write an email</a>
     </div>
 
-    <form class="contact-form" id="contact-form" novalidate data-endpoint="https://bank.munister.com.ua/api/leads/intake">
-      <div class="cf-row">
-        <label class="cf-field"><span>Your name</span>
-          <input type="text" name="name" autocomplete="name" maxlength="120" required></label>
-        <label class="cf-field"><span>Email</span>
-          <input type="email" name="email" autocomplete="email" maxlength="200" inputmode="email" required></label>
-      </div>
-      <div class="cf-row">
-        <label class="cf-field"><span>What you need</span>
-          <select name="service">
-            <option value="">Not sure yet</option>
-            <option value="Web platform">Website or web platform</option>
-            <option value="Mobile and PWA">Mobile app or PWA</option>
-            <option value="Automation and AI">Automation and AI workflows</option>
-            <option value="E-commerce and ERP">E-commerce, CRM or ERP</option>
-            <option value="Audit and consulting">Audit and consulting</option>
-          </select></label>
-        <label class="cf-field"><span>Budget in mind</span>
-          <select name="budget">
-            <option value="">Tell us later</option>
-            <option value="under $1,200">under $1,200</option>
-            <option value="$1,200–3,000">$1,200–3,000</option>
-            <option value="$3,000–7,000">$3,000–7,000</option>
-            <option value="$7,000+">$7,000+</option>
-          </select></label>
-      </div>
-      <label class="cf-field cf-wide"><span>What are you solving?</span>
-        <textarea name="message" rows="4" maxlength="4000" required></textarea></label>
-
-      <div class="cf-trap" aria-hidden="true">
-        <label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-      </div>
-
-      <div class="cf-actions">
-        <button type="submit" class="cf-submit">Send the enquiry</button>
-        <p class="cf-note">We use what you write to answer you. Nothing else, nobody else.</p>
-      </div>
-      <p class="cf-status" id="contact-status" role="status" aria-live="polite"></p>
-    </form>
   </section>
 
   <footer class="foot">
@@ -357,10 +310,9 @@
   document.getElementById("y").textContent=new Date().getFullYear();
   var f=document.querySelector(".fab"),c=document.getElementById("contact");
   if(!f||!c)return;
-  function u(){var r=c.getBoundingClientRect();f.classList.toggle("is-hidden",r.top<innerHeight-40&&r.bottom>40)}
+  function u(){var r=c.getBoundingClientRect();f.classList.toggle("is-hidden",(r.top<innerHeight-40&&r.bottom>40)||innerHeight+scrollY>=document.documentElement.scrollHeight-120)}
   addEventListener("scroll",u,{passive:true});addEventListener("resize",u);u();
 })();
 </script>
-<script src="contact.js?v=3" defer></script>
 </body>
 </html>

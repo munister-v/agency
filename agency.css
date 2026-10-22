@@ -1,5 +1,5 @@
 /* Munister Agency wears the same design as munister.com.ua: a white sheet, a black
-   pill for the name, centred plain navigation, a serif lead with chips, rounded
+   pill for the name, a serif lead with chips, rounded
    tiles in four shades, one indigo. Tokens and geometry are taken from that
    site's theme.css; only what this single page uses is kept here. */
 :root{
@@ -9,7 +9,7 @@
   --r-xl:32px; --r-lg:26px; --r-md:18px;
   --font-head:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
   --font-sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
-  --measure:1480px; --bar:104px;
+  --measure:1480px; --bar:76px;
   color-scheme:light;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -25,18 +25,14 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400}
 .shell{max-width:var(--measure);margin-inline:auto;padding-inline:clamp(8px,1.2vw,16px)}
 .shell > *,.sec-head > *,.feat > *,.contact > *{min-width:0}
 
-/* header: black pill, plain centred links */
-.site-head{position:sticky;top:0;z-index:40;display:grid;justify-items:center;align-content:center;gap:2px;height:var(--bar);padding-block:12px 0;background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5)}
+/* header: the black pill alone */
+.site-head{position:sticky;top:0;z-index:40;display:flex;justify-content:center;align-items:center;height:var(--bar);background:rgba(255,255,255,.88);-webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5)}
 .wordmark{padding:9px 26px;border-radius:999px;background:var(--ink);color:#fff;font-weight:500;font-size:16px;letter-spacing:.2em;text-transform:uppercase}
-.site-head nav{display:flex;align-items:center;gap:2px}
-.site-head nav a{white-space:nowrap;min-height:36px;display:inline-flex;align-items:center;padding-inline:14px;border-radius:999px;color:#000;font-size:17px;transition:background .2s,color .2s}
-.site-head nav a:hover{background:rgba(15,17,23,.06)}
 
 /* opening: a serif lead */
 .opening{padding:clamp(24px,4vw,56px) 0 0}
 .opening-grid,.opening-bottom{max-width:860px;margin-inline:auto;padding-inline:15px;text-align:center}
-.name{font-size:clamp(40px,6.4vw,76px);letter-spacing:-.025em;line-height:1.1}
-.claim{text-wrap:balance;max-width:none;margin:18px auto 0;font-family:var(--font-head);font-size:clamp(22px,2.7vw,30px);line-height:1.46;color:var(--muted)}
+.claim{max-width:16em;margin:0 auto;text-wrap:balance;font-size:clamp(36px,5.6vw,68px);letter-spacing:-.02em;line-height:1.12}
 .intro{margin-top:22px;font-family:var(--font-head);font-size:clamp(24px,3vw,30px);line-height:1.9}
 .tag{display:inline-block;padding:3px 13px;border-radius:999px;background:var(--chip);color:var(--chip-ink);font-family:var(--font-sans);font-size:.8em;font-weight:400;line-height:1.2;margin-inline:1px;transition:background .2s,color .2s}
 .tag:hover{background:var(--chip-ink);color:#fff}
@@ -105,31 +101,16 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400}
 .people .chips li{padding:3px 12px;font-size:14px}
 .people > li > ul{margin-top:auto;padding-top:20px}
 
-/* contact: the indigo panel, with the form on it */
-.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,5vw,80px);align-items:start;margin-top:clamp(64px,9vw,120px);padding:clamp(28px,4.6vw,60px);border-radius:var(--r-xl);background:var(--blue);color:#fff}
+/* contact: the indigo panel with the address */
+.contact{margin-top:clamp(64px,9vw,120px);padding:clamp(36px,6vw,84px) clamp(22px,4vw,60px);border-radius:var(--r-xl);background:var(--blue);color:#fff;text-align:center}
+.contact-side{max-width:720px;margin-inline:auto}
 .contact .mono{display:inline-block;padding:3px 13px;border-radius:999px;background:rgba(255,255,255,.16);font-size:14px}
-.contact h2{margin-top:16px;font-size:clamp(30px,4vw,52px);letter-spacing:-.02em;line-height:1.1}
-.contact-side p{max-width:46ch;margin-top:16px;color:#fff;opacity:.92}
-.contact .mail{display:inline-block;margin-top:22px;font-family:var(--font-head);font-size:clamp(26px,3.2vw,42px);line-height:1.1;letter-spacing:-.02em}
-.contact .mail:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
-
-.contact-form{display:grid;gap:14px}
-.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.cf-field{display:grid;gap:6px}
-.cf-field > span{font-size:14px;opacity:.92}
-.cf-field input,.cf-field select,.cf-field textarea{width:100%;padding:13px 16px;border:0;border-radius:14px;background:#fff;color:var(--ink);font:inherit;font-size:16px;line-height:1.4}
-.cf-field textarea{min-height:120px;resize:vertical}
-.cf-field select{appearance:none;-webkit-appearance:none;padding-right:40px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%230f1117' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 16px center}
-.cf-field input:focus-visible,.cf-field select:focus-visible,.cf-field textarea:focus-visible{outline:3px solid #fff;outline-offset:2px}
-.cf-trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-.cf-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
-.cf-submit{min-height:48px;padding-inline:28px;border:0;border-radius:999px;background:var(--ink);color:#fff;font:inherit;font-size:17px;cursor:pointer;transition:background .2s,color .2s}
-.cf-submit:hover{background:#fff;color:var(--blue)}
-.cf-submit:disabled{opacity:.55;cursor:progress}
-.cf-note{flex:1 1 220px;font-size:14px;opacity:.85}
-.cf-status{min-height:1.4em;font-size:15px}
-.cf-status.is-error{color:#ffd9d2}
-.cf-status a{text-decoration:underline;text-underline-offset:3px}
+.contact h2{margin-top:18px;font-size:clamp(32px,4.6vw,60px);letter-spacing:-.02em;line-height:1.1}
+.contact-side p{max-width:46ch;margin:18px auto 0;color:#fff;opacity:.92}
+.contact .mail{display:inline-block;margin-top:28px;font-family:var(--font-head);font-size:clamp(26px,5.4vw,56px);line-height:1.1;letter-spacing:-.02em;overflow-wrap:anywhere}
+.contact .mail:hover{text-decoration:underline;text-underline-offset:8px;text-decoration-thickness:1px}
+.contact .btn--light{display:flex;width:max-content;margin:26px auto 0;background:#fff;color:var(--blue)}
+.contact .btn--light:hover{background:var(--ink);color:#fff}
 
 /* footer: a hairline, plain sans, quiet */
 .foot{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px 28px;margin-top:clamp(40px,6vw,72px);padding:26px 12px 44px;border-top:1px solid var(--rule);font-size:14px;line-height:1.7;color:var(--faint)}
@@ -154,26 +135,19 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400}
   .lang-groups,.people{grid-template-columns:1fr}
   .people > li{padding:28px 20px 26px}
   .people img{width:112px;height:112px}
-  .contact{grid-template-columns:1fr}
   .steps li{grid-template-columns:44px minmax(0,1fr)}
   .steps p{grid-column:2}
 }
 @media (max-width:760px){
-  :root{--bar:96px;--r-xl:26px;--r-lg:22px;--r-md:15px}
+  :root{--bar:68px;--r-xl:26px;--r-lg:22px;--r-md:15px}
   .wordmark{padding:7px 18px;letter-spacing:.16em;font-size:15px}
-  .site-head nav{max-width:100%}
-  .site-head nav a{font-size:15px;padding-inline:8px}
   .opening{padding-top:20px}
-  .name{font-size:clamp(38px,11.5vw,52px)}
-  .support{font-size:17px}
+    .support{font-size:17px}
   .intro{line-height:2.1}
   .tag{line-height:1.15}
   .opening-bottom .actions{flex-direction:column;align-items:stretch;margin-top:26px}
   .featured{grid-template-columns:1fr}
   .feat{min-height:0;padding:18px 18px 14px}
-  .contact{padding:26px 22px}
-  .cf-row{grid-template-columns:1fr}
-  .cf-submit{width:100%}
   .foot{flex-direction:column;align-items:flex-start;gap:6px;padding:22px 14px 36px}
   .fab{display:none}
 }
