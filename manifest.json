@@ -4,8 +4,8 @@
   "description": "Independent hybrid agency for U.S. and European teams: digital products, operational systems, AI workflows, CRM and ERP, technical audits.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f1e8dd",
-  "theme_color": "#1228b0",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "orientation": "portrait-primary",
   "icons": [
     {
