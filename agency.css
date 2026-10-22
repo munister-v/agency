@@ -95,11 +95,11 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400}
 
 /* people: an avatar, the direction they answer for, a short bio */
 .people{display:grid;gap:clamp(10px,1.1vw,16px);max-width:760px;margin-inline:auto}
-.people li{display:grid;grid-template-columns:132px minmax(0,1fr);column-gap:28px;align-items:start;padding:28px;border-radius:var(--r-lg);background:var(--card)}
-.people img{grid-row:1 / span 3;width:132px;height:132px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px rgba(15,17,23,.14)}
-.people .dir{display:inline-block;justify-self:start;padding:3px 13px;border-radius:999px;background:var(--chip);color:var(--chip-ink);font-size:14px;line-height:1.3}
+.people li{display:flex;flex-direction:column;align-items:center;text-align:center;padding:36px 28px 32px;border-radius:var(--r-lg);background:var(--card)}
+.people img{width:132px;height:132px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px rgba(15,17,23,.14)}
+.people .dir{display:inline-block;margin-top:20px;padding:3px 13px;border-radius:999px;background:var(--chip);color:var(--chip-ink);font-size:14px;line-height:1.3}
 .people h3{margin-top:12px;font-size:clamp(22px,2.2vw,28px);line-height:1.2}
-.people p{margin-top:10px;font-size:16px;color:var(--muted)}
+.people p{max-width:52ch;margin-top:10px;font-size:16px;color:var(--muted)}
 
 /* contact: the indigo panel, with the form on it */
 .contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,5vw,80px);align-items:start;margin-top:clamp(64px,9vw,120px);padding:clamp(28px,4.6vw,60px);border-radius:var(--r-xl);background:var(--blue);color:#fff}
@@ -148,8 +148,8 @@ h1,h2,h3{font-family:var(--font-head);font-weight:400}
 @media (max-width:900px){
   .layers li{grid-template-columns:1fr}
   .lang-groups{grid-template-columns:1fr}
-  .people li{grid-template-columns:96px minmax(0,1fr);column-gap:18px;padding:22px}
-  .people img{width:96px;height:96px}
+  .people li{padding:28px 20px 26px}
+  .people img{width:112px;height:112px}
   .contact{grid-template-columns:1fr}
   .steps li{grid-template-columns:44px minmax(0,1fr)}
   .steps p{grid-column:2}
