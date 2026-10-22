@@ -48,7 +48,7 @@
 }
 </script>
 
-<link rel="stylesheet" href="agency.css?v=7">
+<link rel="stylesheet" href="agency.css?v=10">
 </head>
 <body class="th">
 
@@ -71,8 +71,7 @@
     <div class="opening-bottom">
       <p class="support">One senior team designs, builds, launches and supports the product, with no subcontractors and no lost context between stages. We pick the lightest stack that fits the task and ship to your own domain.</p>
       <div class="actions">
-        <a class="btn btn--solid btn--lg" href="#contact">Start a conversation</a>
-        <a class="btn btn--soft btn--lg" href="#services">See services</a>
+        <a class="btn btn--solid btn--lg" href="#services">See services</a>
       </div>
     </div>
   </section>
@@ -80,6 +79,7 @@
   <section class="sec" id="services">
     <div class="sec-head">
       <div>
+        <span class="eyebrow">Services</span>
         <h2>What we do</h2>
       </div>
       <p class="sec-note">Structure, design, code, content, integrations and support in one clear delivery line.</p>
@@ -127,6 +127,7 @@
   <section class="sec" id="stack">
     <div class="sec-head">
       <div>
+        <span class="eyebrow">Stack</span>
         <h2>What works with what</h2>
       </div>
       <p class="sec-note">One stack is not a strategy. We choose the lightest architecture that carries the product safely: a campaign site should not inherit SaaS complexity, and an ERP should not be built like a landing page.</p>
@@ -134,27 +135,27 @@
     <ol class="layers">
       <li>
         <h3>Interface</h3>
-        <p class="tools">HTML · CSS · TypeScript · React · Next.js · Swift and SwiftUI</p>
+        <ul class="chips"><li>HTML</li><li>CSS</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Swift and SwiftUI</li></ul>
         <p>Plain HTML and CSS for sites, React or Next.js where component state or server rendering earns its place, native Swift for iPhone and iPad. Talks to the application layer over REST.</p>
       </li>
       <li>
         <h3>Application</h3>
-        <p class="tools">Node.js · Python · Flask · REST APIs · Telegram bots</p>
+        <ul class="chips"><li>Node.js</li><li>Python</li><li>Flask</li><li>REST APIs</li><li>Telegram bots</li></ul>
         <p>Services, background jobs and admin tools built around the operational workflow. Reads and writes the data layer, calls external APIs and runs the automation.</p>
       </li>
       <li>
         <h3>Data</h3>
-        <p class="tools">PostgreSQL · SQLite · Oracle · SQL · Cloudflare D1 and R2</p>
+        <ul class="chips"><li>PostgreSQL</li><li>SQLite</li><li>Oracle</li><li>SQL</li><li>Cloudflare D1 and R2</li></ul>
         <p>Entities, relationships and business rules modelled first: safe imports, schema matching, record linkage, roles, search and reports, and stock integrity under concurrent updates.</p>
       </li>
       <li>
         <h3>Infrastructure</h3>
-        <p class="tools">Linux · nginx · TLS · systemd · Docker · Cloudflare · GitHub Actions</p>
+        <ul class="chips"><li>Linux</li><li>nginx</li><li>TLS</li><li>systemd</li><li>Docker</li><li>Cloudflare</li><li>GitHub Actions</li></ul>
         <p>Git-based releases to your own domain, backups, monitoring and written ownership, so the product can be updated and supported after launch.</p>
       </li>
       <li>
         <h3>Integrations</h3>
-        <p class="tools">LLM APIs · webhooks · OAuth · payments · CRM · IIIF · geodata</p>
+        <ul class="chips"><li>LLM APIs</li><li>webhooks</li><li>OAuth</li><li>payments</li><li>CRM</li><li>IIIF</li><li>geodata</li></ul>
         <p>External content, payment providers, CRM and AI services connected through documented interfaces, with attention to formats, time zones and authentication.</p>
       </li>
     </ol>
@@ -164,6 +165,7 @@
   <section class="sec" id="ml">
     <div class="sec-head">
       <div>
+        <span class="eyebrow">ML and AI</span>
         <h2>Managing ML and AI work</h2>
       </div>
       <p class="sec-note">A model is a component with an owner, a budget and a way to be switched off. We run AI and machine-learning work as a controlled lifecycle, not a demo.</p>
@@ -180,6 +182,7 @@
   <section class="sec" id="standards">
     <div class="sec-head">
       <div>
+        <span class="eyebrow">Standards</span>
         <h2>Standards</h2>
       </div>
       <p class="sec-note">Design quality and engineering quality are the same job. The stack changes; the production discipline does not.</p>
@@ -215,6 +218,7 @@
   <section class="sec" id="languages">
     <div class="sec-head">
       <div>
+        <span class="eyebrow">Languages</span>
         <h2>Languages</h2>
       </div>
       <p class="sec-note">We work with you in your language and build in the languages the product is made of.</p>
@@ -242,6 +246,7 @@
   <section class="sec" id="team">
     <div class="sec-head">
       <div>
+        <span class="eyebrow">Team</span>
         <h2>Who leads what</h2>
       </div>
       <p class="sec-note">Each direction has one named owner.</p>
@@ -273,6 +278,7 @@
   <section class="sec" id="process">
     <div class="sec-head">
       <div>
+        <span class="eyebrow">Process</span>
         <h2>From brief to launch</h2>
       </div>
       <p class="sec-note">You do not need a perfect brief. A paragraph about the problem is enough to start.</p>
@@ -303,15 +309,15 @@
 </div>
 </main>
 
-<a class="fab" href="#contact">Start a conversation…</a>
-
 <script>
 (function(){
   document.getElementById("y").textContent=new Date().getFullYear();
-  var f=document.querySelector(".fab"),c=document.getElementById("contact");
-  if(!f||!c)return;
-  function u(){var r=c.getBoundingClientRect();f.classList.toggle("is-hidden",(r.top<innerHeight-40&&r.bottom>40)||innerHeight+scrollY>=document.documentElement.scrollHeight-120)}
-  addEventListener("scroll",u,{passive:true});addEventListener("resize",u);u();
+  /* sections ease in as they reach the screen; without JS or with reduced motion nothing is hidden */
+  if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  var els=document.querySelectorAll(".sec-head,.featured .feat,.layers > li,.steps > li,.lang-groups > div,.people > li,.contact");
+  document.documentElement.classList.add("js-reveal");
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px 0px -8% 0px"});
+  els.forEach(function(el){io.observe(el)});
 })();
 </script>
 </body>
